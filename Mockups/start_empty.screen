@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore" theme="sketch">
+  <widgets xsi:type="model:WidgetGroup" id="114" x="30" y="14" measuredWidth="324" measuredHeight="484">
+    <widgets xsi:type="model:Panel" id="2" width="324" height="484" measuredWidth="324" measuredHeight="484" background="#666666" verticalScrollbar="true" foreground="#666666" border="none"/>
+    <widgets xsi:type="model:WidgetGroup" id="113" x="2" y="2" measuredWidth="320" measuredHeight="480">
+      <widgets xsi:type="model:WidgetGroup" id="3" measuredWidth="320" measuredHeight="25">
+        <widgets xsi:type="model:Panel" id="4" width="320" height="25" measuredWidth="320" measuredHeight="25" border="none"/>
+        <widgets xsi:type="model:Label" id="5" x="245" width="75" text="8:30 PM" measuredWidth="75" measuredHeight="23" textAlignment="Right">
+          <font bold="true"/>
+        </widgets>
+        <widgets xsi:type="model:Icon" id="6" x="229" y="4" measuredWidth="16" measuredHeight="16" icon="battery (small)"/>
+        <widgets xsi:type="model:Icon" id="7" x="206" y="4" measuredWidth="16" measuredHeight="16" icon="signal (small)"/>
+      </widgets>
+      <widgets xsi:type="model:WidgetGroup" id="112" y="24" measuredWidth="320" measuredHeight="456">
+        <widgets xsi:type="model:Panel" id="8" width="320" height="456" measuredWidth="320" measuredHeight="456" background="#313431" border="none"/>
+        <widgets xsi:type="model:WidgetGroup" id="111" measuredWidth="320" measuredHeight="25">
+          <widgets xsi:type="model:WidgetGroup" id="119" measuredWidth="320" measuredHeight="25">
+            <widgets xsi:type="model:Panel" id="19" width="319" height="25" measuredWidth="319" measuredHeight="25" background="#7d7f7d" border="none"/>
+            <widgets xsi:type="model:Label" id="20" x="7" width="313" text="Meine Einkaufslisten" measuredWidth="313" measuredHeight="23" foreground="#ffffff">
+              <font bold="true"/>
+            </widgets>
+            <widgets xsi:type="model:WidgetGroup" id="115" x="288" measuredWidth="25" measuredHeight="25">
+              <widgets xsi:type="model:WidgetGroup" id="118" measuredWidth="25" measuredHeight="25">
+                <widgets xsi:type="model:Circle" id="116" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+                  <font/>
+                </widgets>
+                <widgets xsi:type="model:Icon" id="117" x="4" y="5" measuredWidth="16" measuredHeight="16" foreground="#05a700" icon="add (small)"/>
+              </widgets>
+            </widgets>
+          </widgets>
+        </widgets>
+        <widgets xsi:type="model:WidgetGroup" id="109" y="369" measuredWidth="319" measuredHeight="87">
+          <widgets xsi:type="model:Button" id="103" width="160" height="44" text="Artikel verwalten" measuredWidth="160" measuredHeight="44" background="#cacaca">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:Button" id="104" y="43" width="319" height="44" text="Beenden" measuredWidth="319" measuredHeight="44" background="#cacaca">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:Button" id="105" x="159" width="160" height="44" text="Artikel verwalten" measuredWidth="160" measuredHeight="44" background="#cacaca">
+            <font/>
+          </widgets>
+        </widgets>
+        <widgets xsi:type="model:WidgetGroup" id="110" y="26" measuredWidth="320" measuredHeight="344">
+          <widgets xsi:type="model:Panel" id="22" width="320" height="344" measuredWidth="320" measuredHeight="344" foreground="#ffffff"/>
+          <widgets xsi:type="model:WidgetGroup" id="108" x="32" y="111" measuredWidth="257" measuredHeight="100">
+            <widgets xsi:type="model:Rectangle" id="107" width="257" measuredWidth="257" measuredHeight="100" border="solid-rounded">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Text" id="106" x="24" y="15" width="209" height="69" text="Es sind keine Einkaufslisten&#xD;&#xA;vorhanden. Klicken Sie + um&#xD;&#xA;neue Listen hinzuzufügen" measuredWidth="209" measuredHeight="69" dummyText="true">
+              <font size="11" bold="true" italic="true"/>
+            </widgets>
+          </widgets>
+        </widgets>
+      </widgets>
+    </widgets>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font/>
+</model:Screen>
