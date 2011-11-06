@@ -42,7 +42,7 @@
                   <widgets xsi:type="model:Label" id="39" y="4" width="252" text="Lebensmittel" measuredWidth="252" measuredHeight="28">
                     <font size="11" bold="true"/>
                   </widgets>
-                  <widgets xsi:type="model:HLine" id="40" x="18" y="42" width="262" measuredWidth="262" measuredHeight="6" foreground="#adaaad"/>
+                  <widgets xsi:type="model:HLine" id="40" y="42" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
                   <widgets xsi:type="model:WidgetGroup" id="56" x="262" y="3" measuredWidth="25" measuredHeight="25">
                     <widgets xsi:type="model:Circle" id="57" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
                       <font/>
@@ -66,7 +66,7 @@
                   <widgets xsi:type="model:Label" id="68" y="4" width="252" text="Bäcker" measuredWidth="252" measuredHeight="28">
                     <font size="11" bold="true"/>
                   </widgets>
-                  <widgets xsi:type="model:HLine" id="69" x="18" y="42" width="262" measuredWidth="262" measuredHeight="6" foreground="#adaaad"/>
+                  <widgets xsi:type="model:HLine" id="69" y="42" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
                   <widgets xsi:type="model:WidgetGroup" id="70" x="262" y="3" measuredWidth="25" measuredHeight="25">
                     <widgets xsi:type="model:Circle" id="71" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
                       <font/>
@@ -90,7 +90,7 @@
                   <widgets xsi:type="model:Label" id="81" y="4" width="252" text="Vorlage_Aldi" measuredWidth="252" measuredHeight="28">
                     <font size="11" bold="true"/>
                   </widgets>
-                  <widgets xsi:type="model:HLine" id="82" x="18" y="42" width="262" measuredWidth="262" measuredHeight="6" foreground="#adaaad"/>
+                  <widgets xsi:type="model:HLine" id="82" y="42" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
                   <widgets xsi:type="model:WidgetGroup" id="83" x="262" y="3" measuredWidth="25" measuredHeight="25">
                     <widgets xsi:type="model:Circle" id="84" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
                       <font/>
@@ -114,7 +114,7 @@
                   <widgets xsi:type="model:Label" id="94" y="4" width="252" text="Kleidung" measuredWidth="252" measuredHeight="28">
                     <font size="11" bold="true"/>
                   </widgets>
-                  <widgets xsi:type="model:HLine" id="95" x="18" y="42" width="262" measuredWidth="262" measuredHeight="6" foreground="#adaaad"/>
+                  <widgets xsi:type="model:HLine" id="95" y="42" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
                   <widgets xsi:type="model:WidgetGroup" id="96" x="262" y="3" measuredWidth="25" measuredHeight="25">
                     <widgets xsi:type="model:Circle" id="97" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
                       <font/>
@@ -133,7 +133,7 @@
               </widgets>
             </widgets>
             <widgets xsi:type="model:WidgetGroup" id="106" y="343" measuredWidth="319" measuredHeight="87">
-              <widgets xsi:type="model:Button" id="103" width="160" height="44" text="Artikel verwalten" measuredWidth="160" measuredHeight="44" background="#cacaca">
+              <widgets xsi:type="model:Button" id="103" width="160" height="44" text="Neue Einkaufsliste" measuredWidth="160" measuredHeight="44" background="#cacaca">
                 <font/>
               </widgets>
               <widgets xsi:type="model:Button" id="104" y="43" width="319" height="44" text="Beenden" measuredWidth="319" measuredHeight="44" background="#cacaca">
@@ -147,6 +147,39 @@
         </widgets>
       </widgets>
     </widgets>
+  </widgets>
+  <widgets xsi:type="model:Arrow" id="154" x="288" y="56" width="161" height="46" measuredWidth="161" measuredHeight="46" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:WidgetGroup" id="168" x="448" y="72" measuredWidth="298" measuredHeight="184">
+    <widgets xsi:type="model:WidgetGroup" id="169" measuredWidth="298" measuredHeight="184">
+      <widgets xsi:type="model:Panel" id="170" width="298" height="184" measuredWidth="298" measuredHeight="184" background="#424542" foreground="#ffffff" border="solid-rounded"/>
+      <widgets xsi:type="model:HLine" id="171" x="36" y="59" width="233" measuredWidth="233" measuredHeight="6" foreground="#ffffff"/>
+      <widgets xsi:type="model:WidgetGroup" id="172" y="127" measuredWidth="298" measuredHeight="56">
+        <widgets xsi:type="model:Panel" id="173" width="298" height="56" measuredWidth="298" measuredHeight="56" background="#bdbebd" foreground="#ffffff" border="solid-rounded"/>
+        <widgets xsi:type="model:Panel" id="174" x="2" width="293" height="40" measuredWidth="293" measuredHeight="40" background="#bdbebd" border="none"/>
+      </widgets>
+    </widgets>
+    <widgets xsi:type="model:Label" id="175" x="14" y="19" width="274" text="Einkaufsliste löschen" measuredWidth="274" measuredHeight="32" foreground="#ffffff" icon="error (large)">
+      <font size="11" bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Text" id="176" x="20" y="74" width="257" height="60" text="Wollen Sie die Einkaufsliste &quot;Bäcker&quot; wirklich löschen?" measuredWidth="257" measuredHeight="60" foreground="#ffffff">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="177" x="6" y="135" width="140" height="39" text="Ja" measuredWidth="140" measuredHeight="39">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="178" x="152" y="135" width="140" height="39" text="Nein" measuredWidth="140" measuredHeight="39">
+      <font/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:Arrow" id="179" x="328" y="168" width="121" height="33" measuredWidth="121" measuredHeight="33" annotation="true" left="false" right="true"/>
+  <widgets xsi:type="model:Label" id="184" x="448" y="40" text="Es öffnet sich ein neuer Screen" measuredWidth="237" measuredHeight="29">
+    <font size="12" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="185" x="144" y="260" measuredWidth="602" measuredHeight="229">
+    <screen xsi:type="model:Screen" href="dialogs_startscreen.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:Note" id="186" x="30" y="512" width="385" height="233" text="Symbol + / &quot;Neue Einkausfliste&quot;:&#xD;&#xA;Öffnet den Dialog um eine neue Einkaufsliste zu erstellen&#xD;&#xA;&#xD;&#xA;Symbol &quot;Stift&quot;:&#xD;&#xA;Öffnet eine Einkaufsliste im Bearbeitenmodus&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Zeigt einen Nachfragedialog an und löscht ggf. die Liste&#xD;&#xA;&#xD;&#xA;&quot;Artikel verwalten&quot;:&#xD;&#xA;Öffnet die Artikeldatenbank&#xD;&#xA;&#xD;&#xA;&quot;Beenden&quot;:&#xD;&#xA;Beendet die Applikation&#xD;&#xA;" measuredWidth="385" measuredHeight="233" annotation="true" textAlignment="Left">
+    <font/>
   </widgets>
   <hRuler/>
   <vRuler/>

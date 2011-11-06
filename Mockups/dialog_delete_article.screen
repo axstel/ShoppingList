@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:WidgetGroup" id="1" x="16" y="16" measuredWidth="298" measuredHeight="184">
+    <widgets xsi:type="model:WidgetGroup" id="2" measuredWidth="298" measuredHeight="184">
+      <widgets xsi:type="model:Panel" id="3" width="298" height="184" measuredWidth="298" measuredHeight="184" background="#424542" foreground="#ffffff" border="solid-rounded"/>
+      <widgets xsi:type="model:HLine" id="4" x="36" y="59" width="233" measuredWidth="233" measuredHeight="6" foreground="#ffffff"/>
+      <widgets xsi:type="model:WidgetGroup" id="5" y="127" measuredWidth="298" measuredHeight="56">
+        <widgets xsi:type="model:Panel" id="6" width="298" height="56" measuredWidth="298" measuredHeight="56" background="#bdbebd" foreground="#ffffff" border="solid-rounded"/>
+        <widgets xsi:type="model:Panel" id="7" x="2" width="293" height="40" measuredWidth="293" measuredHeight="40" background="#bdbebd" border="none"/>
+      </widgets>
+    </widgets>
+    <widgets xsi:type="model:Label" id="8" x="14" y="19" width="274" text="Artikel löschen" measuredWidth="274" measuredHeight="32" foreground="#ffffff" icon="error (large)">
+      <font size="11" bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Text" id="9" x="20" y="74" width="257" height="60" text="Wollen Sie den Artikel &quot;Joghurt&quot;wirklich löschen?" measuredWidth="257" measuredHeight="60" foreground="#ffffff">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="10" x="6" y="135" width="140" height="39" text="Ja" measuredWidth="140" measuredHeight="39">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="11" x="152" y="135" width="140" height="39" text="Nein" measuredWidth="140" measuredHeight="39">
+      <font/>
+    </widgets>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font/>
+</model:Screen>

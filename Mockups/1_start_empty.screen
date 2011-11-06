@@ -30,7 +30,7 @@
           </widgets>
         </widgets>
         <widgets xsi:type="model:WidgetGroup" id="109" y="369" measuredWidth="319" measuredHeight="87">
-          <widgets xsi:type="model:Button" id="103" width="160" height="44" text="Artikel verwalten" measuredWidth="160" measuredHeight="44" background="#cacaca">
+          <widgets xsi:type="model:Button" id="103" width="160" height="44" text="Neue Einkaufsliste" measuredWidth="160" measuredHeight="44" background="#cacaca">
             <font/>
           </widgets>
           <widgets xsi:type="model:Button" id="104" y="43" width="319" height="44" text="Beenden" measuredWidth="319" measuredHeight="44" background="#cacaca">
@@ -53,6 +53,12 @@
         </widgets>
       </widgets>
     </widgets>
+  </widgets>
+  <widgets xsi:type="model:Master" id="120" x="144" y="260" measuredWidth="602" measuredHeight="229">
+    <screen xsi:type="model:Screen" href="dialogs_startscreen.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:Note" id="121" x="30" y="512" width="385" height="137" text="Symbol + / &quot;Neue Einkausfliste&quot;:&#xD;&#xA;Öffnet den Dialog um eine neue Einkaufsliste zu erstellen&#xD;&#xA;&#xD;&#xA;&quot;Artikel verwalten&quot;:&#xD;&#xA;Öffnet die Artikeldatenbank&#xD;&#xA;&#xD;&#xA;&quot;Beenden&quot;:&#xD;&#xA;Beendet die Applikation&#xD;&#xA;" measuredWidth="385" measuredHeight="137" annotation="true" textAlignment="Left">
+    <font/>
   </widgets>
   <hRuler/>
   <vRuler/>

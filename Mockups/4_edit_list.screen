@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore" theme="sketch">
+  <widgets xsi:type="model:WidgetGroup" id="2" x="30" y="14" measuredWidth="324" measuredHeight="484">
+    <widgets xsi:type="model:Panel" id="3" width="324" height="484" measuredWidth="324" measuredHeight="484" background="#666666" verticalScrollbar="true" foreground="#666666" border="none"/>
+    <widgets xsi:type="model:WidgetGroup" id="4" x="2" y="2" measuredWidth="320" measuredHeight="480">
+      <widgets xsi:type="model:WidgetGroup" id="5" measuredWidth="320" measuredHeight="25">
+        <widgets xsi:type="model:Panel" id="6" width="320" height="25" measuredWidth="320" measuredHeight="25" border="none"/>
+        <widgets xsi:type="model:Label" id="7" x="245" width="75" text="8:30 PM" measuredWidth="75" measuredHeight="23" textAlignment="Right">
+          <font bold="true"/>
+        </widgets>
+        <widgets xsi:type="model:Icon" id="8" x="229" y="4" measuredWidth="16" measuredHeight="16" icon="battery (small)"/>
+        <widgets xsi:type="model:Icon" id="9" x="206" y="4" measuredWidth="16" measuredHeight="16" icon="signal (small)"/>
+      </widgets>
+      <widgets xsi:type="model:WidgetGroup" id="10" y="24" measuredWidth="320" measuredHeight="456">
+        <widgets xsi:type="model:Panel" id="11" width="320" height="456" measuredWidth="320" measuredHeight="456" background="#313431" border="none"/>
+        <widgets xsi:type="model:WidgetGroup" id="12" measuredWidth="320" measuredHeight="25">
+          <widgets xsi:type="model:WidgetGroup" id="13" measuredWidth="320" measuredHeight="25">
+            <widgets xsi:type="model:Panel" id="14" width="319" height="25" measuredWidth="319" measuredHeight="25" background="#7d7f7d" border="none"/>
+            <widgets xsi:type="model:Label" id="15" x="7" width="313" text="Lebenmittel bearbeiten" measuredWidth="313" measuredHeight="23" foreground="#ffffff">
+              <font bold="true"/>
+            </widgets>
+            <widgets xsi:type="model:WidgetGroup" id="16" x="288" measuredWidth="25" measuredHeight="25">
+              <widgets xsi:type="model:WidgetGroup" id="17" measuredWidth="25" measuredHeight="25">
+                <widgets xsi:type="model:Circle" id="18" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+                  <font/>
+                </widgets>
+                <widgets xsi:type="model:Icon" id="19" x="4" y="5" measuredWidth="16" measuredHeight="16" foreground="#05a700" icon="add (small)"/>
+              </widgets>
+            </widgets>
+          </widgets>
+        </widgets>
+        <widgets xsi:type="model:WidgetGroup" id="24" y="369" measuredWidth="319" measuredHeight="87">
+          <widgets xsi:type="model:Button" id="25" width="160" height="44" text="Neuer Artikel" measuredWidth="160" measuredHeight="44" background="#cacaca">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:Button" id="26" x="159" y="43" width="160" height="44" text="Zurück" measuredWidth="160" measuredHeight="44" background="#cacaca">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:Button" id="27" x="159" width="160" height="44" text="Liste leeren" measuredWidth="160" measuredHeight="44" background="#cacaca">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:Button" id="137" y="43" width="160" height="44" text="Name ändern" measuredWidth="160" measuredHeight="44" background="#cacaca">
+            <font/>
+          </widgets>
+        </widgets>
+        <widgets xsi:type="model:WidgetGroup" id="28" y="26" measuredWidth="320" measuredHeight="344">
+          <widgets xsi:type="model:Panel" id="29" width="320" height="344" measuredWidth="320" measuredHeight="344" foreground="#ffffff"/>
+        </widgets>
+        <widgets xsi:type="model:WidgetGroup" id="30" x="10" y="51" measuredWidth="287" measuredHeight="45">
+          <widgets xsi:type="model:WidgetGroup" id="31" x="8" y="5" width="34" measuredWidth="0" measuredHeight="0"/>
+          <widgets xsi:type="model:Label" id="32" y="1" width="237" text="Obst" measuredWidth="237" measuredHeight="28" icon="filled-arrow-right (small)">
+            <font size="11" bold="true"/>
+          </widgets>
+          <widgets xsi:type="model:HLine" id="33" y="39" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
+          <widgets xsi:type="model:WidgetGroup" id="34" x="262" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="35" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="36" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="delete (small)"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="198" x="236" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="199" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="200" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-down (small)"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="201" x="209" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="202" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="203" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-up (small)"/>
+          </widgets>
+        </widgets>
+        <widgets xsi:type="model:WidgetGroup" id="41" x="10" y="112" measuredWidth="287" measuredHeight="110">
+          <widgets xsi:type="model:WidgetGroup" id="42" x="8" y="5" width="34" measuredWidth="0" measuredHeight="0"/>
+          <widgets xsi:type="model:Label" id="43" y="1" width="237" text="Milchprodukte" measuredWidth="237" measuredHeight="28" icon="filled-arrow-down (small)">
+            <font size="11" bold="true"/>
+          </widgets>
+          <widgets xsi:type="model:HLine" id="44" y="104" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
+          <widgets xsi:type="model:WidgetGroup" id="45" x="262" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="46" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="47" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="delete (small)"/>
+          </widgets>
+          <widgets xsi:type="model:Label" id="52" x="22" y="32" width="215" text="Milch" measuredWidth="215" measuredHeight="28">
+            <font size="11" bold="true"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="53" x="262" y="31" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="54" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="55" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="delete (small)"/>
+          </widgets>
+          <widgets xsi:type="model:Label" id="60" x="22" y="64" width="215" text="Joghurt" measuredWidth="215" measuredHeight="28">
+            <font size="11" bold="true"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="61" x="262" y="63" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="62" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="63" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="delete (small)"/>
+          </widgets>
+          <widgets xsi:type="model:Label" id="133" x="166" y="34" text="Liter" measuredWidth="28" measuredHeight="23">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:TextField" id="134" x="110" y="34" width="52" text="1" measuredWidth="52" measuredHeight="23">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:Label" id="135" x="166" y="66" text="Becher" measuredWidth="41" measuredHeight="23">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:TextField" id="136" x="110" y="66" width="52" text="2" measuredWidth="52" measuredHeight="23">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="186" x="236" y="63" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="187" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="188" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-down (small)"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="189" x="209" y="63" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="190" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="191" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-up (small)"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="192" x="236" y="31" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="193" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="194" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-down (small)"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="195" x="209" y="31" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="196" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="197" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-up (small)"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="210" x="236" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="211" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="212" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-down (small)"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="213" x="209" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="214" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="215" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-up (small)"/>
+          </widgets>
+        </widgets>
+        <widgets xsi:type="model:WidgetGroup" id="68" x="10" y="232" measuredWidth="287" measuredHeight="45">
+          <widgets xsi:type="model:WidgetGroup" id="69" x="8" y="5" width="34" measuredWidth="0" measuredHeight="0"/>
+          <widgets xsi:type="model:Label" id="70" y="1" width="237" text="Getränke" measuredWidth="237" measuredHeight="28" icon="filled-arrow-right (small)">
+            <font size="11" bold="true"/>
+          </widgets>
+          <widgets xsi:type="model:HLine" id="71" y="39" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
+          <widgets xsi:type="model:WidgetGroup" id="72" x="262" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="73" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="74" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="delete (small)"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="204" x="236" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="205" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="206" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-down (small)"/>
+          </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="207" x="209" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:Circle" id="208" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+              <font/>
+            </widgets>
+            <widgets xsi:type="model:Icon" id="209" x="3" y="4" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="arrow-up (small)"/>
+          </widgets>
+        </widgets>
+      </widgets>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:Master" id="163" x="384" y="14" measuredWidth="298" measuredHeight="184">
+    <screen xsi:type="model:Screen" href="dialog_delete_category.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="164" x="688" y="14" measuredWidth="298" measuredHeight="184">
+    <screen xsi:type="model:Screen" href="dialog_delete_article.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:Arrow" id="165" x="328" y="112" width="57" height="177" measuredWidth="57" measuredHeight="177" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:Arrow" id="166" x="320" y="112" width="65" height="113" measuredWidth="65" measuredHeight="113" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:WidgetGroup" id="167" x="384" y="400" measuredWidth="298" measuredHeight="155">
+    <widgets xsi:type="model:WidgetGroup" id="168" height="155" measuredWidth="298" measuredHeight="155">
+      <widgets xsi:type="model:Panel" id="169" width="298" height="155" measuredWidth="298" measuredHeight="155" background="#424542" foreground="#ffffff" border="solid-rounded"/>
+      <widgets xsi:type="model:HLine" id="170" x="32" y="58" width="233" measuredWidth="233" measuredHeight="6" foreground="#ffffff"/>
+      <widgets xsi:type="model:WidgetGroup" id="171" y="106" height="47" measuredWidth="298" measuredHeight="47">
+        <widgets xsi:type="model:Panel" id="172" width="298" height="47" measuredWidth="298" measuredHeight="47" background="#bdbebd" foreground="#ffffff" border="solid-rounded"/>
+        <widgets xsi:type="model:Panel" id="173" x="2" width="293" height="33" measuredWidth="293" measuredHeight="33" background="#bdbebd" border="none"/>
+      </widgets>
+    </widgets>
+    <widgets xsi:type="model:Label" id="174" x="14" y="19" width="274" text="Name ändern" measuredWidth="274" measuredHeight="32" foreground="#ffffff" icon="edit (large)">
+      <font size="11" bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="175" x="7" y="108" width="140" height="39" text="OK" measuredWidth="140" measuredHeight="39">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="176" x="153" y="108" width="140" height="39" text="Abbrechen" measuredWidth="140" measuredHeight="39">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="177" x="14" y="72" text="Name:" measuredWidth="51" measuredHeight="28" foreground="#ffffff">
+      <font size="11" bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:TextField" id="178" x="88" y="74" width="200" text="Lebenmittel" measuredWidth="200" measuredHeight="28">
+      <font size="11" bold="true"/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:Arrow" id="179" x="176" y="416" width="209" height="65" measuredWidth="209" measuredHeight="65" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:Master" id="180" x="384" y="207" measuredWidth="298" measuredHeight="184">
+    <screen xsi:type="model:Screen" href="dialog_delete_category.screen#/"/>
+    <overrides>
+      <widgets ref="8" text="Einkaufsliste leeren"/>
+      <widgets ref="9" text="Wollen Sie alle Artikel von der Einkaufsliste entfernen?"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Arrow" id="181" x="312" y="288" width="73" height="129" measuredWidth="73" measuredHeight="129" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:Arrow" id="182" x="48" y="443" width="41" height="86" measuredWidth="41" measuredHeight="86" annotation="true" left="false" right="true"/>
+  <widgets xsi:type="model:Label" id="183" x="96" y="512" text="Es öffnet sich ein neuer Screen" measuredWidth="237" measuredHeight="29">
+    <font size="12" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Note" id="216" x="30" y="554" width="385" height="311" text="Symbol + / &quot;Neuer Artikel&quot;:&#xD;&#xA;Öffnet die Artikeldb in speziellem Modus&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Artikel oder Kategorie wird von der Liste entfernt&#xD;&#xA;&#xD;&#xA;Symbol &quot;Pfeil nach oben&quot;:&#xD;&#xA;Kategorie oder Artikel wird nach oben geschoben&#xD;&#xA;&#xD;&#xA;Symbol &quot;Pfeil nach unten&quot;:&#xD;&#xA;Kategorie oder Artikel wird nach unten geschoben&#xD;&#xA;&#xD;&#xA;&quot;Liste leeren&quot;:&#xD;&#xA;Alle Kategorien und Artikel werden von der Liste entfernt&#xD;&#xA;&#xD;&#xA;&quot;Zurück&quot;:&#xD;&#xA;Die App kehrt zum ausgehenden Screen zurück&#xD;&#xA;&#xD;&#xA;TODO:&#xD;&#xA;Die Sortierung nochmals überdenken" measuredWidth="385" measuredHeight="311" annotation="true" textAlignment="Left">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font/>
+</model:Screen>
