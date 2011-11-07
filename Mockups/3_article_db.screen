@@ -6,7 +6,7 @@
         <widgets xsi:type="model:Panel" id="2" width="324" height="484" measuredWidth="324" measuredHeight="484" background="#666666" verticalScrollbar="true" foreground="#666666" border="none"/>
         <widgets xsi:type="model:WidgetGroup" id="4" x="2" y="2" measuredWidth="320" measuredHeight="25">
           <widgets xsi:type="model:Panel" id="5" width="320" height="25" measuredWidth="320" measuredHeight="25" border="none"/>
-          <widgets xsi:type="model:Label" id="6" x="245" width="75" text="8:30 PM" measuredWidth="75" measuredHeight="23" textAlignment="Right">
+          <widgets xsi:type="model:Label" id="6" x="245" width="75" text="8:30 PM" measuredWidth="75" measuredHeight="21" textAlignment="Right">
             <font bold="true"/>
           </widgets>
           <widgets xsi:type="model:Icon" id="7" x="229" y="4" measuredWidth="16" measuredHeight="16" icon="battery (small)"/>
@@ -16,24 +16,8 @@
         <widgets xsi:type="model:WidgetGroup" id="11" x="2" y="26" measuredWidth="320" measuredHeight="25">
           <widgets xsi:type="model:WidgetGroup" id="12" measuredWidth="320" measuredHeight="25">
             <widgets xsi:type="model:Panel" id="13" width="319" height="25" measuredWidth="319" measuredHeight="25" background="#7d7f7d" border="none"/>
-            <widgets xsi:type="model:Label" id="14" x="7" width="313" text="Artikeldatenbank" measuredWidth="313" measuredHeight="23" foreground="#ffffff">
+            <widgets xsi:type="model:Label" id="14" x="7" width="313" text="Artikeldatenbank" measuredWidth="313" measuredHeight="21" foreground="#ffffff">
               <font bold="true"/>
-            </widgets>
-            <widgets xsi:type="model:WidgetGroup" id="15" x="288" measuredWidth="25" measuredHeight="25">
-              <widgets xsi:type="model:WidgetGroup" id="16" measuredWidth="25" measuredHeight="25">
-                <widgets xsi:type="model:Circle" id="17" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
-                  <font/>
-                </widgets>
-                <widgets xsi:type="model:Icon" id="18" x="4" y="5" measuredWidth="16" measuredHeight="16" foreground="#05a700" icon="add (small)"/>
-              </widgets>
-            </widgets>
-            <widgets xsi:type="model:WidgetGroup" id="28" x="256" measuredWidth="25" measuredHeight="25">
-              <widgets xsi:type="model:WidgetGroup" id="29" measuredWidth="25" measuredHeight="25">
-                <widgets xsi:type="model:Circle" id="30" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
-                  <font/>
-                </widgets>
-                <widgets xsi:type="model:Icon" id="31" x="4" y="5" measuredWidth="16" measuredHeight="16" foreground="#05a700" icon="add (small)"/>
-              </widgets>
             </widgets>
           </widgets>
         </widgets>
@@ -53,7 +37,7 @@
         </widgets>
         <widgets xsi:type="model:WidgetGroup" id="32" x="12" y="77" measuredWidth="287" measuredHeight="45">
           <widgets xsi:type="model:WidgetGroup" id="33" x="8" y="5" width="34" measuredWidth="0" measuredHeight="0"/>
-          <widgets xsi:type="model:Label" id="36" y="1" width="237" text="Obst" measuredWidth="237" measuredHeight="28" icon="filled-arrow-right (small)">
+          <widgets xsi:type="model:Label" id="36" y="1" width="237" text="Obst" measuredWidth="237" measuredHeight="26" icon="filled-arrow-right (small)">
             <font size="11" bold="true"/>
           </widgets>
           <widgets xsi:type="model:HLine" id="37" y="39" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
@@ -74,7 +58,7 @@
         </widgets>
         <widgets xsi:type="model:WidgetGroup" id="45" x="12" y="138" measuredWidth="287" measuredHeight="110">
           <widgets xsi:type="model:WidgetGroup" id="46" x="8" y="5" width="34" measuredWidth="0" measuredHeight="0"/>
-          <widgets xsi:type="model:Label" id="47" y="1" width="237" text="Milchprodukte" measuredWidth="237" measuredHeight="28" icon="filled-arrow-down (small)">
+          <widgets xsi:type="model:Label" id="47" y="1" width="237" text="Milchprodukte" measuredWidth="237" measuredHeight="26" icon="filled-arrow-down (small)">
             <font size="11" bold="true"/>
           </widgets>
           <widgets xsi:type="model:HLine" id="48" y="104" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
@@ -92,7 +76,7 @@
               <widgets xsi:type="model:Icon" id="55" x="4" y="3" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="edit (small)"/>
             </widgets>
           </widgets>
-          <widgets xsi:type="model:Label" id="56" x="22" y="32" width="215" text="Milch" measuredWidth="215" measuredHeight="28">
+          <widgets xsi:type="model:Label" id="56" x="22" y="32" width="215" text="Milch" measuredWidth="215" measuredHeight="26">
             <font size="11" bold="true"/>
           </widgets>
           <widgets xsi:type="model:WidgetGroup" id="57" x="262" y="31" measuredWidth="25" measuredHeight="25">
@@ -109,7 +93,7 @@
               <widgets xsi:type="model:Icon" id="63" x="4" y="3" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="edit (small)"/>
             </widgets>
           </widgets>
-          <widgets xsi:type="model:Label" id="64" x="22" y="64" width="215" text="Joghurt" measuredWidth="215" measuredHeight="28">
+          <widgets xsi:type="model:Label" id="64" x="22" y="64" width="215" text="Joghurt" measuredWidth="215" measuredHeight="26">
             <font size="11" bold="true"/>
           </widgets>
           <widgets xsi:type="model:WidgetGroup" id="65" x="262" y="63" measuredWidth="25" measuredHeight="25">
@@ -129,7 +113,7 @@
         </widgets>
         <widgets xsi:type="model:WidgetGroup" id="72" x="12" y="258" measuredWidth="287" measuredHeight="45">
           <widgets xsi:type="model:WidgetGroup" id="73" x="8" y="5" width="34" measuredWidth="0" measuredHeight="0"/>
-          <widgets xsi:type="model:Label" id="74" y="1" width="237" text="Getränke" measuredWidth="237" measuredHeight="28" icon="filled-arrow-right (small)">
+          <widgets xsi:type="model:Label" id="74" y="1" width="237" text="Getränke" measuredWidth="237" measuredHeight="26" icon="filled-arrow-right (small)">
             <font size="11" bold="true"/>
           </widgets>
           <widgets xsi:type="model:HLine" id="75" y="39" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
@@ -151,10 +135,10 @@
       </widgets>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:Master" id="169" x="285" y="22" measuredWidth="745" measuredHeight="492">
+  <widgets xsi:type="model:Master" id="169" x="285" y="22" measuredWidth="745" measuredHeight="551">
     <screen xsi:type="model:Screen" href="dialogs_articledb.screen#/"/>
   </widgets>
-  <widgets xsi:type="model:Note" id="170" x="30" y="512" width="385" height="329" text="Symbol + / &quot;Neuer Artikel&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neuen Artikel anzulegen. Der Artikel wird der im Moment ausgewählten Kategorie zugeordnet&#xD;&#xA;&#xD;&#xA;Symbol + / &quot;Neue Kategorie&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neue Kategorie anzulegen&#xD;&#xA;&#xD;&#xA;Symbol &quot;Stift&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um den Namen eines Artikels oder einer Kategorie zu ändern&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Zeigt einen Nachfragedialog an und löscht ggf. den Artikel bzw. die Kategorie sammt aller enthaltenen Artikel&#xD;&#xA;&#xD;&#xA;&quot;Zurück&quot;:&#xD;&#xA;Die App kehrt zum ausgehenden Screen zurück&#xD;&#xA;&#xD;&#xA;TODO:&#xD;&#xA;Zwei +-Symbole sind nicht akzeptabel, hier müssen wir uns noch was überlegen" measuredWidth="385" measuredHeight="329" annotation="true" textAlignment="Left">
+  <widgets xsi:type="model:Note" id="170" x="30" y="512" width="385" height="329" text="&quot;Neuer Artikel&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neuen Artikel anzulegen.&#xD;&#xA;Die Mengeneinheit und die Kategorie kann ausgewählt werden.&#xD;&#xA;Im Kategoriefeld wird die zuletzt aktivierte Kategorie, bevor man den Button gedrükct hat, vorausgewählt.&#xD;&#xA;&#xD;&#xA;&quot;Neue Kategorie&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neue Kategorie anzulegen&#xD;&#xA;&#xD;&#xA;Symbol &quot;Stift&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um den Namen eines Artikels oder einer Kategorie zu ändern&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Zeigt einen Nachfragedialog an und löscht ggf. den Artikel bzw. die Kategorie sammt aller enthaltenen Artikel&#xD;&#xA;&#xD;&#xA;&quot;Zurück&quot;:&#xD;&#xA;Die App kehrt zum ausgehenden Screen zurück&#xD;&#xA;&#xD;&#xA;TODO:&#xD;&#xA;Zwei +-Symbole sind nicht akzeptabel, hier müssen wir uns noch was überlegen" measuredWidth="385" measuredHeight="329" annotation="true" textAlignment="Left">
     <font/>
   </widgets>
   <hRuler/>

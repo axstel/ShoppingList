@@ -5,7 +5,7 @@
     <widgets xsi:type="model:WidgetGroup" id="113" x="2" y="2" measuredWidth="320" measuredHeight="480">
       <widgets xsi:type="model:WidgetGroup" id="3" measuredWidth="320" measuredHeight="25">
         <widgets xsi:type="model:Panel" id="4" width="320" height="25" measuredWidth="320" measuredHeight="25" border="none"/>
-        <widgets xsi:type="model:Label" id="5" x="245" width="75" text="8:30 PM" measuredWidth="75" measuredHeight="23" textAlignment="Right">
+        <widgets xsi:type="model:Label" id="5" x="245" width="75" text="8:30 PM" measuredWidth="75" measuredHeight="21" textAlignment="Right">
           <font bold="true"/>
         </widgets>
         <widgets xsi:type="model:Icon" id="6" x="229" y="4" measuredWidth="16" measuredHeight="16" icon="battery (small)"/>
@@ -16,16 +16,8 @@
         <widgets xsi:type="model:WidgetGroup" id="111" measuredWidth="320" measuredHeight="25">
           <widgets xsi:type="model:WidgetGroup" id="119" measuredWidth="320" measuredHeight="25">
             <widgets xsi:type="model:Panel" id="19" width="319" height="25" measuredWidth="319" measuredHeight="25" background="#7d7f7d" border="none"/>
-            <widgets xsi:type="model:Label" id="20" x="7" width="313" text="Meine Einkaufslisten" measuredWidth="313" measuredHeight="23" foreground="#ffffff">
+            <widgets xsi:type="model:Label" id="20" x="7" width="313" text="Meine Einkaufslisten" measuredWidth="313" measuredHeight="21" foreground="#ffffff">
               <font bold="true"/>
-            </widgets>
-            <widgets xsi:type="model:WidgetGroup" id="115" x="288" measuredWidth="25" measuredHeight="25">
-              <widgets xsi:type="model:WidgetGroup" id="118" measuredWidth="25" measuredHeight="25">
-                <widgets xsi:type="model:Circle" id="116" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
-                  <font/>
-                </widgets>
-                <widgets xsi:type="model:Icon" id="117" x="4" y="5" measuredWidth="16" measuredHeight="16" foreground="#05a700" icon="add (small)"/>
-              </widgets>
             </widgets>
           </widgets>
         </widgets>
@@ -54,10 +46,10 @@
       </widgets>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:Master" id="120" x="144" y="260" measuredWidth="602" measuredHeight="229">
+  <widgets xsi:type="model:Master" id="120" x="144" y="260" measuredWidth="602" measuredHeight="227">
     <screen xsi:type="model:Screen" href="dialogs_startscreen.screen#/"/>
   </widgets>
-  <widgets xsi:type="model:Note" id="121" x="30" y="512" width="385" height="137" text="Symbol + / &quot;Neue Einkausfliste&quot;:&#xD;&#xA;Öffnet den Dialog um eine neue Einkaufsliste zu erstellen&#xD;&#xA;&#xD;&#xA;&quot;Artikel verwalten&quot;:&#xD;&#xA;Öffnet die Artikeldatenbank&#xD;&#xA;&#xD;&#xA;&quot;Beenden&quot;:&#xD;&#xA;Beendet die Applikation&#xD;&#xA;" measuredWidth="385" measuredHeight="137" annotation="true" textAlignment="Left">
+  <widgets xsi:type="model:Note" id="121" x="30" y="512" width="385" height="137" text="&quot;Neue Einkausfliste&quot;:&#xD;&#xA;Öffnet den Dialog um eine neue Einkaufsliste zu erstellen&#xD;&#xA;&#xD;&#xA;&quot;Artikel verwalten&quot;:&#xD;&#xA;Öffnet die Artikeldatenbank&#xD;&#xA;&#xD;&#xA;&quot;Beenden&quot;:&#xD;&#xA;Beendet die Applikation&#xD;&#xA;" measuredWidth="385" measuredHeight="137" annotation="true" textAlignment="Left">
     <font/>
   </widgets>
   <hRuler/>

@@ -7,7 +7,7 @@
           <widgets xsi:type="model:Panel" id="8" width="324" height="484" measuredWidth="324" measuredHeight="484" background="#666666" verticalScrollbar="true" foreground="#666666" border="none"/>
           <widgets xsi:type="model:WidgetGroup" id="9" x="2" y="2" measuredWidth="320" measuredHeight="25">
             <widgets xsi:type="model:Panel" id="10" width="320" height="25" measuredWidth="320" measuredHeight="25" border="none"/>
-            <widgets xsi:type="model:Label" id="11" x="245" width="75" text="8:30 PM" measuredWidth="75" measuredHeight="23" textAlignment="Right">
+            <widgets xsi:type="model:Label" id="11" x="245" width="75" text="8:30 PM" measuredWidth="75" measuredHeight="21" textAlignment="Right">
               <font bold="true"/>
             </widgets>
             <widgets xsi:type="model:Icon" id="12" x="229" y="4" measuredWidth="16" measuredHeight="16" icon="battery (small)"/>
@@ -17,24 +17,8 @@
           <widgets xsi:type="model:WidgetGroup" id="15" x="2" y="26" measuredWidth="320" measuredHeight="25">
             <widgets xsi:type="model:WidgetGroup" id="16" measuredWidth="320" measuredHeight="25">
               <widgets xsi:type="model:Panel" id="17" width="319" height="25" measuredWidth="319" measuredHeight="25" background="#7d7f7d" border="none"/>
-              <widgets xsi:type="model:Label" id="18" x="7" width="313" text="Artikel hinzufügen" measuredWidth="313" measuredHeight="23" foreground="#ffffff">
+              <widgets xsi:type="model:Label" id="18" x="7" width="313" text="Artikel hinzufügen" measuredWidth="313" measuredHeight="21" foreground="#ffffff">
                 <font bold="true"/>
-              </widgets>
-              <widgets xsi:type="model:WidgetGroup" id="19" x="288" measuredWidth="25" measuredHeight="25">
-                <widgets xsi:type="model:WidgetGroup" id="20" measuredWidth="25" measuredHeight="25">
-                  <widgets xsi:type="model:Circle" id="21" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
-                    <font/>
-                  </widgets>
-                  <widgets xsi:type="model:Icon" id="22" x="4" y="5" measuredWidth="16" measuredHeight="16" foreground="#05a700" icon="add (small)"/>
-                </widgets>
-              </widgets>
-              <widgets xsi:type="model:WidgetGroup" id="23" x="256" measuredWidth="25" measuredHeight="25">
-                <widgets xsi:type="model:WidgetGroup" id="24" measuredWidth="25" measuredHeight="25">
-                  <widgets xsi:type="model:Circle" id="25" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
-                    <font/>
-                  </widgets>
-                  <widgets xsi:type="model:Icon" id="26" x="4" y="5" measuredWidth="16" measuredHeight="16" foreground="#05a700" icon="add (small)"/>
-                </widgets>
               </widgets>
             </widgets>
           </widgets>
@@ -60,7 +44,7 @@
               <font/>
             </widgets>
             <widgets xsi:type="model:WidgetGroup" id="34" x="8" y="8" width="34" measuredWidth="0" measuredHeight="0"/>
-            <widgets xsi:type="model:Label" id="35" y="4" width="237" text="Obst" measuredWidth="237" measuredHeight="28" icon="filled-arrow-right (small)">
+            <widgets xsi:type="model:Label" id="35" y="4" width="237" text="Obst" measuredWidth="237" measuredHeight="26" icon="filled-arrow-right (small)">
               <font size="11" bold="true"/>
             </widgets>
             <widgets xsi:type="model:HLine" id="36" y="42" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
@@ -87,7 +71,7 @@
               <font/>
             </widgets>
             <widgets xsi:type="model:WidgetGroup" id="45" x="8" y="5" width="34" measuredWidth="0" measuredHeight="0"/>
-            <widgets xsi:type="model:Label" id="46" y="1" width="237" text="Milchprodukte" measuredWidth="237" measuredHeight="28" icon="filled-arrow-down (small)">
+            <widgets xsi:type="model:Label" id="46" y="1" width="237" text="Milchprodukte" measuredWidth="237" measuredHeight="26" icon="filled-arrow-down (small)">
               <font size="11" bold="true"/>
             </widgets>
             <widgets xsi:type="model:HLine" id="47" y="104" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
@@ -105,7 +89,7 @@
                 <widgets xsi:type="model:Icon" id="54" x="4" y="3" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="edit (small)"/>
               </widgets>
             </widgets>
-            <widgets xsi:type="model:Label" id="55" x="22" y="32" width="215" text="Milch" measuredWidth="215" measuredHeight="28">
+            <widgets xsi:type="model:Label" id="55" x="22" y="32" width="215" text="Milch" measuredWidth="215" measuredHeight="26">
               <font size="11" bold="true"/>
             </widgets>
             <widgets xsi:type="model:WidgetGroup" id="56" x="262" y="31" measuredWidth="25" measuredHeight="25">
@@ -122,7 +106,7 @@
                 <widgets xsi:type="model:Icon" id="62" x="4" y="3" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="edit (small)"/>
               </widgets>
             </widgets>
-            <widgets xsi:type="model:Label" id="63" x="22" y="66" width="215" text="Joghurt" measuredWidth="215" measuredHeight="28">
+            <widgets xsi:type="model:Label" id="63" x="22" y="66" width="215" text="Joghurt" measuredWidth="215" measuredHeight="26">
               <font size="11" bold="true"/>
             </widgets>
             <widgets xsi:type="model:WidgetGroup" id="64" x="262" y="63" measuredWidth="25" measuredHeight="25">
@@ -139,22 +123,22 @@
                 <widgets xsi:type="model:Icon" id="70" x="4" y="3" measuredWidth="16" measuredHeight="16" foreground="#e60031" icon="edit (small)"/>
               </widgets>
             </widgets>
-            <widgets xsi:type="model:Label" id="114" x="188" y="34" text="Liter" measuredWidth="28" measuredHeight="23">
+            <widgets xsi:type="model:Label" id="114" x="188" y="34" text="Liter" measuredWidth="26" measuredHeight="21">
               <font/>
             </widgets>
-            <widgets xsi:type="model:TextField" id="115" x="132" y="34" width="52" text="1" measuredWidth="52" measuredHeight="23">
+            <widgets xsi:type="model:TextField" id="115" x="132" y="34" width="52" text="1" measuredWidth="52" measuredHeight="21">
               <font/>
             </widgets>
-            <widgets xsi:type="model:Label" id="116" x="188" y="64" text="Becher" measuredWidth="41" measuredHeight="23">
+            <widgets xsi:type="model:Label" id="116" x="188" y="64" text="Becher" measuredWidth="38" measuredHeight="21">
               <font/>
             </widgets>
-            <widgets xsi:type="model:TextField" id="117" x="132" y="64" width="52" text="2" measuredWidth="52" measuredHeight="23">
+            <widgets xsi:type="model:TextField" id="117" x="132" y="64" width="52" text="2" measuredWidth="52" measuredHeight="21">
               <font/>
             </widgets>
           </widgets>
           <widgets xsi:type="model:WidgetGroup" id="71" x="12" y="258" measuredWidth="287" measuredHeight="45">
             <widgets xsi:type="model:WidgetGroup" id="72" x="8" y="5" width="34" measuredWidth="0" measuredHeight="0"/>
-            <widgets xsi:type="model:Label" id="73" y="1" width="237" text="Getränke" measuredWidth="237" measuredHeight="28" icon="filled-arrow-right (small)">
+            <widgets xsi:type="model:Label" id="73" y="1" width="237" text="Getränke" measuredWidth="237" measuredHeight="26" icon="filled-arrow-right (small)">
               <font size="11" bold="true"/>
             </widgets>
             <widgets xsi:type="model:HLine" id="74" y="39" width="287" measuredWidth="287" measuredHeight="6" foreground="#adaaad"/>
@@ -177,13 +161,13 @@
       </widgets>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:Master" id="126" x="285" y="22" measuredWidth="745" measuredHeight="521">
+  <widgets xsi:type="model:Master" id="126" x="285" y="22" measuredWidth="745" measuredHeight="551">
     <screen xsi:type="model:Screen" href="dialogs_articledb.screen#/"/>
   </widgets>
-  <widgets xsi:type="model:Note" id="127" x="30" y="512" width="385" height="359" text="Symbol + / &quot;Neuer Artikel&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neuen Artikel anzulegen. Der Artikel wird der im Moment ausgewählten Kategorie zugeordnet.&#xD;&#xA;Im Dialog hat der Benutzer die Möglichkeit aus vordefinierten Mengeneinheiten zu wählen&#xD;&#xA;&#xD;&#xA;Symbol + / &quot;Neue Kategorie&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neue Kategorie anzulegen&#xD;&#xA;&#xD;&#xA;Symbol &quot;Stift&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um den Namen eines Artikels oder einer Kategorie zu ändern&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Zeigt einen Nachfragedialog an und löscht ggf. den Artikel bzw. die Kategorie sammt aller enthaltenen Artikel&#xD;&#xA;&#xD;&#xA;&quot;Zurück&quot;:&#xD;&#xA;Die App kehrt zum ausgehenden Screen zurück&#xD;&#xA;&#xD;&#xA;TODO:&#xD;&#xA;Zwei +-Symbole sind nicht akzeptabel, hier müssen wir uns noch was überlegen" measuredWidth="385" measuredHeight="359" annotation="true" textAlignment="Left">
+  <widgets xsi:type="model:Note" id="127" x="30" y="512" width="385" height="359" text="&quot;Neuer Artikel&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neuen Artikel anzulegen. Der Artikel wird der im Moment ausgewählten Kategorie zugeordnet.&#xD;&#xA;Im Dialog hat der Benutzer die Möglichkeit aus vordefinierten Mengeneinheiten zu wählen&#xD;&#xA;&#xD;&#xA;&quot;Neue Kategorie&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neue Kategorie anzulegen&#xD;&#xA;&#xD;&#xA;Symbol &quot;Stift&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um den Namen eines Artikels oder einer Kategorie zu ändern&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Zeigt einen Nachfragedialog an und löscht ggf. den Artikel bzw. die Kategorie sammt aller enthaltenen Artikel&#xD;&#xA;&#xD;&#xA;&quot;Zurück&quot;:&#xD;&#xA;Die App kehrt zum ausgehenden Screen zurück&#xD;&#xA;&#xD;&#xA;TODO:&#xD;&#xA;Zwei +-Symbole sind nicht akzeptabel, hier müssen wir uns noch was überlegen" measuredWidth="385" measuredHeight="359" annotation="true" textAlignment="Left">
     <font/>
   </widgets>
-  <widgets xsi:type="model:Note" id="130" x="414" y="542" width="385" height="329" text="Editfeld:&#xD;&#xA;Direkte Eingabe der benötigten Menge&#xD;&#xA;&#xD;&#xA;Klick auf eine Kategorie:&#xD;&#xA;Markiert oder nimmt die Markierung zurück.&#xD;&#xA;Der Status wirkt sich auch auf alle enthaltenen Artikel aus.&#xD;&#xA;&#xD;&#xA;Klick auf einen Artikel:&#xD;&#xA;Markiert oder nimmt die Markierung zurück.&#xD;&#xA;Sind alle Artikel einer Kategorie markiert oder nicht markiert, ändetr sich die Markierung der Kategorie ebenfalls&#xD;&#xA;&#xD;&#xA;Übernehmen:&#xD;&#xA;Alle markierten Artikel werden in die Einkaufliste übernommen.&#xD;&#xA;Ist eine Kategorie markiert, werden alle enthaltenen Artikel übernommen." measuredWidth="385" measuredHeight="329" annotation="true" textAlignment="Left">
+  <widgets xsi:type="model:Note" id="130" x="414" y="572" width="385" height="299" text="Editfeld:&#xD;&#xA;Direkte Eingabe der benötigten Menge&#xD;&#xA;&#xD;&#xA;Klick auf eine Kategorie:&#xD;&#xA;Markiert oder nimmt die Markierung zurück.&#xD;&#xA;Der Status wirkt sich auch auf alle enthaltenen Artikel aus.&#xD;&#xA;&#xD;&#xA;Klick auf einen Artikel:&#xD;&#xA;Markiert oder nimmt die Markierung zurück.&#xD;&#xA;Sind alle Artikel einer Kategorie markiert oder nicht markiert, ändetr sich die Markierung der Kategorie ebenfalls&#xD;&#xA;&#xD;&#xA;Klick auf Pfeil vor der Kategorie:&#xD;&#xA;Klappt die Kategorie auf oder zu&#xD;&#xA;&#xD;&#xA;Übernehmen:&#xD;&#xA;Alle markierten Artikel werden in die Einkaufliste übernommen.&#xD;&#xA;Ist eine Kategorie markiert, werden alle enthaltenen Artikel übernommen." measuredWidth="385" measuredHeight="299" annotation="true" textAlignment="Left">
     <font/>
   </widgets>
   <hRuler/>

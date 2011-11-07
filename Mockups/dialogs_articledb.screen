@@ -19,10 +19,10 @@
     <widgets xsi:type="model:Button" id="23" x="153" y="108" width="140" height="39" text="Abbrechen" measuredWidth="140" measuredHeight="39">
       <font/>
     </widgets>
-    <widgets xsi:type="model:Label" id="24" x="14" y="72" text="Name:" measuredWidth="51" measuredHeight="28" foreground="#ffffff">
+    <widgets xsi:type="model:Label" id="24" x="14" y="72" text="Name:" measuredWidth="53" measuredHeight="26" foreground="#ffffff">
       <font size="11" bold="true"/>
     </widgets>
-    <widgets xsi:type="model:TextField" id="25" x="88" y="74" width="200" text="Obst / Milch" measuredWidth="200" measuredHeight="28">
+    <widgets xsi:type="model:TextField" id="25" x="88" y="74" width="200" text="Obst / Milch" measuredWidth="200" measuredHeight="26">
       <font size="11" bold="true"/>
     </widgets>
   </widgets>
@@ -35,6 +35,12 @@
   </widgets>
   <widgets xsi:type="model:Master" id="31" x="455" y="164" measuredWidth="298" measuredHeight="184">
     <screen xsi:type="model:Screen" href="dialog_delete_category.screen#/"/>
+    <overrides>
+      <widgets ref="9" height="35" text="Wollen Sie die Kategorie &quot;Getränke&quot; mit ALLEN Artikeln wirklich löschen?">
+        <attributes key="foreground" value="#ff0000"/>
+        <font size="10" bold="true"/>
+      </widgets>
+    </overrides>
   </widgets>
   <widgets xsi:type="model:WidgetGroup" id="33" x="455" y="345" measuredWidth="298" measuredHeight="155">
     <widgets xsi:type="model:WidgetGroup" id="34" height="155" measuredWidth="298" measuredHeight="155">
@@ -54,41 +60,47 @@
     <widgets xsi:type="model:Button" id="42" x="153" y="108" width="140" height="39" text="Abbrechen" measuredWidth="140" measuredHeight="39">
       <font/>
     </widgets>
-    <widgets xsi:type="model:Label" id="43" x="14" y="72" text="Name:" measuredWidth="51" measuredHeight="28" foreground="#ffffff">
+    <widgets xsi:type="model:Label" id="43" x="14" y="72" text="Name:" measuredWidth="53" measuredHeight="26" foreground="#ffffff">
       <font size="11" bold="true"/>
     </widgets>
-    <widgets xsi:type="model:TextField" id="44" x="88" y="74" width="200" measuredWidth="200" measuredHeight="28">
+    <widgets xsi:type="model:TextField" id="44" x="88" y="74" width="200" measuredWidth="200" measuredHeight="26">
       <font size="11" bold="true"/>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:WidgetGroup" id="57" x="158" y="347" measuredWidth="298" measuredHeight="184">
-    <widgets xsi:type="model:WidgetGroup" id="58" measuredWidth="298" measuredHeight="184">
-      <widgets xsi:type="model:Panel" id="59" width="298" height="184" measuredWidth="298" measuredHeight="184" background="#424542" foreground="#ffffff" border="solid-rounded"/>
-      <widgets xsi:type="model:HLine" id="60" x="36" y="59" width="233" measuredWidth="233" measuredHeight="6" foreground="#ffffff"/>
-      <widgets xsi:type="model:WidgetGroup" id="61" y="127" measuredWidth="298" measuredHeight="56">
-        <widgets xsi:type="model:Panel" id="62" width="298" height="56" measuredWidth="298" measuredHeight="56" background="#bdbebd" foreground="#ffffff" border="solid-rounded"/>
-        <widgets xsi:type="model:Panel" id="63" x="2" width="293" height="40" measuredWidth="293" measuredHeight="40" background="#bdbebd" border="none"/>
+  <widgets xsi:type="model:WidgetGroup" id="57" x="158" y="347" measuredWidth="298" measuredHeight="214">
+    <widgets xsi:type="model:WidgetGroup" id="58" height="214" measuredWidth="298" measuredHeight="214">
+      <widgets xsi:type="model:Panel" id="59" width="298" height="214" measuredWidth="298" measuredHeight="214" background="#424542" foreground="#ffffff" border="solid-rounded"/>
+      <widgets xsi:type="model:HLine" id="60" x="36" y="57" width="233" measuredWidth="233" measuredHeight="6" foreground="#ffffff"/>
+      <widgets xsi:type="model:WidgetGroup" id="61" y="157" height="55" measuredWidth="298" measuredHeight="55">
+        <widgets xsi:type="model:Panel" id="62" width="298" height="55" measuredWidth="298" measuredHeight="55" background="#bdbebd" foreground="#ffffff" border="solid-rounded"/>
+        <widgets xsi:type="model:Panel" id="63" x="2" width="293" height="38" measuredWidth="293" measuredHeight="38" background="#bdbebd" border="none"/>
       </widgets>
     </widgets>
     <widgets xsi:type="model:Label" id="64" x="14" y="19" width="274" text="Neuer Artikel" measuredWidth="274" measuredHeight="32" foreground="#ffffff" icon="new (large)">
       <font size="11" bold="true"/>
     </widgets>
-    <widgets xsi:type="model:Button" id="65" x="6" y="135" width="140" height="39" text="OK" measuredWidth="140" measuredHeight="39">
+    <widgets xsi:type="model:Button" id="65" x="6" y="165" width="140" height="39" text="OK" measuredWidth="140" measuredHeight="39">
       <font/>
     </widgets>
-    <widgets xsi:type="model:Button" id="66" x="152" y="135" width="140" height="39" text="Abbrechen" measuredWidth="140" measuredHeight="39">
+    <widgets xsi:type="model:Button" id="66" x="152" y="165" width="140" height="39" text="Abbrechen" measuredWidth="140" measuredHeight="39">
       <font/>
     </widgets>
-    <widgets xsi:type="model:Label" id="67" x="14" y="72" text="Name:" measuredWidth="51" measuredHeight="28" foreground="#ffffff">
+    <widgets xsi:type="model:Label" id="67" x="14" y="72" text="Name:" measuredWidth="53" measuredHeight="26" foreground="#ffffff">
       <font size="11" bold="true"/>
     </widgets>
-    <widgets xsi:type="model:Combo" id="68" x="88" y="99" width="200" measuredWidth="200" measuredHeight="23">
+    <widgets xsi:type="model:Combo" id="68" x="96" y="99" width="192" measuredWidth="192" measuredHeight="21">
       <font/>
     </widgets>
-    <widgets xsi:type="model:TextField" id="69" x="88" y="74" width="200" measuredWidth="200" measuredHeight="23">
+    <widgets xsi:type="model:TextField" id="69" x="96" y="74" width="192" measuredWidth="192" measuredHeight="21">
       <font/>
     </widgets>
-    <widgets xsi:type="model:Label" id="70" x="14" y="97" text="Einheit:" measuredWidth="57" measuredHeight="28" foreground="#ffffff">
+    <widgets xsi:type="model:Label" id="70" x="14" y="97" text="Einheit:" measuredWidth="62" measuredHeight="26" foreground="#ffffff">
+      <font size="11" bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Combo" id="71" x="96" y="124" width="192" measuredWidth="192" measuredHeight="21">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="72" x="14" y="122" text="Kategorie:" measuredWidth="83" measuredHeight="26" foreground="#ffffff">
       <font size="11" bold="true"/>
     </widgets>
   </widgets>
