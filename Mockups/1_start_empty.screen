@@ -52,7 +52,7 @@
   <widgets xsi:type="model:Callout" id="122" x="-2" y="17" text="1" measuredWidth="29" measuredHeight="29" annotation="true">
     <font size="12" bold="true"/>
   </widgets>
-  <widgets xsi:type="model:Master" id="123" x="120" y="264" measuredWidth="586" measuredHeight="279" dimmed="true">
+  <widgets xsi:type="model:Master" id="123" x="120" y="264" measuredWidth="586" measuredHeight="279">
     <screen xsi:type="model:Screen" href="dialogs_startscreen.screen#/"/>
   </widgets>
   <hRuler/>
