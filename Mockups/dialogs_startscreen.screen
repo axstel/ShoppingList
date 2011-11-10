@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore" theme="sketch">
-  <widgets xsi:type="model:WidgetGroup" id="1" x="320" y="8" measuredWidth="298" measuredHeight="184">
-    <widgets xsi:type="model:WidgetGroup" id="2" measuredWidth="298" measuredHeight="184">
-      <widgets xsi:type="model:Panel" id="3" width="298" height="184" measuredWidth="298" measuredHeight="184" background="#424542" foreground="#ffffff" border="solid-rounded"/>
-      <widgets xsi:type="model:HLine" id="4" x="36" y="59" width="233" measuredWidth="233" measuredHeight="6" foreground="#ffffff"/>
-      <widgets xsi:type="model:WidgetGroup" id="5" y="127" measuredWidth="298" measuredHeight="56">
-        <widgets xsi:type="model:Panel" id="6" width="298" height="56" measuredWidth="298" measuredHeight="56" background="#bdbebd" foreground="#ffffff" border="solid-rounded"/>
-        <widgets xsi:type="model:Panel" id="7" x="2" width="293" height="40" measuredWidth="293" measuredHeight="40" background="#bdbebd" border="none"/>
+  <widgets xsi:type="model:WidgetGroup" id="35" x="192" y="4" measuredWidth="298" measuredHeight="184">
+    <widgets xsi:type="model:WidgetGroup" id="36" measuredWidth="298" measuredHeight="184">
+      <widgets xsi:type="model:Panel" id="37" width="298" height="184" measuredWidth="298" measuredHeight="184" background="#424542" foreground="#ffffff" border="solid-rounded"/>
+      <widgets xsi:type="model:HLine" id="38" x="36" y="59" width="233" measuredWidth="233" measuredHeight="6" foreground="#ffffff"/>
+      <widgets xsi:type="model:WidgetGroup" id="39" y="127" measuredWidth="298" measuredHeight="56">
+        <widgets xsi:type="model:Panel" id="40" width="298" height="56" measuredWidth="298" measuredHeight="56" background="#bdbebd" foreground="#ffffff" border="solid-rounded"/>
+        <widgets xsi:type="model:Panel" id="41" x="2" width="293" height="40" measuredWidth="293" measuredHeight="40" background="#bdbebd" border="none"/>
       </widgets>
     </widgets>
-    <widgets xsi:type="model:Label" id="8" x="14" y="19" width="274" text="Neue Einkaufsliste" measuredWidth="274" measuredHeight="32" foreground="#ffffff" icon="new (large)">
+    <widgets xsi:type="model:Label" id="42" x="14" y="19" width="274" text="Neue Einkaufsliste" measuredWidth="274" measuredHeight="32" foreground="#ffffff" icon="new (large)">
       <font size="11" bold="true"/>
     </widgets>
-    <widgets xsi:type="model:Button" id="9" x="6" y="135" width="140" height="39" text="OK" measuredWidth="140" measuredHeight="39">
+    <widgets xsi:type="model:Button" id="43" x="6" y="135" width="140" height="39" text="OK" measuredWidth="140" measuredHeight="39">
       <font/>
     </widgets>
-    <widgets xsi:type="model:Button" id="10" x="152" y="135" width="140" height="39" text="Abbrechen" measuredWidth="140" measuredHeight="39">
+    <widgets xsi:type="model:Button" id="44" x="152" y="135" width="140" height="39" text="Abbrechen" measuredWidth="140" measuredHeight="39">
       <font/>
     </widgets>
-    <widgets xsi:type="model:Label" id="11" x="14" y="72" text="Name:" measuredWidth="51" measuredHeight="28" foreground="#ffffff">
+    <widgets xsi:type="model:Label" id="45" x="14" y="72" text="Name:" measuredWidth="53" measuredHeight="26" foreground="#ffffff">
       <font size="11" bold="true"/>
     </widgets>
-    <widgets xsi:type="model:Combo" id="12" x="88" y="99" width="200" measuredWidth="200" measuredHeight="23">
+    <widgets xsi:type="model:Combo" id="46" x="88" y="99" width="200" measuredWidth="200" measuredHeight="21">
       <font/>
     </widgets>
-    <widgets xsi:type="model:TextField" id="13" x="88" y="74" width="200" measuredWidth="200" measuredHeight="23">
+    <widgets xsi:type="model:TextField" id="47" x="88" y="74" width="200" measuredWidth="200" measuredHeight="21">
       <font/>
     </widgets>
-    <widgets xsi:type="model:Label" id="14" x="14" y="97" text="Vorlage:" measuredWidth="63" measuredHeight="28" foreground="#ffffff">
+    <widgets xsi:type="model:Label" id="48" x="14" y="97" text="Vorlage:" measuredWidth="68" measuredHeight="26" foreground="#ffffff">
       <font size="11" bold="true"/>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:Arrow" id="15" x="16" y="40" width="305" height="128" measuredWidth="305" measuredHeight="128" annotation="true" left="false" right="true" direction="bottom"/>
-  <widgets xsi:type="model:Arrow" id="16" x="225" y="167" width="96" height="58" measuredWidth="96" measuredHeight="58" annotation="true" left="false" right="true"/>
-  <widgets xsi:type="model:Label" id="17" x="328" y="208" text="Es öffnet sich ein neuer Screen" measuredWidth="237" measuredHeight="29">
+  <widgets xsi:type="model:Arrow" id="49" x="-96" y="48" width="281" height="157" measuredWidth="281" measuredHeight="157" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:Arrow" id="50" x="8" y="204" width="161" height="69" measuredWidth="161" measuredHeight="69" annotation="true" left="false" right="true"/>
+  <widgets xsi:type="model:Label" id="51" x="176" y="256" text="Screen 3 wird geöffnet" measuredWidth="190" measuredHeight="27">
+    <font size="12" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Arrow" id="52" x="232" y="160" width="65" height="53" measuredWidth="65" measuredHeight="53" annotation="true" left="false" right="true"/>
+  <widgets xsi:type="model:Label" id="53" x="288" y="212" text="Screen 4 wird geöffnet" measuredWidth="190" measuredHeight="27">
     <font size="12" bold="true"/>
   </widgets>
   <hRuler/>

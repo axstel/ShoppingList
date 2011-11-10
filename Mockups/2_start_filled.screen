@@ -13,7 +13,7 @@
       </widgets>
       <widgets xsi:type="model:WidgetGroup" id="112" y="24" measuredWidth="320" measuredHeight="456">
         <widgets xsi:type="model:Panel" id="8" width="320" height="456" measuredWidth="320" measuredHeight="456" background="#313431" border="none"/>
-        <widgets xsi:type="model:WidgetGroup" id="111" measuredWidth="320" measuredHeight="456">
+        <widgets xsi:type="model:WidgetGroup" id="111" measuredWidth="320" measuredHeight="411">
           <widgets xsi:type="model:WidgetGroup" id="110" measuredWidth="320" measuredHeight="25">
             <widgets xsi:type="model:WidgetGroup" id="119" measuredWidth="320" measuredHeight="25">
               <widgets xsi:type="model:Panel" id="19" width="319" height="25" measuredWidth="319" measuredHeight="25" background="#7d7f7d" border="none"/>
@@ -22,9 +22,9 @@
               </widgets>
             </widgets>
           </widgets>
-          <widgets xsi:type="model:WidgetGroup" id="109" y="26" measuredWidth="320" measuredHeight="430">
-            <widgets xsi:type="model:WidgetGroup" id="108" measuredWidth="320" measuredHeight="344">
-              <widgets xsi:type="model:Panel" id="22" width="320" height="344" measuredWidth="320" measuredHeight="344" foreground="#ffffff"/>
+          <widgets xsi:type="model:WidgetGroup" id="109" y="26" measuredWidth="320" measuredHeight="385">
+            <widgets xsi:type="model:WidgetGroup" id="108" measuredWidth="320" measuredHeight="385">
+              <widgets xsi:type="model:Panel" id="22" width="320" height="385" measuredWidth="320" measuredHeight="385" foreground="#ffffff"/>
               <widgets xsi:type="model:WidgetGroup" id="107" x="10" y="22" measuredWidth="287" measuredHeight="248">
                 <widgets xsi:type="model:WidgetGroup" id="63" measuredWidth="287" measuredHeight="48">
                   <widgets xsi:type="model:WidgetGroup" id="26" width="34" measuredWidth="32" measuredHeight="32">
@@ -124,24 +124,24 @@
                 </widgets>
               </widgets>
             </widgets>
-            <widgets xsi:type="model:WidgetGroup" id="106" y="343" measuredWidth="319" measuredHeight="87">
-              <widgets xsi:type="model:Button" id="103" width="160" height="44" text="Neue Einkaufsliste" measuredWidth="160" measuredHeight="44" background="#cacaca">
-                <font/>
-              </widgets>
-              <widgets xsi:type="model:Button" id="104" y="43" width="319" height="44" text="Beenden" measuredWidth="319" measuredHeight="44" background="#cacaca">
-                <font/>
-              </widgets>
-              <widgets xsi:type="model:Button" id="105" x="159" width="160" height="44" text="Artikel verwalten" measuredWidth="160" measuredHeight="44" background="#cacaca">
-                <font/>
-              </widgets>
-            </widgets>
+          </widgets>
+        </widgets>
+        <widgets xsi:type="model:WidgetGroup" id="187" x="1" y="411" measuredWidth="318" measuredHeight="44">
+          <widgets xsi:type="model:Button" id="188" width="106" height="44" text="Neue Einkaufsliste" measuredWidth="106" measuredHeight="44" background="#cacaca">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:Button" id="189" x="212" width="106" height="44" text="Beenden" measuredWidth="106" measuredHeight="44" background="#cacaca">
+            <font/>
+          </widgets>
+          <widgets xsi:type="model:Button" id="190" x="106" width="106" height="44" text="Artikel verwalten" measuredWidth="106" measuredHeight="44" background="#cacaca">
+            <font/>
           </widgets>
         </widgets>
       </widgets>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:Arrow" id="154" x="288" y="56" width="161" height="46" measuredWidth="161" measuredHeight="46" annotation="true" left="false" right="true" direction="bottom"/>
-  <widgets xsi:type="model:WidgetGroup" id="168" x="448" y="72" measuredWidth="298" measuredHeight="184">
+  <widgets xsi:type="model:Arrow" id="154" x="288" y="40" width="153" height="62" measuredWidth="153" measuredHeight="62" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:WidgetGroup" id="168" x="416" y="72" measuredWidth="298" measuredHeight="184">
     <widgets xsi:type="model:WidgetGroup" id="169" measuredWidth="298" measuredHeight="184">
       <widgets xsi:type="model:Panel" id="170" width="298" height="184" measuredWidth="298" measuredHeight="184" background="#424542" foreground="#ffffff" border="solid-rounded"/>
       <widgets xsi:type="model:HLine" id="171" x="36" y="59" width="233" measuredWidth="233" measuredHeight="6" foreground="#ffffff"/>
@@ -163,15 +163,55 @@
       <font/>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:Arrow" id="179" x="328" y="168" width="121" height="33" measuredWidth="121" measuredHeight="33" annotation="true" left="false" right="true"/>
-  <widgets xsi:type="model:Label" id="184" x="448" y="40" text="Es öffnet sich ein neuer Screen" measuredWidth="255" measuredHeight="27">
+  <widgets xsi:type="model:Arrow" id="179" x="328" y="168" width="89" height="49" measuredWidth="89" measuredHeight="49" annotation="true" left="false" right="true"/>
+  <widgets xsi:type="model:Label" id="184" x="448" y="32" text="Screen 4 wird geöffnet" measuredWidth="190" measuredHeight="27">
     <font size="12" bold="true"/>
   </widgets>
-  <widgets xsi:type="model:Master" id="185" x="144" y="260" measuredWidth="602" measuredHeight="227">
-    <screen xsi:type="model:Screen" href="dialogs_startscreen.screen#/"/>
-  </widgets>
-  <widgets xsi:type="model:Note" id="186" x="30" y="512" width="385" height="233" text="&quot;Neue Einkausfliste&quot;:&#xD;&#xA;Öffnet den Dialog um eine neue Einkaufsliste zu erstellen&#xD;&#xA;&#xD;&#xA;Symbol &quot;Stift&quot;:&#xD;&#xA;Öffnet eine Einkaufsliste im Bearbeitenmodus&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Zeigt einen Nachfragedialog an und löscht ggf. die Liste&#xD;&#xA;&#xD;&#xA;Klick auf eine Liste:&#xD;&#xA;Die Liste öffnet sich im &quot;Verwendenmodus&quot;&#xD;&#xA;&#xD;&#xA;&quot;Artikel verwalten&quot;:&#xD;&#xA;Öffnet die Artikeldatenbank&#xD;&#xA;&#xD;&#xA;&quot;Beenden&quot;:&#xD;&#xA;Beendet die Applikation&#xD;&#xA;" measuredWidth="385" measuredHeight="233" annotation="true" textAlignment="Left">
+  <widgets xsi:type="model:Note" id="186" x="744" y="14" width="385" height="233" text="&quot;Neue Einkausfliste&quot;:&#xD;&#xA;Öffnet den Dialog um eine neue Einkaufsliste zu erstellen&#xD;&#xA;&#xD;&#xA;Symbol &quot;Stift&quot;:&#xD;&#xA;Öffnet eine Einkaufsliste im Bearbeitenmodus&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Zeigt einen Nachfragedialog an und löscht ggf. die Liste&#xD;&#xA;&#xD;&#xA;Klick auf eine Liste:&#xD;&#xA;Die Liste öffnet sich im &quot;Verwendenmodus&quot;&#xD;&#xA;&#xD;&#xA;&quot;Artikel verwalten&quot;:&#xD;&#xA;Öffnet die Artikeldatenbank&#xD;&#xA;&#xD;&#xA;&quot;Beenden&quot;:&#xD;&#xA;Beendet die Applikation&#xD;&#xA;" measuredWidth="385" measuredHeight="233" annotation="true" textAlignment="Left">
     <font/>
+  </widgets>
+  <widgets xsi:type="model:Callout" id="191" x="-2" y="17" text="2" measuredWidth="29" measuredHeight="29" annotation="true">
+    <font size="12" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="192" x="416" y="264" measuredWidth="298" measuredHeight="184">
+    <widgets xsi:type="model:WidgetGroup" id="193" measuredWidth="298" measuredHeight="184">
+      <widgets xsi:type="model:Panel" id="194" width="298" height="184" measuredWidth="298" measuredHeight="184" background="#424542" foreground="#ffffff" border="solid-rounded"/>
+      <widgets xsi:type="model:HLine" id="195" x="36" y="59" width="233" measuredWidth="233" measuredHeight="6" foreground="#ffffff"/>
+      <widgets xsi:type="model:WidgetGroup" id="196" y="127" measuredWidth="298" measuredHeight="56">
+        <widgets xsi:type="model:Panel" id="197" width="298" height="56" measuredWidth="298" measuredHeight="56" background="#bdbebd" foreground="#ffffff" border="solid-rounded"/>
+        <widgets xsi:type="model:Panel" id="198" x="2" width="293" height="40" measuredWidth="293" measuredHeight="40" background="#bdbebd" border="none"/>
+      </widgets>
+    </widgets>
+    <widgets xsi:type="model:Label" id="199" x="14" y="19" width="274" text="Neue Einkaufsliste" measuredWidth="274" measuredHeight="32" foreground="#ffffff" icon="new (large)">
+      <font size="11" bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="200" x="6" y="135" width="140" height="39" text="OK" measuredWidth="140" measuredHeight="39">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="201" x="152" y="135" width="140" height="39" text="Abbrechen" measuredWidth="140" measuredHeight="39">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="202" x="14" y="72" text="Name:" measuredWidth="53" measuredHeight="26" foreground="#ffffff">
+      <font size="11" bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Combo" id="203" x="88" y="99" width="200" measuredWidth="200" measuredHeight="21">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:TextField" id="204" x="88" y="74" width="200" measuredWidth="200" measuredHeight="21">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="205" x="14" y="97" text="Vorlage:" measuredWidth="68" measuredHeight="26" foreground="#ffffff">
+      <font size="11" bold="true"/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:Arrow" id="206" x="128" y="308" width="281" height="157" measuredWidth="281" measuredHeight="157" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:Arrow" id="207" x="232" y="464" width="161" height="69" measuredWidth="161" measuredHeight="69" annotation="true" left="false" right="true"/>
+  <widgets xsi:type="model:Label" id="208" x="392" y="516" text="Screen 3 wird geöffnet" measuredWidth="190" measuredHeight="27">
+    <font size="12" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Arrow" id="209" x="456" y="420" width="65" height="53" measuredWidth="65" measuredHeight="53" annotation="true" left="false" right="true"/>
+  <widgets xsi:type="model:Label" id="210" x="512" y="472" text="Screen 4 wird geöffnet" measuredWidth="190" measuredHeight="27">
+    <font size="12" bold="true"/>
   </widgets>
   <hRuler/>
   <vRuler/>

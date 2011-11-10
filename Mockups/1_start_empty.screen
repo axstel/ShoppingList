@@ -21,24 +21,24 @@
             </widgets>
           </widgets>
         </widgets>
-        <widgets xsi:type="model:WidgetGroup" id="109" y="369" measuredWidth="319" measuredHeight="87">
-          <widgets xsi:type="model:Button" id="103" width="160" height="44" text="Neue Einkaufsliste" measuredWidth="160" measuredHeight="44" background="#cacaca">
+        <widgets xsi:type="model:WidgetGroup" id="109" x="1" y="411" measuredWidth="318" measuredHeight="44">
+          <widgets xsi:type="model:Button" id="103" width="106" height="44" text="Neue Einkaufsliste" measuredWidth="106" measuredHeight="44" background="#cacaca">
             <font/>
           </widgets>
-          <widgets xsi:type="model:Button" id="104" y="43" width="319" height="44" text="Beenden" measuredWidth="319" measuredHeight="44" background="#cacaca">
+          <widgets xsi:type="model:Button" id="104" x="212" width="106" height="44" text="Beenden" measuredWidth="106" measuredHeight="44" background="#cacaca">
             <font/>
           </widgets>
-          <widgets xsi:type="model:Button" id="105" x="159" width="160" height="44" text="Artikel verwalten" measuredWidth="160" measuredHeight="44" background="#cacaca">
+          <widgets xsi:type="model:Button" id="105" x="106" width="106" height="44" text="Artikel verwalten" measuredWidth="106" measuredHeight="44" background="#cacaca">
             <font/>
           </widgets>
         </widgets>
-        <widgets xsi:type="model:WidgetGroup" id="110" y="26" measuredWidth="320" measuredHeight="344">
-          <widgets xsi:type="model:Panel" id="22" width="320" height="344" measuredWidth="320" measuredHeight="344" foreground="#ffffff"/>
-          <widgets xsi:type="model:WidgetGroup" id="108" x="32" y="111" measuredWidth="257" measuredHeight="100">
-            <widgets xsi:type="model:Rectangle" id="107" width="257" measuredWidth="257" measuredHeight="100" border="solid-rounded">
+        <widgets xsi:type="model:WidgetGroup" id="110" y="26" height="385" measuredWidth="320" measuredHeight="385">
+          <widgets xsi:type="model:Panel" id="22" width="320" height="385" measuredWidth="320" measuredHeight="385" foreground="#ffffff"/>
+          <widgets xsi:type="model:WidgetGroup" id="108" x="32" y="124" measuredWidth="257" measuredHeight="112">
+            <widgets xsi:type="model:Rectangle" id="107" width="257" height="112" measuredWidth="257" measuredHeight="112" border="solid-rounded">
               <font/>
             </widgets>
-            <widgets xsi:type="model:Text" id="106" x="24" y="15" width="209" height="69" text="Es sind keine Einkaufslisten&#xD;&#xA;vorhanden. Klicken Sie + um&#xD;&#xA;neue Listen hinzuzufügen" measuredWidth="209" measuredHeight="69" dummyText="true">
+            <widgets xsi:type="model:Text" id="106" x="24" y="16" width="209" height="77" text="Es sind keine Einkaufslisten&#xD;&#xA;vorhanden. Klicken Sie + um&#xD;&#xA;neue Listen hinzuzufügen" measuredWidth="209" measuredHeight="77" dummyText="true">
               <font size="11" bold="true" italic="true"/>
             </widgets>
           </widgets>
@@ -46,11 +46,14 @@
       </widgets>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:Master" id="120" x="144" y="260" measuredWidth="602" measuredHeight="227">
-    <screen xsi:type="model:Screen" href="dialogs_startscreen.screen#/"/>
-  </widgets>
-  <widgets xsi:type="model:Note" id="121" x="30" y="512" width="385" height="137" text="&quot;Neue Einkausfliste&quot;:&#xD;&#xA;Öffnet den Dialog um eine neue Einkaufsliste zu erstellen&#xD;&#xA;&#xD;&#xA;&quot;Artikel verwalten&quot;:&#xD;&#xA;Öffnet die Artikeldatenbank&#xD;&#xA;&#xD;&#xA;&quot;Beenden&quot;:&#xD;&#xA;Beendet die Applikation&#xD;&#xA;" measuredWidth="385" measuredHeight="137" annotation="true" textAlignment="Left">
+  <widgets xsi:type="model:Note" id="121" x="768" y="14" width="385" height="137" text="&quot;Neue Einkausfliste&quot;:&#xD;&#xA;Öffnet den Dialog um eine neue Einkaufsliste zu erstellen&#xD;&#xA;&#xD;&#xA;&quot;Artikel verwalten&quot;:&#xD;&#xA;Öffnet die Artikeldatenbank&#xD;&#xA;&#xD;&#xA;&quot;Beenden&quot;:&#xD;&#xA;Beendet die Applikation&#xD;&#xA;" measuredWidth="385" measuredHeight="137" annotation="true" textAlignment="Left">
     <font/>
+  </widgets>
+  <widgets xsi:type="model:Callout" id="122" x="-2" y="17" text="1" measuredWidth="29" measuredHeight="29" annotation="true">
+    <font size="12" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="123" x="120" y="264" measuredWidth="586" measuredHeight="279" dimmed="true">
+    <screen xsi:type="model:Screen" href="dialogs_startscreen.screen#/"/>
   </widgets>
   <hRuler/>
   <vRuler/>

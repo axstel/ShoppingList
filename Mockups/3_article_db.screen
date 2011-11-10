@@ -20,20 +20,25 @@
               <font bold="true"/>
             </widgets>
           </widgets>
-        </widgets>
-        <widgets xsi:type="model:WidgetGroup" id="19" x="2" y="395" measuredWidth="319" measuredHeight="87">
-          <widgets xsi:type="model:Button" id="20" width="160" height="44" text="Neuer Artikel" measuredWidth="160" measuredHeight="44" background="#cacaca">
-            <font/>
+          <widgets xsi:type="model:WidgetGroup" id="172" x="295" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:WidgetGroup" id="173" measuredWidth="25" measuredHeight="25">
+              <widgets xsi:type="model:Circle" id="174" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+                <font/>
+              </widgets>
+              <widgets xsi:type="model:Icon" id="175" x="4" y="4" measuredWidth="16" measuredHeight="16" foreground="#ff0000" icon="undo (small)"/>
+            </widgets>
           </widgets>
-          <widgets xsi:type="model:Button" id="21" y="43" width="319" height="44" text="Zurück" measuredWidth="319" measuredHeight="44" background="#cacaca">
+        </widgets>
+        <widgets xsi:type="model:WidgetGroup" id="19" x="2" y="438" measuredWidth="319" measuredHeight="44">
+          <widgets xsi:type="model:Button" id="20" width="160" height="44" text="Neuer Artikel" measuredWidth="160" measuredHeight="44" background="#cacaca">
             <font/>
           </widgets>
           <widgets xsi:type="model:Button" id="22" x="159" width="160" height="44" text="Neue Kategorie" measuredWidth="160" measuredHeight="44" background="#cacaca">
             <font/>
           </widgets>
         </widgets>
-        <widgets xsi:type="model:WidgetGroup" id="23" x="2" y="52" measuredWidth="320" measuredHeight="344">
-          <widgets xsi:type="model:Panel" id="24" width="320" height="344" measuredWidth="320" measuredHeight="344" foreground="#ffffff"/>
+        <widgets xsi:type="model:WidgetGroup" id="23" x="2" y="52" height="387" measuredWidth="320" measuredHeight="387">
+          <widgets xsi:type="model:Panel" id="24" width="320" height="387" measuredWidth="320" measuredHeight="387" foreground="#ffffff"/>
         </widgets>
         <widgets xsi:type="model:WidgetGroup" id="32" x="12" y="77" measuredWidth="287" measuredHeight="45">
           <widgets xsi:type="model:WidgetGroup" id="33" x="8" y="5" width="34" measuredWidth="0" measuredHeight="0"/>
@@ -135,11 +140,18 @@
       </widgets>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:Master" id="169" x="285" y="22" measuredWidth="745" measuredHeight="551">
+  <widgets xsi:type="model:Note" id="171" x="1040" y="14" width="385" height="259" text="&quot;Neuer Artikel&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neuen Artikel anzulegen.&#xD;&#xA;Die Mengeneinheit und die Kategorie kann ausgewählt werden.&#xD;&#xA;Im Kategoriefeld wird die zuletzt aktivierte Kategorie, bevor man den Button gedrükct hat, vorausgewählt.&#xD;&#xA;&#xD;&#xA;&quot;Neue Kategorie&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neue Kategorie anzulegen&#xD;&#xA;&#xD;&#xA;Symbol &quot;Stift&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um den Namen eines Artikels oder einer Kategorie zu ändern&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Zeigt einen Nachfragedialog an und löscht ggf. den Artikel bzw. die Kategorie sammt aller enthaltenen Artikel&#xD;&#xA;&#xD;&#xA;&quot;&lt;-&quot;:&#xD;&#xA;Die App kehrt zum Screen 1 oder 2" measuredWidth="385" measuredHeight="259" annotation="true" textAlignment="Left">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Callout" id="176" x="-2" y="17" text="3" measuredWidth="29" measuredHeight="29" annotation="true">
+    <font size="12" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="177" x="190" y="56" measuredWidth="838" measuredHeight="551">
     <screen xsi:type="model:Screen" href="dialogs_articledb.screen#/"/>
   </widgets>
-  <widgets xsi:type="model:Note" id="170" x="30" y="512" width="385" height="329" text="&quot;Neuer Artikel&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neuen Artikel anzulegen.&#xD;&#xA;Die Mengeneinheit und die Kategorie kann ausgewählt werden.&#xD;&#xA;Im Kategoriefeld wird die zuletzt aktivierte Kategorie, bevor man den Button gedrükct hat, vorausgewählt.&#xD;&#xA;&#xD;&#xA;&quot;Neue Kategorie&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um einen neue Kategorie anzulegen&#xD;&#xA;&#xD;&#xA;Symbol &quot;Stift&quot;:&#xD;&#xA;Öffnet einen Eingabedialog um den Namen eines Artikels oder einer Kategorie zu ändern&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Zeigt einen Nachfragedialog an und löscht ggf. den Artikel bzw. die Kategorie sammt aller enthaltenen Artikel&#xD;&#xA;&#xD;&#xA;&quot;Zurück&quot;:&#xD;&#xA;Die App kehrt zum ausgehenden Screen zurück&#xD;&#xA;&#xD;&#xA;TODO:&#xD;&#xA;Zwei +-Symbole sind nicht akzeptabel, hier müssen wir uns noch was überlegen" measuredWidth="385" measuredHeight="329" annotation="true" textAlignment="Left">
-    <font/>
+  <widgets xsi:type="model:Arrow" id="178" x="353" y="32" width="81" height="25" measuredWidth="81" measuredHeight="25" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:Label" id="179" x="438" y="18" text="Zurück zu Screen 1 oder 2" measuredWidth="216" measuredHeight="27">
+    <font size="12" bold="true"/>
   </widgets>
   <hRuler/>
   <vRuler/>

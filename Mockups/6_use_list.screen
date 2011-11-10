@@ -20,9 +20,17 @@
               <font bold="true"/>
             </widgets>
           </widgets>
+          <widgets xsi:type="model:WidgetGroup" id="261" x="295" measuredWidth="25" measuredHeight="25">
+            <widgets xsi:type="model:WidgetGroup" id="262" measuredWidth="25" measuredHeight="25">
+              <widgets xsi:type="model:Circle" id="263" width="25" height="25" measuredWidth="25" measuredHeight="25" background="#cacaca">
+                <font/>
+              </widgets>
+              <widgets xsi:type="model:Icon" id="264" x="4" y="4" measuredWidth="16" measuredHeight="16" foreground="#ff0000" icon="undo (small)"/>
+            </widgets>
+          </widgets>
         </widgets>
-        <widgets xsi:type="model:WidgetGroup" id="28" y="26" measuredWidth="320" measuredHeight="344">
-          <widgets xsi:type="model:Panel" id="29" width="320" height="344" measuredWidth="320" measuredHeight="344" foreground="#ffffff"/>
+        <widgets xsi:type="model:WidgetGroup" id="28" y="26" height="391" measuredWidth="320" measuredHeight="391">
+          <widgets xsi:type="model:Panel" id="29" width="320" height="391" measuredWidth="320" measuredHeight="391" foreground="#ffffff"/>
         </widgets>
         <widgets xsi:type="model:WidgetGroup" id="30" x="10" y="52" measuredWidth="287" measuredHeight="44">
           <widgets xsi:type="model:WidgetGroup" id="31" x="8" y="4" width="34" measuredWidth="0" measuredHeight="0"/>
@@ -69,65 +77,20 @@
         </widgets>
       </widgets>
     </widgets>
-    <widgets xsi:type="model:WidgetGroup" id="219" x="2" y="395" measuredWidth="319" measuredHeight="87">
-      <widgets xsi:type="model:Button" id="220" width="160" height="44" text="Keine Kategorien anzeigen" measuredWidth="160" measuredHeight="44" background="#cacaca">
+    <widgets xsi:type="model:WidgetGroup" id="219" x="3" y="437" measuredWidth="318" measuredHeight="44">
+      <widgets xsi:type="model:Button" id="220" width="106" height="44" text="Kategorien anzeigen" measuredWidth="106" measuredHeight="44" background="#cacaca">
         <font/>
       </widgets>
-      <widgets xsi:type="model:Button" id="221" x="159" y="43" width="160" height="44" text="Zurück" measuredWidth="160" measuredHeight="44" background="#cacaca">
+      <widgets xsi:type="model:Button" id="222" x="106" width="106" height="44" text="Offene Artikel" measuredWidth="106" measuredHeight="44" background="#cacaca">
         <font/>
       </widgets>
-      <widgets xsi:type="model:Button" id="222" x="159" width="160" height="44" text="Nur offene Artikel anzeigen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-        <font/>
-      </widgets>
-      <widgets xsi:type="model:Button" id="223" y="43" width="160" height="44" text="Liste zurücksetzen" measuredWidth="160" measuredHeight="44" background="#cacaca">
+      <widgets xsi:type="model:Button" id="223" x="212" width="106" height="44" text="Zurücksetzen" measuredWidth="106" measuredHeight="44" background="#cacaca">
         <font/>
       </widgets>
     </widgets>
   </widgets>
-  <widgets xsi:type="model:WidgetGroup" id="229" x="368" y="14" measuredWidth="319" measuredHeight="87">
-    <widgets xsi:type="model:Button" id="230" width="160" height="44" text="Keine Kategorien anzeigen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-    <widgets xsi:type="model:Button" id="231" x="159" y="43" width="160" height="44" text="Zurück" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-    <widgets xsi:type="model:Button" id="232" x="159" width="160" height="44" text="Alle Artikel anzeigen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-    <widgets xsi:type="model:Button" id="233" y="43" width="160" height="44" text="Liste zurücksetzen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-  </widgets>
-  <widgets xsi:type="model:WidgetGroup" id="234" x="368" y="120" measuredWidth="319" measuredHeight="87">
-    <widgets xsi:type="model:Button" id="235" width="160" height="44" text="Kategorien anzeigen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-    <widgets xsi:type="model:Button" id="236" x="159" y="43" width="160" height="44" text="Zurück" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-    <widgets xsi:type="model:Button" id="237" x="159" width="160" height="44" text="Nur offene Artikel anzeigen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-    <widgets xsi:type="model:Button" id="238" y="43" width="160" height="44" text="Liste zurücksetzen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-  </widgets>
-  <widgets xsi:type="model:WidgetGroup" id="239" x="368" y="224" measuredWidth="319" measuredHeight="87">
-    <widgets xsi:type="model:Button" id="240" width="160" height="44" text="Kategorien anzeigen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-    <widgets xsi:type="model:Button" id="241" x="159" y="43" width="160" height="44" text="Zurück" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-    <widgets xsi:type="model:Button" id="242" x="159" width="160" height="44" text="Alle Artikel anzeigen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-    <widgets xsi:type="model:Button" id="243" y="43" width="160" height="44" text="Liste zurücksetzen" measuredWidth="160" measuredHeight="44" background="#cacaca">
-      <font/>
-    </widgets>
-  </widgets>
-  <widgets xsi:type="model:Arrow" id="244" x="184" y="416" width="193" height="66" measuredWidth="193" measuredHeight="66" annotation="true" left="false" right="true" direction="bottom"/>
-  <widgets xsi:type="model:Master" id="245" x="384" y="314" measuredWidth="298" measuredHeight="184">
+  <widgets xsi:type="model:Arrow" id="244" x="320" y="256" width="65" height="209" measuredWidth="65" measuredHeight="209" annotation="true" left="false" right="true" direction="bottom"/>
+  <widgets xsi:type="model:Master" id="245" x="384" y="197" measuredWidth="298" measuredHeight="184">
     <screen xsi:type="model:Screen" href="dialog_delete_category.screen#/"/>
     <overrides>
       <widgets ref="8" text="Einkaufsliste zurücksetzen">
@@ -136,7 +99,7 @@
       <widgets ref="9" text="Wollen Sie alle Artikel wieder in den Status &quot;offen&quot; zurücksetzen?"/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Master" id="246" x="384" y="512" measuredWidth="298" measuredHeight="184">
+  <widgets xsi:type="model:Master" id="246" x="384" y="14" measuredWidth="298" measuredHeight="184">
     <screen xsi:type="model:Screen" href="dialog_delete_category.screen#/"/>
     <overrides>
       <widgets ref="8" text="Erledigte Einkausliste">
@@ -145,10 +108,46 @@
       <widgets ref="9" text="Alle Artikel der Einkaufsliste wurden eingekauft, wollen Sie die Einkaufsliste wegwerfen?&#xD;&#xA;Die Liste wird dann unwiederrflich gelöscht."/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Note" id="248" x="696" y="14" width="339" height="417" text="Klick auf einen Artikel / Kategorie&#xD;&#xA;nicht durchgestrichen:&#xD;&#xA;Streicht die Kategorie und enthaltene Artikel / streicht den Artikel&#xD;&#xA;nicht durchgestrichen:&#xD;&#xA;nimmt die Streichung zurück&#xD;&#xA;&#xD;&#xA;&quot;Liste zurücksetzen&quot;:&#xD;&#xA;Alle Einträge werden nicht durchgestrichen&#xD;&#xA;&#xD;&#xA;&quot;Keine Kategorien anzeigen&quot;:&#xD;&#xA;Die Artikel werden flach angezeigt&#xD;&#xA;&#xD;&#xA;&quot;Nur offene Artikel anzeigen&quot;:&#xD;&#xA;Es werden nur nicht gestrichene Artikel und Kategorien angezeigt&#xD;&#xA;&#xD;&#xA;&quot;Kategorien anzeigen&quot;:&#xD;&#xA;Die Kategorien werden wieder angezeigt&#xD;&#xA;&#xD;&#xA;&quot;Alle Artikel anzeigen&quot;:&#xD;&#xA;Es werden gestrichene und nicht gestrichene Artikel angezeigt&#xD;&#xA;&#xD;&#xA;&quot;Zurück&quot;:&#xD;&#xA;Die App kehrt zum ausgehenden Screen zurück" measuredWidth="339" measuredHeight="417" annotation="true" textAlignment="Left">
+  <widgets xsi:type="model:Note" id="248" x="728" y="14" width="339" height="417" text="Klick auf einen Artikel / Kategorie&#xD;&#xA;nicht durchgestrichen:&#xD;&#xA;Streicht die Kategorie und enthaltene Artikel / streicht den Artikel&#xD;&#xA;nicht durchgestrichen:&#xD;&#xA;nimmt die Streichung zurück&#xD;&#xA;&#xD;&#xA;&quot;Liste zurücksetzen&quot;:&#xD;&#xA;Alle Einträge werden nicht durchgestrichen&#xD;&#xA;&#xD;&#xA;&quot;Kategorien verbergen&quot;:&#xD;&#xA;Die Artikel werden flach angezeigt&#xD;&#xA;&#xD;&#xA;&quot;Offene Artikel&quot;:&#xD;&#xA;Es werden nur nicht gestrichene Artikel und Kategorien angezeigt&#xD;&#xA;&#xD;&#xA;&quot;Kategorien anzeigen&quot;:&#xD;&#xA;Die Kategorien werden wieder angezeigt&#xD;&#xA;&#xD;&#xA;&quot;Alle Artikel&quot;:&#xD;&#xA;Es werden gestrichene und nicht gestrichene Artikel angezeigt&#xD;&#xA;&#xD;&#xA;&quot;&lt;-&quot;:&#xD;&#xA;Die App kehrt zum ausgehenden Screen zurück" measuredWidth="339" measuredHeight="417" annotation="true" textAlignment="Left">
     <font/>
   </widgets>
-  <widgets xsi:type="model:Arrow" id="247" x="224" y="488" width="161" height="57" measuredWidth="161" measuredHeight="57" annotation="true" left="false" right="true"/>
+  <widgets xsi:type="model:Arrow" id="247" x="344" y="56" width="41" height="49" measuredWidth="41" measuredHeight="49" annotation="true" left="false" right="true"/>
+  <widgets xsi:type="model:WidgetGroup" id="249" x="384" y="497" measuredWidth="318" measuredHeight="44">
+    <widgets xsi:type="model:Button" id="250" width="106" height="44" text="Kategorien verbergen" measuredWidth="106" measuredHeight="44" background="#cacaca">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="251" x="106" width="106" height="44" text="Alle Artikel" measuredWidth="106" measuredHeight="44" background="#cacaca">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="252" x="212" width="106" height="44" text="Zurücksetzen" measuredWidth="106" measuredHeight="44" background="#cacaca">
+      <font/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="253" x="384" y="441" measuredWidth="318" measuredHeight="44">
+    <widgets xsi:type="model:Button" id="254" width="106" height="44" text="Kategorien verbergen" measuredWidth="106" measuredHeight="44" background="#cacaca">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="255" x="106" width="106" height="44" text="Offene Artikel" measuredWidth="106" measuredHeight="44" background="#cacaca">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="256" x="212" width="106" height="44" text="Zurücksetzen" measuredWidth="106" measuredHeight="44" background="#cacaca">
+      <font/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="257" x="384" y="387" measuredWidth="318" measuredHeight="44">
+    <widgets xsi:type="model:Button" id="258" width="106" height="44" text="Kategorien anzeigen" measuredWidth="106" measuredHeight="44" background="#cacaca">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="259" x="106" width="106" height="44" text="Alle Artikel" measuredWidth="106" measuredHeight="44" background="#cacaca">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="260" x="212" width="106" height="44" text="Zurücksetzen" measuredWidth="106" measuredHeight="44" background="#cacaca">
+      <font/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:Callout" id="265" x="-2" y="17" text="6" measuredWidth="29" measuredHeight="29" annotation="true">
+    <font size="12" bold="true"/>
+  </widgets>
   <hRuler/>
   <vRuler/>
   <font/>
