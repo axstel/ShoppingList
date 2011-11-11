@@ -30,7 +30,7 @@
           </widgets>
         </widgets>
         <widgets xsi:type="model:WidgetGroup" id="24" x="1" y="411" measuredWidth="318" measuredHeight="45">
-          <widgets xsi:type="model:Button" id="25" y="1" width="106" height="44" text="Neuer Artikel" measuredWidth="106" measuredHeight="44" background="#cacaca">
+          <widgets xsi:type="model:Button" id="25" y="1" width="106" height="44" text="Artikel hinzufügen" measuredWidth="106" measuredHeight="44" background="#cacaca">
             <font/>
           </widgets>
           <widgets xsi:type="model:Button" id="27" x="212" width="106" height="44" text="Liste leeren" measuredWidth="106" measuredHeight="44" background="#cacaca">
@@ -256,7 +256,7 @@
   </widgets>
   <widgets xsi:type="model:Arrow" id="181" x="336" y="464" width="49" height="25" measuredWidth="49" measuredHeight="25" annotation="true" left="false" right="true" direction="bottom"/>
   <widgets xsi:type="model:Arrow" id="182" x="48" y="480" width="41" height="49" measuredWidth="41" measuredHeight="49" annotation="true" left="false" right="true"/>
-  <widgets xsi:type="model:Label" id="183" x="96" y="512" text="Es öffnet sich ein neuer Screen" measuredWidth="255" measuredHeight="27">
+  <widgets xsi:type="model:Label" id="183" x="96" y="512" text="Screen 5 wird geöffnet" measuredWidth="190" measuredHeight="27">
     <font size="12" bold="true"/>
   </widgets>
   <widgets xsi:type="model:Note" id="216" x="1000" y="14" width="385" height="271" text="&quot;Neuer Artikel&quot;:&#xD;&#xA;Öffnet die Artikeldb in speziellem Modus&#xD;&#xA;&#xD;&#xA;Symbol x:&#xD;&#xA;Artikel oder Kategorie wird von der Liste entfernt&#xD;&#xA;&#xD;&#xA;Symbol &quot;Pfeil nach oben&quot;:&#xD;&#xA;Kategorie oder Artikel wird nach oben geschoben&#xD;&#xA;&#xD;&#xA;Symbol &quot;Pfeil nach unten&quot;:&#xD;&#xA;Kategorie oder Artikel wird nach unten geschoben&#xD;&#xA;&#xD;&#xA;&quot;Liste leeren&quot;:&#xD;&#xA;Alle Kategorien und Artikel werden von der Liste entfernt&#xD;&#xA;&#xD;&#xA;&quot;&lt;-&quot;:&#xD;&#xA;Die App kehrt zum Screen 1 oder 2" measuredWidth="385" measuredHeight="271" annotation="true" textAlignment="Left">

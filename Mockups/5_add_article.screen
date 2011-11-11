@@ -17,7 +17,7 @@
           <widgets xsi:type="model:WidgetGroup" id="15" x="2" y="26" measuredWidth="320" measuredHeight="25">
             <widgets xsi:type="model:WidgetGroup" id="16" measuredWidth="320" measuredHeight="25">
               <widgets xsi:type="model:Panel" id="17" width="319" height="25" measuredWidth="319" measuredHeight="25" background="#7d7f7d" border="none"/>
-              <widgets xsi:type="model:Label" id="18" x="7" width="313" text="Artikel hinzufügen" measuredWidth="313" measuredHeight="21" foreground="#ffffff">
+              <widgets xsi:type="model:Label" id="18" x="7" width="313" text="Artikel zu &quot;Lebensmittel&quot; hinzufügen" measuredWidth="313" measuredHeight="21" foreground="#ffffff">
                 <font bold="true"/>
               </widgets>
             </widgets>
