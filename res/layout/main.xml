@@ -2,11 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:gravity="bottom|center_horizontal|clip_vertical"
     android:orientation="vertical" >
+    <LinearLayout android:id="@+id/id_Text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/txt_keineEinkaufsliste"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="20dp" />
 
-    <TextView
+    </LinearLayout>
+
+    
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello" />
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="106dp"
+            android:layout_height="fill_parent"
+            android:text="@string/btn_neueEinkaufsliste" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="106dp"
+            android:layout_height="fill_parent"
+            android:text="@string/btn_artikelVerwalten" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="106dp"
+            android:layout_height="fill_parent"
+            android:text="@string/btn_beenden" />
+
+    </LinearLayout>
 
 </LinearLayout>

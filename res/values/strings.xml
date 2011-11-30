@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, ShoppingListActivity!</string>
-    <string name="app_name">ShoppingList</string>
+    <string name="hello">Hello World, GUI_Test3Activity!</string>
+    <string name="app_name">Shopping List</string>
+    <string name="btn_neueEinkaufsliste">Neue Einkaufsliste</string>
+    <string name="btn_artikelVerwalten">Artikel verwalten</string>
+    <string name="btn_beenden">Beenden</string>
+    <string name="txt_keineEinkaufsliste">Es sind keine Einkaufslisten vorhanden. Benutzen Sie den Button \"Einkaufsliste erstellen\", um eine neue Einkaufsliste hinzuzufügen</string>
+	<string name="main_no_items">No items</string>
+    <string name="checkbox_text">Selected</string>
 
 </resources>
