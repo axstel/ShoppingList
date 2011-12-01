@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <acitivty android:name=".GUI_ExpandActivity"/>
     </application>
 
 </manifest>
