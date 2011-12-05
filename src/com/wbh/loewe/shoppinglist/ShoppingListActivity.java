@@ -27,7 +27,7 @@ public class ShoppingListActivity extends Activity {
     }
  
     //---create an anonymous class to act as a button click listener---
-    private OnClickListener btnListener3 = new OnClickListener()
+    private OnClickListener btnListener1 = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
@@ -46,14 +46,14 @@ public class ShoppingListActivity extends Activity {
             /*Toast.makeText(getBaseContext(), 
                     "DIALOGFELD 'Artikel verwalten' starten!", 
                     Toast.LENGTH_LONG).show();*/	
-            Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	// IST HIER EIN FEHLER???
-            startActivity(intent);																// IST HIER EIN FEHLER???
+            Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	
+            startActivity(intent);																
 		}
 
     };
     
     //---create an anonymous class to act as a button click listener---
-    private OnClickListener btnListener1 = new OnClickListener()
+    private OnClickListener btnListener3 = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
