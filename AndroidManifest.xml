@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <acitivty android:name=".GUI_ExpandActivity"/>
+        <activity android:name=".GUI_ExpandActivity"></activity>
+               
+        <activity android:name=".GUI_DialogActivity"></activity>
     </application>
 
 </manifest>

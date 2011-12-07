@@ -9,5 +9,41 @@
     <string name="txt_keineEinkaufsliste">Es sind keine Einkaufslisten vorhanden. Klicken Sie \"Einkaufsliste hinzufügen\" um eine neue Liste hinzuzufügen</string>
 	<string name="main_no_items">No items</string>
     <string name="checkbox_text">Selected</string>
+    
+        
+    <string name="btn_Klick">Neue Einkaufsliste</string>
+    <string name="txt_Name">"Name: "</string>
+    <string name="txt_Vorlage">"Vorlage: "</string>
+    <string name="btn_OK">OK</string>
+    <string name="btn_Cancel">Abbrechen</string>
+    <string name="txt_Delete">Wollen Sie die Einkaufsliste wirklich löschen?</string>
+    <string name="btn_delEK">Einkaufsliste löschen</string>
+    <string name="btn_editKategorie">Kategorie bearbeiten</string>
+    <string name="btn_delKategorie">Kategorie löschen</string>
+    <string name="btn_newKategorie">Neue Kategorie</string>
+    <string name="txt_delKategorie">Wollen Sie die Kategorie mit ALLEN Artikeln wirklich löschen?</string>
+    <string name="edit_art">Artikel bearbeiten</string>
+    <string name="btn_delArt">Artikel löschen</string>
+    <string name="btn_newArt">Neuer Artikel</string>
+    <string name="txt_delArt">Wollen Sie den Artikel wirklich löschen?</string>
+    <string name="txt_editArt_Einheit">Einheit:</string>
+    <string name="txt_editArt_Kategorie">Kategorie:</string>
+    <string name="btn_del_ek_OK">Ja</string>
+    <string name="btn_del_ek_cancel">Nein</string>
+    <string name="btn_del_kat_OK">Ja</string>
+    <string name="btn_del_kat_Cancel">Nein</string>
+    <string name="btn_delart_OK">Ja</string>
+    <string name="btn_delart_Cancel">Nein</string>
+    <string name="btn_editName_OK">OK</string>
+    <string name="btn_editName_Cancel">Abbrechen</string>
+    <string name="btn_editName">Name ändern</string>
+    <string name="btn_emptyList">Einkaufsliste leeren</string>
+    <string name="txt_emptyList">Wollen Sie alle Artikel von der Einkaufsliste entfernen?</string>
+    <string name="btn_emptyList_OK">Ja</string>
+    <string name="btn_emptyList_Cancel">Nein</string>
+    <string name="btn_EK_zuruecksetzen">Einkaufsliste zurücksetzen?</string>
+    <string name="txt_EK_zuruecksetzen">Wollen Sie alle Artikel wieder in den Status OFFEN zurücksetzen?</string>
+    <string name="btn_zuruecksetzen_OK">Ja</string>
+    <string name="btn_zuruecksetzen_Cancel">Nein</string>
 
 </resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_neueEK"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_Klick" />
+
+    <Button
+        android:id="@+id/btn_delEK"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_delEK" />
+
+    <Button
+        android:id="@+id/btn_editKat"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_editKategorie" />
+
+    <Button
+        android:id="@+id/btn_delKat"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_delKategorie" />
+
+    <Button
+        android:id="@+id/btn_newKat"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_newKategorie" />
+
+    <Button
+        android:id="@+id/btn_editArt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_art" />
+
+    <Button
+        android:id="@+id/btn_delArt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_delArt" />
+
+    <Button
+        android:id="@+id/btn_newArt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_newArt" />
+
+    <Button
+        android:id="@+id/btn_editName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_editName" />
+
+    <Button
+        android:id="@+id/btn_emptyList"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="@string/btn_emptyList" />
+
+    <Button
+        android:id="@+id/btn_EK_zuruecksetzen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_EK_zuruecksetzen" />
+    
+
+
+</LinearLayout>
