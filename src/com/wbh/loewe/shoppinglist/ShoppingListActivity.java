@@ -1,6 +1,9 @@
 package com.wbh.loewe.shoppinglist;
 
+//import de.GUI.dialog.GUI_DialogActivity;
+//import de.GUI.dialog.R;
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,10 +27,13 @@ public class ShoppingListActivity extends Activity {
         
         Button btn3 = (Button)findViewById(R.id.button3);
         btn3.setOnClickListener(btnListener3);
+        
+   
+
     }
  
     //---create an anonymous class to act as a button click listener---
-    private OnClickListener btnListener3 = new OnClickListener()
+    private OnClickListener btnListener1 = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
@@ -46,22 +52,30 @@ public class ShoppingListActivity extends Activity {
             /*Toast.makeText(getBaseContext(), 
                     "DIALOGFELD 'Artikel verwalten' starten!", 
                     Toast.LENGTH_LONG).show();*/	
-            Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	// IST HIER EIN FEHLER???
-            startActivity(intent);																// IST HIER EIN FEHLER???
+            Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	
+            startActivity(intent);																
 		}
 
     };
     
     //---create an anonymous class to act as a button click listener---
-    private OnClickListener btnListener1 = new OnClickListener()
+    private OnClickListener btnListener3 = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
-            Toast.makeText(getBaseContext(), 
-                    "DIALOGFELD 'Beenden' anzeigen!", 
-                    Toast.LENGTH_LONG).show();	
-            System.exit(0);
+            //Toast.makeText(getBaseContext(), 
+            //        "DIALOGFELD 'Beenden' anzeigen!", 
+            //        Toast.LENGTH_LONG).show();	
+            //	System.exit(0);	// Beendet die App
+    		
+    		
+    		// Button 3 wird eigentlich zum beenden der APP benutzt.
+    		// Zu Demonstrationszwecken werden durch Button 3 (Beenden) die Dialogfelder angezeigt
+    		Intent intent2 = new Intent(ShoppingListActivity.this, GUI_DialogActivity.class);
+    		startActivity(intent2);
 		}
 
     };
+    
+   
 }
