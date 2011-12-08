@@ -2,21 +2,33 @@ package com.wbh.loewe.shoppinglist;
 
 //import de.GUI.dialog.GUI_DialogActivity;
 //import de.GUI.dialog.R;
-import android.app.Activity;
 import android.app.Dialog;
+import android.app.ListActivity;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
-import android.content.Intent;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
-public class ShoppingListActivity extends Activity {
+import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+
+public class ShoppingListActivity extends ListActivity {
+	
+	private Cursor cursor;
+	protected ShoppingListApplication shoppinglistapp;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        shoppinglistapp = (ShoppingListApplication)getApplication();
+        
+        fillData();
                 
         //---the button is wired to an event handler---
         Button btn1 = (Button)findViewById(R.id.button1);
@@ -27,10 +39,29 @@ public class ShoppingListActivity extends Activity {
         
         Button btn3 = (Button)findViewById(R.id.button3);
         btn3.setOnClickListener(btnListener3);
-        
-   
-
     }
+    
+    protected void fillData() {
+    	cursor = shoppinglistapp.getDBAdapter().fetchAllDataSets(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST);
+ 		startManagingCursor(cursor);
+
+ 	    String[] from = new String[] { ShoppingListDatabase.FIELD_NAME_ID, ShoppingListDatabase.FIELD_NAME_NAME };
+ 		int[] to = new int[] { R.id.labelid, R.id.labelname };
+
+ 		// Now create an array adapter and set it to display using our row
+ 		ListCursorAdapter datasets = new ListCursorAdapter(this, R.layout.list_row, cursor, from, to);
+ 		setListAdapter(datasets);
+ 		
+ 		ListView list = this.getListView();
+ 		LinearLayout linear_emptylist = (LinearLayout)findViewById(R.id.linear_emptylist);
+        if (cursor.getCount() > 0) {
+        	linear_emptylist.setVisibility(View.GONE);
+        	list.setVisibility(View.VISIBLE);
+        } else {
+        	linear_emptylist.setVisibility(View.VISIBLE);
+        	list.setVisibility(View.GONE);
+        }
+ 	}
  
    
     //---create an anonymous class to act as a button click listener---

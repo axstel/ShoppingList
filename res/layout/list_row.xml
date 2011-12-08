@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/labelid"
+        android:layout_width="30px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6px"
+        android:lines="1"
+        android:text="@+id/TextView01"
+        android:textSize="12px" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/labelname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6px"
+        android:lines="1"
+        android:text="@+id/TextView02"
+        android:textSize="12px" 
+        android:layout_toRightOf="@+id/labelid">
+    </TextView>
+    
+    <Button
+        android:id="@+id/btn_edititem"
+        android:layout_width="25px"
+        android:layout_height="25px"
+        android:layout_marginLeft="4px"
+        android:layout_marginRight="10px"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>
