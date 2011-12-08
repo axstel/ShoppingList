@@ -45,5 +45,7 @@
     <string name="txt_EK_zuruecksetzen">Wollen Sie alle Artikel wieder in den Status OFFEN zurücksetzen?</string>
     <string name="btn_zuruecksetzen_OK">Ja</string>
     <string name="btn_zuruecksetzen_Cancel">Nein</string>
+    <string name="btn_JA">Ja</string>
+    <string name="btn_Nein">Nein</string>
 
 </resources>

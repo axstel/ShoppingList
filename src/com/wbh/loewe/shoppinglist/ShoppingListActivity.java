@@ -32,17 +32,28 @@ public class ShoppingListActivity extends Activity {
 
     }
  
+   
     //---create an anonymous class to act as a button click listener---
+    // NEUE EINKAUFSLISTE
     private OnClickListener btnListener1 = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
-            Toast.makeText(getBaseContext(), 
-                    "DIALOGFELD 'Neue Einkaufliste' starten!", 
-                    Toast.LENGTH_LONG).show();	
+            // set up Dialog
+    		Dialog dialog = new Dialog(ShoppingListActivity.this);
+    		dialog.setContentView(R.layout.neue_ek_2);
+    		dialog.setTitle("Neue Einkaufsliste");
+    		dialog.setCancelable(true);
+    		
+    		// set up Text
+    		dialog.show();
+    		
+    		
 		}
 
     };
+
+    
     
     //---create an anonymous class to act as a button click listener---
     private OnClickListener btnListener2 = new OnClickListener()

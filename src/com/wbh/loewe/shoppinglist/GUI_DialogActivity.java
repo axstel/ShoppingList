@@ -80,7 +80,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.neue_ek);
+    		dialog.setContentView(R.layout.neue_ek_2);
     		dialog.setTitle("Neue Einkaufsliste");
     		dialog.setCancelable(true);
     		
@@ -99,7 +99,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.del_ek);
+    		dialog.setContentView(R.layout.del_ek_2);
     		dialog.setTitle("Einkaufsliste löschen");
     		dialog.setCancelable(true);
     		
@@ -117,7 +117,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.edit_kat);
+    		dialog.setContentView(R.layout.edit_kat_2);
     		dialog.setTitle("Kategorie bearbeiten");
     		dialog.setCancelable(true);
     		
@@ -135,7 +135,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.del_kat);
+    		dialog.setContentView(R.layout.del_kat_2);
     		dialog.setTitle("Kategorie löschen");
     		dialog.setCancelable(true);
     		
@@ -153,7 +153,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.new_kat);
+    		dialog.setContentView(R.layout.new_kat_2);
     		dialog.setTitle("Neue Kategorie");
     		dialog.setCancelable(true);
     		
@@ -172,7 +172,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.edit_art);
+    		dialog.setContentView(R.layout.edit_art_2);
     		dialog.setTitle("Artikel bearbeiten");
     		dialog.setCancelable(true);
     		
@@ -190,7 +190,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.del_art);
+    		dialog.setContentView(R.layout.del_art_2);
     		dialog.setTitle("Artikel löschen");
     		dialog.setCancelable(true);
     		
@@ -208,7 +208,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.new_art);
+    		dialog.setContentView(R.layout.new_art_2);
     		dialog.setTitle("Neuer Artikel");
     		dialog.setCancelable(true);
     		
@@ -226,7 +226,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.edit_name);
+    		dialog.setContentView(R.layout.edit_name_2);
     		dialog.setTitle("Name ändern");
     		dialog.setCancelable(true);
     		
@@ -244,7 +244,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.empty_list);
+    		dialog.setContentView(R.layout.empty_list_2);
     		dialog.setTitle("Einkaufsliste leeren");
     		dialog.setCancelable(true);
     		
@@ -262,7 +262,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.ek_zuruecksetzen);
+    		dialog.setContentView(R.layout.ek_zuruecksetzen_2);
     		dialog.setTitle("Einkaufsliste zurücksetzen");
     		dialog.setCancelable(true);
     		
