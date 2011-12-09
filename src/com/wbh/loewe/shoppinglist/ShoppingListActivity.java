@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
@@ -88,6 +89,11 @@ public class ShoppingListActivity extends ListActivity {
     		
     		// set up Text
     		lDialog.show();
+    		
+    		/*
+    		mShoppinglistapp.getDBAdapter().createShoppingList("Test");
+    		fillData();
+    		*/
 		}
 
     };
@@ -103,7 +109,16 @@ public class ShoppingListActivity extends ListActivity {
                     "DIALOGFELD 'Artikel verwalten' starten!", 
                     Toast.LENGTH_LONG).show();*/	
             Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	
-            startActivity(intent);																
+            startActivity(intent);
+    		/*
+    		int lIDColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
+    		for (int i = mCursor.getCount() - 1; i >= 0; i--) {
+    			if (mCursor.moveToPosition(i)) {
+    				mShoppinglistapp.getDBAdapter().deleteShoppingList(mCursor.getInt(lIDColIdx));
+    			}
+    		}
+    		fillData();
+    		*/
 		}
 
     };
@@ -140,6 +155,12 @@ public class ShoppingListActivity extends ListActivity {
     		// TODO
 		}
     };
+    
+    @Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		String item = (String) getListAdapter().getItem(position);
+		Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+	}
     
    
 }
