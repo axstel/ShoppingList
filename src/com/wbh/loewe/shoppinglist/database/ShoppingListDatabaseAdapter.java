@@ -73,5 +73,10 @@ public class ShoppingListDatabaseAdapter {
 		values.put(ShoppingListDatabase.FIELD_NAME_NAME, aName);
 		
 		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST, values, ShoppingListDatabase.FIELD_NAME_ID + "=" + aID, null) > 0;
+	} 
+	
+	/* delete shoppinglist and return if succeed or not */
+	public boolean  deleteShoppingList(long aID) {
+		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST, ShoppingListDatabase.FIELD_NAME_ID + "=" + aID, null) > 0;
 	} 	
 }
