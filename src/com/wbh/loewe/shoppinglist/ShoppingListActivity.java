@@ -17,8 +17,8 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 public class ShoppingListActivity extends ListActivity {
 	
-	private Cursor cursor;
-	protected ShoppingListApplication shoppinglistapp;
+	private Cursor mCursor;
+	protected ShoppingListApplication mShoppinglistapp;
 	
     /** Called when the activity is first created. */
     @Override
@@ -26,7 +26,7 @@ public class ShoppingListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        shoppinglistapp = (ShoppingListApplication)getApplication();
+        mShoppinglistapp = (ShoppingListApplication)getApplication();
         
         fillData();
                 
@@ -42,19 +42,19 @@ public class ShoppingListActivity extends ListActivity {
     }
     
     protected void fillData() {
-    	cursor = shoppinglistapp.getDBAdapter().fetchAllDataSets(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST);
- 		startManagingCursor(cursor);
+    	mCursor = mShoppinglistapp.getDBAdapter().fetchAllDataSets(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST);
+ 		startManagingCursor(mCursor);
 
  	    String[] from = new String[] { ShoppingListDatabase.FIELD_NAME_ID, ShoppingListDatabase.FIELD_NAME_NAME };
  		int[] to = new int[] { R.id.labelid, R.id.labelname };
 
  		// Now create an array adapter and set it to display using our row
- 		ListCursorAdapter datasets = new ListCursorAdapter(this, R.layout.list_row, cursor, from, to);
+ 		ListCursorAdapter datasets = new ListCursorAdapter(this, R.layout.list_row, mCursor, from, to);
  		setListAdapter(datasets);
  		
  		ListView list = this.getListView();
  		LinearLayout linear_emptylist = (LinearLayout)findViewById(R.id.linear_emptylist);
-        if (cursor.getCount() > 0) {
+        if (mCursor.getCount() > 0) {
         	linear_emptylist.setVisibility(View.GONE);
         	list.setVisibility(View.VISIBLE);
         } else {
@@ -71,15 +71,23 @@ public class ShoppingListActivity extends ListActivity {
     	public void onClick(View v)
         {                        
             // set up Dialog
-    		Dialog dialog = new Dialog(ShoppingListActivity.this);
-    		dialog.setContentView(R.layout.neue_ek_2);
-    		dialog.setTitle("Neue Einkaufsliste");
-    		dialog.setCancelable(true);
+    		Dialog lDialog = new Dialog(ShoppingListActivity.this);
+    		lDialog.setContentView(R.layout.neue_ek_2);
+    		lDialog.setTitle("Neue Einkaufsliste");
+    		lDialog.setCancelable(true);
+    		
+    		Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
+    		if (btnOK != null) {
+    			btnOK.setOnClickListener(btn_NewList_OK);
+    		}
+    		
+    		Button btnCancel = (Button)lDialog.findViewById(R.id.btnCancel);
+    		if (btnCancel != null) {
+    			btnCancel.setOnClickListener(btn_NewList_Cancel);
+    		}
     		
     		// set up Text
-    		dialog.show();
-    		
-    		
+    		lDialog.show();
 		}
 
     };
@@ -117,6 +125,20 @@ public class ShoppingListActivity extends ListActivity {
     		startActivity(intent2);
 		}
 
+    };
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_NewList_OK = new OnClickListener() {
+    	public void onClick(View v) {
+    		// TODO
+		}
+    };
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_NewList_Cancel = new OnClickListener() {
+    	public void onClick(View v) {
+    		// TODO
+		}
     };
     
    
