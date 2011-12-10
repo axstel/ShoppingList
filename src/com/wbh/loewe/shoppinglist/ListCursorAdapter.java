@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
@@ -17,14 +16,19 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 public class ListCursorAdapter extends SimpleCursorAdapter {
 	
-	private Context mContext;
+	public interface RowClickListener {
+        public void OnRowClick(ListItem aListItem);
+    }
+	
 	private Cursor mCursor;
 	private HashMap<Integer, Object> mItems = new HashMap<Integer, Object>();
+	private RowClickListener mRowClickListener;
+	
 
-	public ListCursorAdapter(Context aContext, int aLayout, Cursor aCursor, String[] aFrom, int aTo[]) {
+	public ListCursorAdapter(Context aContext, int aLayout, Cursor aCursor, String[] aFrom, int aTo[], RowClickListener aOnRowClick) {
 		super(aContext, aLayout, aCursor, aFrom, aTo);
-		this.mContext = aContext;
 		this.mCursor = aCursor;
+		this.mRowClickListener = aOnRowClick;
 	}
 
 	static class ViewHolder {
@@ -54,18 +58,36 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 			final ViewHolder lNewViewHolder = new ViewHolder();
 			lNewViewHolder.mID = (TextView) lView.findViewById(R.id.labelid);
 			lNewViewHolder.mText = (TextView) lView.findViewById(R.id.labelname);
+			if (lNewViewHolder.mText != null) {
+				lNewViewHolder.mText.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						ListItem lItem = (ListItem) lNewViewHolder.mText.getTag();
+					    lItem.setSelected(!lItem.getSelected());
+					    Log.w(ListCursorAdapter.class.getName(), "OnTextClick "+ lItem.getID() +" "+ lItem.getName());
+					    mRowClickListener.OnRowClick(lItem);
+					}
+				});
+				lNewViewHolder.mText.setTag(lListItem);
+			}
+			
 			lNewViewHolder.mEdit = (Button) lView.findViewById(R.id.btn_edititem);
-			lNewViewHolder.mEdit.setOnClickListener(new OnClickListener() {
-					    public void onClick(View v) {
-					    	ListItem lItem = (ListItem) lNewViewHolder.mEdit.getTag();
-					    	lItem.setSelected(!lItem.getSelected());
-					    	Log.w(ListCursorAdapter.class.getName(), "OnEditClick "+ lItem.getID() +" "+ lItem.getName());
-					    }
-					});
+			if (lNewViewHolder.mEdit != null) {
+				lNewViewHolder.mEdit.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						ListItem lItem = (ListItem) lNewViewHolder.mEdit.getTag();
+					    lItem.setSelected(!lItem.getSelected());
+					    Log.w(ListCursorAdapter.class.getName(), "OnEditClick "+ lItem.getID() +" "+ lItem.getName());
+					    mRowClickListener.OnRowClick(lItem);
+					}
+					    	
+				});
+				lNewViewHolder.mEdit.setTag(lListItem);
+			}
 			lView.setTag(lNewViewHolder);
-			lNewViewHolder.mEdit.setTag(lListItem);
 		} else {
-			((ViewHolder)lView.getTag()).mEdit.setTag(lListItem);
+			if (((ViewHolder)lView.getTag()).mEdit != null) {
+				((ViewHolder)lView.getTag()).mEdit.setTag(lListItem);
+			};
 		}
 
 		ViewHolder lHolder = (ViewHolder)lView.getTag();
@@ -73,10 +95,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 		lHolder.mText.setText(lListItem.getName());
 		
 		return lView;
-	}
-	
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		Log.w(ListCursorAdapter.class.getName(), "onListItemClick");
 	}
 
 }

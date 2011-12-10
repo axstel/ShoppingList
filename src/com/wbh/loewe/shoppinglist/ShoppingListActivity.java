@@ -7,12 +7,12 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
@@ -50,7 +50,7 @@ public class ShoppingListActivity extends ListActivity {
  		int[] to = new int[] { R.id.labelid, R.id.labelname };
 
  		// Now create an array adapter and set it to display using our row
- 		ListCursorAdapter datasets = new ListCursorAdapter(this, R.layout.list_row, mCursor, from, to);
+ 		ListCursorAdapter datasets = new ListCursorAdapter(this, R.layout.list_row, mCursor, from, to, new OnRowClickListener());
  		setListAdapter(datasets);
  		
  		ListView list = this.getListView();
@@ -90,10 +90,10 @@ public class ShoppingListActivity extends ListActivity {
     		// set up Text
     		lDialog.show();
     		
-    		/*
+    		
     		mShoppinglistapp.getDBAdapter().createShoppingList("Test");
     		fillData();
-    		*/
+    		
 		}
 
     };
@@ -156,11 +156,11 @@ public class ShoppingListActivity extends ListActivity {
 		}
     };
     
-    @Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		String item = (String) getListAdapter().getItem(position);
-		Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
-	}
     
-   
+    // Event wenn auf den Name oder den Button geklickt wird
+    private class OnRowClickListener implements ListCursorAdapter.RowClickListener {
+        public void OnRowClick(ListItem aListItem) {
+        	Log.w(OnRowClickListener.class.getName(), "OnRowClick "+ aListItem.getID() +" "+ aListItem.getName());
+        }
+    }
 }
