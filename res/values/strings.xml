@@ -47,5 +47,13 @@
     <string name="btn_zuruecksetzen_Cancel">Nein</string>
     <string name="btn_JA">Ja</string>
     <string name="btn_Nein">Nein</string>
+    <string name="addArt">Artikel hinzufügen</string>
+    <string name="btn_save">Übernehmen</string>
+    <string name="txt_ek_erledigt">Alle Artikel der Einkaufsliste wurden eingekauft. Wollen Sie die Einkaufsliste wegwerfen? Die Liste wird dann unwiderruflich gelöscht.</string>
+    <string name="btn_katAnzeigen">Kategorien anzeigen</string>
+    <string name="btn_offeneArt">Offene Artikel</string>
+    <string name="btn_zuruecksetzen">Zurücksetzen</string>
+    <string name="btn_alleArt">Alle Artikel</string>
+    <string name="btn_KatVerbergen">Kategorien verbergen</string>
 
 </resources>

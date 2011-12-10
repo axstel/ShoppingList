@@ -91,8 +91,10 @@ public class ShoppingListActivity extends ListActivity {
     		lDialog.show();
     		
     		
+    		/*
     		mShoppinglistapp.getDBAdapter().createShoppingList("Test");
     		fillData();
+    		*/
     		
 		}
 
@@ -105,9 +107,6 @@ public class ShoppingListActivity extends ListActivity {
     {
     	public void onClick(View v)
         {                        
-            /*Toast.makeText(getBaseContext(), 
-                    "DIALOGFELD 'Artikel verwalten' starten!", 
-                    Toast.LENGTH_LONG).show();*/	
             Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	
             startActivity(intent);
     		/*
@@ -155,8 +154,7 @@ public class ShoppingListActivity extends ListActivity {
     		// TODO
 		}
     };
-    
-    
+   
     // Event wenn auf den Name oder den Button geklickt wird
     private class OnRowClickListener implements ListCursorAdapter.RowClickListener {
         public void OnRowClick(ListItem aListItem) {

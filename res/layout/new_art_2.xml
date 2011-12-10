@@ -19,10 +19,10 @@
     </TableRow> 
 
     <TableRow android:gravity="center" >
-
+
         <TextView
             android:id="@+id/text_Vorlage"
-            android:text="Vorlage:" />
+            android:text="@string/txt_editArt_Einheit" />
 
         <Spinner
             android:id="@+id/spinner_newArt_Einheit"
