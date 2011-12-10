@@ -10,9 +10,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical" >
-
+
         <TextView
-            android:id="@+id/txt_EK_erledigt"
+            android:id="@+id/txt_EK_zuruecksetzen"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="@string/txt_EK_zuruecksetzen"
@@ -29,7 +29,7 @@
       android:layout_below="@+id/linearLayout1" >
 
       <Button
-          android:id="@+id/btn_erledigt_OK"
+          android:id="@+id/btn_zuruecksetzen_OK"
           android:layout_width="150dp"
           android:layout_height="wrap_content"
           android:layout_alignLeft="@+id/txtComments"
@@ -37,7 +37,7 @@
           android:text="@string/btn_JA" />
 
       <Button
-          android:id="@+id/btn_erledigt_Cancel"
+          android:id="@+id/btn_zuruecksetzen_Cancel"
           android:layout_width="150dp"
           android:layout_height="wrap_content"
           android:layout_alignParentRight="true"

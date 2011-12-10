@@ -60,9 +60,6 @@ public class ShoppingListActivity extends Activity {
     {
     	public void onClick(View v)
         {                        
-            /*Toast.makeText(getBaseContext(), 
-                    "DIALOGFELD 'Artikel verwalten' starten!", 
-                    Toast.LENGTH_LONG).show();*/	
             Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	
             startActivity(intent);																
 		}

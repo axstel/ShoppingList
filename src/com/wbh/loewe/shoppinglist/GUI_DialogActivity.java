@@ -4,6 +4,7 @@ package com.wbh.loewe.shoppinglist;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -68,8 +69,7 @@ public class GUI_DialogActivity extends Activity {
         Button btn12 = (Button)findViewById(R.id.btn_EK_erledigt);
         btn12.setOnClickListener(btnKlickListener12);*/
 
-
-
+       
     }
     
     //---create an anonymous class to act as a button click listener---
@@ -178,9 +178,12 @@ public class GUI_DialogActivity extends Activity {
     		
     		// set up Text
     		dialog.show();
+    		   		
 		}
+    
 
     };
+    
 
 	//---create an anonymous class to act as a button click listener---
     // ARTIKEL LÖSCHEN
@@ -281,7 +284,7 @@ public class GUI_DialogActivity extends Activity {
         {                        
             // set up Dialog
     		Dialog dialog = new Dialog(GUI_DialogActivity.this);
-    		dialog.setContentView(R.layout.ek_erledigt);
+    		dialog.setContentView(R.layout.ek_erledigt_2);
     		dialog.setTitle("Erledigte Einkaufsliste");
     		dialog.setCancelable(true);
     		
