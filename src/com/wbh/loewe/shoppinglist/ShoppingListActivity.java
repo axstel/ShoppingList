@@ -157,8 +157,19 @@ public class ShoppingListActivity extends ListActivity {
    
     // Event wenn auf den Name oder den Button geklickt wird
     private class OnRowClickListener implements ListCursorAdapter.RowClickListener {
-        public void OnRowClick(ListItem aListItem) {
-        	Log.w(OnRowClickListener.class.getName(), "OnRowClick "+ aListItem.getID() +" "+ aListItem.getName());
+        public void OnRowClick(ListItem aListItem, int aAction) {
+        	Log.w(OnRowClickListener.class.getName(), "OnRowClick "+ aListItem.getID() +" "+ aListItem.getName() +" "+ aAction);
+        	switch (aAction) {
+        		case 0: break;
+        		case 1: showEditShoppingList(aListItem.getID()); break;
+        	}
+        	
         }
+    }
+    
+    private void showEditShoppingList(int aID) {
+    	Intent lEditActivity = new Intent(ShoppingListActivity.this, Edit_ShoppingListActivity.class);
+    	lEditActivity.putExtra("ID", aID);
+		startActivity(lEditActivity);
     }
 }
