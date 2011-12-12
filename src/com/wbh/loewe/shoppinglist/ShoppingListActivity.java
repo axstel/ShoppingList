@@ -11,12 +11,18 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 public class ShoppingListActivity extends ListActivity {
+	
+	static final int NEWLIST_DIALOG_ID = 0;
+	protected EditText edt_newlist_name;
+	protected Spinner edt_newlist_template;
 	
 	private Cursor mCursor;
 	protected ShoppingListApplication mShoppinglistapp;
@@ -32,14 +38,16 @@ public class ShoppingListActivity extends ListActivity {
         fillData();
                 
         //---the button is wired to an event handler---
-        Button btn1 = (Button)findViewById(R.id.button1);
-        btn1.setOnClickListener(btnListener1);
+        Button btn;
         
-        Button btn2 = (Button)findViewById(R.id.button2);
-        btn2.setOnClickListener(btnListener2);
+        btn = (Button)findViewById(R.id.btn_new_list);
+        btn.setOnClickListener(btnListener1);
         
-        Button btn3 = (Button)findViewById(R.id.button3);
-        btn3.setOnClickListener(btnListener3);
+        btn = (Button)findViewById(R.id.btn_article_admin);
+        btn.setOnClickListener(btnListener2);
+        
+        btn = (Button)findViewById(R.id.btn_closeapp);
+        btn.setOnClickListener(btnListener3);
     }
     
     protected void fillData() {
@@ -64,44 +72,44 @@ public class ShoppingListActivity extends ListActivity {
         }
  	}
  
+    
+    @Override
+    protected Dialog onCreateDialog(int id) {
+    	Dialog lDialog = null;
+        switch(id) {
+        	case NEWLIST_DIALOG_ID:
+        		// set up Dialog
+        		lDialog = new Dialog(ShoppingListActivity.this);
+        		lDialog.setContentView(R.layout.neue_ek_2);
+        		lDialog.setTitle("Neue Einkaufsliste");
+        		lDialog.setCancelable(true);
+        		
+        		edt_newlist_name = (EditText)lDialog.findViewById(R.id.txtfield_Name);
+        		edt_newlist_template = (Spinner)lDialog.findViewById(R.id.spinnerVorlage);
+    		
+        		Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
+        		if (btnOK != null) {
+        			btnOK.setOnClickListener(btn_NewList_OK);
+        		}
+    		
+        		Button btnCancel = (Button)lDialog.findViewById(R.id.btnCancel);
+        		if (btnCancel != null) {
+        			btnCancel.setOnClickListener(btn_NewList_Cancel);
+        		}
+        		break;
+        }
+        return lDialog;
+    }
    
     //---create an anonymous class to act as a button click listener---
     // NEUE EINKAUFSLISTE
     private OnClickListener btnListener1 = new OnClickListener()
     {
-    	public void onClick(View v)
-        {                        
-            // set up Dialog
-    		Dialog lDialog = new Dialog(ShoppingListActivity.this);
-    		lDialog.setContentView(R.layout.neue_ek_2);
-    		lDialog.setTitle("Neue Einkaufsliste");
-    		lDialog.setCancelable(true);
-    		
-    		Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
-    		if (btnOK != null) {
-    			btnOK.setOnClickListener(btn_NewList_OK);
-    		}
-    		
-    		Button btnCancel = (Button)lDialog.findViewById(R.id.btnCancel);
-    		if (btnCancel != null) {
-    			btnCancel.setOnClickListener(btn_NewList_Cancel);
-    		}
-    		
-    		// set up Text
-    		lDialog.show();
-    		
-    		
-    		/**/
-    		mShoppinglistapp.getDBAdapter().createShoppingList("Test");
-    		fillData();
-    		/**/
-    		
-		}
-
+    	public void onClick(View v) {
+    		showDialog(NEWLIST_DIALOG_ID);
+    	}
     };
 
-    
-    
     //---create an anonymous class to act as a button click listener---
     private OnClickListener btnListener2 = new OnClickListener()
     {
@@ -109,7 +117,7 @@ public class ShoppingListActivity extends ListActivity {
         {                        
             Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	
             startActivity(intent);
-    		/*
+    		/**/
     		int lIDColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
     		for (int i = mCursor.getCount() - 1; i >= 0; i--) {
     			if (mCursor.moveToPosition(i)) {
@@ -117,7 +125,7 @@ public class ShoppingListActivity extends ListActivity {
     			}
     		}
     		fillData();
-    		*/
+    		/**/
 		}
 
     };
@@ -144,14 +152,24 @@ public class ShoppingListActivity extends ListActivity {
     //--- create an anonymous class to act as a button click listener ---
     private OnClickListener btn_NewList_OK = new OnClickListener() {
     	public void onClick(View v) {
-    		// TODO
+    		
+    		if (edt_newlist_name != null) {
+    			String lName = String.valueOf(edt_newlist_name.getText());
+    			long lNewRowID = mShoppinglistapp.getDBAdapter().createShoppingList(lName);
+    			fillData();
+    			if (mCursor.moveToPosition((int) lNewRowID - 1)) {
+    				int lColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
+    				showEditShoppingList(mCursor.getInt(lColIdx));
+    			}
+    		}
+    		dismissDialog(NEWLIST_DIALOG_ID);
 		}
     };
     
     //--- create an anonymous class to act as a button click listener ---
     private OnClickListener btn_NewList_Cancel = new OnClickListener() {
     	public void onClick(View v) {
-    		// TODO
+    		dismissDialog(NEWLIST_DIALOG_ID);
 		}
     };
    
