@@ -16,7 +16,8 @@ import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
-public class ShoppingListActivity extends ListActivity {
+public class ShoppingListActivity extends ListActivity 
+{
 	
 	private Cursor mCursor;
 	protected ShoppingListApplication mShoppinglistapp;
@@ -29,7 +30,7 @@ public class ShoppingListActivity extends ListActivity {
         
         mShoppinglistapp = (ShoppingListApplication)getApplication();
         
-        fillData();
+       // fillData();
                 
         //---the button is wired to an event handler---
         Button btn1 = (Button)findViewById(R.id.button1);
@@ -40,9 +41,11 @@ public class ShoppingListActivity extends ListActivity {
         
         Button btn3 = (Button)findViewById(R.id.button3);
         btn3.setOnClickListener(btnListener3);
+               
+       
     }
     
-    protected void fillData() {
+   /* protected void fillData() {
     	mCursor = mShoppinglistapp.getDBAdapter().fetchAllDataSets(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST);
  		startManagingCursor(mCursor);
 
@@ -62,22 +65,47 @@ public class ShoppingListActivity extends ListActivity {
         	linear_emptylist.setVisibility(View.VISIBLE);
         	list.setVisibility(View.GONE);
         }
- 	}
+ 	}*/
  
+
    
     //---create an anonymous class to act as a button click listener---
     // NEUE EINKAUFSLISTE
     private OnClickListener btnListener1 = new OnClickListener()
-    {
+    {  	
+    	private Button closeButton;
+    	
     	public void onClick(View v)
-        {                        
+        {   
+    		   		   	   		
             // set up Dialog
     		Dialog lDialog = new Dialog(ShoppingListActivity.this);
     		lDialog.setContentView(R.layout.neue_ek_2);
     		lDialog.setTitle("Neue Einkaufsliste");
     		lDialog.setCancelable(true);
+    		lDialog.show();
     		
-    		Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
+    		// CLOSE-Button Handling
+    		closeButton = (Button)findViewById(R.id.btnCancel);
+    		
+    		
+    		OnClickListener ClickCancel = new OnClickListener()
+    		{
+    			public void onClick(View w)
+    			{
+    				finish();
+    			}
+    		};
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		/*Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
     		if (btnOK != null) {
     			btnOK.setOnClickListener(btn_NewList_OK);
     		}
@@ -88,12 +116,12 @@ public class ShoppingListActivity extends ListActivity {
     		}
     		
     		// set up Text
-    		lDialog.show();
+    		lDialog.show();*/
     		
     		/*
     		mShoppinglistapp.getDBAdapter().createShoppingList("Test");
-    		fillData();
-    		*/
+    		fillData();*/
+        	
 		}
 
     };
@@ -140,14 +168,14 @@ public class ShoppingListActivity extends ListActivity {
     };
     
     //--- create an anonymous class to act as a button click listener ---
-    private OnClickListener btn_NewList_OK = new OnClickListener() {
+    private OnClickListener btnOK = new OnClickListener() {
     	public void onClick(View v) {
     		// TODO
 		}
     };
     
     //--- create an anonymous class to act as a button click listener ---
-    private OnClickListener btn_NewList_Cancel = new OnClickListener() {
+    private OnClickListener btnCancel = new OnClickListener() {
     	public void onClick(View v) {
     		// TODO
 		}
