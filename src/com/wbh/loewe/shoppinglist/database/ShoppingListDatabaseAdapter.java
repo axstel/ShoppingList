@@ -78,6 +78,7 @@ public class ShoppingListDatabaseAdapter {
 	
 	/* delete shoppinglist and return if succeed or not */
 	public boolean  deleteShoppingList(long aID) {
+		db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aID, null);
 		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST, ShoppingListDatabase.FIELD_NAME_ID + "=" + aID, null) > 0;
 	}
 	

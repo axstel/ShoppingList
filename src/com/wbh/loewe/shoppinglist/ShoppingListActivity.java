@@ -41,13 +41,13 @@ public class ShoppingListActivity extends ListActivity {
         Button btn;
         
         btn = (Button)findViewById(R.id.btn_new_list);
-        btn.setOnClickListener(btnListener1);
+        btn.setOnClickListener(btnNewListListener);
         
         btn = (Button)findViewById(R.id.btn_article_admin);
-        btn.setOnClickListener(btnListener2);
+        btn.setOnClickListener(btnArticleAdminListener);
         
         btn = (Button)findViewById(R.id.btn_closeapp);
-        btn.setOnClickListener(btnListener3);
+        btn.setOnClickListener(btnCloseAppListener);
     }
     
     protected void fillData() {
@@ -103,7 +103,7 @@ public class ShoppingListActivity extends ListActivity {
    
     //---create an anonymous class to act as a button click listener---
     // NEUE EINKAUFSLISTE
-    private OnClickListener btnListener1 = new OnClickListener()
+    private OnClickListener btnNewListListener = new OnClickListener()
     {
     	public void onClick(View v) {
     		showDialog(NEWLIST_DIALOG_ID);
@@ -111,27 +111,18 @@ public class ShoppingListActivity extends ListActivity {
     };
 
     //---create an anonymous class to act as a button click listener---
-    private OnClickListener btnListener2 = new OnClickListener()
+    private OnClickListener btnArticleAdminListener = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
             Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	
             startActivity(intent);
-    		/**/
-    		int lIDColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
-    		for (int i = mCursor.getCount() - 1; i >= 0; i--) {
-    			if (mCursor.moveToPosition(i)) {
-    				mShoppinglistapp.getDBAdapter().deleteShoppingList(mCursor.getInt(lIDColIdx));
-    			}
-    		}
-    		fillData();
-    		/**/
 		}
 
     };
     
     //---create an anonymous class to act as a button click listener---
-    private OnClickListener btnListener3 = new OnClickListener()
+    private OnClickListener btnCloseAppListener = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
@@ -155,11 +146,12 @@ public class ShoppingListActivity extends ListActivity {
     		
     		if (edt_newlist_name != null) {
     			String lName = String.valueOf(edt_newlist_name.getText());
-    			long lNewRowID = mShoppinglistapp.getDBAdapter().createShoppingList(lName);
-    			fillData();
-    			if (mCursor.moveToPosition((int) lNewRowID - 1)) {
-    				int lColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
-    				showEditShoppingList(mCursor.getInt(lColIdx));
+    			if (mShoppinglistapp.getDBAdapter().createShoppingList(lName) > -1) {
+    				fillData();
+    				if (mCursor.moveToPosition(mCursor.getCount() - 1)) {
+    					int lColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
+    					showEditShoppingList(mCursor.getInt(lColIdx));
+    				}
     			}
     		}
     		dismissDialog(NEWLIST_DIALOG_ID);
@@ -189,5 +181,15 @@ public class ShoppingListActivity extends ListActivity {
     	Intent lEditActivity = new Intent(ShoppingListActivity.this, Edit_ShoppingListActivity.class);
     	lEditActivity.putExtra("ID", aID);
 		startActivity(lEditActivity);
+    }
+    
+    private void deleteAllLists() {
+		int lIDColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
+		for (int i = mCursor.getCount() - 1; i >= 0; i--) {
+			if (mCursor.moveToPosition(i)) {
+				mShoppinglistapp.getDBAdapter().deleteShoppingList(mCursor.getInt(lIDColIdx));
+			}
+		}
+		fillData();
     }
 }
