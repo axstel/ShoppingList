@@ -7,12 +7,12 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
@@ -28,9 +28,9 @@ public class ShoppingListActivity extends ListActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        mShoppinglistapp = (ShoppingListApplication)getApplication();
+        //mShoppinglistapp = (ShoppingListApplication)getApplication();
         
-       // fillData();
+        //fillData();
                 
         //---the button is wired to an event handler---
         Button btn1 = (Button)findViewById(R.id.button1);
@@ -41,19 +41,19 @@ public class ShoppingListActivity extends ListActivity
         
         Button btn3 = (Button)findViewById(R.id.button3);
         btn3.setOnClickListener(btnListener3);
-               
+              
        
     }
     
-   /* protected void fillData() {
+    /*protected void fillData() {
     	mCursor = mShoppinglistapp.getDBAdapter().fetchAllDataSets(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST);
  		startManagingCursor(mCursor);
 
- 	    String[] from = new String[] { ShoppingListDatabase.FIELD_NAME_ID, ShoppingListDatabase.FIELD_NAME_NAME };
- 		int[] to = new int[] { R.id.labelid, R.id.labelname };
+ 	    String[] from = new String[] { ShoppingListDatabase.FIELD_NAME_NAME };
+ 		int[] to = new int[] { R.id.labelname };
 
  		// Now create an array adapter and set it to display using our row
- 		ListCursorAdapter datasets = new ListCursorAdapter(this, R.layout.list_row, mCursor, from, to);
+ 		ListCursorAdapter datasets = new ListCursorAdapter(this, R.layout.list_row, mCursor, from, to, new OnRowClickListener());
  		setListAdapter(datasets);
  		
  		ListView list = this.getListView();
@@ -72,12 +72,9 @@ public class ShoppingListActivity extends ListActivity
     //---create an anonymous class to act as a button click listener---
     // NEUE EINKAUFSLISTE
     private OnClickListener btnListener1 = new OnClickListener()
-    {  	
-    	private Button closeButton;
-    	
+    {      	
     	public void onClick(View v)
         {   
-    		   		   	   		
             // set up Dialog
     		Dialog lDialog = new Dialog(ShoppingListActivity.this);
     		lDialog.setContentView(R.layout.neue_ek_2);
@@ -86,24 +83,11 @@ public class ShoppingListActivity extends ListActivity
     		lDialog.show();
     		
     		// CLOSE-Button Handling
-    		closeButton = (Button)findViewById(R.id.btnCancel);
-    		
-    		
-    		OnClickListener ClickCancel = new OnClickListener()
-    		{
-    			public void onClick(View w)
-    			{
-    				finish();
-    			}
-    		};
     		
     		
     		
     		
-    		
-    		
-    		
-    		
+    		    		
     		
     		/*Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
     		if (btnOK != null) {
@@ -118,10 +102,19 @@ public class ShoppingListActivity extends ListActivity
     		// set up Text
     		lDialog.show();*/
     		
-    		/*
-    		mShoppinglistapp.getDBAdapter().createShoppingList("Test");
-    		fillData();*/
+    		
+    		/**/
+    		
+    		/**/
+    		//mShoppinglistapp.getDBAdapter().createShoppingList("Test");
+
+    		//fillData();
         	
+
+    		//fillData();
+    		/**/
+    		
+
 		}
 
     };
@@ -180,12 +173,22 @@ public class ShoppingListActivity extends ListActivity
     		// TODO
 		}
     };
-    
-    @Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		String item = (String) getListAdapter().getItem(position);
-		Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
-	}
-    
    
+    // Event wenn auf den Name oder den Button geklickt wird
+    private class OnRowClickListener implements ListCursorAdapter.RowClickListener {
+        public void OnRowClick(ListItem aListItem, int aAction) {
+        	Log.w(OnRowClickListener.class.getName(), "OnRowClick "+ aListItem.getID() +" "+ aListItem.getName() +" "+ aAction);
+        	switch (aAction) {
+        		case 0: break;
+        		case 1: showEditShoppingList(aListItem.getID()); break;
+        	}
+        	
+        }
+    }
+    
+    private void showEditShoppingList(int aID) {
+    	Intent lEditActivity = new Intent(ShoppingListActivity.this, Edit_ShoppingListActivity.class);
+    	lEditActivity.putExtra("ID", aID);
+		startActivity(lEditActivity);
+    }
 }

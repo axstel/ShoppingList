@@ -20,11 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".GUI_ExpandActivity"></activity>
-
-               
         <activity android:name=".GUI_DialogActivity"></activity>
-        <activity android:name=".ListCursorAdapter"></activity>
-        <activity android:name=".ListItem"></activity>
+ 
+        <activity android:name="Edit_ShoppingListActivity"></activity>
 
     </application>
 

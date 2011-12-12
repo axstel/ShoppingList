@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class ShoppingListDatabaseAdapter {
 
@@ -78,5 +79,25 @@ public class ShoppingListDatabaseAdapter {
 	/* delete shoppinglist and return if succeed or not */
 	public boolean  deleteShoppingList(long aID) {
 		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST, ShoppingListDatabase.FIELD_NAME_ID + "=" + aID, null) > 0;
-	} 	
+	}
+	
+	/* Return a Cursor over the list of all categories of an shoppinglist */
+	public Cursor fetchAllCategoriesOfList(int aListID) {
+		String lQuery = " SELECT c.* FROM "+ ShoppingListDatabase.TABLE_NAME_CATEGORY +" c "+
+						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a ON c."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +
+						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
+						" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID;
+		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
+		return db.rawQuery(lQuery, new String [] {});
+	}
+	
+	/* Return a Cursor over the list of all articles of an category in a shoppinglist */
+	public Cursor fetchAllArticlesOfCategory(int aListID, int aCategoryID) {
+		String lQuery = " SELECT a.* FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
+						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
+						" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID +
+						" AND a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +" = "+ aCategoryID;
+		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
+		return db.rawQuery(lQuery, new String [] {});
+	}
 }

@@ -55,5 +55,6 @@
     <string name="btn_zuruecksetzen">Zurücksetzen</string>
     <string name="btn_alleArt">Alle Artikel</string>
     <string name="btn_KatVerbergen">Kategorien verbergen</string>
+    <color name="button_background_color">#FFFFFF</color>
 
 </resources>
