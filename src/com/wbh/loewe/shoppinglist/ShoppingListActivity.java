@@ -46,8 +46,8 @@ public class ShoppingListActivity extends ListActivity {
     	mCursor = mShoppinglistapp.getDBAdapter().fetchAllDataSets(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST);
  		startManagingCursor(mCursor);
 
- 	    String[] from = new String[] { ShoppingListDatabase.FIELD_NAME_ID, ShoppingListDatabase.FIELD_NAME_NAME };
- 		int[] to = new int[] { R.id.labelid, R.id.labelname };
+ 	    String[] from = new String[] { ShoppingListDatabase.FIELD_NAME_NAME };
+ 		int[] to = new int[] { R.id.labelname };
 
  		// Now create an array adapter and set it to display using our row
  		ListCursorAdapter datasets = new ListCursorAdapter(this, R.layout.list_row, mCursor, from, to, new OnRowClickListener());
@@ -91,10 +91,10 @@ public class ShoppingListActivity extends ListActivity {
     		lDialog.show();
     		
     		
-    		/*
+    		/**/
     		mShoppinglistapp.getDBAdapter().createShoppingList("Test");
     		fillData();
-    		*/
+    		/**/
     		
 		}
 

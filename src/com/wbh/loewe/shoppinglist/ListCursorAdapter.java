@@ -31,7 +31,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 	}
 
 	static class ViewHolder {
-		protected TextView mID;
 		protected TextView mText;
 		protected Button mEdit;
 	}
@@ -55,7 +54,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 		final ViewHolder lViewHolder = (ViewHolder)lView.getTag();
 		if (lViewHolder == null) {
 			final ViewHolder lNewViewHolder = new ViewHolder();
-			lNewViewHolder.mID = (TextView) lView.findViewById(R.id.labelid);
 			lNewViewHolder.mText = (TextView) lView.findViewById(R.id.labelname);
 			if (lNewViewHolder.mText != null) {
 				lNewViewHolder.mText.setOnClickListener(new OnClickListener() {
@@ -90,7 +88,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 		}
 
 		ViewHolder lHolder = (ViewHolder)lView.getTag();
-		lHolder.mID.setText(Integer.toString(lListItem.getID()));
 		lHolder.mText.setText(lListItem.getName());
 		
 		return lView;
