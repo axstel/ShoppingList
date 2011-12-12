@@ -1,13 +1,12 @@
 package com.wbh.loewe.shoppinglist;
 
-import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
-
 import android.app.ExpandableListActivity;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
 import android.widget.SimpleCursorTreeAdapter;
+
+import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 
 /**
@@ -26,6 +25,8 @@ public class Edit_ShoppingListActivity extends ExpandableListActivity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        setContentView(R.layout.gui_edit_ek);
         
         mShoppinglistapp = (ShoppingListApplication)getApplication();
         mListView = getExpandableListView();

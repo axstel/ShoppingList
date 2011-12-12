@@ -5,6 +5,10 @@
     android:gravity="bottom|center|center_horizontal|center_vertical"
     android:orientation="vertical" >
 
+    <ExpandableListView android:id="@+id/android:list"
+               android:layout_width="fill_parent" 
+               android:layout_height="fill_parent"/>
+    
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
