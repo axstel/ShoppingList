@@ -18,6 +18,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
         Bundle lExtras = getIntent().getExtras();
 		if (lExtras != null) {
 			mListID = lExtras.getInt("ID");
+			fillData();
 		}
 	}
 	

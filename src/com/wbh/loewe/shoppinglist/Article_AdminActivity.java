@@ -1,6 +1,7 @@
 package com.wbh.loewe.shoppinglist;
 
 import android.database.Cursor;
+import android.os.Bundle;
 
 
 /**
@@ -8,6 +9,12 @@ import android.database.Cursor;
  */
 public class Article_AdminActivity extends ExpandableArticleListActivity 
 {
+	@Override
+    public void onCreate(Bundle savedInstanceState, int aLayout) {
+        super.onCreate(savedInstanceState, aLayout);
+		fillData();
+	}
+	
 	protected Cursor getGroupCursor() {
     	return mShoppinglistapp.getDBAdapter().fetchAllCategories();
     }
