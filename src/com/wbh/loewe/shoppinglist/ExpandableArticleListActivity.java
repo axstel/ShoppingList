@@ -28,10 +28,16 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
 	protected int[] mChildTo;
 	
 	
-    public void onCreate(Bundle savedInstanceState, int aLayout) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        setContentView(aLayout);
+        int lLayout = 0;
+        Bundle lExtras = getIntent().getExtras();
+		if (lExtras != null) {
+			lLayout = lExtras.getInt("LAYOUT");
+		}
+        
+        setContentView(lLayout);
         
         mShoppinglistapp = (ShoppingListApplication)getApplication();
         mListView = getExpandableListView();

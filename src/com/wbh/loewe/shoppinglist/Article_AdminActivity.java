@@ -1,5 +1,7 @@
 package com.wbh.loewe.shoppinglist;
 
+import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -10,8 +12,16 @@ import android.os.Bundle;
 public class Article_AdminActivity extends ExpandableArticleListActivity 
 {
 	@Override
-    public void onCreate(Bundle savedInstanceState, int aLayout) {
-        super.onCreate(savedInstanceState, aLayout);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        mGroupItemLayout = android.R.layout.simple_expandable_list_item_1;
+    	mChildItemLayout = android.R.layout.simple_expandable_list_item_2;
+    	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
+    	mGroupTo = new int[] {android.R.id.text1}; 
+    	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
+    	mChildTo = new int[] {android.R.id.text1};
+        
 		fillData();
 	}
 	

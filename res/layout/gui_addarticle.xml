@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
     <ExpandableListView
         android:id="@+id/android:list"
@@ -20,19 +20,25 @@
         android:layout_alignParentLeft="true" >
 
         <Button
-            android:id="@+id/btn_GUIartDB_newArt"
-            android:layout_width="160dp"
+            android:id="@+id/btn_addArt"
+            android:layout_width="106dp"
             android:layout_height="fill_parent"
             android:layout_alignParentBottom="true"
             android:text="@string/btn_newArt" />
 
         <Button
-            android:id="@+id/btn_GUIartDB_newKat"
-            android:layout_width="160dp"
+            android:id="@+id/btn_newKat"
+            android:layout_width="106dp"
             android:layout_height="fill_parent"
-            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
             android:text="@string/btn_newKategorie" />
 
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="106dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:text="@string/btn_save" />
     </LinearLayout>
 
 </RelativeLayout>

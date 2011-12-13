@@ -142,9 +142,9 @@ public class ShoppingListActivity extends ListActivity
     private OnClickListener btnListener2 = new OnClickListener()
     {
     	public void onClick(View v)
-        {                        
-            Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	
-            startActivity(intent);
+<<<<<<< HEAD
+        {        
+    		showArticleAdminList();
     		/*
     		int lIDColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
     		for (int i = mCursor.getCount() - 1; i >= 0; i--) {
@@ -154,6 +154,10 @@ public class ShoppingListActivity extends ListActivity
     		}
     		fillData();
     		*/
+=======
+        {        
+    		showArticleAdminList();
+>>>>>>> branch 'master' of https://github.com/wbh-loewe/ShoppingList.git
 		}
 
     };
@@ -206,6 +210,13 @@ public class ShoppingListActivity extends ListActivity
     private void showEditShoppingList(int aID) {
     	Intent lEditActivity = new Intent(ShoppingListActivity.this, Edit_ShoppingListActivity.class);
     	lEditActivity.putExtra("ID", aID);
+    	lEditActivity.putExtra("LAYOUT", R.layout.gui_edit_ek);
+		startActivity(lEditActivity);
+    }
+    
+    private void showArticleAdminList() {
+    	Intent lEditActivity = new Intent(ShoppingListActivity.this, Article_AdminActivity.class);
+    	lEditActivity.putExtra("LAYOUT", R.layout.gui_article_db);
 		startActivity(lEditActivity);
     }
 }
