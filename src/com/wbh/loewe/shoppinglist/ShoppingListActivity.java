@@ -34,13 +34,13 @@ public class ShoppingListActivity extends ListActivity
         //fillData();
                 
         //---the button is wired to an event handler---
-        Button btn1 = (Button)findViewById(R.id.button1);
+        Button btn1 = (Button)findViewById(R.id.btn_new_list);
         btn1.setOnClickListener(btnListener1);
         
-        Button btn2 = (Button)findViewById(R.id.button2);
+        Button btn2 = (Button)findViewById(R.id.btn_article_admin);
         btn2.setOnClickListener(btnListener2);
         
-        Button btn3 = (Button)findViewById(R.id.button3);
+        Button btn3 = (Button)findViewById(R.id.btn_closeapp);
         btn3.setOnClickListener(btnListener3);
     
         Button btnTest = (Button)findViewById(R.id.btnCancel);
