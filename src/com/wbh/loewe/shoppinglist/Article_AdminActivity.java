@@ -1,9 +1,13 @@
 package com.wbh.loewe.shoppinglist;
 
-import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
-
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.Toast;
+
+import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 
 /**
@@ -15,15 +19,24 @@ public class Article_AdminActivity extends ExpandableArticleListActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        mGroupItemLayout = android.R.layout.simple_expandable_list_item_1;
-    	mChildItemLayout = android.R.layout.simple_expandable_list_item_2;
+        mGroupItemLayout = R.layout.artdb_gui_group_row;
+    	mChildItemLayout = R.layout.artdb_gui_child_row;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
-    	mGroupTo = new int[] {android.R.id.text1}; 
+    	mGroupTo = new int[] {R.id.txt_kategorie}; 
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
-    	mChildTo = new int[] {android.R.id.text1};
+    	mChildTo = new int[] {R.id.txt_article};
+    	
+    	getExpandableListView().setOnGroupClickListener(gl);
         
 		fillData();
 	}
+	
+	private OnGroupClickListener gl = new OnGroupClickListener() {
+		public boolean onGroupClick(ExpandableListView arg0, View arg1, int arg2, long arg3) {
+			Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
+			return false;
+		}
+    };   
 	
 	protected Cursor getGroupCursor() {
     	return mShoppinglistapp.getDBAdapter().fetchAllCategories();
