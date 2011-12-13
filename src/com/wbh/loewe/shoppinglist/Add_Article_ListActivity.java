@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
@@ -44,6 +46,10 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
         
         btn = (Button)findViewById(R.id.btn_save);
         btn.setOnClickListener(btnSaveListener);
+        
+        getExpandableListView().setChoiceMode(ExpandableListView.CHOICE_MODE_MULTIPLE);
+        getExpandableListView().setItemsCanFocus(false);
+
     	
 		fillData();
 	}
@@ -82,4 +88,28 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     		
     	}
     };
+    
+    public boolean onGroupClick (ExpandableListView parent, View v, int groupPosition, long id) {
+    	Toast.makeText(getBaseContext(), "onGroupClick"+ groupPosition +" "+ id, Toast.LENGTH_LONG).show();
+    	return true;
+    }
+    
+    private static final int WHITE = 0xffffffff;
+    private static final int RED   = 0xffbc0000;
+    
+    @Override
+	public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+    	Toast.makeText(getBaseContext(), "onChildClick "+ groupPosition +" "+ childPosition +" "+ id, Toast.LENGTH_LONG).show();
+    	//setSelectedChild(groupPosition, childPosition, true);
+    	if(((TextView)v).isSelected() == false){
+            
+            ((TextView)v).setSelected(true);
+            ((TextView)v).setTextColor(RED);
+       }
+       else {
+           ((TextView)v).setSelected(false);
+           ((TextView)v).setTextColor(WHITE);
+       }
+    	return true;
+    }
 }
