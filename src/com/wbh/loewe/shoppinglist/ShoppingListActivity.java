@@ -114,9 +114,8 @@ public class ShoppingListActivity extends ListActivity {
     private OnClickListener btnArticleAdminListener = new OnClickListener()
     {
     	public void onClick(View v)
-        {                        
-            Intent intent = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);	
-            startActivity(intent);
+        {        
+    		showArticleAdminList();
 		}
 
     };
@@ -181,6 +180,13 @@ public class ShoppingListActivity extends ListActivity {
     private void showEditShoppingList(int aID) {
     	Intent lEditActivity = new Intent(ShoppingListActivity.this, Edit_ShoppingListActivity.class);
     	lEditActivity.putExtra("ID", aID);
+    	lEditActivity.putExtra("LAYOUT", R.layout.gui_edit_ek);
+		startActivity(lEditActivity);
+    }
+    
+    private void showArticleAdminList() {
+    	Intent lEditActivity = new Intent(ShoppingListActivity.this, Article_AdminActivity.class);
+    	lEditActivity.putExtra("LAYOUT", R.layout.gui_article_db);
 		startActivity(lEditActivity);
     }
     
