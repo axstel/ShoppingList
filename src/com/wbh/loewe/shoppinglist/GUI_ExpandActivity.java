@@ -63,6 +63,7 @@ public class GUI_ExpandActivity extends ExpandableListActivity
         
         
         // Set up our adapter
+        /* ALT
         mAdapter = new SimpleExpandableListAdapter(
                 this,
                 groupData,
@@ -73,6 +74,18 @@ public class GUI_ExpandActivity extends ExpandableListActivity
                 android.R.layout.simple_expandable_list_item_2,
                 new String[] { NAME, IS_EVEN },
                 new int[] { android.R.id.text1, android.R.id.text2 }
+                );
+        */
+        mAdapter = new SimpleExpandableListAdapter(
+                this,
+                groupData,
+                R.layout.artdb_gui_group_row,               
+                new String[] { NAME },
+                new int[] { R.id.txt_article },
+                childData,
+                R.layout.artdb_gui_child_row,
+                new String[] { NAME },
+                new int[] { R.id.txt_kategorie }
                 );
         setListAdapter(mAdapter);
 	}
