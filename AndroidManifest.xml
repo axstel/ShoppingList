@@ -22,6 +22,7 @@
         <activity android:name=".GUI_ExpandActivity"></activity>
         <activity android:name=".GUI_DialogActivity"></activity>
         <activity android:name="Edit_ShoppingListActivity"></activity>
+        <activity android:name="Article_AdminActivity"></activity>
 
     </application>
 

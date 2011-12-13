@@ -162,6 +162,7 @@ public class ShoppingListActivity extends ListActivity {
         	switch (aAction) {
         		case 0: break;
         		case 1: showEditShoppingList(aListItem.getID()); break;
+        		case 2: deleteShoppingList(aListItem.getID()); break;
         	}
         	
         }
@@ -171,5 +172,10 @@ public class ShoppingListActivity extends ListActivity {
     	Intent lEditActivity = new Intent(ShoppingListActivity.this, Edit_ShoppingListActivity.class);
     	lEditActivity.putExtra("ID", aID);
 		startActivity(lEditActivity);
+    }
+    
+    private void deleteShoppingList(int aID) {
+    	mShoppinglistapp.getDBAdapter().deleteShoppingList(aID);
+    	fillData();
     }
 }
