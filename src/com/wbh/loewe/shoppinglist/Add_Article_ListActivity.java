@@ -1,6 +1,5 @@
 package com.wbh.loewe.shoppinglist;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +13,7 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 /**
  * Expandable lists backed by a Simple Map-based adapter
  */
-public class Edit_ShoppingListActivity extends ExpandableArticleListActivity 
+public class Add_Article_ListActivity extends ExpandableArticleListActivity 
 {
 	private int mListID;
 	
@@ -27,12 +26,11 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
     	mGroupTo = new int[] {android.R.id.text1}; 
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
-    	mChildTo = new int[] {android.R.id.text1}; 
-         
-        Bundle lExtras = getIntent().getExtras();
+    	mChildTo = new int[] {android.R.id.text1};
+        
+    	Bundle lExtras = getIntent().getExtras();
 		if (lExtras != null) {
-			mListID = lExtras.getInt("ID");
-			fillData();
+			mListID = lExtras.getInt("LISTID");
 		}
 		
 		//---the button is wired to an event handler---
@@ -41,32 +39,24 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
         btn = (Button)findViewById(R.id.btn_addArt);
         btn.setOnClickListener(btnAddArticleListener);
         
-        btn = (Button)findViewById(R.id.btn_editName);
-        btn.setOnClickListener(btnEditNameListener);
+        btn = (Button)findViewById(R.id.btn_newKat);
+        btn.setOnClickListener(btnNewCategoryListener);
         
-        btn = (Button)findViewById(R.id.btn_emptyList);
-        btn.setOnClickListener(btnEmptyListListener);
+        btn = (Button)findViewById(R.id.btn_save);
+        btn.setOnClickListener(btnSaveListener);
+    	
+		fillData();
 	}
 	
 	protected Cursor getGroupCursor() {
-    	return mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
+    	return mShoppinglistapp.getDBAdapter().fetchAllCategories();
     }
     
     protected Cursor getChildCursor(int aGroupID) {
-    	return mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, aGroupID);
+    	return mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(aGroupID);
     }	
     
     private OnClickListener btnAddArticleListener = new OnClickListener()
-    {
-    	public void onClick(View v) {
-    		Intent lAddArticleActivity = new Intent(Edit_ShoppingListActivity.this, Add_Article_ListActivity.class);
-    		lAddArticleActivity.putExtra("LISTID", mListID);
-    		lAddArticleActivity.putExtra("LAYOUT", R.layout.gui_addarticle);
-    		startActivity(lAddArticleActivity);
-    	}
-    };
-    
-    private OnClickListener btnEditNameListener = new OnClickListener()
     {
     	public void onClick(View v) {
     		// TODO
@@ -75,11 +65,21 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     	}
     };
     
-    private OnClickListener btnEmptyListListener = new OnClickListener()
+    private OnClickListener btnNewCategoryListener = new OnClickListener()
     {
     	public void onClick(View v) {
     		// TODO
     		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
+    		
+    	}
+    };
+    
+    private OnClickListener btnSaveListener = new OnClickListener()
+    {
+    	public void onClick(View v) {
+    		// TODO
+    		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
+    		
     	}
     };
 }
