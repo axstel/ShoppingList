@@ -4,6 +4,7 @@ package com.wbh.loewe.shoppinglist;
 //import de.GUI.dialog.R;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,18 +12,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
-public class ShoppingListActivity extends ListActivity {
-	
-	static final int NEWLIST_DIALOG_ID = 0;
-	protected EditText edt_newlist_name;
-	protected Spinner edt_newlist_template;
+public class ShoppingListActivity extends ListActivity 
+{
 	
 	private Cursor mCursor;
 	protected ShoppingListApplication mShoppinglistapp;
@@ -35,22 +31,23 @@ public class ShoppingListActivity extends ListActivity {
         
         mShoppinglistapp = (ShoppingListApplication)getApplication();
         
-        fillData();
+        //fillData();
                 
         //---the button is wired to an event handler---
-        Button btn;
+        Button btn1 = (Button)findViewById(R.id.btn_new_list);
+        btn1.setOnClickListener(btnListener1);
         
-        btn = (Button)findViewById(R.id.btn_new_list);
-        btn.setOnClickListener(btnNewListListener);
+        Button btn2 = (Button)findViewById(R.id.btn_article_admin);
+        btn2.setOnClickListener(btnListener2);
         
-        btn = (Button)findViewById(R.id.btn_article_admin);
-        btn.setOnClickListener(btnArticleAdminListener);
-        
-        btn = (Button)findViewById(R.id.btn_closeapp);
-        btn.setOnClickListener(btnCloseAppListener);
+        Button btn3 = (Button)findViewById(R.id.btn_closeapp);
+        btn3.setOnClickListener(btnListener3);
+    
+        Button btnTest = (Button)findViewById(R.id.btnCancel);
+        btnTest.setOnClickListener(btnSubListener1);
     }
     
-    protected void fillData() {
+    /*protected void fillData() {
     	mCursor = mShoppinglistapp.getDBAdapter().fetchAllDataSets(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST);
  		startManagingCursor(mCursor);
 
@@ -70,58 +67,103 @@ public class ShoppingListActivity extends ListActivity {
         	linear_emptylist.setVisibility(View.VISIBLE);
         	list.setVisibility(View.GONE);
         }
- 	}
+ 	}*/
  
-    
-    @Override
-    protected Dialog onCreateDialog(int id) {
-    	Dialog lDialog = null;
-        switch(id) {
-        	case NEWLIST_DIALOG_ID:
-        		// set up Dialog
-        		lDialog = new Dialog(ShoppingListActivity.this);
-        		lDialog.setContentView(R.layout.neue_ek_2);
-        		lDialog.setTitle("Neue Einkaufsliste");
-        		lDialog.setCancelable(true);
-        		
-        		edt_newlist_name = (EditText)lDialog.findViewById(R.id.txtfield_Name);
-        		edt_newlist_template = (Spinner)lDialog.findViewById(R.id.spinnerVorlage);
-    		
-        		Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
-        		if (btnOK != null) {
-        			btnOK.setOnClickListener(btn_NewList_OK);
-        		}
-    		
-        		Button btnCancel = (Button)lDialog.findViewById(R.id.btnCancel);
-        		if (btnCancel != null) {
-        			btnCancel.setOnClickListener(btn_NewList_Cancel);
-        		}
-        		break;
-        }
-        return lDialog;
+    public class Einkaufsdialog extends Dialog
+    {
+    	public Einkaufsdialog(Context context) {
+			super(context);
+			// TODO Auto-generated constructor stub
+    	}
+       
     }
+    
+    private OnClickListener btnSubListener1 = new OnClickListener()
+    {
+    	public void onClick(View v)
+    	{	
+    		finish();
+    	}
+    };
    
     //---create an anonymous class to act as a button click listener---
     // NEUE EINKAUFSLISTE
-    private OnClickListener btnNewListListener = new OnClickListener()
-    {
-    	public void onClick(View v) {
-    		showDialog(NEWLIST_DIALOG_ID);
-    	}
+    private OnClickListener btnListener1 = new OnClickListener()
+    {      	
+    	public void onClick(View v)
+        {   
+            // set up Dialog
+    		Dialog lDialog = new Einkaufsdialog(ShoppingListActivity.this);
+    		lDialog.setContentView(R.layout.neue_ek_2);
+    		lDialog.setTitle("Neue Einkaufsliste");
+    		lDialog.setCancelable(true);
+    		lDialog.show();
+    		
+    		// CLOSE-Button Handling
+    		
+    		
+    		
+    		
+    		    		
+    		
+    		/*Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
+    		if (btnOK != null) {
+    			//btnOK.setOnClickListener(btn_NewList_OK);
+    		}
+    		
+    		Button btnCancel = (Button)lDialog.findViewById(R.id.btnCancel);
+    		if (btnCancel != null) {
+    			//btnCancel.setOnClickListener(btn_NewList_Cancel);
+    		}*/
+    		
+    		// set up Text
+    		//lDialog.show();
+    		
+    		
+    		/**/
+    		
+    		/**/
+    		mShoppinglistapp.getDBAdapter().createShoppingList("Test");
+
+    		//fillData();
+        	
+
+    		//fillData();
+    		/**/
+    		
+
+		}
+
     };
 
+    
+    
     //---create an anonymous class to act as a button click listener---
-    private OnClickListener btnArticleAdminListener = new OnClickListener()
+    private OnClickListener btnListener2 = new OnClickListener()
     {
     	public void onClick(View v)
+<<<<<<< HEAD
         {        
     		showArticleAdminList();
+    		/*
+    		int lIDColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
+    		for (int i = mCursor.getCount() - 1; i >= 0; i--) {
+    			if (mCursor.moveToPosition(i)) {
+    				mShoppinglistapp.getDBAdapter().deleteShoppingList(mCursor.getInt(lIDColIdx));
+    			}
+    		}
+    		fillData();
+    		*/
+=======
+        {        
+    		showArticleAdminList();
+>>>>>>> branch 'master' of https://github.com/wbh-loewe/ShoppingList.git
 		}
 
     };
     
     //---create an anonymous class to act as a button click listener---
-    private OnClickListener btnCloseAppListener = new OnClickListener()
+    private OnClickListener btnListener3 = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
@@ -140,27 +182,16 @@ public class ShoppingListActivity extends ListActivity {
     };
     
     //--- create an anonymous class to act as a button click listener ---
-    private OnClickListener btn_NewList_OK = new OnClickListener() {
+    private OnClickListener btnOK = new OnClickListener() {
     	public void onClick(View v) {
-    		
-    		if (edt_newlist_name != null) {
-    			String lName = String.valueOf(edt_newlist_name.getText());
-    			if (mShoppinglistapp.getDBAdapter().createShoppingList(lName) > -1) {
-    				fillData();
-    				if (mCursor.moveToPosition(mCursor.getCount() - 1)) {
-    					int lColIdx = mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
-    					showEditShoppingList(mCursor.getInt(lColIdx));
-    				}
-    			}
-    		}
-    		dismissDialog(NEWLIST_DIALOG_ID);
+    		// TODO
 		}
     };
     
     //--- create an anonymous class to act as a button click listener ---
-    private OnClickListener btn_NewList_Cancel = new OnClickListener() {
+    private OnClickListener btnCancel = new OnClickListener() {
     	public void onClick(View v) {
-    		dismissDialog(NEWLIST_DIALOG_ID);
+    		finish();
 		}
     };
    
@@ -171,7 +202,6 @@ public class ShoppingListActivity extends ListActivity {
         	switch (aAction) {
         		case 0: break;
         		case 1: showEditShoppingList(aListItem.getID()); break;
-        		case 2: deleteShoppingList(aListItem.getID()); break;
         	}
         	
         }
@@ -188,10 +218,5 @@ public class ShoppingListActivity extends ListActivity {
     	Intent lEditActivity = new Intent(ShoppingListActivity.this, Article_AdminActivity.class);
     	lEditActivity.putExtra("LAYOUT", R.layout.gui_article_db);
 		startActivity(lEditActivity);
-    }
-    
-    private void deleteShoppingList(int aID) {
-    	mShoppinglistapp.getDBAdapter().deleteShoppingList(aID);
-    	fillData();
     }
 }

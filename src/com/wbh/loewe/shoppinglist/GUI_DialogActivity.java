@@ -13,11 +13,16 @@ import android.widget.Button;
 
 
 public class GUI_DialogActivity extends Activity {
+	
+
+	
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialoge);
+        setContentView(R.layout.dialoge);       
+               
         
         // Button NEUE EINKAUFSLISTE
         //---the button is wired to an event handler---
@@ -25,16 +30,16 @@ public class GUI_DialogActivity extends Activity {
         btn4.setOnClickListener(btnKlickListener4);
         
         // Button EINKAUFSLISTE LÖSCHEN
-        Button btn5 = (Button)findViewById(R.id.btn_delEK);
-        btn5.setOnClickListener(btnKlickListener5);
+        //Button btn5 = (Button)findViewById(R.id.btn_delEK);
+        //btn5.setOnClickListener(btnKlickListener5);
         
         // Button KATEGORIE BEARBEITEN
-        Button btn6 = (Button)findViewById(R.id.btn_editKat);
-        btn6.setOnClickListener(btnKlickListener6);
+        //Button btn6 = (Button)findViewById(R.id.btn_editKat);
+        //btn6.setOnClickListener(btnKlickListener6);
         
         // Button KATEGORIE LÖSCHEN
-        Button btn7 = (Button)findViewById(R.id.btn_delKat);
-        btn7.setOnClickListener(btnKlickListener7);
+        //Button btn7 = (Button)findViewById(R.id.btn_delKat);
+        //btn7.setOnClickListener(btnKlickListener7);
         
         // Button NEUE KATEGORIE
         Button btn8 = (Button)findViewById(R.id.btn_newKat);
@@ -93,7 +98,7 @@ public class GUI_DialogActivity extends Activity {
     
     //---create an anonymous class to act as a button click listener---
     // EINKAUFSLISTE LÖSCHEN
-    private OnClickListener btnKlickListener5 = new OnClickListener()
+    /*private OnClickListener btnKlickListener5 = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
@@ -107,11 +112,11 @@ public class GUI_DialogActivity extends Activity {
     		dialog.show();
 		}
 
-    };
+    };*/
     
     //---create an anonymous class to act as a button click listener---
     // KATEGORIE BEARBEITEN
-    private OnClickListener btnKlickListener6 = new OnClickListener()
+    /*private OnClickListener btnKlickListener6 = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
@@ -125,11 +130,11 @@ public class GUI_DialogActivity extends Activity {
     		dialog.show();
 		}
 
-    };
+    };*/
     
     //---create an anonymous class to act as a button click listener---
     // KATEGORIE LÖSCHEN
-    private OnClickListener btnKlickListener7 = new OnClickListener()
+    /*private OnClickListener btnKlickListener7 = new OnClickListener()
     {
     	public void onClick(View v)
         {                        
@@ -143,7 +148,7 @@ public class GUI_DialogActivity extends Activity {
     		dialog.show();
 		}
 
-    };
+    };*/
     
     //---create an anonymous class to act as a button click listener---
     // NEUE KATEGORIE
