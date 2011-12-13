@@ -4,6 +4,7 @@ package com.wbh.loewe.shoppinglist;
 //import de.GUI.dialog.R;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -28,7 +29,7 @@ public class ShoppingListActivity extends ListActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        //mShoppinglistapp = (ShoppingListApplication)getApplication();
+        mShoppinglistapp = (ShoppingListApplication)getApplication();
         
         //fillData();
                 
@@ -41,8 +42,9 @@ public class ShoppingListActivity extends ListActivity
         
         Button btn3 = (Button)findViewById(R.id.button3);
         btn3.setOnClickListener(btnListener3);
-              
-       
+    
+        Button btnTest = (Button)findViewById(R.id.btnCancel);
+        btnTest.setOnClickListener(btnSubListener1);
     }
     
     /*protected void fillData() {
@@ -67,7 +69,22 @@ public class ShoppingListActivity extends ListActivity
         }
  	}*/
  
-
+    public class Einkaufsdialog extends Dialog
+    {
+    	public Einkaufsdialog(Context context) {
+			super(context);
+			// TODO Auto-generated constructor stub
+    	}
+       
+    }
+    
+    private OnClickListener btnSubListener1 = new OnClickListener()
+    {
+    	public void onClick(View v)
+    	{	
+    		finish();
+    	}
+    };
    
     //---create an anonymous class to act as a button click listener---
     // NEUE EINKAUFSLISTE
@@ -76,7 +93,7 @@ public class ShoppingListActivity extends ListActivity
     	public void onClick(View v)
         {   
             // set up Dialog
-    		Dialog lDialog = new Dialog(ShoppingListActivity.this);
+    		Dialog lDialog = new Einkaufsdialog(ShoppingListActivity.this);
     		lDialog.setContentView(R.layout.neue_ek_2);
     		lDialog.setTitle("Neue Einkaufsliste");
     		lDialog.setCancelable(true);
@@ -91,22 +108,22 @@ public class ShoppingListActivity extends ListActivity
     		
     		/*Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
     		if (btnOK != null) {
-    			btnOK.setOnClickListener(btn_NewList_OK);
+    			//btnOK.setOnClickListener(btn_NewList_OK);
     		}
     		
     		Button btnCancel = (Button)lDialog.findViewById(R.id.btnCancel);
     		if (btnCancel != null) {
-    			btnCancel.setOnClickListener(btn_NewList_Cancel);
-    		}
+    			//btnCancel.setOnClickListener(btn_NewList_Cancel);
+    		}*/
     		
     		// set up Text
-    		lDialog.show();*/
+    		//lDialog.show();
     		
     		
     		/**/
     		
     		/**/
-    		//mShoppinglistapp.getDBAdapter().createShoppingList("Test");
+    		mShoppinglistapp.getDBAdapter().createShoppingList("Test");
 
     		//fillData();
         	
@@ -170,7 +187,7 @@ public class ShoppingListActivity extends ListActivity
     //--- create an anonymous class to act as a button click listener ---
     private OnClickListener btnCancel = new OnClickListener() {
     	public void onClick(View v) {
-    		// TODO
+    		finish();
 		}
     };
    
