@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -23,12 +24,12 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        mGroupItemLayout = android.R.layout.simple_expandable_list_item_1;
-    	mChildItemLayout = android.R.layout.simple_expandable_list_item_2;
+        mGroupItemLayout = R.layout.artdb_gui_group_row;
+    	mChildItemLayout = R.layout.artdb_gui_child_row;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
-    	mGroupTo = new int[] {android.R.id.text1}; 
+    	mGroupTo = new int[] {R.id.txt_kategorie}; 
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
-    	mChildTo = new int[] {android.R.id.text1};
+    	mChildTo = new int[] {R.id.txt_article};
         
     	Bundle lExtras = getIntent().getExtras();
 		if (lExtras != null) {
@@ -101,15 +102,16 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
 	public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
     	Toast.makeText(getBaseContext(), "onChildClick "+ groupPosition +" "+ childPosition +" "+ id, Toast.LENGTH_LONG).show();
     	//setSelectedChild(groupPosition, childPosition, true);
-    	if(((TextView)v).isSelected() == false){
+    	/*if(((AbsoluteLayout)v).isSelected() == false){
             
-            ((TextView)v).setSelected(true);
-            ((TextView)v).setTextColor(RED);
+            ((AbsoluteLayout)v).setSelected(true);
+            ((AbsoluteLayout)v).setBackgroundColor(RED);
        }
        else {
-           ((TextView)v).setSelected(false);
-           ((TextView)v).setTextColor(WHITE);
+           ((AbsoluteLayout)v).setSelected(false);
+           ((AbsoluteLayout)v).setBackgroundColor(WHITE);
        }
+       */
     	return true;
     }
 }
