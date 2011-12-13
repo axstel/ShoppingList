@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+android:id="@+id/widget0"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+<TextView
+    android:id="@+id/txt_article"
+    android:layout_width="wrap_content"
+    android:layout_height="22px"
+    android:layout_x="6dp"
+    android:layout_y="16dp"
+    android:text="Artikel"
+    android:textSize="16sp" />
+
+<TextView
+    android:id="@+id/txt_einheit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="201dp"
+    android:layout_y="16dp"
+    android:text="Einheit"
+    android:textSize="16sp" />
+
+<TextView
+    android:id="@+id/edittxt_menge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="95dp"
+    android:layout_y="15dp"
+    android:text="Menge"
+    android:textSize="16sp" />
+
+</AbsoluteLayout>
