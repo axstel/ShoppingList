@@ -25,8 +25,8 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        mGroupItemLayout = R.layout.artdb_gui_group_row;
-    	mChildItemLayout = R.layout.artdb_gui_child_row;
+        mGroupItemLayout = R.layout.screen5_add_art_gui_group_row;
+    	mChildItemLayout = R.layout.screen5_add_art_gui_child_row;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
     	mGroupTo = new int[] {R.id.txt_kategorie}; 
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
