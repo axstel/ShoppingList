@@ -79,13 +79,13 @@ public class GUI_ExpandActivity extends ExpandableListActivity
         mAdapter = new SimpleExpandableListAdapter(
                 this,
                 groupData,
-                R.layout.artdb_gui_group_row,               
+                R.layout.screen4_editek_gui_group_row,               
                 new String[] { NAME },
-                new int[] { R.id.txt_article },
+                new int[] { R.id.txt_kategorie },
                 childData,
-                R.layout.artdb_gui_child_row,
+                R.layout.screen4_editek_gui_child_row,
                 new String[] { NAME },
-                new int[] { R.id.txt_kategorie }
+                new int[] { R.id.txt_article }
                 );
         setListAdapter(mAdapter);
 	}
