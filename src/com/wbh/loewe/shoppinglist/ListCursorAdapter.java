@@ -33,6 +33,7 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 	static class ViewHolder {
 		protected TextView mText;
 		protected Button mEdit;
+		protected Button mDelete;
 	}
 
 	@Override
@@ -80,6 +81,21 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 				});
 				lNewViewHolder.mEdit.setTag(lListItem);
 			}
+			
+			lNewViewHolder.mDelete = (Button) lView.findViewById(R.id.btn_deleteitem);
+			if (lNewViewHolder.mDelete != null) {
+				lNewViewHolder.mDelete.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						ListItem lItem = (ListItem) lNewViewHolder.mDelete.getTag();
+					    lItem.setSelected(!lItem.getSelected());
+					    //Log.w(ListCursorAdapter.class.getName(), "OnDeleteClick "+ lItem.getID() +" "+ lItem.getName());
+					    mRowClickListener.OnRowClick(lItem, 2);
+					}
+					    	
+				});
+				lNewViewHolder.mDelete.setTag(lListItem);
+			}
+			
 			lView.setTag(lNewViewHolder);
 		} else {
 			if (((ViewHolder)lView.getTag()).mEdit != null) {
