@@ -15,10 +15,10 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 public class ExpandableArticleListActivity extends ExpandableListActivity 
 {
 	
-	private Cursor mGroupCursor;
-	private Cursor mChildCursor;
+	protected Cursor mGroupCursor;
+	protected Cursor mChildCursor;
 	private ExpandableListView mListView;
-	private SimpleCursorTreeAdapter mAdapter;
+	protected CustomCursorTreeAdapter mAdapter;
 	protected ShoppingListApplication mShoppinglistapp;
 	protected int mGroupItemLayout;
 	protected int mChildItemLayout;
@@ -56,7 +56,7 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
     	startManagingCursor(mGroupCursor);
     	       
     	// Adapter für ExpandableList erstellen
-    	mAdapter = new SimpleCursorTreeAdapter(
+    	mAdapter = new CustomCursorTreeAdapter(
     			this, 
     			mGroupCursor, 
     			mGroupItemLayout, 
