@@ -1,55 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout
+<TableLayout
 android:id="@+id/widget0"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
 
-<ImageButton
-    android:id="@+id/btn_edit"
-    android:layout_width="38dp"
-    android:layout_height="38dp"
-    android:layout_x="335px"
-    android:layout_y="7px"
-    android:background="@drawable/edit_button" >
+     <TableRow android:gravity="left" >
+		
+		<TextView
+		    android:id="@+id/txt_article"
+		    android:layout_width="135px"
+		    android:layout_height="fill_parent"
+		    android:text="Artikel" 
+		    android:layout_marginRight="15px"
+            android:layout_marginLeft="15px"
+            android:gravity="center_vertical"/>
 
-</ImageButton>
+		<EditText
+		    android:id="@+id/edittxt_menge"
+		    android:layout_width="70px"
+		    android:layout_height="fill_parent"
+		    android:layout_x="100dp"
+		    android:layout_y="6dp"
+		    android:text="editMenge"
+		    android:textSize="18sp"
+		    android:gravity="center_vertical" />
 
-<EditText
-    android:id="@+id/edittxt_menge"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="70dp"
-    android:layout_y="6dp"
-    android:text="editMenge"
-    android:textSize="18sp" >
+		<TextView
+		    android:id="@+id/txt_einheit"
+		    android:layout_width="85px"
+		    android:layout_height="fill_parent"
+		    android:layout_marginLeft="15px"
+		    android:layout_marginRight="10px"
+		    android:text="Einheit" 
+		    android:gravity="center_vertical"/>
 
-    <requestFocus />
-</EditText>
+		<ImageButton
+		    android:id="@+id/btn_edit"
+		    android:layout_width="38dp"
+		    android:layout_height="38dp"
+		    android:background="@drawable/edit_button" 
+		    android:layout_marginLeft="5px"
+        	android:layout_marginRight="5px"/>
 
-<ImageButton
-    android:id="@+id/btn_del"
-    android:layout_width="38dp"
-    android:layout_height="38dp"
-    android:layout_x="268dp"
-    android:layout_y="5dp" 
-    android:background="@drawable/del_button"/>
+		<ImageButton
+		    android:id="@+id/btn_del"
+		    android:layout_width="38dp"
+		    android:layout_height="38dp"
+		    android:background="@drawable/del_button"
+		    android:layout_marginLeft="5px"
+        	android:layout_marginRight="5px" />
+		
+	</TableRow>
 
-<TextView
-    android:id="@+id/txt_article"
-    android:layout_width="wrap_content"
-    android:layout_height="22px"
-    android:layout_x="6dp"
-    android:layout_y="16dp"
-    android:text="Artikel" />
-
-<TextView
-    android:id="@+id/txt_einheit"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="179dp"
-    android:layout_y="15dp"
-    android:text="Einheit" />
-
-</AbsoluteLayout>
+</TableLayout>
