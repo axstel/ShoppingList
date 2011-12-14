@@ -115,9 +115,7 @@ public class ShoppingListActivity extends ListActivity {
     {
     	public void onClick(View v)
         {        
-    		//showArticleAdminList();
-    		Intent intent2 = new Intent(ShoppingListActivity.this, GUI_ExpandActivity.class);
-    		startActivity(intent2);
+    		showArticleAdminList();
 		}
 
     };
