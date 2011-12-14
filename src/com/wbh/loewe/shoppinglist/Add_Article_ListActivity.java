@@ -48,11 +48,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
         
         btn = (Button)findViewById(R.id.btn_save);
         btn.setOnClickListener(btnSaveListener);
-        
-        getExpandableListView().setChoiceMode(ExpandableListView.CHOICE_MODE_MULTIPLE);
-        getExpandableListView().setItemsCanFocus(false);
 
-    	
 		fillData();
 	}
 	
