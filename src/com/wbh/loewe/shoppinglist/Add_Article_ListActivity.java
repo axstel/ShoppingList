@@ -96,14 +96,16 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     }
     
     @Override
-	public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-    	//Toast.makeText(getBaseContext(), "onChildClick "+ groupPosition +" "+ childPosition +" "+ id, Toast.LENGTH_LONG).show();
-    	if (mChildCursor.moveToPosition(childPosition)) {
-    		int lColIdx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
-    		mAdapter.setSelectedItem(v, groupPosition, childPosition, mChildCursor.getInt(lColIdx));
+    protected void OnChildRowClick(View aView, ChildListItem aListItem) {
+    	if (aListItem != null) {
+    		if (mChildCursor.moveToPosition(aListItem.getChildPos())) {
+    			int lColIdx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
+    			mAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos(), mChildCursor.getInt(lColIdx));
+    		} else {
+    			Log.e("Add_Article_ListActivity.OnChildRowClick", "moveToPosition "+ aListItem.getChildPos() +" failed");
+    		}
     	} else {
-    		Log.w("Add_Article_ListActivity.onChildClick", "moveToPosition "+ childPosition +" failed");
+    		Log.e("Add_Article_ListActivity.OnChildRowClick", "aListItem is not assigned");
     	}
-    	return true;
     }
 }

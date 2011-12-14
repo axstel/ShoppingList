@@ -3,6 +3,8 @@ package com.wbh.loewe.shoppinglist;
 import android.app.ExpandableListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
@@ -63,7 +65,9 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
     			mGroupTo, 
     	        mChildItemLayout, 
     	        mChildFrom, 
-    	        mChildTo) {
+    	        mChildTo,
+    	        new OnGroupRowClickListener(),
+    	        new OnChildRowClickListener()) {
     	          
     	        @Override
     	        protected Cursor getChildrenCursor(Cursor groupCursor) {
@@ -76,5 +80,36 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
     	        
     	        // Der ExpandableListView den Adapter zuweisen
     	        mListView.setAdapter(mAdapter);
+    }
+    
+    // Event wenn auf eine Kategorie klickt
+    private class OnGroupRowClickListener implements CustomCursorTreeAdapter.GroupRowClickListener {
+		public void OnClick(View aView, GroupListItem aListItem) {
+			if (aListItem != null) {
+				if (aListItem.getIsExpanded()) {
+					mListView.collapseGroup(aListItem.getPos());
+					aListItem.setIsExpanded(false);
+				} else {
+					mListView.expandGroup(aListItem.getPos());
+					aListItem.setIsExpanded(true);
+				}
+			}	
+			OnGroupRowClick(aView, aListItem);
+		}
+    }
+    
+    // Event wenn auf eine Kategorie klickt
+    private class OnChildRowClickListener implements CustomCursorTreeAdapter.ChildRowClickListener {
+		public void OnClick(View aView, ChildListItem aListItem) {
+			OnChildRowClick(aView, aListItem);
+		}
+    }
+    
+    protected void OnGroupRowClick(View aView, GroupListItem aListItem) {
+    	// in abgeleiteter klasse überschreiben
+    }
+    
+    protected void OnChildRowClick(View aView, ChildListItem aListItem) {
+    	// in abgeleiteter klasse überschreiben
     }
 }
