@@ -4,7 +4,6 @@ import android.app.ExpandableListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
-import android.widget.SimpleCursorTreeAdapter;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
