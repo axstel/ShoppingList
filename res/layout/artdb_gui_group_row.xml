@@ -3,6 +3,8 @@
 android:id="@+id/widget0"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
+android:layout_marginTop="20px"
+android:layout_marginBottom="20px"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
 
@@ -10,12 +12,12 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 		<TextView
 		android:id="@+id/txt_kategorie"
 		android:layout_width="310px"
-		android:layout_height="fill_parent"
+		android:layout_height="40px"
 		android:text="Kategorie"
 		android:layout_x="31px"
 		android:layout_y="17px"
-		android:layout_marginLeft="15px"
-		android:layout_marginRight="15px"
+		android:layout_marginLeft="60px"
+		android:layout_marginRight="20px"		
 		android:gravity="center_vertical">
 		</TextView>
 				 <!--
