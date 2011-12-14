@@ -14,13 +14,14 @@ android:layout_x="31px"
 android:layout_y="17px"
 >
 </TextView>
-
+
 <ImageButton
     android:id="@+id/btn_del"
     android:layout_width="38dp"
-    android:layout_height="wrap_content"
+    android:layout_height="38dp"
     android:layout_x="401px"
-    android:layout_y="7px" >
+    android:layout_y="7px"
+    android:background="@drawable/del_button" >
 
 </ImageButton>
 </AbsoluteLayout>

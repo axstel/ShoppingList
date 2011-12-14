@@ -21,9 +21,10 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 <ImageButton
     android:id="@+id/btn_del"
     android:layout_width="38dp"
-    android:layout_height="wrap_content"
+    android:layout_height="38dp"
     android:layout_x="268dp"
-    android:layout_y="5dp" />
+    android:layout_y="5dp" 
+    android:background="@drawable/del_button"/>
 
 <TextView
     android:id="@+id/txt_article"
