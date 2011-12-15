@@ -22,12 +22,12 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        mGroupItemLayout = android.R.layout.simple_expandable_list_item_1;
-    	mChildItemLayout = android.R.layout.simple_expandable_list_item_2;
+        mGroupItemLayout = R.layout.screen4_editek_gui_group_row;
+    	mChildItemLayout = R.layout.screen4_editek_gui_child_row;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
-    	mGroupTo = new int[] {android.R.id.text1}; 
+    	mGroupTo = new int[] {R.id.txt_kategorie}; 
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
-    	mChildTo = new int[] {android.R.id.text1}; 
+    	mChildTo = new int[] {R.id.txt_article}; 
          
         Bundle lExtras = getIntent().getExtras();
 		if (lExtras != null) {

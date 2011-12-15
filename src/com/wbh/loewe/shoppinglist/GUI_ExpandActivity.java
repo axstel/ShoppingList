@@ -81,11 +81,20 @@ public class GUI_ExpandActivity extends ExpandableListActivity
                 groupData,
                 R.layout.screen4_editek_gui_group_row,               
                 new String[] { NAME },
+<<<<<<< HEAD
                 new int[] { R.id.btn_del },
+=======
+                new int[] { R.id.txt_kategorie },
+>>>>>>> branch 'master' of https://github.com/wbh-loewe/ShoppingList.git
+                new int[] { R.id.txt_kategorie },
                 childData,
                 R.layout.screen4_editek_gui_child_row,
                 new String[] { NAME },
+<<<<<<< HEAD
                 new int[] { R.id.edittxt_menge }
+=======
+                new int[] { R.id.txt_article }
+>>>>>>> branch 'master' of https://github.com/wbh-loewe/ShoppingList.git
                 );
         setListAdapter(mAdapter);
 	}

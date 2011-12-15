@@ -1,13 +1,14 @@
 package com.wbh.loewe.shoppinglist;
 
+import java.util.Vector;
+
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
@@ -47,11 +48,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
         
         btn = (Button)findViewById(R.id.btn_save);
         btn.setOnClickListener(btnSaveListener);
-        
-        getExpandableListView().setChoiceMode(ExpandableListView.CHOICE_MODE_MULTIPLE);
-        getExpandableListView().setItemsCanFocus(false);
 
-    	
 		fillData();
 	}
 	
@@ -84,34 +81,31 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     private OnClickListener btnSaveListener = new OnClickListener()
     {
     	public void onClick(View v) {
-    		// TODO
-    		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
-    		
+    		Vector<Integer> lIDs = mAdapter.getSelectedIDs();
+    		for (int i = 0; i < lIDs.size(); i++) {
+    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lIDs.get(i), 0);
+    		}
+    		finish();
     	}
     };
     
     public boolean onGroupClick (ExpandableListView parent, View v, int groupPosition, long id) {
-    	Toast.makeText(getBaseContext(), "onGroupClick"+ groupPosition +" "+ id, Toast.LENGTH_LONG).show();
+    	// TODO alle Artikel markieren
+    	//Toast.makeText(getBaseContext(), "onGroupClick"+ groupPosition +" "+ id, Toast.LENGTH_LONG).show();
     	return true;
     }
     
-    private static final int WHITE = 0xffffffff;
-    private static final int RED   = 0xffbc0000;
-    
     @Override
-	public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-    	Toast.makeText(getBaseContext(), "onChildClick "+ groupPosition +" "+ childPosition +" "+ id, Toast.LENGTH_LONG).show();
-    	//setSelectedChild(groupPosition, childPosition, true);
-    	/*if(((AbsoluteLayout)v).isSelected() == false){
-            
-            ((AbsoluteLayout)v).setSelected(true);
-            ((AbsoluteLayout)v).setBackgroundColor(RED);
-       }
-       else {
-           ((AbsoluteLayout)v).setSelected(false);
-           ((AbsoluteLayout)v).setBackgroundColor(WHITE);
-       }
-       */
-    	return true;
+    protected void OnChildRowClick(View aView, ChildListItem aListItem) {
+    	if (aListItem != null) {
+    		if (mChildCursor.moveToPosition(aListItem.getChildPos())) {
+    			int lColIdx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
+    			mAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos(), mChildCursor.getInt(lColIdx));
+    		} else {
+    			Log.e("Add_Article_ListActivity.OnChildRowClick", "moveToPosition "+ aListItem.getChildPos() +" failed");
+    		}
+    	} else {
+    		Log.e("Add_Article_ListActivity.OnChildRowClick", "aListItem is not assigned");
+    	}
     }
 }

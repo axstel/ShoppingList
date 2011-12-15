@@ -20,7 +20,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_marginRight="20px"		
 		android:gravity="center_vertical">
 		</TextView>
-				 <!--
+		
 		<ImageButton
 		    android:id="@+id/btn_edit"
 		    android:layout_width="38dp"
@@ -45,7 +45,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 			android:layout_marginRight="5px">
 		
 		</ImageButton>
-		 -->
+		
 	 </TableRow>
 </TableLayout>
 

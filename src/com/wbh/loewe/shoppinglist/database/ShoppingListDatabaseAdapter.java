@@ -119,4 +119,14 @@ public class ShoppingListDatabaseAdapter {
 		Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
 		return db.rawQuery(lQuery, new String [] {});
 	}
+	
+	/* Add a new article to shoppinglist, return the rowid of new dataset*/
+	public long addArticleToShoppingList(int aListID, int aArticleID, int aQuantity) {
+		ContentValues values = new ContentValues();
+		values.put(ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST, aListID);
+		values.put(ShoppingListDatabase.FIELD_NAME_IDARTICLE, aArticleID);
+		values.put(ShoppingListDatabase.FIELD_NAME_QUANTITY, aQuantity);
+		
+		return db.insert(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, null, values);
+	} 
 }
