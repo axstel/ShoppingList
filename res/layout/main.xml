@@ -3,7 +3,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="bottom|center|center_horizontal|center_vertical"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#FFFFFF"
+   >
 
     <ListView
         android:id="@+id/android:list"
@@ -11,22 +13,25 @@
         android:layout_height="fill_parent"
         android:layout_weight="0.98"
         android:drawSelectorOnTop="true" >
+        
 
     </ListView>
-
+
     <LinearLayout
         android:id="@+id/linear_emptylist"
         android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_weight="0.98"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical" 
+        >
 
         <TextView
             android:id="@+id/txt_emptylist"
             android:layout_width="wrap_content"
             android:layout_height="115dp"
             android:text="@string/txt_keineEinkaufsliste"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#4C66FF" />
 
     </LinearLayout>
 
@@ -34,29 +39,37 @@
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical" 
+       >
     </LinearLayout>
 
-    <RelativeLayout
+    <TableLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="51dp" >
+        android:layout_height="51dp" 
+       >
 
+        <TableRow>
         <Button
             android:id="@+id/btn_new_list"
             android:layout_width="106dp"
-            android:layout_height="fill_parent"
+            android:layout_height="51dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:text="@string/btn_neueEinkaufsliste" />
-
+            android:layout_marginRight="2px"
+            android:text="@string/btn_neueEinkaufsliste"
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text"/>
         <Button
             android:id="@+id/btn_article_admin"
             android:layout_width="106dp"
             android:layout_height="fill_parent"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/btn_artikelVerwalten" />
+            android:layout_marginRight="2px"
+            android:text="@string/btn_artikelVerwalten"
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text" />
 
         <Button
             android:id="@+id/btn_closeapp"
@@ -64,7 +77,10 @@
             android:layout_height="fill_parent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:text="@string/btn_beenden" />
-    </RelativeLayout>
+            android:text="@string/btn_beenden" 
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text"/>
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

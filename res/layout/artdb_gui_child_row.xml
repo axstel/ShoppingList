@@ -3,7 +3,9 @@
 android:id="@+id/widget0"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
-xmlns:android="http://schemas.android.com/apk/res/android">
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="#FFFFFF">
+
 
     <TableRow android:gravity="left" >
 
@@ -17,6 +19,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
             android:layout_y="16dp"
             android:text="Artikel" 
             android:gravity="center_vertical"
+            android:textColor="#4C66FF"
             
             />
         

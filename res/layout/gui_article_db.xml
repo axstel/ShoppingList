@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF">
 
     <ExpandableListView
         android:id="@+id/android:list"
@@ -12,27 +13,34 @@
         android:drawSelectorOnTop="true" >
     </ExpandableListView>
 
-    <LinearLayout
+    <TableLayout
         android:id="@+id/ll_bottom"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true" >
 
+        <TableRow>
         <Button
             android:id="@+id/btn_GUIartDB_newArt"
             android:layout_width="160dp"
-            android:layout_height="fill_parent"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:text="@string/btn_newArt" />
+            android:layout_marginRight="3px"
+            android:text="@string/btn_newArt"
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text" />
 
         <Button
             android:id="@+id/btn_GUIartDB_newKat"
             android:layout_width="160dp"
-            android:layout_height="fill_parent"
+            android:layout_height="50dp"
             android:layout_alignParentTop="true"
-            android:text="@string/btn_newKategorie" />
+            android:text="@string/btn_newKategorie"
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text" />
 
-    </LinearLayout>
+        </TableRow>
+    </TableLayout>
 
 </RelativeLayout>

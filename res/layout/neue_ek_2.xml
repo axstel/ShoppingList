@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="fill_parent" 
     android:layout_width="fill_parent"
+    android:background="#E6E6E6"
    >
 
     <TableRow android:gravity="center" >
@@ -10,7 +11,8 @@
         <TextView
             android:id="@+id/text_Name"
             android:text="Name:"
-            android:width="120px"/>
+            android:width="120px"
+            android:textColor="#4C66FF"/>
 
         <EditText
             android:id="@+id/txtfield_Name"
@@ -22,7 +24,8 @@
 
         <TextView
             android:id="@+id/text_Vorlage"
-            android:text="Vorlage:" />
+            android:text="Vorlage:" 
+            android:textColor="#4C66FF"/>
 
         <Spinner
             android:id="@+id/spinnerVorlage"
@@ -31,28 +34,34 @@
 
     </TableRow>
     
-    <RelativeLayout
+    <TableLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/RLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
-
+		<TableRow>
     <Button
         android:id="@+id/btnOK"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_alignLeft="@+id/txtComments"
         android:layout_below="@+id/txtComments"
-        android:text="@string/btn_OK" />
+        android:layout_marginRight="3px"
+        android:text="@string/btn_OK" 
+        android:background="@color/btn_hintergrund"
+        android:textColor="@color/btn_text"/>
 
     <Button
         android:id="@+id/btnCancel"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="@string/btn_Cancel" />
+        android:text="@string/btn_Cancel"
+        android:background="@color/btn_hintergrund"
+        android:textColor="@color/btn_text" />
         
-    </RelativeLayout>
+        </TableRow>
+    </TableLayout>
 
 </TableLayout>
