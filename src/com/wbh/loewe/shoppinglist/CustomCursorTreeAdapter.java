@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.SimpleCursorTreeAdapter;
 
+import com.wbh.loewe.shoppinglist.R.color;
+
 public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 
 	public interface GroupRowClickListener {
@@ -24,6 +26,7 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 	private HashMap<String, Integer> mSelectedItems = new HashMap<String, Integer>();
 	private GroupRowClickListener mGroupRowClickListener;
 	private ChildRowClickListener mChildRowClickListener;
+	private Context mContext;
 	
 	public CustomCursorTreeAdapter(Context context, Cursor cursor,
 			int groupLayout, String[] groupFrom, int[] groupTo,
@@ -31,6 +34,7 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick) {
 		super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childFrom,
 				childTo);
+		mContext = context;
 		mGroupRowClickListener = aGroupClick;
 		mChildRowClickListener = aChildClick;
 	}
@@ -41,23 +45,23 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 		return null;
 	}
 	
-	public void setSelectedItem(View aView, int aGroupPos, int aChildPos, int aID) {
+	public Boolean setSelectedItem(View aView, int aGroupPos, int aChildPos, int aID) {
 		// Beim Klick auf ein Item muss dieses in eine interne Liste aufgenommen werden
 		// So kann festgestellt werden ob dieses selektiert ist
 		// Ist es bereits selektiert, dann wird die Selektierung zurückgenommen
 		// In getChildView wird auf diese Liste zurückgegriffen
 		String lKey = aGroupPos +"_"+ aChildPos;
+		Boolean lSelected = false;
 		if (mSelectedItems.containsKey(lKey)) {
 			mSelectedItems.remove(lKey);
+			lSelected = false;
 		} else {
 			mSelectedItems.put(lKey, aID);
+			lSelected = true;
 		}
 		setSelectedViewState(aView, lKey);
+		return lSelected;
 	}
-	
-	private static final int BLACK = 0x000000;
-    private static final int RED = 0xffbc0000;
-
 	
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
@@ -94,9 +98,9 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 	
 	private void setSelectedViewState(View aView, String aKey) {
 		if (mSelectedItems.containsKey(aKey)) {
-			aView.setBackgroundColor(RED);
+			aView.setBackgroundColor(mContext.getResources().getColor(R.color.row_selected_background));
 		} else {
-			aView.setBackgroundColor(BLACK);
+			aView.setBackgroundColor(mContext.getResources().getColor(R.color.row_unselected_background));
 		}
 	}
 	

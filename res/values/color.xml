@@ -2,6 +2,8 @@
 <resources>
      <color name="btn_hintergrund">#285082</color>
      <color name="btn_text">#E6E6E6</color>
-    
-         
+     <color name="row_unselected_background">#FFFFFF</color>
+     <color name="row_selected_background">#285082</color>
+     <color name="row_unselected_text">#4C66FF</color>
+     <color name="row_selected_text">#E6E6E6</color>
 </resources>

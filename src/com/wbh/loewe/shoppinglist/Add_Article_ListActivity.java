@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
@@ -100,7 +101,20 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     	if (aListItem != null) {
     		if (mChildCursor.moveToPosition(aListItem.getChildPos())) {
     			int lColIdx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
-    			mAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos(), mChildCursor.getInt(lColIdx));
+    			Boolean lSelected = mAdapter.setSelectedItem(aView, 
+    					                           aListItem.getGroupPos(), 
+    					                           aListItem.getChildPos(), 
+    					                           mChildCursor.getInt(lColIdx));
+    			// Textfarbe richtig setzen
+    			TextView ltxt_Article = (TextView)aView.findViewById(R.id.txt_article);
+    			if (ltxt_Article != null) {
+    				if (lSelected) {
+    					ltxt_Article.setTextColor(this.getResources().getColor(R.color.row_selected_text));
+    				} else {
+    					ltxt_Article.setTextColor(this.getResources().getColor(R.color.row_unselected_text));
+    				}
+    			}
+    			
     		} else {
     			Log.e("Add_Article_ListActivity.OnChildRowClick", "moveToPosition "+ aListItem.getChildPos() +" failed");
     		}
