@@ -77,7 +77,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     	     							@Override
     	     							protected Cursor getChildrenCursor(Cursor groupCursor) {
     	     								// DB-Abfrage um die Kindelemente darzustellen
-    	     								int lGroupID = mGroupCursor.getInt(mGroupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+    	     								int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
     	     								mChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
     	     								startManagingCursor(mChildCursor);
     	     								return mChildCursor;
