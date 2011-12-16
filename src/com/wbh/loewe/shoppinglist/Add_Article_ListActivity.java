@@ -9,9 +9,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wbh.loewe.shoppinglist.cursoradapter.AddArticleCursorTreeAdapter;
+import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 
@@ -21,6 +22,7 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 public class Add_Article_ListActivity extends ExpandableArticleListActivity 
 {
 	private int mListID;
+	private AddArticleCursorTreeAdapter mAddArticleAdapter;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,15 +53,38 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
         btn.setOnClickListener(btnSaveListener);
 
 		fillData();
-	}
+	}	
 	
+	@Override
 	protected Cursor getGroupCursor() {
-    	return mShoppinglistapp.getDBAdapter().fetchAllCategories();
-    }
+		return mShoppinglistapp.getDBAdapter().fetchAllCategories();
+	}
     
-    protected Cursor getChildCursor(int aGroupID) {
-    	return mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(aGroupID);
-    }	
+    @Override
+    protected CustomCursorTreeAdapter createAdapter() {
+    	mAddArticleAdapter = new AddArticleCursorTreeAdapter(
+    								this, 
+    								mGroupCursor, 
+    								mGroupItemLayout, 
+    								mGroupFrom, 
+    								mGroupTo, 
+    								mChildItemLayout, 
+    								mChildFrom, 
+    								mChildTo,
+    								new OnGroupRowClickListener(),
+    								new OnChildRowClickListener()) {
+    	    
+    	     							@Override
+    	     							protected Cursor getChildrenCursor(Cursor groupCursor) {
+    	     								// DB-Abfrage um die Kindelemente darzustellen
+    	     								int lGroupID = mGroupCursor.getInt(mGroupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+    	     								mChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
+    	     								startManagingCursor(mChildCursor);
+    	     								return mChildCursor;
+    	     							}
+    	     						};
+    	return mAddArticleAdapter;
+    }
     
     private OnClickListener btnAddArticleListener = new OnClickListener()
     {
@@ -75,16 +100,16 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     	public void onClick(View v) {
     		// TODO
     		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
-    		
     	}
     };
     
     private OnClickListener btnSaveListener = new OnClickListener()
     {
     	public void onClick(View v) {
-    		Vector<Integer> lIDs = mAdapter.getSelectedIDs();
-    		for (int i = 0; i < lIDs.size(); i++) {
-    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lIDs.get(i), 0);
+    		Vector<View> lViews = mAddArticleAdapter.getSelectedViews();
+    		for (int i = 0; i < lViews.size(); i++) {
+    			ChildListItem lItem = (ChildListItem)lViews.get(i).getTag();
+    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lItem.getID(), 0);
     		}
     		finish();
     	}
@@ -100,21 +125,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     protected void OnChildRowClick(View aView, ChildListItem aListItem) {
     	if (aListItem != null) {
     		if (mChildCursor.moveToPosition(aListItem.getChildPos())) {
-    			int lColIdx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
-    			Boolean lSelected = mAdapter.setSelectedItem(aView, 
-    					                           aListItem.getGroupPos(), 
-    					                           aListItem.getChildPos(), 
-    					                           mChildCursor.getInt(lColIdx));
-    			// Textfarbe richtig setzen
-    			TextView ltxt_Article = (TextView)aView.findViewById(R.id.txt_article);
-    			if (ltxt_Article != null) {
-    				if (lSelected) {
-    					ltxt_Article.setTextColor(this.getResources().getColor(R.color.row_selected_text));
-    				} else {
-    					ltxt_Article.setTextColor(this.getResources().getColor(R.color.row_unselected_text));
-    				}
-    			}
-    			
+    			mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
     		} else {
     			Log.e("Add_Article_ListActivity.OnChildRowClick", "moveToPosition "+ aListItem.getChildPos() +" failed");
     		}

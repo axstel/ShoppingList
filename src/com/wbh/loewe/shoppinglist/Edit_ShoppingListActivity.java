@@ -8,6 +8,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
+import com.wbh.loewe.shoppinglist.cursoradapter.EditShoppingListCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 
@@ -17,6 +19,7 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 public class Edit_ShoppingListActivity extends ExpandableArticleListActivity 
 {
 	private int mListID;
+	private EditShoppingListCursorTreeAdapter mEditShoppingListAdapter;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,13 +51,36 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
         btn.setOnClickListener(btnEmptyListListener);
 	}
 	
+	@Override
 	protected Cursor getGroupCursor() {
-    	return mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
+		return mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
+	}
+	
+	@Override
+    protected CustomCursorTreeAdapter createAdapter() {
+    	mEditShoppingListAdapter = new EditShoppingListCursorTreeAdapter(
+    								this, 
+    								mGroupCursor, 
+    								mGroupItemLayout, 
+    								mGroupFrom, 
+    								mGroupTo, 
+    								mChildItemLayout, 
+    								mChildFrom, 
+    								mChildTo,
+    								new OnGroupRowClickListener(),
+    								new OnChildRowClickListener()) {
+    	    
+    	     							@Override
+    	     							protected Cursor getChildrenCursor(Cursor groupCursor) {
+    	     								// DB-Abfrage um die Kindelemente darzustellen
+    	     								int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+    	     								mChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, lGroupID);
+    	     								startManagingCursor(mChildCursor);
+    	     								return mChildCursor;
+    	     							}
+    	     						};
+    	return mEditShoppingListAdapter;
     }
-    
-    protected Cursor getChildCursor(int aGroupID) {
-    	return mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, aGroupID);
-    }	
     
     private OnClickListener btnAddArticleListener = new OnClickListener()
     {

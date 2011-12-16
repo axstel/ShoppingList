@@ -1,13 +1,12 @@
 package com.wbh.loewe.shoppinglist;
 
+import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
+
 import android.app.ExpandableListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-
-import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 
 /**
@@ -45,45 +44,27 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
 	}
     
     protected Cursor getGroupCursor() {
-    	return null;
-    }
-    
-    protected Cursor getChildCursor(int aGroupID) {
+    	// muss in subklasse überschrieben werden
     	return null;
     }
     
     public void fillData() {
     	mGroupCursor = getGroupCursor();
     	startManagingCursor(mGroupCursor);
-    	       
-    	// Adapter für ExpandableList erstellen
-    	mAdapter = new CustomCursorTreeAdapter(
-    			this, 
-    			mGroupCursor, 
-    			mGroupItemLayout, 
-    			mGroupFrom, 
-    			mGroupTo, 
-    	        mChildItemLayout, 
-    	        mChildFrom, 
-    	        mChildTo,
-    	        new OnGroupRowClickListener(),
-    	        new OnChildRowClickListener()) {
-    	          
-    	        @Override
-    	        protected Cursor getChildrenCursor(Cursor groupCursor) {
-    	        	// DB-Abfrage um die Kindelemente darzustellen
-    	            mChildCursor = getChildCursor(mGroupCursor.getInt(mGroupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID)));
-    	            startManagingCursor(mChildCursor);
-    	            return mChildCursor;
-    	          }
-    	        };
-    	        
-    	        // Der ExpandableListView den Adapter zuweisen
-    	        mListView.setAdapter(mAdapter);
+    	
+    	mAdapter = createAdapter(); 
+    	
+    	//Der ExpandableListView den Adapter zuweisen
+    	mListView.setAdapter(mAdapter);
+    }
+    
+    protected CustomCursorTreeAdapter createAdapter() {
+    	// Muss in subklasse überschrieben werden
+    	return null;
     }
     
     // Event wenn auf eine Kategorie klickt
-    private class OnGroupRowClickListener implements CustomCursorTreeAdapter.GroupRowClickListener {
+    protected class OnGroupRowClickListener implements CustomCursorTreeAdapter.GroupRowClickListener {
 		public void OnClick(View aView, GroupListItem aListItem) {
 			if (aListItem != null) {
 				if (aListItem.getIsExpanded()) {
@@ -99,7 +80,7 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
     }
     
     // Event wenn auf eine Kategorie klickt
-    private class OnChildRowClickListener implements CustomCursorTreeAdapter.ChildRowClickListener {
+    protected class OnChildRowClickListener implements CustomCursorTreeAdapter.ChildRowClickListener {
 		public void OnClick(View aView, ChildListItem aListItem) {
 			OnChildRowClick(aView, aListItem);
 		}
