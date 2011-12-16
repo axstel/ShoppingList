@@ -64,16 +64,22 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 		View lView = super.getChildView(groupPosition, childPosition, isLastChild, convertView, parent);
 		lView.setOnClickListener(btnChildViewClickListListener);
 		
-		int lColIDx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
-    	int lID = mChildCursor.getInt(lColIDx);
-		if (lView.getTag() == null) {
-    		ChildListItem lListItem = new ChildListItem(lID, groupPosition, childPosition);
-    		lView.setTag(lListItem);
-    	} else {
-    		ChildListItem lListItem = (ChildListItem)lView.getTag();
-    		lListItem.setGroupPos(groupPosition);
-    		lListItem.setChildPos(childPosition);
-    	}
+		// Wenn auf den Datensatz nicht gesprungen werden kann, dann bauch man hier nicht weiter machen
+		if (mChildCursor.moveToPosition(childPosition)) {
+			int lColIDx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
+			int lID = mChildCursor.getInt(lColIDx);
+			if (lView.getTag() == null) {
+				ChildListItem lListItem = new ChildListItem(lID, groupPosition, childPosition);
+				lView.setTag(lListItem);
+			} else {
+				ChildListItem lListItem = (ChildListItem)lView.getTag();
+				lListItem.setID(lID);
+				lListItem.setGroupPos(groupPosition);
+				lListItem.setChildPos(childPosition);
+			}
+		} else {
+			Log.e("CustomCursorTreeAdapter.getChildView", "moveToPosition "+ childPosition +" failed");
+		}
 		return lView;
 	}
 	
