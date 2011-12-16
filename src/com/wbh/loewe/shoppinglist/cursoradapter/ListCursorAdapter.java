@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.wbh.loewe.shoppinglist.ListItem;
 import com.wbh.loewe.shoppinglist.R;
-import com.wbh.loewe.shoppinglist.R.id;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 public class ListCursorAdapter extends SimpleCursorAdapter {
