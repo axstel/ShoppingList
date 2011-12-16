@@ -2,37 +2,38 @@
 <TableLayout
 android:id="@+id/widget0"
 android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:layout_marginTop="20px"
-android:layout_marginBottom="20px"
+android:layout_height="60dp"
+android:layout_marginTop="0px"
+android:layout_marginBottom="0px"
 xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@color/background_list"
 >
 
      <TableRow android:gravity="left" >
 		<TextView
 		android:id="@+id/txt_kategorie"
-		android:layout_width="310px"
-		android:layout_height="40px"
+		android:layout_width="265px"
+		android:layout_height="60dp"
 		android:text="Kategorie"
-		android:layout_x="31px"
-		android:layout_y="17px"
+		android:layout_x="40px"
+		android:layout_y="10px"
+		android:textSize="18dip"           
+        android:textStyle="bold"
 		android:layout_marginLeft="60px"
-		android:layout_marginRight="20px"		
-		android:gravity="center_vertical">
+		android:layout_marginRight="20px"	
+		android:gravity="center_vertical"
+		android:textColor="@color/list_txt">
 		</TextView>
-		
+
 		<ImageButton
 		    android:id="@+id/btn_edit"
 		    android:layout_width="38dp"
 		    android:layout_height="38dp"
-		    android:layout_x="335px"
-		    android:layout_y="7px" 
-		    android:background="@drawable/edit_button"
 		    android:layout_marginLeft="5px"
-			android:layout_marginRight="5px">
-		
-		</ImageButton>
-		
+		    android:layout_marginRight="5px"
+		    android:layout_marginTop="17px"
+		    android:background="@drawable/edit_button"
+		    android:gravity="center_vertical" />
 		
 		<ImageButton
 		    android:id="@+id/btn_del"
@@ -42,7 +43,9 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 		    android:layout_y="7px" 
 		    android:background="@drawable/del_button"
 		    android:layout_marginLeft="5px"
-			android:layout_marginRight="5px">
+			android:layout_marginRight="5px"
+			android:layout_marginTop="17px"
+			android:gravity="center_vertical">
 		
 		</ImageButton>
 		

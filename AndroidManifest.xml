@@ -28,7 +28,11 @@
         <activity android:name="Edit_ShoppingListActivity"></activity>
         <activity android:name="Article_AdminActivity"></activity>
         <activity android:name="Add_Article_ListActivity"></activity>
+        
+        
 
     </application>
+    
+       
 
 </manifest>

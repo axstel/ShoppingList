@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="fill_parent" 
     android:layout_width="fill_parent"
+    android:background="@color/background_dialog"
    >
 
     <TableRow android:gravity="center" >
@@ -10,7 +11,9 @@
         <TextView
             android:id="@+id/txt_editArt_Name"
             android:text="Name:"
-            android:width="120px" />
+            android:width="120px" 
+            android:textStyle="bold"
+            android:textColor="@color/list_txt"/>
 
         <EditText
             android:id="@+id/txtfield_Name"
@@ -22,7 +25,9 @@
 
         <TextView
             android:id="@+id/txt_editArt_Einheit"
-            android:text="@string/txt_editArt_Einheit" />
+            android:text="@string/txt_editArt_Einheit"
+            android:textStyle="bold"
+            android:textColor="@color/list_txt" />
 
         <Spinner
             android:id="@+id/spinnerVorlage"
@@ -35,7 +40,9 @@
 
         <TextView
             android:id="@+id/txt_editArt_Kategorie"
-            android:text="@string/txt_editArt_Kategorie" />
+            android:text="@string/txt_editArt_Kategorie" 
+            android:textStyle="bold"
+            android:textColor="@color/list_txt"/>
 
         <Spinner
             android:id="@+id/spinnerVorlage"
@@ -44,28 +51,35 @@
 
     </TableRow>
     
-    <RelativeLayout
+    <TableLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/RLayout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-
+        android:layout_height="wrap_content" 
+        >
+	<TableRow>
     <Button
         android:id="@+id/btn_editArt_OK"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_alignLeft="@+id/txtComments"
         android:layout_below="@+id/txtComments"
-        android:text="@string/btn_OK" />
+        android:text="@string/btn_OK"
+        android:layout_marginRight="3px"
+        android:background="@color/btn_hintergrund"
+        android:textColor="@color/btn_text" />
 
     <Button
         android:id="@+id/btn_editArt_Cancel"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="@string/btn_Cancel" />
+        android:text="@string/btn_Cancel" 
+        android:background="@color/btn_hintergrund"
+        android:textColor="@color/btn_text"/>
         
-    </RelativeLayout>
+    </TableRow>
+    </TableLayout>
 
 </TableLayout>

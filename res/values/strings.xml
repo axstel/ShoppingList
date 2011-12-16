@@ -6,7 +6,7 @@
     <string name="btn_neueEinkaufsliste">Neue Einkaufsliste</string>
     <string name="btn_artikelVerwalten">Artikel verwalten</string>
     <string name="btn_beenden">Beenden</string>
-    <string name="txt_keineEinkaufsliste">Es sind keine Einkaufslisten vorhanden. Klicken Sie \"Einkaufsliste hinzufügen\" um eine neue Liste hinzuzufügen</string>
+    <string name="txt_keineEinkaufsliste">Es sind keine Einkaufslisten vorhanden. Klicken Sie \"Neue Einkaufsliste\" um eine neue Liste hinzuzufügen</string>
 	<string name="main_no_items">No items</string>
     <string name="checkbox_text">Selected</string>
     
@@ -38,7 +38,7 @@
     <string name="btn_editName_Cancel">Abbrechen</string>
     <string name="btn_editName">Name ändern</string>
     <string name="btn_emptyList">Einkaufsliste leeren</string>
-    <string name="txt_emptyList">Wollen Sie alle Artikel von der Einkaufsliste entfernen?</string>
+    <string name="txt_emptyList">Alle Artikel von der Einkaufsliste entfernen?</string>
     <string name="btn_emptyList_OK">Ja</string>
     <string name="btn_emptyList_Cancel">Nein</string>
     <string name="btn_EK_zuruecksetzen">Einkaufsliste zurücksetzen?</string>

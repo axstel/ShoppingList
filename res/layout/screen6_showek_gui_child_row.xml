@@ -3,42 +3,46 @@
 android:id="@+id/widget0"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
-xmlns:android="http://schemas.android.com/apk/res/android">
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@color/background_list">
 
      <TableRow android:gravity="left" >
 		<TextView
 		    android:id="@+id/txt_article"
 		    android:layout_width="150px"
-		    android:layout_height="fill_parent"
+		    android:layout_height="38dp"
 		    android:layout_x="6dp"
 		    android:layout_y="16dp"
 		    android:text="Artikel"
 		    android:textSize="16sp" 
 		    android:layout_marginRight="15px"
             android:layout_marginLeft="15px"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:textColor="@color/list_txt"/>
 		
 		<TextView
 		    android:id="@+id/edittxt_menge"
 		    android:layout_width="80px"
-		    android:layout_height="fill_parent"
+		    android:layout_height="38dp"
 		    android:layout_x="95dp"
 		    android:layout_y="15dp"
 		    android:text="Menge"
 		    android:textSize="16sp" 
 		    android:layout_marginRight="15px"
             android:layout_marginLeft="15px"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:textColor="@color/list_txt"/>
 
 		<TextView
 		    android:id="@+id/txt_einheit"
 		    android:layout_width="100px"
-		    android:layout_height="fill_parent"
+		    android:layout_height="38dp"
 		    android:text="Einheit"
-		    android:textSize="16sp" 
+		    android:textSize="11sp" 
 		    android:layout_marginRight="15px"
             android:layout_marginLeft="15px"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:textColor="@color/list_txt"/>
 
 	</TableRow>
 

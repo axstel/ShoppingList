@@ -4,6 +4,7 @@ android:id="@+id/widget0"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@color/background_list"
 >
 
      <TableRow android:gravity="left" >
@@ -15,7 +16,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 		    android:text="Artikel" 
 		    android:layout_marginRight="15px"
             android:layout_marginLeft="15px"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:textColor="@color/list_txt"/>
 
 		<EditText
 		    android:id="@+id/edittxt_menge"
@@ -23,9 +25,11 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 		    android:layout_height="fill_parent"
 		    android:layout_x="100dp"
 		    android:layout_y="6dp"
-		    android:text="editMenge"
+		    android:text=""
 		    android:textSize="18sp"
-		    android:gravity="center_vertical" />
+		    android:gravity="center_vertical">
+		    <requestFocus />
+		 </EditText>
 
 		<TextView
 		    android:id="@+id/txt_einheit"
@@ -33,8 +37,10 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 		    android:layout_height="fill_parent"
 		    android:layout_marginLeft="15px"
 		    android:layout_marginRight="10px"
+		    android:textSize="11dip"
 		    android:text="Einheit" 
-		    android:gravity="center_vertical"/>
+		    android:gravity="center_vertical"
+		    android:textColor="@color/list_txt"/>
 
 		<ImageButton
 		    android:id="@+id/btn_edit"

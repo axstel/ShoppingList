@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/background_list" >
 
     <ExpandableListView
         android:id="@+id/android:list"
@@ -11,30 +12,46 @@
         android:layout_above="@+id/ll_bottom"
         android:drawSelectorOnTop="true" />
 
-    <LinearLayout
+    <TableLayout
         android:id="@+id/ll_bottom"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true" >
 
+        <TableRow>
         <Button
             android:id="@+id/btn_addArt"
             android:layout_width="106dp"
-            android:layout_height="fill_parent"
-            android:text="@string/addArt" />
+            android:layout_height="50dp"
+            android:text="@string/addArt" 
+            android:layout_marginRight="2px"
+             android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text"/>
 
         <Button
             android:id="@+id/btn_editName"
             android:layout_width="106dp"
             android:layout_height="fill_parent"
-            android:text="@string/btn_editName" />
+            android:text="@string/btn_editName"
+            android:layout_marginRight="2px"
+             android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" 
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text"/>
 
         <Button
             android:id="@+id/btn_emptyList"
             android:layout_width="106dp"
             android:layout_height="fill_parent" 
-            android:text="@string/btn_emptyList" />
-    </LinearLayout>
+            android:text="@string/btn_emptyList"
+             android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text" />
+        </TableRow>
+    </TableLayout>
 
 </RelativeLayout>

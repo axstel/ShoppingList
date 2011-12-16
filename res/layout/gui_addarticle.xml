@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@color/background_list">
 
     <ExpandableListView
         android:id="@+id/android:list"
@@ -12,33 +13,42 @@
         android:drawSelectorOnTop="true" >
     </ExpandableListView>
 
-    <LinearLayout
+    <TableLayout
         android:id="@+id/ll_bottom"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true" >
-
+		<TableRow>
         <Button
             android:id="@+id/btn_addArt"
             android:layout_width="106dp"
-            android:layout_height="fill_parent"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:text="@string/btn_newArt" />
+            android:layout_marginRight="3px"
+            android:text="@string/btn_newArt" 
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text"/>
 
         <Button
             android:id="@+id/btn_newKat"
             android:layout_width="106dp"
-            android:layout_height="fill_parent"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:text="@string/btn_newKategorie" />
+            android:layout_marginRight="3px"
+            android:text="@string/btn_newKategorie"
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text" />
 
         <Button
             android:id="@+id/btn_save"
             android:layout_width="106dp"
-            android:layout_height="fill_parent"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:text="@string/btn_save" />
-    </LinearLayout>
+            android:text="@string/btn_save" 
+            android:background="@color/btn_hintergrund"
+            android:textColor="@color/btn_text"/>
+        </TableRow>
+    </TableLayout>
 
 </RelativeLayout>
