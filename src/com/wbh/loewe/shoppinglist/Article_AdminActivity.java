@@ -2,11 +2,9 @@ package com.wbh.loewe.shoppinglist;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.Toast;
 
+import com.wbh.loewe.shoppinglist.cursoradapter.ArticleAdminCursorTreeAdapter;
+import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 
@@ -15,6 +13,8 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
  */
 public class Article_AdminActivity extends ExpandableArticleListActivity 
 {
+	private ArticleAdminCursorTreeAdapter mArticleAdminAdapter;
+	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,24 +25,35 @@ public class Article_AdminActivity extends ExpandableArticleListActivity
     	mGroupTo = new int[] {R.id.txt_kategorie}; 
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
     	mChildTo = new int[] {R.id.txt_article};
-    	
-    	getExpandableListView().setOnGroupClickListener(gl);
         
 		fillData();
 	}
 	
-	private OnGroupClickListener gl = new OnGroupClickListener() {
-		public boolean onGroupClick(ExpandableListView arg0, View arg1, int arg2, long arg3) {
-			Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
-			return false;
-		}
-    };   
-	
-	protected Cursor getGroupCursor() {
-    	return mShoppinglistapp.getDBAdapter().fetchAllCategories();
+	@Override
+    protected CustomCursorTreeAdapter createAdapter() {
+		Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategories();
+		mArticleAdminAdapter = new ArticleAdminCursorTreeAdapter(
+    								this, 
+    								lGroupCursor, 
+    								mGroupItemLayout, 
+    								mGroupFrom, 
+    								mGroupTo, 
+    								mChildItemLayout, 
+    								mChildFrom, 
+    								mChildTo,
+    								new OnGroupRowClickListener(),
+    								new OnChildRowClickListener()) {
+    	    
+    	     							@Override
+    	     							protected Cursor getChildrenCursor(Cursor groupCursor) {
+    	     								// DB-Abfrage um die Kindelemente darzustellen
+    	     								int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+    	     								mChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
+    	     								startManagingCursor(mChildCursor);
+    	     								return mChildCursor;
+    	     							}
+    	     						};
+    	return mArticleAdminAdapter;
     }
-    
-    protected Cursor getChildCursor(int aGroupID) {
-    	return mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(aGroupID);
-    }	
+		
 }
