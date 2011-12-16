@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
+import com.wbh.loewe.shoppinglist.cursoradapter.AddArticleCursorTreeAdapter;
+import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 
@@ -20,13 +22,14 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 public class Add_Article_ListActivity extends ExpandableArticleListActivity 
 {
 	private int mListID;
+	private AddArticleCursorTreeAdapter mAddArticleAdapter;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        mGroupItemLayout = R.layout.artdb_gui_group_row;
-    	mChildItemLayout = R.layout.artdb_gui_child_row;
+        mGroupItemLayout = R.layout.screen5_add_art_gui_group_row;
+    	mChildItemLayout = R.layout.screen5_add_art_gui_child_row;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
     	mGroupTo = new int[] {R.id.txt_kategorie}; 
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
@@ -50,15 +53,34 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
         btn.setOnClickListener(btnSaveListener);
 
 		fillData();
-	}
-	
-	protected Cursor getGroupCursor() {
-    	return mShoppinglistapp.getDBAdapter().fetchAllCategories();
-    }
+	}	
     
-    protected Cursor getChildCursor(int aGroupID) {
-    	return mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(aGroupID);
-    }	
+    @Override
+    protected CustomCursorTreeAdapter createAdapter() {
+    	Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategories();
+    	mAddArticleAdapter = new AddArticleCursorTreeAdapter(
+    								this, 
+    								lGroupCursor, 
+    								mGroupItemLayout, 
+    								mGroupFrom, 
+    								mGroupTo, 
+    								mChildItemLayout, 
+    								mChildFrom, 
+    								mChildTo,
+    								new OnGroupRowClickListener(),
+    								new OnChildRowClickListener()) {
+    	    
+    	     							@Override
+    	     							protected Cursor getChildrenCursor(Cursor groupCursor) {
+    	     								// DB-Abfrage um die Kindelemente darzustellen
+    	     								int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+    	     								mChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
+    	     								startManagingCursor(mChildCursor);
+    	     								return mChildCursor;
+    	     							}
+    	     						};
+    	return mAddArticleAdapter;
+    }
     
     private OnClickListener btnAddArticleListener = new OnClickListener()
     {
@@ -74,16 +96,16 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     	public void onClick(View v) {
     		// TODO
     		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
-    		
     	}
     };
     
     private OnClickListener btnSaveListener = new OnClickListener()
     {
     	public void onClick(View v) {
-    		Vector<Integer> lIDs = mAdapter.getSelectedIDs();
-    		for (int i = 0; i < lIDs.size(); i++) {
-    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lIDs.get(i), 0);
+    		Vector<View> lViews = mAddArticleAdapter.getSelectedViews();
+    		for (int i = 0; i < lViews.size(); i++) {
+    			ChildListItem lItem = (ChildListItem)lViews.get(i).getTag();
+    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lItem.getID(), 0);
     		}
     		finish();
     	}
@@ -98,9 +120,8 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     @Override
     protected void OnChildRowClick(View aView, ChildListItem aListItem) {
     	if (aListItem != null) {
-    		if (mChildCursor.moveToPosition(aListItem.getChildPos())) {
-    			int lColIdx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
-    			mAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos(), mChildCursor.getInt(lColIdx));
+    		if (mAddArticleAdapter.getChildCursor().moveToPosition(aListItem.getChildPos())) {
+    			mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
     		} else {
     			Log.e("Add_Article_ListActivity.OnChildRowClick", "moveToPosition "+ aListItem.getChildPos() +" failed");
     		}

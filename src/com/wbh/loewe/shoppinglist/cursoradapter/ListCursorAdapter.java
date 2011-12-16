@@ -1,4 +1,4 @@
-package com.wbh.loewe.shoppinglist;
+package com.wbh.loewe.shoppinglist.cursoradapter;
 
 import java.util.HashMap;
 
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.wbh.loewe.shoppinglist.ListItem;
+import com.wbh.loewe.shoppinglist.R;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 
 public class ListCursorAdapter extends SimpleCursorAdapter {
