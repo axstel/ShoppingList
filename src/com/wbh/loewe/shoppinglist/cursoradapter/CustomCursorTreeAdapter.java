@@ -111,9 +111,17 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
     	}
     };
 
+	public Cursor getGroupCursor() {
+		return mGroupCursor;
+	}
+	
+	public Cursor getChildCursor() {
+		return mChildCursor;
+	}
+
 	@Override
 	protected Cursor getChildrenCursor(Cursor groupCursor) {
-		// Must be overriden in subclasses
+		// must be implemented in subclass 
 		return null;
 	}
 

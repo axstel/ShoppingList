@@ -54,17 +54,13 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
 
 		fillData();
 	}	
-	
-	@Override
-	protected Cursor getGroupCursor() {
-		return mShoppinglistapp.getDBAdapter().fetchAllCategories();
-	}
     
     @Override
     protected CustomCursorTreeAdapter createAdapter() {
+    	Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategories();
     	mAddArticleAdapter = new AddArticleCursorTreeAdapter(
     								this, 
-    								mGroupCursor, 
+    								lGroupCursor, 
     								mGroupItemLayout, 
     								mGroupFrom, 
     								mGroupTo, 
@@ -124,7 +120,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     @Override
     protected void OnChildRowClick(View aView, ChildListItem aListItem) {
     	if (aListItem != null) {
-    		if (mChildCursor.moveToPosition(aListItem.getChildPos())) {
+    		if (mAddArticleAdapter.getChildCursor().moveToPosition(aListItem.getChildPos())) {
     			mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
     		} else {
     			Log.e("Add_Article_ListActivity.OnChildRowClick", "moveToPosition "+ aListItem.getChildPos() +" failed");

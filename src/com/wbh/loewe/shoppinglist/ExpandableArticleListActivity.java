@@ -14,9 +14,7 @@ import android.widget.ExpandableListView;
  */
 public class ExpandableArticleListActivity extends ExpandableListActivity 
 {
-	
-	protected Cursor mGroupCursor;
-	protected Cursor mChildCursor;
+
 	private ExpandableListView mListView;
 	protected CustomCursorTreeAdapter mAdapter;
 	protected ShoppingListApplication mShoppinglistapp;
@@ -43,16 +41,9 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
         mListView = getExpandableListView();
 	}
     
-    protected Cursor getGroupCursor() {
-    	// muss in subklasse überschrieben werden
-    	return null;
-    }
-    
     public void fillData() {
-    	mGroupCursor = getGroupCursor();
-    	startManagingCursor(mGroupCursor);
-    	
     	mAdapter = createAdapter(); 
+    	startManagingCursor(mAdapter.getGroupCursor());
     	
     	//Der ExpandableListView den Adapter zuweisen
     	mListView.setAdapter(mAdapter);

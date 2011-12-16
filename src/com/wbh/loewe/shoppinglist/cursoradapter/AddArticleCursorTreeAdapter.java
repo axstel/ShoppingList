@@ -66,18 +66,18 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		Boolean lSelected = mSelectedItems.containsKey(aKey);
 		TextView ltxt_Article = (TextView)aView.findViewById(R.id.txt_article);
 		if (lSelected) {
-			
 			aView.setBackgroundColor(mContext.getResources().getColor(R.color.row_selected_background));
+			
 			if (ltxt_Article != null) {
 				ltxt_Article.setTextColor(mContext.getResources().getColor(R.color.row_selected_text));
 			} else {
 				Log.e("Add_Article_ListActivity.OnSetSelectedView", "txt_article not found");
 			}
 		} else {
-			aView.setBackgroundColor(mContext.getResources().getColor(R.color.row_unselected_text));
+			aView.setBackgroundColor(mContext.getResources().getColor(R.color.row_unselected_background));
 			
 			if (ltxt_Article != null) {
-				ltxt_Article.setTextColor(mContext.getResources().getColor(R.color.row_selected_text));
+				ltxt_Article.setTextColor(mContext.getResources().getColor(R.color.row_unselected_text));
 			} else {
 				Log.e("Add_Article_ListActivity.OnSetSelectedView", "txt_article not found");
 			}
@@ -90,5 +90,11 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 			lSelected.add(lView);
 		}
 		return lSelected;
+	}
+	
+	@Override
+	protected Cursor getChildrenCursor(Cursor groupCursor) {
+		// must be implemented in subclass 
+		return null;
 	}
 }

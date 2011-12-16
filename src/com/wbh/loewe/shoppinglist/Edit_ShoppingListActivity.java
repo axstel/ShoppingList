@@ -52,15 +52,11 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 	}
 	
 	@Override
-	protected Cursor getGroupCursor() {
-		return mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
-	}
-	
-	@Override
     protected CustomCursorTreeAdapter createAdapter() {
+		Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
     	mEditShoppingListAdapter = new EditShoppingListCursorTreeAdapter(
     								this, 
-    								mGroupCursor, 
+    								lGroupCursor, 
     								mGroupItemLayout, 
     								mGroupFrom, 
     								mGroupTo, 
