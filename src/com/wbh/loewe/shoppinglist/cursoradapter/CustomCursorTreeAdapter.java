@@ -8,9 +8,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.SimpleCursorTreeAdapter;
 
-import com.wbh.loewe.shoppinglist.ChildListItem;
-import com.wbh.loewe.shoppinglist.GroupListItem;
+import com.wbh.loewe.shoppinglist.ShoppingListApplication;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
 
 public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 
@@ -27,17 +28,20 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 	protected Context mContext;
 	protected Cursor mGroupCursor;
 	protected Cursor mChildCursor;
+	protected ShoppingListApplication mMainApp;
 	
 	public CustomCursorTreeAdapter(Context context, Cursor cursor,
 			int groupLayout, String[] groupFrom, int[] groupTo,
 			int childLayout, String[] childFrom, int[] childTo,
-			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick) {
+			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick,
+			ShoppingListApplication aApp) {
 		super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childFrom, childTo);
 		mContext = context;
 		mGroupCursor = cursor;
 		mChildCursor = null;
 		mGroupRowClickListener = aGroupClick;
 		mChildRowClickListener = aChildClick;
+		mMainApp = aApp;
 	}
 	
     @Override
@@ -45,10 +49,13 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
     	View lView = super.getGroupView(groupPosition, isExpanded, convertView, parent);
     	lView.setOnClickListener(btnGroupViewClickListListener);
     	
-    	int lColIDx = mGroupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
-    	int lID = mGroupCursor.getInt(lColIDx);
+    	int lColIdx = -1;
+    	lColIdx = mGroupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
+    	int lID = mGroupCursor.getInt(lColIdx);
+    	lColIdx = mGroupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME);
+    	String lName = mGroupCursor.getString(lColIdx);
     	if (lView.getTag() == null) {
-    		GroupListItem lListItem = new GroupListItem(lID, groupPosition, isExpanded);
+    		GroupListItem lListItem = new GroupListItem(lID, lName, groupPosition, isExpanded);
     		lView.setTag(lListItem);
     	} else {
     		GroupListItem lListItem = (GroupListItem)lView.getTag();
@@ -66,10 +73,14 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 		
 		// Wenn auf den Datensatz nicht gesprungen werden kann, dann bauch man hier nicht weiter machen
 		if (mChildCursor.moveToPosition(childPosition)) {
-			int lColIDx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
-			int lID = mChildCursor.getInt(lColIDx);
+			
+			int lColIdx = -1;
+	    	lColIdx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
+	    	int lID = mChildCursor.getInt(lColIdx);
+	    	lColIdx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME);
+	    	String lName = mChildCursor.getString(lColIdx);
 			if (lView.getTag() == null) {
-				ChildListItem lListItem = new ChildListItem(lID, groupPosition, childPosition);
+				ChildListItem lListItem = new ChildListItem(lID, lName, groupPosition, childPosition);
 				lView.setTag(lListItem);
 			} else {
 				ChildListItem lListItem = (ChildListItem)lView.getTag();

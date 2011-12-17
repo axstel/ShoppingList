@@ -1,11 +1,11 @@
-package com.wbh.loewe.shoppinglist;
+package com.wbh.loewe.shoppinglist.listitem;
+
 
 
 public class ListItem  {
 
-	private int mID;
-	private String mName;
-	private boolean mSelected;
+	protected int mID;
+	protected String mName;
 		
 	public ListItem(int aID, String aName) {
 		this.mID = aID;
@@ -32,13 +32,4 @@ public class ListItem  {
 		return this.mName;
 	}
 	
-	public void setSelected(boolean aSelected) {
-		
-		this.mSelected = aSelected;
-	}
-	
-	public boolean getSelected() {
-		
-		return this.mSelected;
-	}
 }

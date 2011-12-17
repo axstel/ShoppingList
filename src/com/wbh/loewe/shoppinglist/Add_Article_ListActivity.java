@@ -2,6 +2,7 @@ package com.wbh.loewe.shoppinglist;
 
 import java.util.Vector;
 
+
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.wbh.loewe.shoppinglist.cursoradapter.AddArticleCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 
 
 /**
@@ -68,7 +70,8 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     								mChildFrom, 
     								mChildTo,
     								new OnGroupRowClickListener(),
-    								new OnChildRowClickListener()) {
+    								new OnChildRowClickListener(),
+    								mShoppinglistapp) {
     	    
     	     							@Override
     	     							protected Cursor getChildrenCursor(Cursor groupCursor) {
@@ -105,7 +108,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     		Vector<View> lViews = mAddArticleAdapter.getSelectedViews();
     		for (int i = 0; i < lViews.size(); i++) {
     			ChildListItem lItem = (ChildListItem)lViews.get(i).getTag();
-    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lItem.getID(), 0);
+    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lItem.getID(), lItem.getQuantity());
     		}
     		finish();
     	}

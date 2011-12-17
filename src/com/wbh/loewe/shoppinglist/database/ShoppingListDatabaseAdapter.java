@@ -94,7 +94,7 @@ public class ShoppingListDatabaseAdapter {
 	
 	/* Return a Cursor over the list of all articles of an category in a shoppinglist */
 	public Cursor fetchAllArticlesOfCategoryInList(int aListID, int aCategoryID) {
-		String lQuery = " SELECT DISTINCT a.* FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
+		String lQuery = " SELECT DISTINCT a.*, sa."+ ShoppingListDatabase.FIELD_NAME_QUANTITY +" FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
 						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
 						" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID +
 						" AND a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +" = "+ aCategoryID;
@@ -128,5 +128,12 @@ public class ShoppingListDatabaseAdapter {
 		values.put(ShoppingListDatabase.FIELD_NAME_QUANTITY, aQuantity);
 		
 		return db.insert(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, null, values);
+	} 
+	
+	/* update article and return if succeed or not */
+	public boolean  updateArticleQuantity(long aID, int aQuantity) {
+		ContentValues lValues = new ContentValues();
+		lValues.put(ShoppingListDatabase.FIELD_NAME_QUANTITY, aQuantity);
+		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_ID + "=" + aID, null) > 0;
 	} 
 }

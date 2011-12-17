@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
 
 
 /**

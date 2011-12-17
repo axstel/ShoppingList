@@ -17,15 +17,16 @@ import android.widget.Spinner;
 
 import com.wbh.loewe.shoppinglist.cursoradapter.ListCursorAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+import com.wbh.loewe.shoppinglist.listitem.ListItem;
 
 public class ShoppingListActivity extends ListActivity {
 
-static final int NEWLIST_DIALOG_ID = 0;
-protected EditText edt_newlist_name;
-protected Spinner edt_newlist_template;
+	static final int NEWLIST_DIALOG_ID = 0;
+	protected EditText edt_newlist_name;
+	protected Spinner edt_newlist_template;
 
-private Cursor mCursor;
-protected ShoppingListApplication mShoppinglistapp;
+	private Cursor mCursor;
+	protected ShoppingListApplication mShoppinglistapp;
 
     /** Called when the activity is first created. */
     @Override

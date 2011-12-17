@@ -8,18 +8,23 @@ import android.database.Cursor;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.wbh.loewe.shoppinglist.QuantityTextWatcher;
 import com.wbh.loewe.shoppinglist.R;
+import com.wbh.loewe.shoppinglist.ShoppingListApplication;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 
 public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 	
 	public AddArticleCursorTreeAdapter(Context context, Cursor cursor,
 			int groupLayout, String[] groupFrom, int[] groupTo,
 			int childLayout, String[] childFrom, int[] childTo,
-			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick) {
+			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick,
+			ShoppingListApplication aApp) {
 		super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childFrom,
-				childTo, aGroupClick, aChildClick);
+				childTo, aGroupClick, aChildClick, aApp);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -53,11 +58,30 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 	public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 		View lView = super.getChildView(groupPosition, childPosition, isLastChild, convertView, parent);
 		
+		// Menge
+		ChildListItem lListItem = (ChildListItem)lView.getTag();
+		if (lListItem != null) {
+			EditText lEdit = (EditText)lView.findViewById(R.id.edittxt_menge);
+		    lListItem.setQuantityEdit(lEdit);
+		    lListItem.setQuantity(0);
+		    if (lEdit != null) {
+		    	lEdit.setText(String.valueOf(0));
+		    }
+		    QuantityTextWatcher lTextWatcher = new QuantityTextWatcher(lListItem);
+		    if (lEdit != null) {
+		    	lEdit.addTextChangedListener(lTextWatcher);
+		    }
+		    
+		} else {
+			Log.e("AddArticleCursorTreeAdapter.getChildView", "Listitem not assigned");
+		}
+		
     	// Prüfen ob dieses Item markiert wurde, wenn ja, dann markiert darstellen
     	String lKey = groupPosition +"_"+ childPosition;
     	setSelectedViewState(lView, lKey);
 		return lView;
 	}
+	
 	
 	// Setzt die Farbe der View entsprechend dem SelectState, wird nur intern verwendet in getChildView
 	// und setSelectedItem
@@ -97,4 +121,5 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		// must be implemented in subclass 
 		return null;
 	}
+    
 }
