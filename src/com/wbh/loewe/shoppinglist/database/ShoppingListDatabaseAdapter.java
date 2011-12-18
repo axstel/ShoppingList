@@ -84,8 +84,8 @@ public class ShoppingListDatabaseAdapter {
 	/* Return a Cursor over the list of all categories of an shoppinglist */
 	public Cursor fetchAllCategoriesOfList(int aListID) {
 		String lQuery = " SELECT DISTINCT c.* FROM "+ ShoppingListDatabase.TABLE_NAME_CATEGORY +" c "+
-						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a ON c."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +
-						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
+						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a ON c."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +
+						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
 						" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID;
 		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
 		return db.rawQuery(lQuery, new String [] {});
@@ -93,8 +93,9 @@ public class ShoppingListDatabaseAdapter {
 	
 	/* Return a Cursor over the list of all articles of an category in a shoppinglist */
 	public Cursor fetchAllArticlesOfCategoryInList(int aListID, int aCategoryID) {
-		String lQuery = " SELECT DISTINCT a.*, sa."+ ShoppingListDatabase.FIELD_NAME_QUANTITY +" AS "+ ShoppingListDatabase.FIELD_NAME_QUANTITY +" FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
-						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
+		String lQuery = " SELECT DISTINCT a.*, sa."+ ShoppingListDatabase.FIELD_NAME_QUANTITY +" AS "+ ShoppingListDatabase.FIELD_NAME_QUANTITY +", q."+ ShoppingListDatabase.FIELD_NAME_NAME +" AS QUANTITYUNITNAME FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
+						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
+						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_QUANTITYUNIT +" q ON q."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDQUANTITYUNIT +
 						" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID +
 						" AND a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +" = "+ aCategoryID;
 		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
@@ -104,16 +105,16 @@ public class ShoppingListDatabaseAdapter {
 	/* Return a Cursor over the list of all categories of articles in database */
 	public Cursor fetchAllCategories() {
 		String lQuery = " SELECT DISTINCT c.* FROM "+ ShoppingListDatabase.TABLE_NAME_CATEGORY +" c "+
-						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a ON c."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +
-						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE;
+						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a ON c."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +
+						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE;
 		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
 		return db.rawQuery(lQuery, new String [] {});
 	}
 	
 	/* Return a Cursor over the list of all articles of an category in database */
 	public Cursor fetchAllArticlesOfCategory(int aCategoryID) {
-		String lQuery = " SELECT DISTINCT a.* FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
-						" LEFT JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
+		String lQuery = " SELECT DISTINCT a.*, q."+ ShoppingListDatabase.FIELD_NAME_NAME +" AS QUANTITYUNITNAME FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
+						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_QUANTITYUNIT +" q ON q."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDQUANTITYUNIT +
 						" WHERE a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +" = "+ aCategoryID;
 		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
 		return db.rawQuery(lQuery, new String [] {});

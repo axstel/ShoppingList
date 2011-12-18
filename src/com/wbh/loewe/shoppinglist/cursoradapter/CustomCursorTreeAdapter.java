@@ -13,7 +13,6 @@ import android.widget.SimpleCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.ShoppingListApplication;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
-import com.wbh.loewe.shoppinglist.listitem.EditListChildListItem;
 import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
 
 public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {

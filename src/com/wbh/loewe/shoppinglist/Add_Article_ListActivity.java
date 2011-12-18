@@ -34,8 +34,8 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     	mChildItemLayout = R.layout.screen5_add_art_gui_child_row;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
     	mGroupTo = new int[] {R.id.txt_kategorie}; 
-    	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
-    	mChildTo = new int[] {R.id.txt_article};
+    	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME, "QUANTITYUNITNAME"}; 
+    	mChildTo = new int[] {R.id.txt_article, R.id.txt_einheit};
         
     	Bundle lExtras = getIntent().getExtras();
 		if (lExtras != null) {
