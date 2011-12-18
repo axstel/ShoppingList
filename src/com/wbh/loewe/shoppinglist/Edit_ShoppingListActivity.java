@@ -29,8 +29,8 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     	mChildItemLayout = R.layout.screen4_editek_gui_child_row;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
     	mGroupTo = new int[] {R.id.txt_kategorie}; 
-    	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
-    	mChildTo = new int[] {R.id.txt_article}; 
+    	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME, ShoppingListDatabase.FIELD_NAME_QUANTITY}; 
+    	mChildTo = new int[] {R.id.txt_article, R.id.edittxt_menge}; 
          
         Bundle lExtras = getIntent().getExtras();
 		if (lExtras != null) {
@@ -65,7 +65,8 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     								mChildTo,
     								new OnGroupRowClickListener(),
     								new OnChildRowClickListener(),
-    								mShoppinglistapp) {
+    								mShoppinglistapp,
+    								mListID) {
     	    
     	     							@Override
     	     							protected Cursor getChildrenCursor(Cursor groupCursor) {

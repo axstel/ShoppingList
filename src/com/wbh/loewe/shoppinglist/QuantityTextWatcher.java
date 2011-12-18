@@ -15,9 +15,9 @@ public class QuantityTextWatcher implements TextWatcher {
 	
 	public void afterTextChanged(Editable s) {
 		try {
-			mListItem.setQuantity(Integer.valueOf(s.toString()));
+			//mListItem.setQuantity(Integer.valueOf(s.toString()));
 		} catch (NumberFormatException e) {
-			mListItem.setQuantity(0);
+			//mListItem.setQuantity(0);
 		}
 	}
 

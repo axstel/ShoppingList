@@ -63,10 +63,6 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		if (lListItem != null) {
 			EditText lEdit = (EditText)lView.findViewById(R.id.edittxt_menge);
 		    lListItem.setQuantityEdit(lEdit);
-		    lListItem.setQuantity(0);
-		    if (lEdit != null) {
-		    	lEdit.setText(String.valueOf(0));
-		    }
 		    QuantityTextWatcher lTextWatcher = new QuantityTextWatcher(lListItem);
 		    if (lEdit != null) {
 		    	lEdit.addTextChangedListener(lTextWatcher);
