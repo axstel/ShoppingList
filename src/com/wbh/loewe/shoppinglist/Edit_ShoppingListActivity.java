@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
@@ -81,6 +83,20 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     	return mEditShoppingListAdapter;
     }
     
+	@Override
+	public void fillData() {
+		super.fillData();
+		ExpandableListView list = this.getExpandableListView();
+    	LinearLayout linear_emptylist = (LinearLayout)findViewById(R.id.linear_emptylist);
+        if (mEditShoppingListAdapter.getCursor().getCount() > 0) {
+        	linear_emptylist.setVisibility(View.GONE);
+        	list.setVisibility(View.VISIBLE);
+        } else {
+        	linear_emptylist.setVisibility(View.VISIBLE);
+        	list.setVisibility(View.GONE);
+        }
+	}
+	
     private OnClickListener btnAddArticleListener = new OnClickListener()
     {
     	public void onClick(View v) {
