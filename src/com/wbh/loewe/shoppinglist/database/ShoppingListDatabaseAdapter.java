@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class ShoppingListDatabaseAdapter {
 
@@ -133,6 +134,7 @@ public class ShoppingListDatabaseAdapter {
 	public boolean  updateArticleQuantity(int aListID, int aArticleID, int aQuantity) {
 		ContentValues lValues = new ContentValues();
 		lValues.put(ShoppingListDatabase.FIELD_NAME_QUANTITY, aQuantity);
+		//Log.w(ShoppingListDatabaseAdapter.class.getName() +".updateArticleQuantity", "aListID: "+ aListID +", aArticleID: "+ aArticleID +"; aQuantity: "+ aQuantity);
 		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE + "=" + aArticleID, null) > 0;
 	} 
 }

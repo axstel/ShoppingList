@@ -2,7 +2,6 @@ package com.wbh.loewe.shoppinglist;
 
 import java.util.Vector;
 
-
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -72,16 +71,15 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     								new OnGroupRowClickListener(),
     								new OnChildRowClickListener(),
     								mShoppinglistapp) {
-    	    
-    	     							@Override
-    	     							protected Cursor getChildrenCursor(Cursor groupCursor) {
-    	     								// DB-Abfrage um die Kindelemente darzustellen
-    	     								int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
-    	     								mChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
-    	     								startManagingCursor(mChildCursor);
-    	     								return mChildCursor;
-    	     							}
-    	     						};
+    									@Override
+    									protected Cursor getChildrenCursor(Cursor groupCursor) {
+    										// DB-Abfrage um die Kindelemente darzustellen
+    										int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+    										Cursor lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
+    										startManagingCursor(lChildCursor);
+    										return lChildCursor;
+    									}
+    								};
     	return mAddArticleAdapter;
     }
     
@@ -123,11 +121,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     @Override
     protected void OnChildRowClick(View aView, ChildListItem aListItem) {
     	if (aListItem != null) {
-    		if (mAddArticleAdapter.getChildCursor().moveToPosition(aListItem.getChildPos())) {
-    			mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
-    		} else {
-    			Log.e("Add_Article_ListActivity.OnChildRowClick", "moveToPosition "+ aListItem.getChildPos() +" failed");
-    		}
+    		mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
     	} else {
     		Log.e("Add_Article_ListActivity.OnChildRowClick", "aListItem is not assigned");
     	}

@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.wbh.loewe.shoppinglist.QuantityTextWatcher;
 import com.wbh.loewe.shoppinglist.R;
 import com.wbh.loewe.shoppinglist.ShoppingListApplication;
 import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
@@ -63,11 +62,6 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		if (lListItem != null) {
 			EditText lEdit = (EditText)lView.findViewById(R.id.edittxt_menge);
 		    lListItem.setQuantityEdit(lEdit);
-		    QuantityTextWatcher lTextWatcher = new QuantityTextWatcher(lListItem);
-		    if (lEdit != null) {
-		    	lEdit.addTextChangedListener(lTextWatcher);
-		    }
-		    
 		} else {
 			Log.e("AddArticleCursorTreeAdapter.getChildView", "Listitem not assigned");
 		}
@@ -111,11 +105,4 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		}
 		return lSelected;
 	}
-	
-	@Override
-	protected Cursor getChildrenCursor(Cursor groupCursor) {
-		// must be implemented in subclass 
-		return null;
-	}
-    
 }

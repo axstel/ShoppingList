@@ -44,16 +44,15 @@ public class Article_AdminActivity extends ExpandableArticleListActivity
     								new OnGroupRowClickListener(),
     								new OnChildRowClickListener(),
     								mShoppinglistapp) {
-    	    
-    	     							@Override
-    	     							protected Cursor getChildrenCursor(Cursor groupCursor) {
-    	     								// DB-Abfrage um die Kindelemente darzustellen
-    	     								int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
-    	     								mChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
-    	     								startManagingCursor(mChildCursor);
-    	     								return mChildCursor;
-    	     							}
-    	     						};
+										@Override
+										protected Cursor getChildrenCursor(Cursor groupCursor) {
+											// DB-Abfrage um die Kindelemente darzustellen
+											int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+											Cursor lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
+											startManagingCursor(lChildCursor);
+											return lChildCursor;
+										}
+									};
     	return mArticleAdminAdapter;
     }
 		

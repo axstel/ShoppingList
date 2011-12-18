@@ -1,9 +1,9 @@
 package com.wbh.loewe.shoppinglist.cursoradapter;
 
-import com.wbh.loewe.shoppinglist.ShoppingListApplication;
-
 import android.content.Context;
 import android.database.Cursor;
+
+import com.wbh.loewe.shoppinglist.ShoppingListApplication;
 
 public class ArticleAdminCursorTreeAdapter extends CustomCursorTreeAdapter {
 	

@@ -44,7 +44,7 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
     
     public void fillData() {
     	mAdapter = createAdapter(); 
-    	startManagingCursor(mAdapter.getGroupCursor());
+    	startManagingCursor(mAdapter.getCursor());
     	
     	//Der ExpandableListView den Adapter zuweisen
     	mListView.setAdapter(mAdapter);

@@ -2,15 +2,16 @@ package com.wbh.loewe.shoppinglist.cursoradapter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.wbh.loewe.shoppinglist.QuantityTextWatcherSave;
 import com.wbh.loewe.shoppinglist.R;
 import com.wbh.loewe.shoppinglist.ShoppingListApplication;
+import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 
 public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
@@ -33,18 +34,32 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 		
 		ChildListItem lListItem = (ChildListItem)lView.getTag();
 		if (lListItem != null) {
-			if (mChildCursor.moveToPosition(childPosition)) {
+			Cursor lChildCursor = getChild(groupPosition, childPosition);
+			if (lChildCursor != null) {
 				EditText lEdit = (EditText)lView.findViewById(R.id.edittxt_menge);
+				
+				// Prüfen ob dem Editfeld bereits einmal ein Textwatcher zugewiesen wurde, wenn ja,
+		    	// dann wieder entfernen und neu zuweisen
+		    	TextWatcher lTextWatcher = (TextWatcher)lEdit.getTag();
+		    	if (lTextWatcher != null) {
+		    		lEdit.removeTextChangedListener(lTextWatcher);
+		    	}				
+				
+		    	int lInt = lChildCursor.getInt(lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_QUANTITY));
+		    	lEdit.setText(String.valueOf(lInt));
 		    	lListItem.setQuantityEdit(lEdit);
+		    	
 		    	TextView lLabel = (TextView)lView.findViewById(R.id.txt_einheit);
 		    	lListItem.setQuantityLabel(lLabel);
-		    	if (lEdit != null) {
-			    	QuantityTextWatcherSave lTextWatcher = new QuantityTextWatcherSave(mListID, lListItem, mMainApp);
-				    lEdit.addTextChangedListener(lTextWatcher);
-			    }
-				
+		    	
+		    	lListItem.setListID(mListID);
+		    	lListItem.setAdapter(this);
+		    	
+		    	// Listener neu zuweisen
+		    	lEdit.addTextChangedListener(lListItem);
+		    	lEdit.setTag(lListItem);
 			} else {
-				Log.e("EditShoppingListCursorTreeAdapter.getChildView", "moveToPosition "+ childPosition +" failed");
+				Log.e("EditShoppingListCursorTreeAdapter.getChildView", "getChild "+ groupPosition +";"+ childPosition +" failed");
 			}
 			
 		} else {
