@@ -57,5 +57,7 @@
     <string name="btn_KatVerbergen">Kategorien verbergen</string>
     <color name="button_background_color">#FFFFFF</color>
     <string name="bottom_button_height">50dp</string>
+    <string name="title_edit_list">Einkaufsliste bearbeiten</string>
+    <string name="title_add_article">Artikel zur Einkaufsliste hinzufügen</string>
 
 </resources>
