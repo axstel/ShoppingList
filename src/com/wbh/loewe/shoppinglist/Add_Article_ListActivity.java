@@ -15,7 +15,7 @@ import com.wbh.loewe.shoppinglist.cursoradapter.AddArticleCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.AddArticleChildListItem;
-import com.wbh.loewe.shoppinglist.listitem.EditListChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 
 
 /**
@@ -120,7 +120,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     }
     
     @Override
-    protected void OnChildRowClick(View aView, EditListChildListItem aListItem) {
+    protected void OnChildRowClick(View aView, ChildListItem aListItem) {
     	if (aListItem != null) {
     		mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
     	} else {

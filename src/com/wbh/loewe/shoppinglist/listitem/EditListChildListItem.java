@@ -4,7 +4,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 
 import com.wbh.loewe.shoppinglist.ShoppingListApplication;
-import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 
 
 public class EditListChildListItem extends ChildListItem implements TextWatcher {
@@ -72,7 +71,6 @@ public class EditListChildListItem extends ChildListItem implements TextWatcher 
 				lQuantity = 0; 
 			}
 		}
-		
 		
 		if ((lQuantity != -1) && (lQuantity != mQuantity)) {
 			mQuantity = lQuantity;

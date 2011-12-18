@@ -56,7 +56,20 @@ public class AddArticleChildListItem extends ChildListItem implements TextWatche
 	}
 	
 	public void afterTextChanged(Editable s) {
+		String lText = s.toString();
+		int lQuantity = -1;
+		if (lText.length() > 0) {
+			try {
+				lQuantity = Integer.valueOf(lText);
+			}
+			catch (NumberFormatException e) {
+				lQuantity = 0; 
+			}
+		}
 		
+		if ((lQuantity != -1) && (lQuantity != mQuantity)) {
+			mQuantity = lQuantity;
+		}
 	}
 
 	public void beforeTextChanged(CharSequence s, int start, int count, int after) {

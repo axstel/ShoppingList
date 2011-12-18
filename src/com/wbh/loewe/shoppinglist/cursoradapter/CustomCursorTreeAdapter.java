@@ -23,7 +23,7 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
     }
 	
 	public interface ChildRowClickListener {
-        public void OnClick(View aView, EditListChildListItem aListItem);
+        public void OnClick(View aView, ChildListItem aListItem);
     }
 	
 	protected GroupRowClickListener mGroupRowClickListener;
@@ -126,9 +126,9 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
     {
     	public void onClick(View aView) {
     		if (mChildRowClickListener != null) {
-    			EditListChildListItem lListItem = null;
+    			ChildListItem lListItem = null;
     			if (aView.getTag() != null) {
-    				lListItem = (EditListChildListItem)aView.getTag();
+    				lListItem = (ChildListItem)aView.getTag();
     			} else {
     				Log.e("CustomCursorTreeAdapter.btnChildViewClickListListener", "aView.getTag() is not assigned");
     			}

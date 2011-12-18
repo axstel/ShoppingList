@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,19 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		AddArticleChildListItem lListItem = (AddArticleChildListItem)lView.getTag();
 		if (lListItem != null) {
 			EditText lEdit = (EditText)lView.findViewById(R.id.edittxt_menge);
+			
+			// Prüfen ob dem Editfeld bereits einmal ein Textwatcher zugewiesen wurde, wenn ja,
+	    	// dann wieder entfernen und neu zuweisen
+	    	TextWatcher lTextWatcher = (TextWatcher)lEdit.getTag();
+	    	if (lTextWatcher != null) {
+	    		lEdit.removeTextChangedListener(lTextWatcher);
+	    	}
+			
 			lEdit.setText(String.valueOf(lListItem.getQuantity()));
+			
+			// Listener neu zuweisen
+	    	lEdit.addTextChangedListener(lListItem);
+	    	lEdit.setTag(lListItem);
 		} else {
 			Log.e("AddArticleCursorTreeAdapter.getChildView", "Listitem not assigned");
 		}
