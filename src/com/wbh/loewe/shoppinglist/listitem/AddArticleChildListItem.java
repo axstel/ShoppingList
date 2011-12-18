@@ -4,15 +4,19 @@ import android.text.Editable;
 import android.text.TextWatcher;
 
 
-public class ChildListItem extends ListItem implements TextWatcher {
+public class AddArticleChildListItem extends ChildListItem implements TextWatcher {
 
 	private int mGroupPos;
 	private int mChildPos;
+	private int mQuantity;
+	private boolean mSelected;
 	
-	public ChildListItem() {
+	public AddArticleChildListItem() {
 		super();
 		this.mGroupPos = -1;
 		this.mChildPos = -1;
+		this.mSelected = false;
+		this.mQuantity = 1;
 	}
 
 	public void setGroupPos(int aPos) {
@@ -33,6 +37,22 @@ public class ChildListItem extends ListItem implements TextWatcher {
 	public int getChildPos() {
 		
 		return this.mChildPos;
+	}
+	
+	public void setSelected(boolean aSelected) {
+		this.mSelected = aSelected;
+	}
+	
+	public boolean getSelected() {
+		return this.mSelected;
+	}
+	
+	public void setQuantity(int aValue) {
+		this.mQuantity = aValue;
+	}
+	
+	public int getQuantity() {
+		return this.mQuantity;
 	}
 	
 	public void afterTextChanged(Editable s) {

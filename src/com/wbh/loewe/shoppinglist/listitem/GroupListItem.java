@@ -7,7 +7,9 @@ public class GroupListItem  extends ListItem {
 	private Boolean mIsExpanded;
 		
 	public GroupListItem(int aID, String aName, int aPos, Boolean aIsExpanded) {
-		super(aID, aName);
+		super();
+		this.setID(aID);
+		this.setName(aName);
 		this.mPos = aPos;
 		this.mIsExpanded = aIsExpanded;
 	}

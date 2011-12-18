@@ -7,9 +7,9 @@ public class ListItem  {
 	protected int mID;
 	protected String mName;
 		
-	public ListItem(int aID, String aName) {
-		this.mID = aID;
-		this.mName = aName;
+	public ListItem() {
+		this.mID = -1;
+		this.mName = "";
 	}
 
 	public void setID(int aID) {

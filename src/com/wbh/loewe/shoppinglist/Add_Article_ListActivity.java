@@ -14,7 +14,8 @@ import android.widget.Toast;
 import com.wbh.loewe.shoppinglist.cursoradapter.AddArticleCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
-import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.AddArticleChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.EditListChildListItem;
 
 
 /**
@@ -103,9 +104,9 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     private OnClickListener btnSaveListener = new OnClickListener()
     {
     	public void onClick(View v) {
-    		Vector<View> lViews = mAddArticleAdapter.getSelectedViews();
-    		for (int i = 0; i < lViews.size(); i++) {
-    			ChildListItem lItem = (ChildListItem)lViews.get(i).getTag();
+    		Vector<AddArticleChildListItem> lItems = mAddArticleAdapter.getSelectedItems();
+    		for (int i = 0; i < lItems.size(); i++) {
+    			AddArticleChildListItem lItem = lItems.get(i);
     			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lItem.getID(), lItem.getQuantity());
     		}
     		finish();
@@ -119,7 +120,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     }
     
     @Override
-    protected void OnChildRowClick(View aView, ChildListItem aListItem) {
+    protected void OnChildRowClick(View aView, EditListChildListItem aListItem) {
     	if (aListItem != null) {
     		mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
     	} else {

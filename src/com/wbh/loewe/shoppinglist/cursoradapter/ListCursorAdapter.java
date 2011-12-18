@@ -51,9 +51,11 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 		if (mItems.containsKey(lID)) {
 			lListItem = (ListItem)mItems.get(lID); 
 		} else {
-			lListItem = new ListItem(lID, mCursor.getString(mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME)));
+			lListItem = new ListItem();
 			mItems.put(lID, lListItem);
 		}
+		lListItem.setID(lID);
+		lListItem.setName(mCursor.getString(mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME)));
 		
 		final ViewHolder lViewHolder = (ViewHolder)lView.getTag();
 		if (lViewHolder == null) {

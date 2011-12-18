@@ -7,12 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.wbh.loewe.shoppinglist.R;
 import com.wbh.loewe.shoppinglist.ShoppingListApplication;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.EditListChildListItem;
 
 public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 	
@@ -32,7 +32,7 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 	public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 		View lView = super.getChildView(groupPosition, childPosition, isLastChild, convertView, parent);
 		
-		ChildListItem lListItem = (ChildListItem)lView.getTag();
+		EditListChildListItem lListItem = (EditListChildListItem)lView.getTag();
 		if (lListItem != null) {
 			Cursor lChildCursor = getChild(groupPosition, childPosition);
 			if (lChildCursor != null) {
@@ -43,17 +43,21 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 		    	TextWatcher lTextWatcher = (TextWatcher)lEdit.getTag();
 		    	if (lTextWatcher != null) {
 		    		lEdit.removeTextChangedListener(lTextWatcher);
-		    	}				
-				
-		    	int lInt = lChildCursor.getInt(lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_QUANTITY));
-		    	lEdit.setText(String.valueOf(lInt));
-		    	lListItem.setQuantityEdit(lEdit);
-		    	
-		    	TextView lLabel = (TextView)lView.findViewById(R.id.txt_einheit);
-		    	lListItem.setQuantityLabel(lLabel);
+		    	}
 		    	
 		    	lListItem.setListID(mListID);
-		    	lListItem.setAdapter(this);
+		    	lListItem.setApp(mMainApp);
+		    	
+				// wenn der wert <> -1 ist, dann wurde er bereits vom benutzer gesetzt, bis initial geladen
+		    	// es kann dieser wert verwendet werden
+		    	int lQuantity = 0;
+		    	if (lListItem.getQuantity() != -1) {
+		    		lQuantity = lListItem.getQuantity();
+		    	} else {
+		    		lQuantity = lChildCursor.getInt(lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_QUANTITY));
+		    	}
+		    	lEdit.setText(String.valueOf(lQuantity));
+		    	lListItem.setQuantity(lQuantity);
 		    	
 		    	// Listener neu zuweisen
 		    	lEdit.addTextChangedListener(lListItem);
@@ -67,5 +71,10 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 		}
 		
 		return lView;
+	}
+	
+	@Override
+	protected ChildListItem getNewListItem() {
+		return new EditListChildListItem();
 	}
 }

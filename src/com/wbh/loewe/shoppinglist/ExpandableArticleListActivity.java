@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
-import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.EditListChildListItem;
 import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
 
 
@@ -73,7 +73,7 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
     
     // Event wenn auf eine Kategorie klickt
     protected class OnChildRowClickListener implements CustomCursorTreeAdapter.ChildRowClickListener {
-		public void OnClick(View aView, ChildListItem aListItem) {
+		public void OnClick(View aView, EditListChildListItem aListItem) {
 			OnChildRowClick(aView, aListItem);
 		}
     }
@@ -82,7 +82,7 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
     	// in abgeleiteter klasse überschreiben
     }
     
-    protected void OnChildRowClick(View aView, ChildListItem aListItem) {
+    protected void OnChildRowClick(View aView, EditListChildListItem aListItem) {
     	// in abgeleiteter klasse überschreiben
     }
 }

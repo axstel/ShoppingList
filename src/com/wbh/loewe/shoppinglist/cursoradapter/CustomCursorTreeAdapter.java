@@ -1,5 +1,7 @@
 package com.wbh.loewe.shoppinglist.cursoradapter;
 
+import java.util.HashMap;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.widget.SimpleCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.ShoppingListApplication;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.EditListChildListItem;
 import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
 
 public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
@@ -20,13 +23,14 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
     }
 	
 	public interface ChildRowClickListener {
-        public void OnClick(View aView, ChildListItem aListItem);
+        public void OnClick(View aView, EditListChildListItem aListItem);
     }
 	
 	protected GroupRowClickListener mGroupRowClickListener;
 	protected ChildRowClickListener mChildRowClickListener;
 	protected Context mContext;
 	protected ShoppingListApplication mMainApp;
+	protected HashMap<String, ChildListItem> mChildListItems = new HashMap<String, ChildListItem>();
 	
 	public CustomCursorTreeAdapter(Context context, Cursor cursor,
 			int groupLayout, String[] groupFrom, int[] groupTo,
@@ -76,21 +80,25 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 		// Wenn auf den Datensatz nicht gesprungen werden kann, dann bauch man hier nicht weiter machen
 		if (lChildCursor != null) {
 			
-			int lColIdx = -1;
-	    	lColIdx = lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
-	    	int lID = lChildCursor.getInt(lColIdx);
-	    	lColIdx = lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME);
-	    	String lName = lChildCursor.getString(lColIdx);
-			if (lView.getTag() == null) {
-				ChildListItem lListItem = new ChildListItem(lID, lName, groupPosition, childPosition, 0, mMainApp);
-				lView.setTag(lListItem);
-			} else {
-				ChildListItem lListItem = (ChildListItem)lView.getTag();
+	    	ChildListItem lListItem = mChildListItems.get(groupPosition +"_"+ childPosition);
+			if (lListItem == null) {
+				int lColIdx = -1;
+		    	lColIdx = lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
+		    	int lID = lChildCursor.getInt(lColIdx);
+		    	lColIdx = lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME);
+		    	String lName = lChildCursor.getString(lColIdx);
+				
+				lListItem = getNewListItem();
 				lListItem.setID(lID);
+				lListItem.setName(lName);
 				lListItem.setGroupPos(groupPosition);
 				lListItem.setChildPos(childPosition);
-				lListItem.setName(lName);
+				mChildListItems.put(groupPosition +"_"+ childPosition, lListItem);
+				lView.setTag(lListItem);
+			} else {
+				lView.setTag(lListItem);
 			}
+			
 		} else {
 			Log.e("CustomCursorTreeAdapter.getChildView", "getChild "+ groupPosition +","+ childPosition +" failed");
 		}
@@ -118,9 +126,9 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
     {
     	public void onClick(View aView) {
     		if (mChildRowClickListener != null) {
-    			ChildListItem lListItem = null;
+    			EditListChildListItem lListItem = null;
     			if (aView.getTag() != null) {
-    				lListItem = (ChildListItem)aView.getTag();
+    				lListItem = (EditListChildListItem)aView.getTag();
     			} else {
     				Log.e("CustomCursorTreeAdapter.btnChildViewClickListListener", "aView.getTag() is not assigned");
     			}
@@ -136,6 +144,10 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 	protected Cursor getChildrenCursor(Cursor groupCursor) {
 		// must be implemented in subclass 
 		return null;
+	}
+	
+	protected ChildListItem getNewListItem() {
+		return new ChildListItem();
 	}
 
 }
