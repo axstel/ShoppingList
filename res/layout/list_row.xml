@@ -30,7 +30,7 @@
         android:layout_marginRight="10px"
         android:gravity="center" 
         android:orientation="vertical"
-        android:drawableBottom="@drawable/ic_edit"
+        android:drawableBottom="@drawable/edit_button"
         android:background="@drawable/button_edit" />
     
     <Button
@@ -42,7 +42,7 @@
         android:layout_marginBottom="6px"
         android:layout_marginLeft="4px"
         android:layout_marginRight="10px"
-        android:drawableBottom="@android:drawable/ic_delete"
+        android:drawableBottom="@drawable/del_button"
         android:background="@drawable/button_edit" />
 
 </RelativeLayout>
