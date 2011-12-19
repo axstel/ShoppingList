@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+   <style name="WindowTitleBackground"> 
+       <item name="android:textColor">@color/row_selected_text</item>     
+        <item name="android:background">@color/row_selected_background</item> 
+                        
+    </style>
+</resources>

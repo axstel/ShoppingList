@@ -9,7 +9,7 @@
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:name=".ShoppingListApplication" >
+        android:name=".ShoppingListApplication" android:theme="@style/customTheme">
         <activity
             android:label="@string/app_name"
             android:name=".ShoppingListActivity" >
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GUI_ExpandActivity"></activity>
-        <activity android:name=".GUI_DialogActivity"></activity>
+        <activity android:name=".GUI_DialogActivity" android:theme="@style/customTheme"></activity>
  		<activity android:name=".Edit_ShoppingListActivity" android:label="@string/title_edit_list"></activity>
         <activity android:name=".Article_AdminActivity"></activity>
         <activity android:name=".Add_Article_ListActivity" android:label="@string/title_add_article"></activity>
