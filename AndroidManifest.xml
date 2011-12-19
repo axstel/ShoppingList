@@ -24,11 +24,6 @@
  		<activity android:name=".Edit_ShoppingListActivity" android:label="@string/title_edit_list"></activity>
         <activity android:name=".Article_AdminActivity"></activity>
         <activity android:name=".Add_Article_ListActivity" android:label="@string/title_add_article"></activity>
-        
-        
-
+        <activity android:name=".Use_ShoppingListActivity" android:label="@string/title_use_list"></activity>
     </application>
-    
-       
-
 </manifest>

@@ -162,7 +162,7 @@ public class ShoppingListActivity extends ListActivity {
         public void OnRowClick(ListItem aListItem, int aAction) {
         	//Log.w(OnRowClickListener.class.getName(), "OnRowClick "+ aListItem.getID() +" "+ aListItem.getName() +" "+ aAction);
         	switch (aAction) {
-        		case 0: break;
+        		case 0: showUseShoppingList(aListItem.getID()); break;
         		case 1: showEditShoppingList(aListItem.getID()); break;
         		case 2: deleteShoppingList(aListItem.getID()); break;
         	}
@@ -185,5 +185,12 @@ public class ShoppingListActivity extends ListActivity {
     private void deleteShoppingList(int aID) {
     	mShoppinglistapp.getDBAdapter().deleteShoppingList(aID);
     	fillData();
+    }
+    
+    private void showUseShoppingList(int aID) {
+    	Intent lEditActivity = new Intent(ShoppingListActivity.this, Use_ShoppingListActivity.class);
+    	lEditActivity.putExtra("ID", aID);
+    	lEditActivity.putExtra("LAYOUT", R.layout.gui_edit_ek);
+    	startActivity(lEditActivity);
     }
 }
