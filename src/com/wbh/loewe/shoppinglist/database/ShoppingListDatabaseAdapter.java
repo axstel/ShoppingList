@@ -105,8 +105,7 @@ public class ShoppingListDatabaseAdapter {
 	/* Return a Cursor over the list of all categories of articles in database */
 	public Cursor fetchAllCategories() {
 		String lQuery = " SELECT DISTINCT c.* FROM "+ ShoppingListDatabase.TABLE_NAME_CATEGORY +" c "+
-						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a ON c."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +
-						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE;
+						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a ON c."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY;
 		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
 		return db.rawQuery(lQuery, new String [] {});
 	}
