@@ -4,7 +4,7 @@
     <string name="hello">Hello World, GUI_Test3Activity!</string>
     <string name="app_name">Meine Einkaufslisten</string>
     <string name="btn_neueEinkaufsliste">Neue Einkaufsliste</string>
-    <string name="btn_artikelVerwalten">Artikel verwalten</string>
+    <string name="btn_artikelVerwalten">Artikel \n verwalten</string>
     <string name="btn_beenden">Beenden</string>
     <string name="txt_keineEinkaufsliste">Es sind keine Einkaufslisten vorhanden. Klicken Sie \"Neue Einkaufsliste\" um eine neue Liste hinzuzufügen</string>
     <string name="txt_keineArtikel">Es sind keine Artikel vorhanden. Klicken Sie \"Artikel hinzfügen\" um neue Artikel hinzuzufügen</string>
@@ -37,7 +37,7 @@
     <string name="btn_delart_Cancel">Nein</string>
     <string name="btn_editName_OK">OK</string>
     <string name="btn_editName_Cancel">Abbrechen</string>
-    <string name="btn_editName">Name ändern</string>
+    <string name="btn_editName">Name \n ändern</string>
     <string name="btn_emptyList">Einkaufsliste leeren</string>
     <string name="txt_emptyList">Alle Artikel von der Einkaufsliste entfernen?</string>
     <string name="btn_emptyList_OK">Ja</string>
