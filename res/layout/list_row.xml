@@ -32,6 +32,7 @@
         android:background="@drawable/edit_button"              
        	/>
          '<!--android:drawableBottom="@drawable/ic_edit"-->  
+
     
     <Button
         android:id="@+id/btn_deleteitem"
@@ -41,10 +42,10 @@
         android:layout_alignParentRight="true"
         android:layout_marginLeft="4px"
         android:layout_marginRight="10px"
+
         android:background="@drawable/del_button"
          />
-        <!--android:drawableBottom="@android:drawable/ic_delete"  -->
-        
+        <!--android:drawableBottom="@android:drawable/ic_delete"  -->      
 
     </TableRow>
 </TableLayout>

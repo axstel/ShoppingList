@@ -20,6 +20,9 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
  */
 public class Edit_ShoppingListActivity extends ExpandableArticleListActivity 
 {
+	
+	static final int ADDARTICLE_REQUESTCODE = 1;
+
 	private int mListID;
 	private EditShoppingListCursorTreeAdapter mEditShoppingListAdapter;
 	
@@ -58,28 +61,32 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 	@Override
     protected CustomCursorTreeAdapter createAdapter() {
 		Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
-    	mEditShoppingListAdapter = new EditShoppingListCursorTreeAdapter(
-    								this, 
-    								lGroupCursor, 
-    								mGroupItemLayout, 
-    								mGroupFrom, 
-    								mGroupTo, 
-    								mChildItemLayout, 
-    								mChildFrom, 
-    								mChildTo,
-    								new OnGroupRowClickListener(),
-    								new OnChildRowClickListener(),
-    								mShoppinglistapp,
-    								mListID) {
-    									@Override
-    									protected Cursor getChildrenCursor(Cursor groupCursor) {
-    										// DB-Abfrage um die Kindelemente darzustellen
-    										int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
-    										Cursor lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, lGroupID);
-    										startManagingCursor(lChildCursor);
-    										return lChildCursor;
-    									}
-    								};
+		if (mEditShoppingListAdapter == null) {
+			mEditShoppingListAdapter = new EditShoppingListCursorTreeAdapter(
+										this, 
+										lGroupCursor, 
+										mGroupItemLayout, 
+										mGroupFrom, 
+										mGroupTo, 
+										mChildItemLayout, 
+										mChildFrom, 
+										mChildTo,
+										new OnGroupRowClickListener(),
+										new OnChildRowClickListener(),
+										mShoppinglistapp,
+										mListID) {
+    										@Override
+    										protected Cursor getChildrenCursor(Cursor groupCursor) {
+    											// DB-Abfrage um die Kindelemente darzustellen
+    											int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+    											Cursor lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, lGroupID);
+    											startManagingCursor(lChildCursor);
+    											return lChildCursor;
+    										}
+    									};
+		} else {
+			mEditShoppingListAdapter.setGroupCursor(lGroupCursor);
+		}
     	return mEditShoppingListAdapter;
     }
     
@@ -103,7 +110,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     		Intent lAddArticleActivity = new Intent(Edit_ShoppingListActivity.this, Add_Article_ListActivity.class);
     		lAddArticleActivity.putExtra("LISTID", mListID);
     		lAddArticleActivity.putExtra("LAYOUT", R.layout.gui_addarticle);
-    		startActivity(lAddArticleActivity);
+    		startActivityForResult(lAddArticleActivity, ADDARTICLE_REQUESTCODE);
     	}
     };
     
@@ -123,4 +130,14 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
     	}
     };
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ADDARTICLE_REQUESTCODE) {
+            if (resultCode == RESULT_OK) {
+            	fillData();
+            }
+        }
+    }
+
 }
