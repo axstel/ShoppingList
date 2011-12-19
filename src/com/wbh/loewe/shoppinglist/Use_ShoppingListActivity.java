@@ -2,6 +2,7 @@ package com.wbh.loewe.shoppinglist;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.cursoradapter.UseShoppingListCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 
 
 /**
@@ -82,5 +84,14 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
         	list.setVisibility(View.GONE);
         }
 	}
+	
+	@Override
+	protected void OnChildRowClick(View aView, ChildListItem aListItem) {
+		if (aListItem != null) {
+			mUseShoppingListAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
+    	} else {
+    		Log.e("Use_ShoppingListActivity.OnChildRowClick", "aListItem is not assigned");
+    	}
+    }
 
 }
