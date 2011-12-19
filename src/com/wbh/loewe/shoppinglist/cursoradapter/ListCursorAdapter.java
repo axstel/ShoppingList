@@ -62,13 +62,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 			final ViewHolder lNewViewHolder = new ViewHolder();
 			lNewViewHolder.mText = (TextView) lView.findViewById(R.id.labelname);
 			if (lNewViewHolder.mText != null) {
-				lNewViewHolder.mText.setOnClickListener(new OnClickListener() {
-					public void onClick(View v) {
-						ListItem lItem = (ListItem) lNewViewHolder.mText.getTag();
-					    //Log.w(ListCursorAdapter.class.getName(), "OnTextClick "+ lItem.getID() +" "+ lItem.getName());
-					    mRowClickListener.OnRowClick(lItem, 0);
-					}
-				});
 				lNewViewHolder.mText.setTag(lListItem);
 			}
 			
@@ -77,7 +70,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 				lNewViewHolder.mEdit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						ListItem lItem = (ListItem) lNewViewHolder.mEdit.getTag();
-					    //Log.w(ListCursorAdapter.class.getName(), "OnEditClick "+ lItem.getID() +" "+ lItem.getName());
 					    mRowClickListener.OnRowClick(lItem, 1);
 					}
 					    	
@@ -90,7 +82,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 				lNewViewHolder.mDelete.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						ListItem lItem = (ListItem) lNewViewHolder.mDelete.getTag();
-					    //Log.w(ListCursorAdapter.class.getName(), "OnDeleteClick "+ lItem.getID() +" "+ lItem.getName());
 					    mRowClickListener.OnRowClick(lItem, 2);
 					}
 					    	
@@ -108,7 +99,17 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 		ViewHolder lHolder = (ViewHolder)lView.getTag();
 		lHolder.mText.setText(lListItem.getName());
 		
+		lView.setOnClickListener(RowClickListener);
+		
 		return lView;
 	}
+	
+	private OnClickListener RowClickListener = new OnClickListener() {
+    	public void onClick(View aView) {
+    		ViewHolder lHolder = (ViewHolder)aView.getTag();
+    		ListItem lItem = (ListItem)lHolder.mText.getTag();
+    		mRowClickListener.OnRowClick(lItem, 0);
+    	}
+    };
 
 }
