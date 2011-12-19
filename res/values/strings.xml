@@ -7,6 +7,7 @@
     <string name="btn_artikelVerwalten">Artikel verwalten</string>
     <string name="btn_beenden">Beenden</string>
     <string name="txt_keineEinkaufsliste">Es sind keine Einkaufslisten vorhanden. Klicken Sie \"Neue Einkaufsliste\" um eine neue Liste hinzuzufügen</string>
+    <string name="txt_keineArtikel">Es sind keine Artikel vorhanden. Klicken Sie \"Artikel hinzfügen\" um neue Artikel hinzuzufügen</string>
 	<string name="main_no_items">No items</string>
     <string name="checkbox_text">Selected</string>
     
@@ -57,5 +58,7 @@
     <string name="btn_KatVerbergen">Kategorien verbergen</string>
     <color name="button_background_color">#FFFFFF</color>
     <string name="bottom_button_height">50dp</string>
+    <string name="title_edit_list">Einkaufsliste bearbeiten</string>
+    <string name="title_add_article">Artikel zur Einkaufsliste hinzufügen</string>
 
 </resources>

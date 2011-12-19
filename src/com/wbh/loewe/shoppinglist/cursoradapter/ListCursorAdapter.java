@@ -2,6 +2,7 @@ package com.wbh.loewe.shoppinglist.cursoradapter;
 
 import java.util.HashMap;
 
+
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
@@ -11,9 +12,9 @@ import android.widget.Button;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import com.wbh.loewe.shoppinglist.ListItem;
 import com.wbh.loewe.shoppinglist.R;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+import com.wbh.loewe.shoppinglist.listitem.ListItem;
 
 public class ListCursorAdapter extends SimpleCursorAdapter {
 	
@@ -50,9 +51,11 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 		if (mItems.containsKey(lID)) {
 			lListItem = (ListItem)mItems.get(lID); 
 		} else {
-			lListItem = new ListItem(lID, mCursor.getString(mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME)));
+			lListItem = new ListItem();
 			mItems.put(lID, lListItem);
 		}
+		lListItem.setID(lID);
+		lListItem.setName(mCursor.getString(mCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME)));
 		
 		final ViewHolder lViewHolder = (ViewHolder)lView.getTag();
 		if (lViewHolder == null) {
@@ -62,7 +65,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 				lNewViewHolder.mText.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						ListItem lItem = (ListItem) lNewViewHolder.mText.getTag();
-					    lItem.setSelected(!lItem.getSelected());
 					    //Log.w(ListCursorAdapter.class.getName(), "OnTextClick "+ lItem.getID() +" "+ lItem.getName());
 					    mRowClickListener.OnRowClick(lItem, 0);
 					}
@@ -75,7 +77,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 				lNewViewHolder.mEdit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						ListItem lItem = (ListItem) lNewViewHolder.mEdit.getTag();
-					    lItem.setSelected(!lItem.getSelected());
 					    //Log.w(ListCursorAdapter.class.getName(), "OnEditClick "+ lItem.getID() +" "+ lItem.getName());
 					    mRowClickListener.OnRowClick(lItem, 1);
 					}
@@ -89,7 +90,6 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 				lNewViewHolder.mDelete.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						ListItem lItem = (ListItem) lNewViewHolder.mDelete.getTag();
-					    lItem.setSelected(!lItem.getSelected());
 					    //Log.w(ListCursorAdapter.class.getName(), "OnDeleteClick "+ lItem.getID() +" "+ lItem.getName());
 					    mRowClickListener.OnRowClick(lItem, 2);
 					}

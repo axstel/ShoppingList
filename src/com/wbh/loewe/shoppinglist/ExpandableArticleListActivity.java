@@ -1,12 +1,13 @@
 package com.wbh.loewe.shoppinglist;
 
-import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
-
 import android.app.ExpandableListActivity;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
+
+import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
 
 
 /**
@@ -43,7 +44,7 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
     
     public void fillData() {
     	mAdapter = createAdapter(); 
-    	startManagingCursor(mAdapter.getGroupCursor());
+    	startManagingCursor(mAdapter.getCursor());
     	
     	//Der ExpandableListView den Adapter zuweisen
     	mListView.setAdapter(mAdapter);

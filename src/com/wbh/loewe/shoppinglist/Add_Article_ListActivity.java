@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.wbh.loewe.shoppinglist.cursoradapter.AddArticleCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+import com.wbh.loewe.shoppinglist.listitem.AddArticleChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 
 
 /**
@@ -32,8 +34,8 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     	mChildItemLayout = R.layout.screen5_add_art_gui_child_row;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
     	mGroupTo = new int[] {R.id.txt_kategorie}; 
-    	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME}; 
-    	mChildTo = new int[] {R.id.txt_article};
+    	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME, "QUANTITYUNITNAME"}; 
+    	mChildTo = new int[] {R.id.txt_article, R.id.txt_einheit};
         
     	Bundle lExtras = getIntent().getExtras();
 		if (lExtras != null) {
@@ -68,17 +70,17 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     								mChildFrom, 
     								mChildTo,
     								new OnGroupRowClickListener(),
-    								new OnChildRowClickListener()) {
-    	    
-    	     							@Override
-    	     							protected Cursor getChildrenCursor(Cursor groupCursor) {
-    	     								// DB-Abfrage um die Kindelemente darzustellen
-    	     								int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
-    	     								mChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
-    	     								startManagingCursor(mChildCursor);
-    	     								return mChildCursor;
-    	     							}
-    	     						};
+    								new OnChildRowClickListener(),
+    								mShoppinglistapp) {
+    									@Override
+    									protected Cursor getChildrenCursor(Cursor groupCursor) {
+    										// DB-Abfrage um die Kindelemente darzustellen
+    										int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+    										Cursor lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategory(lGroupID);
+    										startManagingCursor(lChildCursor);
+    										return lChildCursor;
+    									}
+    								};
     	return mAddArticleAdapter;
     }
     
@@ -102,10 +104,10 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     private OnClickListener btnSaveListener = new OnClickListener()
     {
     	public void onClick(View v) {
-    		Vector<View> lViews = mAddArticleAdapter.getSelectedViews();
-    		for (int i = 0; i < lViews.size(); i++) {
-    			ChildListItem lItem = (ChildListItem)lViews.get(i).getTag();
-    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lItem.getID(), 0);
+    		Vector<AddArticleChildListItem> lItems = mAddArticleAdapter.getSelectedItems();
+    		for (int i = 0; i < lItems.size(); i++) {
+    			AddArticleChildListItem lItem = lItems.get(i);
+    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lItem.getID(), lItem.getQuantity());
     		}
     		finish();
     	}
@@ -120,11 +122,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     @Override
     protected void OnChildRowClick(View aView, ChildListItem aListItem) {
     	if (aListItem != null) {
-    		if (mAddArticleAdapter.getChildCursor().moveToPosition(aListItem.getChildPos())) {
-    			mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
-    		} else {
-    			Log.e("Add_Article_ListActivity.OnChildRowClick", "moveToPosition "+ aListItem.getChildPos() +" failed");
-    		}
+    		mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
     	} else {
     		Log.e("Add_Article_ListActivity.OnChildRowClick", "aListItem is not assigned");
     	}

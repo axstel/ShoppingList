@@ -1,5 +1,7 @@
 package com.wbh.loewe.shoppinglist.cursoradapter;
 
+import java.util.HashMap;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
@@ -8,9 +10,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.SimpleCursorTreeAdapter;
 
-import com.wbh.loewe.shoppinglist.ChildListItem;
-import com.wbh.loewe.shoppinglist.GroupListItem;
+import com.wbh.loewe.shoppinglist.ShoppingListApplication;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
 
 public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 
@@ -25,19 +28,19 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 	protected GroupRowClickListener mGroupRowClickListener;
 	protected ChildRowClickListener mChildRowClickListener;
 	protected Context mContext;
-	protected Cursor mGroupCursor;
-	protected Cursor mChildCursor;
+	protected ShoppingListApplication mMainApp;
+	protected HashMap<String, ChildListItem> mChildListItems = new HashMap<String, ChildListItem>();
 	
 	public CustomCursorTreeAdapter(Context context, Cursor cursor,
 			int groupLayout, String[] groupFrom, int[] groupTo,
 			int childLayout, String[] childFrom, int[] childTo,
-			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick) {
+			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick,
+			ShoppingListApplication aApp) {
 		super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childFrom, childTo);
 		mContext = context;
-		mGroupCursor = cursor;
-		mChildCursor = null;
 		mGroupRowClickListener = aGroupClick;
 		mChildRowClickListener = aChildClick;
+		mMainApp = aApp;
 	}
 	
     @Override
@@ -45,16 +48,24 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
     	View lView = super.getGroupView(groupPosition, isExpanded, convertView, parent);
     	lView.setOnClickListener(btnGroupViewClickListListener);
     	
-    	int lColIDx = mGroupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
-    	int lID = mGroupCursor.getInt(lColIDx);
-    	if (lView.getTag() == null) {
-    		GroupListItem lListItem = new GroupListItem(lID, groupPosition, isExpanded);
-    		lView.setTag(lListItem);
+    	Cursor lGroupCursor = getGroup(groupPosition);
+    	if (lGroupCursor != null) {
+    		int lColIdx = -1;
+    		lColIdx = lGroupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
+    		int lID = lGroupCursor.getInt(lColIdx);
+    		lColIdx = lGroupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME);
+    		String lName = lGroupCursor.getString(lColIdx);
+    		if (lView.getTag() == null) {
+    			GroupListItem lListItem = new GroupListItem(lID, lName, groupPosition, isExpanded);
+    			lView.setTag(lListItem);
+    		} else {
+    			GroupListItem lListItem = (GroupListItem)lView.getTag();
+    			lListItem.setID(lID);
+    			lListItem.setPos(groupPosition);
+    			lListItem.setIsExpanded(isExpanded);
+    		}
     	} else {
-    		GroupListItem lListItem = (GroupListItem)lView.getTag();
-    		lListItem.setID(lID);
-    		lListItem.setPos(groupPosition);
-    		lListItem.setIsExpanded(isExpanded);
+    		Log.e("CustomCursorTreeAdapter.getGroupView", "getGroup "+ groupPosition +" failed");
     	}
     	return lView;
     }
@@ -64,16 +75,32 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 		View lView = super.getChildView(groupPosition, childPosition, isLastChild, convertView, parent);
 		lView.setOnClickListener(btnChildViewClickListListener);
 		
-		int lColIDx = mChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
-    	int lID = mChildCursor.getInt(lColIDx);
-		if (lView.getTag() == null) {
-    		ChildListItem lListItem = new ChildListItem(lID, groupPosition, childPosition);
-    		lView.setTag(lListItem);
-    	} else {
-    		ChildListItem lListItem = (ChildListItem)lView.getTag();
-    		lListItem.setGroupPos(groupPosition);
-    		lListItem.setChildPos(childPosition);
-    	}
+		Cursor lChildCursor = getChild(groupPosition, childPosition);
+		// Wenn auf den Datensatz nicht gesprungen werden kann, dann bauch man hier nicht weiter machen
+		if (lChildCursor != null) {
+			
+	    	ChildListItem lListItem = mChildListItems.get(groupPosition +"_"+ childPosition);
+			if (lListItem == null) {
+				int lColIdx = -1;
+		    	lColIdx = lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
+		    	int lID = lChildCursor.getInt(lColIdx);
+		    	lColIdx = lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME);
+		    	String lName = lChildCursor.getString(lColIdx);
+				
+				lListItem = getNewListItem();
+				lListItem.setID(lID);
+				lListItem.setName(lName);
+				lListItem.setGroupPos(groupPosition);
+				lListItem.setChildPos(childPosition);
+				mChildListItems.put(groupPosition +"_"+ childPosition, lListItem);
+				lView.setTag(lListItem);
+			} else {
+				lView.setTag(lListItem);
+			}
+			
+		} else {
+			Log.e("CustomCursorTreeAdapter.getChildView", "getChild "+ groupPosition +","+ childPosition +" failed");
+		}
 		return lView;
 	}
 	
@@ -111,18 +138,15 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
     	}
     };
 
-	public Cursor getGroupCursor() {
-		return mGroupCursor;
-	}
-	
-	public Cursor getChildCursor() {
-		return mChildCursor;
-	}
 
 	@Override
 	protected Cursor getChildrenCursor(Cursor groupCursor) {
 		// must be implemented in subclass 
 		return null;
+	}
+	
+	protected ChildListItem getNewListItem() {
+		return new ChildListItem();
 	}
 
 }
