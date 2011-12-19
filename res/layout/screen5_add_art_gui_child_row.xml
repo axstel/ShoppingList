@@ -11,7 +11,7 @@ android:background="@color/background_list"
 		
 		<TextView
 		    android:id="@+id/txt_article"
-		    android:layout_width="135px"
+		    android:layout_width="145px"
 		    android:layout_height="fill_parent"
 		    android:text="Artikel" 
 		    android:layout_marginRight="15px"
@@ -22,9 +22,8 @@ android:background="@color/background_list"
 		<EditText
 		    android:id="@+id/edittxt_menge"
 		    android:layout_width="70px"
-		    android:layout_height="fill_parent"
-		    android:layout_x="100dp"
-		    android:layout_y="6dp"
+		    android:layout_height="70px"
+		    android:layout_marginTop="8px"
 		    android:text=""
 		    android:textSize="18sp"
 		    android:gravity="center_vertical">
@@ -33,7 +32,7 @@ android:background="@color/background_list"
 
 		<TextView
 		    android:id="@+id/txt_einheit"
-		    android:layout_width="85px"
+		    android:layout_width="70px"
 		    android:layout_height="fill_parent"
 		    android:layout_marginLeft="15px"
 		    android:layout_marginRight="10px"
@@ -48,15 +47,17 @@ android:background="@color/background_list"
 		    android:layout_height="38dp"
 		    android:background="@drawable/edit_button" 
 		    android:layout_marginLeft="5px"
-        	android:layout_marginRight="5px"/>
+        	android:layout_marginRight="5px"
+        	android:layout_marginTop="11px"/>
 
 		<ImageButton
 		    android:id="@+id/btn_del"
 		    android:layout_width="38dp"
 		    android:layout_height="38dp"
-		    android:background="@drawable/del_button"
+		    android:background="@drawable/del_button_article"
 		    android:layout_marginLeft="5px"
-        	android:layout_marginRight="5px" />
+        	android:layout_marginRight="5px"
+        	android:layout_marginTop="11px" />
 		
 	</TableRow>
 

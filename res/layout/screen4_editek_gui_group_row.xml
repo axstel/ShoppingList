@@ -26,7 +26,7 @@ android:background="@color/background_list">
             android:id="@+id/btn_del"
             android:layout_width="38dp"
             android:layout_height="38dp"
-            android:background="@drawable/del_button" />
+            android:background="@drawable/del_button_category" />
     </TableRow>
 
 </TableLayout>
