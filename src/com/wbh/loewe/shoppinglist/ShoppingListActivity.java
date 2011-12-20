@@ -146,14 +146,14 @@ public class ShoppingListActivity extends ListActivity {
     				}
     			}
     		}
-    		dismissDialog(NEWLIST_DIALOG_ID);
+    		removeDialog(NEWLIST_DIALOG_ID);
     	}
     };
     
     //--- create an anonymous class to act as a button click listener ---
     private OnClickListener btn_NewList_Cancel = new OnClickListener() {
     	public void onClick(View v) {
-    		dismissDialog(NEWLIST_DIALOG_ID);
+    		removeDialog(NEWLIST_DIALOG_ID);
     	}
     };
    
