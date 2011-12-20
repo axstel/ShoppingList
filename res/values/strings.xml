@@ -61,5 +61,8 @@
     <string name="title_edit_list">Einkaufsliste bearbeiten</string>
     <string name="title_add_article">Artikel zur Einkaufsliste hinzufügen</string>
     <string name="title_use_list">Einkaufsliste verwenden</string>
+    <string name="btn_showKat">Kategorie anzeigen</string>
+    <string name="btn_offeneArtikel">Offene Artikel</string>
+    <string name="btn_hideKat">Kategorie verbergen</string>
 
 </resources>
