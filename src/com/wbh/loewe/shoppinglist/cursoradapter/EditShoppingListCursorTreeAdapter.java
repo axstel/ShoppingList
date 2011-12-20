@@ -50,11 +50,11 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 		    	
 				// wenn der wert <> -1 ist, dann wurde er bereits vom benutzer gesetzt, bis initial geladen
 		    	// es kann dieser wert verwendet werden
-		    	int lQuantity = 0;
+		    	float lQuantity = 0;
 		    	if (lListItem.getQuantity() != -1) {
 		    		lQuantity = lListItem.getQuantity();
 		    	} else {
-		    		lQuantity = lChildCursor.getInt(lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_QUANTITY));
+		    		lQuantity = lChildCursor.getFloat(lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_QUANTITY));
 		    	}
 		    	lEdit.setText(String.valueOf(lQuantity));
 		    	lListItem.setQuantity(lQuantity);

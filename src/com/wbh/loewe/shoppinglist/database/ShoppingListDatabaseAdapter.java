@@ -120,7 +120,7 @@ public class ShoppingListDatabaseAdapter {
 	}
 	
 	/* Add a new article to shoppinglist, return the rowid of new dataset*/
-	public long addArticleToShoppingList(int aListID, int aArticleID, int aQuantity) {
+	public long addArticleToShoppingList(int aListID, int aArticleID, float aQuantity) {
 		ContentValues values = new ContentValues();
 		values.put(ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST, aListID);
 		values.put(ShoppingListDatabase.FIELD_NAME_IDARTICLE, aArticleID);
@@ -130,7 +130,7 @@ public class ShoppingListDatabaseAdapter {
 	} 
 	
 	/* update article and return if succeed or not */
-	public boolean  updateArticleQuantity(int aListID, int aArticleID, int aQuantity) {
+	public boolean  updateArticleQuantity(int aListID, int aArticleID, float aQuantity) {
 		ContentValues lValues = new ContentValues();
 		lValues.put(ShoppingListDatabase.FIELD_NAME_QUANTITY, aQuantity);
 		//Log.w(ShoppingListDatabaseAdapter.class.getName() +".updateArticleQuantity", "aListID: "+ aListID +", aArticleID: "+ aArticleID +"; aQuantity: "+ aQuantity);

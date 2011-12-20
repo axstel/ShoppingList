@@ -28,7 +28,7 @@ android:background="@color/background_list"
 		    android:text=""
 		    android:textSize="18sp" 
 		    android:gravity="center_vertical"
-		    android:numeric="integer">
+		    android:numeric="integer|decimal">
 		
 		    <requestFocus />
 		</EditText>

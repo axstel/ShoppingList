@@ -8,7 +8,7 @@ public class AddArticleChildListItem extends ChildListItem implements TextWatche
 
 	private int mGroupPos;
 	private int mChildPos;
-	private int mQuantity;
+	private float mQuantity;
 	private boolean mSelected;
 	
 	public AddArticleChildListItem() {
@@ -47,20 +47,20 @@ public class AddArticleChildListItem extends ChildListItem implements TextWatche
 		return this.mSelected;
 	}
 	
-	public void setQuantity(int aValue) {
+	public void setQuantity(float aValue) {
 		this.mQuantity = aValue;
 	}
 	
-	public int getQuantity() {
+	public float getQuantity() {
 		return this.mQuantity;
 	}
 	
 	public void afterTextChanged(Editable s) {
 		String lText = s.toString();
-		int lQuantity = -1;
+		float lQuantity = -1;
 		if (lText.length() > 0) {
 			try {
-				lQuantity = Integer.valueOf(lText);
+				lQuantity = Float.valueOf(lText);
 			}
 			catch (NumberFormatException e) {
 				lQuantity = 0; 
