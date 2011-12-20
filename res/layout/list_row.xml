@@ -4,7 +4,8 @@
     android:layout_height="90px"
     android:background="@color/background_list">
 
-    <TableRow>
+    <TableRow>
+          
     <TextView
         android:id="@+id/labelname"
         android:layout_width="310px"
