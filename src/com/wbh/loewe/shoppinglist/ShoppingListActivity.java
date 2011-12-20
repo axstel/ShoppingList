@@ -22,11 +22,14 @@ import com.wbh.loewe.shoppinglist.listitem.ListItem;
 public class ShoppingListActivity extends ListActivity {
 
 	static final int NEWLIST_DIALOG_ID = 0;
+	static final int DELETELIST_DIALOG_ID = 1;
+	
 	protected EditText edt_newlist_name;
 	protected Spinner edt_newlist_template;
 
 	private Cursor mCursor;
 	protected ShoppingListApplication mShoppinglistapp;
+	protected int mDelListID;
 
     /** Called when the activity is first created. */
     @Override
@@ -78,6 +81,7 @@ public class ShoppingListActivity extends ListActivity {
     	Dialog lDialog = null;
         switch(id) {
         	case NEWLIST_DIALOG_ID:
+        	{
         		// set up Dialog
         		lDialog = new Dialog(ShoppingListActivity.this);
         		lDialog.setContentView(R.layout.neue_ek_2);
@@ -98,6 +102,27 @@ public class ShoppingListActivity extends ListActivity {
         		}
         		break;
         	}
+        	case DELETELIST_DIALOG_ID:
+        	{
+        		// set up Dialog
+        		lDialog = new Dialog(ShoppingListActivity.this);
+        		lDialog.setContentView(R.layout.del_ek_2);
+        		lDialog.setTitle("Einkaufsliste löschen");
+        		lDialog.setCancelable(true);
+        
+        		Button btnOK = (Button)lDialog.findViewById(R.id.btn_del_ek_OK);
+        		if (btnOK != null) {
+        			btnOK.setOnClickListener(btn_DelList_OK);
+        		}
+    
+        		Button btnCancel = (Button)lDialog.findViewById(R.id.btn_del_ek_Cancel);
+        		if (btnCancel != null) {
+        			btnCancel.setOnClickListener(btn_DelList_Cancel);
+        		}
+        		break;
+        	}
+        }
+        
         return lDialog;
     }
    
@@ -156,6 +181,22 @@ public class ShoppingListActivity extends ListActivity {
     		removeDialog(NEWLIST_DIALOG_ID);
     	}
     };
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_DelList_OK = new OnClickListener() {
+    	public void onClick(View v) {
+    		deleteShoppingList(mDelListID);
+    		mDelListID = 0;
+    		removeDialog(DELETELIST_DIALOG_ID);
+    	}
+    };
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_DelList_Cancel = new OnClickListener() {
+    	public void onClick(View v) {
+    		removeDialog(DELETELIST_DIALOG_ID);
+    	}
+    };
    
     // Event wenn auf den Name oder den Button geklickt wird
     private class OnRowClickListener implements ListCursorAdapter.RowClickListener {
@@ -164,7 +205,10 @@ public class ShoppingListActivity extends ListActivity {
         	switch (aAction) {
         		case 0: showUseShoppingList(aListItem.getID()); break;
         		case 1: showEditShoppingList(aListItem.getID()); break;
-        		case 2: deleteShoppingList(aListItem.getID()); break;
+        		case 2: {
+        					mDelListID = aListItem.getID();
+        					showDialog(DELETELIST_DIALOG_ID); break;
+        				}
         	}
         }
     }
