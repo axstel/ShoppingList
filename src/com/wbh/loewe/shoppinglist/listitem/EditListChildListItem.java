@@ -10,7 +10,7 @@ public class EditListChildListItem extends ChildListItem implements TextWatcher 
 
 	private int mGroupPos;
 	private int mChildPos;
-	private int mQuantity;
+	private float mQuantity;
 	private ShoppingListApplication mShoppinglistapp;
 	private int mListID;
 	
@@ -43,11 +43,11 @@ public class EditListChildListItem extends ChildListItem implements TextWatcher 
 		return this.mChildPos;
 	}
 	
-	public void setQuantity(int aValue) {
+	public void setQuantity(float aValue) {
 		this.mQuantity = aValue; 
 	}
 	
-	public int getQuantity() {
+	public float getQuantity() {
 		return mQuantity;
 	}
 	
@@ -62,10 +62,10 @@ public class EditListChildListItem extends ChildListItem implements TextWatcher 
 	public void afterTextChanged(Editable s) {
 		
 		String lText = s.toString();
-		int lQuantity = -1;
+		float lQuantity = -1;
 		if (lText.length() > 0) {
 			try {
-				lQuantity = Integer.valueOf(lText);
+				lQuantity = Float.valueOf(lText);
 			}
 			catch (NumberFormatException e) {
 				lQuantity = 0; 
