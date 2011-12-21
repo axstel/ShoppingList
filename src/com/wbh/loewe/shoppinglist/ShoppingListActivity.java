@@ -147,13 +147,13 @@ public class ShoppingListActivity extends ListActivity {
             //Toast.makeText(getBaseContext(),
             // "DIALOGFELD 'Beenden' anzeigen!",
             // Toast.LENGTH_LONG).show();
-            // System.exit(0); // Beendet die App
+             System.exit(0); // Beendet die App
     
     
     		// Button 3 wird eigentlich zum beenden der APP benutzt.
     		// Zu Demonstrationszwecken werden durch Button 3 (Beenden) die Dialogfelder angezeigt
-    		Intent intent2 = new Intent(ShoppingListActivity.this, GUI_DialogActivity.class);
-    		startActivity(intent2);
+    		// Intent intent2 = new Intent(ShoppingListActivity.this, GUI_DialogActivity.class);
+    		// startActivity(intent2);
     	}
     };
     
