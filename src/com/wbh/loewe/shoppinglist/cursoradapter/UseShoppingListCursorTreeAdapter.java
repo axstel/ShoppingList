@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.wbh.loewe.shoppinglist.R;
 import com.wbh.loewe.shoppinglist.ShoppingListApplication;
+import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 import com.wbh.loewe.shoppinglist.listitem.UseListChildListItem;
 
@@ -34,11 +35,30 @@ public class UseShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 			lListItem.setTxtQuantity((TextView)lView.findViewById(R.id.edittxt_menge));
 			lListItem.setTxtQuantityName((TextView)lView.findViewById(R.id.txt_einheit));
 			
+			Cursor lChildCursor = getChild(groupPosition, childPosition);
+			if (lChildCursor != null) {
+				// wenn der wert <> -1 ist, dann wurde er bereits vom benutzer gesetzt, bzw. initial geladen
+				// es kann dieser wert verwendet werden
+				boolean lSelected = false;
+				if (lListItem.getSelectedInt() != -1) {
+					lSelected = lListItem.getSelected();
+				} else {
+					if (lChildCursor.getInt(lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_SELECTED)) == 1) {
+						lSelected = true;
+					} else {
+						lSelected = false;
+					}
+				}
+				lListItem.setSelected(lSelected);
+			} else {
+				Log.e("UseShoppingListCursorTreeAdapter.getChildView", "getChild "+ groupPosition +";"+ childPosition +" failed");
+			}
+			
 			// Prüfen ob dieses Item markiert wurde, wenn ja, dann markiert darstellen
 			String lKey = groupPosition +"_"+ childPosition;
 			setSelectedViewState(lView, lKey);
 		} else {
-			
+			Log.e("UseShoppingListCursorTreeAdapter.getChildView", "Listitem not assigned");
 		}
 		return lView;
 	}

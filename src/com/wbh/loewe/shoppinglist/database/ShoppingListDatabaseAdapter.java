@@ -93,7 +93,9 @@ public class ShoppingListDatabaseAdapter {
 	
 	/* Return a Cursor over the list of all articles of an category in a shoppinglist */
 	public Cursor fetchAllArticlesOfCategoryInList(int aListID, int aCategoryID) {
-		String lQuery = " SELECT DISTINCT a.*, sa."+ ShoppingListDatabase.FIELD_NAME_QUANTITY +" AS "+ ShoppingListDatabase.FIELD_NAME_QUANTITY +", q."+ ShoppingListDatabase.FIELD_NAME_NAME +" AS QUANTITYUNITNAME FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
+		String lQuery = " SELECT DISTINCT a.*, sa."+ ShoppingListDatabase.FIELD_NAME_QUANTITY +" AS "+ ShoppingListDatabase.FIELD_NAME_QUANTITY +
+						", q."+ ShoppingListDatabase.FIELD_NAME_NAME +" AS QUANTITYUNITNAME, sa."+ ShoppingListDatabase.FIELD_NAME_SELECTED +" AS "+ ShoppingListDatabase.FIELD_NAME_SELECTED +
+						" FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
 						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
 						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_QUANTITYUNIT +" q ON q."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDQUANTITYUNIT +
 						" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID +
@@ -134,6 +136,19 @@ public class ShoppingListDatabaseAdapter {
 		ContentValues lValues = new ContentValues();
 		lValues.put(ShoppingListDatabase.FIELD_NAME_QUANTITY, aQuantity);
 		//Log.w(ShoppingListDatabaseAdapter.class.getName() +".updateArticleQuantity", "aListID: "+ aListID +", aArticleID: "+ aArticleID +"; aQuantity: "+ aQuantity);
+		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE + "=" + aArticleID, null) > 0;
+	} 
+	
+	/* update article and return if succeed or not */
+	public boolean updateArticleSelected(int aListID, int aArticleID, boolean aSelected) {
+		int lSelected = 0;
+		if (aSelected) {
+			lSelected = 1;
+		} else {
+			lSelected = 0;
+		}
+		ContentValues lValues = new ContentValues();
+		lValues.put(ShoppingListDatabase.FIELD_NAME_SELECTED, lSelected);
 		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE + "=" + aArticleID, null) > 0;
 	} 
 }

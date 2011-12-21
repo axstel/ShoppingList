@@ -19,6 +19,7 @@ public class ShoppingListDatabase{
 	public static final String FIELD_NAME_IDSHOPPINGLIST = "id_shoppinglist";
 	public static final String FIELD_NAME_IDARTICLE = "id_article";
 	public static final String FIELD_NAME_QUANTITY = "quantity";
+	public static final String FIELD_NAME_SELECTED = "selected";
 	
 	// Database creation SQL statement
 	private static final String SHOPPINGLIST_CREATE = "create table "+ TABLE_NAME_SHOPPPINGLIST

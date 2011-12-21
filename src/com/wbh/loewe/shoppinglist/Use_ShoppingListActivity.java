@@ -11,6 +11,7 @@ import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.cursoradapter.UseShoppingListCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.UseListChildListItem;
 
 
 /**
@@ -89,6 +90,7 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
 	protected void OnChildRowClick(View aView, ChildListItem aListItem) {
 		if (aListItem != null) {
 			mUseShoppingListAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
+			mShoppinglistapp.getDBAdapter().updateArticleSelected(mListID, aListItem.getID(), ((UseListChildListItem)aListItem).getSelected());
     	} else {
     		Log.e("Use_ShoppingListActivity.OnChildRowClick", "aListItem is not assigned");
     	}

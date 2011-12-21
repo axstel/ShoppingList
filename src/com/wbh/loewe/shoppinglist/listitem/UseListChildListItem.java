@@ -9,7 +9,7 @@ public class UseListChildListItem extends ChildListItem implements TextWatcher {
 
 	private int mGroupPos;
 	private int mChildPos;
-	private boolean mSelected;
+	private int mSelected;
 	private TextView mTxtArticle;
 	private TextView mTxtQuantity;
 	private TextView mTxtQuantityName;
@@ -18,7 +18,7 @@ public class UseListChildListItem extends ChildListItem implements TextWatcher {
 		super();
 		this.mGroupPos = -1;
 		this.mChildPos = -1;
-		this.mSelected = false;
+		this.mSelected = -1;
 	}
 
 	public void setGroupPos(int aPos) {
@@ -42,10 +42,22 @@ public class UseListChildListItem extends ChildListItem implements TextWatcher {
 	}
 	
 	public void setSelected(boolean aSelected) {
-		this.mSelected = aSelected;
+		if (aSelected) {
+			this.mSelected = 1;
+		} else {
+			this.mSelected = 0;
+		}
 	}
 	
 	public boolean getSelected() {
+		if (this.mSelected == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public int getSelectedInt() {
 		return this.mSelected;
 	}
 	
