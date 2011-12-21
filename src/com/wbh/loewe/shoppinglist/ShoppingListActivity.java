@@ -143,7 +143,7 @@ public class ShoppingListActivity extends ListActivity {
     };
     
     //---create an anonymous class to act as a button click listener---
-    private OnClickListener btnCloseAppListener = new OnClickListener() {
+    /*private OnClickListener btnCloseAppListener = new OnClickListener() {
     	public void onClick(View v) {
             //Toast.makeText(getBaseContext(),
             // "DIALOGFELD 'Beenden' anzeigen!",
@@ -156,7 +156,7 @@ public class ShoppingListActivity extends ListActivity {
     		// Intent intent2 = new Intent(ShoppingListActivity.this, GUI_DialogActivity.class);
     		// startActivity(intent2);
     	}
-    };
+    };*/
     
     //--- create an anonymous class to act as a button click listener ---
     private OnClickListener btn_NewList_OK = new OnClickListener() {
@@ -235,7 +235,7 @@ public class ShoppingListActivity extends ListActivity {
     private void showUseShoppingList(int aID) {
     	Intent lEditActivity = new Intent(ShoppingListActivity.this, Use_ShoppingListActivity.class);
     	lEditActivity.putExtra("ID", aID);
-    	lEditActivity.putExtra("LAYOUT", R.layout.gui_show_ek_1);
+    	lEditActivity.putExtra("LAYOUT", R.layout.gui_show_ek_3);
     	startActivity(lEditActivity);
     }
 }
