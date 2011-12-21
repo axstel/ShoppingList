@@ -59,19 +59,22 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		AddArticleChildListItem lListItem = (AddArticleChildListItem)lView.getTag();
 		if (lListItem != null) {
 			EditText lEdit = (EditText)lView.findViewById(R.id.edittxt_menge);
+			if (lEdit != null) {
+				// Prüfen ob dem Editfeld bereits einmal ein Textwatcher zugewiesen wurde, wenn ja,
+				// dann wieder entfernen und neu zuweisen
+				TextWatcher lTextWatcher = (TextWatcher)lEdit.getTag();
+				if (lTextWatcher != null) {
+					lEdit.removeTextChangedListener(lTextWatcher);
+				}
 			
-			// Prüfen ob dem Editfeld bereits einmal ein Textwatcher zugewiesen wurde, wenn ja,
-	    	// dann wieder entfernen und neu zuweisen
-	    	TextWatcher lTextWatcher = (TextWatcher)lEdit.getTag();
-	    	if (lTextWatcher != null) {
-	    		lEdit.removeTextChangedListener(lTextWatcher);
-	    	}
+				lEdit.setText(String.valueOf(lListItem.getQuantity()));
 			
-			lEdit.setText(String.valueOf(lListItem.getQuantity()));
-			
-			// Listener neu zuweisen
-	    	lEdit.addTextChangedListener(lListItem);
-	    	lEdit.setTag(lListItem);
+				// Listener neu zuweisen
+				lEdit.addTextChangedListener(lListItem);
+				lEdit.setTag(lListItem);
+			} else {
+				Log.e("AddArticleCursorTreeAdapter.getChildView", "edittxt_menge not found");
+			}
 		} else {
 			Log.e("AddArticleCursorTreeAdapter.getChildView", "Listitem not assigned");
 		}
@@ -79,6 +82,7 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
     	// Prüfen ob dieses Item markiert wurde, wenn ja, dann markiert darstellen
     	String lKey = groupPosition +"_"+ childPosition;
     	setSelectedViewState(lView, lKey);
+    	
 		return lView;
 	}
 	

@@ -6,8 +6,7 @@ android:layout_height="60dp"
 android:layout_marginTop="0px"
 android:layout_marginBottom="0px"
 xmlns:android="http://schemas.android.com/apk/res/android"
-android:background="@color/background_list"
->
+android:background="@color/background_list">
 
      <TableRow android:gravity="left" >
 		<TextView
