@@ -32,13 +32,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" 
-       >
-    </LinearLayout>
+   
 
     <TableLayout
         android:id="@+id/relativeLayout1"
@@ -49,7 +43,7 @@
         <TableRow>
         <Button
             android:id="@+id/btn_new_list"
-            android:layout_width="106dp"
+            android:layout_width="160dp"
             android:layout_height="51dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
@@ -59,7 +53,7 @@
             android:textColor="@color/btn_text"/>
         <Button
             android:id="@+id/btn_article_admin"
-            android:layout_width="106dp"
+            android:layout_width="160dp"
             android:layout_height="fill_parent"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
@@ -67,16 +61,6 @@
             android:text="@string/btn_artikelVerwalten"
             android:background="@color/btn_hintergrund"
             android:textColor="@color/btn_text" />
-
-        <Button
-            android:id="@+id/btn_closeapp"
-            android:layout_width="106dp"
-            android:layout_height="fill_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:text="@string/btn_beenden" 
-            android:background="@color/btn_hintergrund"
-            android:textColor="@color/btn_text"/>
         </TableRow>
     </TableLayout>
 

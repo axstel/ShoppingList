@@ -50,8 +50,9 @@ public class ShoppingListActivity extends ListActivity {
         btn = (Button)findViewById(R.id.btn_article_admin);
         btn.setOnClickListener(btnArticleAdminListener);
         
-        btn = (Button)findViewById(R.id.btn_closeapp);
-        btn.setOnClickListener(btnCloseAppListener);
+        // Beenden Button entfernt - wird daher nicht mehr benötigt
+        //btn = (Button)findViewById(R.id.btn_closeapp);
+        //btn.setOnClickListener(btnCloseAppListener);
     }
     
     protected void fillData() {
