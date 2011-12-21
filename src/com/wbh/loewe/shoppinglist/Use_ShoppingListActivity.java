@@ -152,8 +152,8 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
     private OnClickListener OnBtnResetSelectionClick = new OnClickListener()
     {
     	public void onClick(View v) {
-    		// TODO
-    		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_SHORT).show();
+    		mShoppinglistapp.getDBAdapter().updateArticleUnSelected(mListID);
+    		refreshView();
     	}
     };
     

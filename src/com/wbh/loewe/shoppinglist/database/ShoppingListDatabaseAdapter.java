@@ -175,4 +175,11 @@ public class ShoppingListDatabaseAdapter {
 		lValues.put(ShoppingListDatabase.FIELD_NAME_SELECTED, lSelected);
 		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE + "=" + aArticleID, null) > 0;
 	} 
+	
+	/* update all articles unselected and return if succeed or not */
+	public boolean updateArticleUnSelected(int aListID) {
+		ContentValues lValues = new ContentValues();
+		lValues.put(ShoppingListDatabase.FIELD_NAME_SELECTED, 0);
+		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID, null) > 0;
+	} 
 }
