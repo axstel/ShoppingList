@@ -64,5 +64,6 @@
     <string name="btn_showKat">Kategorie anzeigen</string>
     <string name="btn_offeneArtikel">Offene Artikel</string>
     <string name="btn_hideKat">Kategorie verbergen</string>
+    <string name="title_artdb">Artikeldatenbank</string>
 
 </resources>
