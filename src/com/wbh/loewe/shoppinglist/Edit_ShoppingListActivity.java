@@ -34,8 +34,6 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     	mChildItemLayout = R.layout.screen4_editek_gui_child_row;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
     	mGroupTo = new int[] {R.id.txt_kategorie}; 
-    	//mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME, ShoppingListDatabase.FIELD_NAME_QUANTITY}; 
-    	//mChildTo = new int[] {R.id.txt_article, R.id.edittxt_menge}; 
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME, "QUANTITYUNITNAME"}; 
     	mChildTo = new int[] {R.id.txt_article, R.id.txt_einheit};
          
@@ -61,32 +59,28 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 	@Override
     protected CustomCursorTreeAdapter createAdapter() {
 		Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
-		if (mEditShoppingListAdapter == null) {
-			mEditShoppingListAdapter = new EditShoppingListCursorTreeAdapter(
-										this, 
-										lGroupCursor, 
-										mGroupItemLayout, 
-										mGroupFrom, 
-										mGroupTo, 
-										mChildItemLayout, 
-										mChildFrom, 
-										mChildTo,
-										new OnGroupRowClickListener(),
-										new OnChildRowClickListener(),
-										mShoppinglistapp,
-										mListID) {
-    										@Override
-    										protected Cursor getChildrenCursor(Cursor groupCursor) {
-    											// DB-Abfrage um die Kindelemente darzustellen
-    											int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
-    											Cursor lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, lGroupID);
-    											startManagingCursor(lChildCursor);
-    											return lChildCursor;
-    										}
-    									};
-		} else {
-			mEditShoppingListAdapter.setGroupCursor(lGroupCursor);
-		}
+		mEditShoppingListAdapter = new EditShoppingListCursorTreeAdapter(
+									this, 
+									lGroupCursor, 
+									mGroupItemLayout, 
+									mGroupFrom, 
+									mGroupTo, 
+									mChildItemLayout, 
+									mChildFrom, 
+									mChildTo,
+									new OnGroupRowClickListener(),
+									new OnChildRowClickListener(),
+									mShoppinglistapp,
+									mListID) {
+    									@Override
+    									protected Cursor getChildrenCursor(Cursor groupCursor) {
+    										// DB-Abfrage um die Kindelemente darzustellen
+    										int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
+    										Cursor lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, lGroupID);
+    										startManagingCursor(lChildCursor);
+    										return lChildCursor;
+    									}
+    								};
     	return mEditShoppingListAdapter;
     }
     
@@ -135,6 +129,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ADDARTICLE_REQUESTCODE) {
             if (resultCode == RESULT_OK) {
+            	mEditShoppingListAdapter.resetChildItemList();
             	fillData();
             }
         }

@@ -148,5 +148,9 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 	protected ChildListItem getNewListItem() {
 		return new ChildListItem();
 	}
+	
+	public void resetChildItemList() {
+		mChildListItems.clear();
+	}
 
 }
