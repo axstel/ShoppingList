@@ -81,25 +81,49 @@ public class ShoppingListDatabaseAdapter {
 		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST, ShoppingListDatabase.FIELD_NAME_ID + "=" + aID, null) > 0;
 	}
 	
+	private String getBaseSQL_fetchAllCategoriesOfList(int aListID) {
+		return " SELECT DISTINCT c.* FROM "+ ShoppingListDatabase.TABLE_NAME_CATEGORY +" c "+
+				" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a ON c."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +
+				" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
+				" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID;
+	}
+	
 	/* Return a Cursor over the list of all categories of an shoppinglist */
 	public Cursor fetchAllCategoriesOfList(int aListID) {
-		String lQuery = " SELECT DISTINCT c.* FROM "+ ShoppingListDatabase.TABLE_NAME_CATEGORY +" c "+
-						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a ON c."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +
-						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
-						" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID;
+		String lQuery = getBaseSQL_fetchAllCategoriesOfList(aListID);
 		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
 		return db.rawQuery(lQuery, new String [] {});
 	}
 	
+	/* Return a Cursor over the list of all categories of an shoppinglist which contains unselected article */
+	public Cursor fetchAllCategoriesOfListUnSelected(int aListID) {
+		String lQuery = getBaseSQL_fetchAllCategoriesOfList(aListID) +
+						" AND (sa."+ ShoppingListDatabase.FIELD_NAME_SELECTED +" <> 1 OR sa."+ ShoppingListDatabase.FIELD_NAME_SELECTED +" IS NULL)";
+		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
+		return db.rawQuery(lQuery, new String [] {});
+	}
+	
+	private String getBaseSQL_fetchAllArticlesOfCategoryInLis(int aListID, int aCategoryID) {
+		return " SELECT DISTINCT a.*, sa."+ ShoppingListDatabase.FIELD_NAME_QUANTITY +" AS "+ ShoppingListDatabase.FIELD_NAME_QUANTITY +
+				", q."+ ShoppingListDatabase.FIELD_NAME_NAME +" AS QUANTITYUNITNAME, sa."+ ShoppingListDatabase.FIELD_NAME_SELECTED +" AS "+ ShoppingListDatabase.FIELD_NAME_SELECTED +
+				" FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
+				" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
+				" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_QUANTITYUNIT +" q ON q."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDQUANTITYUNIT +
+				" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID +
+				" AND a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +" = "+ aCategoryID;
+	}
+	
 	/* Return a Cursor over the list of all articles of an category in a shoppinglist */
 	public Cursor fetchAllArticlesOfCategoryInList(int aListID, int aCategoryID) {
-		String lQuery = " SELECT DISTINCT a.*, sa."+ ShoppingListDatabase.FIELD_NAME_QUANTITY +" AS "+ ShoppingListDatabase.FIELD_NAME_QUANTITY +
-						", q."+ ShoppingListDatabase.FIELD_NAME_NAME +" AS QUANTITYUNITNAME, sa."+ ShoppingListDatabase.FIELD_NAME_SELECTED +" AS "+ ShoppingListDatabase.FIELD_NAME_SELECTED +
-						" FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
-						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
-						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_QUANTITYUNIT +" q ON q."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDQUANTITYUNIT +
-						" WHERE sa."+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +" = "+ aListID +
-						" AND a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +" = "+ aCategoryID;
+		String lQuery = getBaseSQL_fetchAllArticlesOfCategoryInLis(aListID, aCategoryID);
+		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
+		return db.rawQuery(lQuery, new String [] {});
+	}
+	
+	/* Return a Cursor over the list of all unselected articles of an category in a shoppinglist */
+	public Cursor fetchAllArticlesOfCategoryInListUnSelected(int aListID, int aCategoryID) {
+		String lQuery = getBaseSQL_fetchAllArticlesOfCategoryInLis(aListID, aCategoryID) +
+						" AND (sa."+ ShoppingListDatabase.FIELD_NAME_SELECTED +" <> 1 OR sa."+ ShoppingListDatabase.FIELD_NAME_SELECTED +" IS NULL)";
 		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
 		return db.rawQuery(lQuery, new String [] {});
 	}

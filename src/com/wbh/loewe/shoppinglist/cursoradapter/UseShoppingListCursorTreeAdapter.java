@@ -114,4 +114,8 @@ public class UseShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 		}
 	}
 	
+	public void resetChildItemList() {
+		mChildListItems.clear();
+	}
+	
 }
