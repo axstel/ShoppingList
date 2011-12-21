@@ -5,8 +5,10 @@
     android:gravity="bottom|center|center_horizontal|center_vertical"
     android:orientation="vertical" 
     android:background="@color/background_list">
+    
 
     <ExpandableListView
+        android:cacheColorHint="#00000000"
         android:id="@+id/android:list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
