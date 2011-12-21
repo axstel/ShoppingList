@@ -103,7 +103,7 @@ public class UseShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 	private void setTextOfView(TextView aView, boolean aSelected) {
 		if (aView != null) {
 			if (aSelected) {
-				aView.setTextColor(mContext.getResources().getColor(R.color.row_selected_text));
+				aView.setTextColor(mContext.getResources().getColor(R.color.row_strikedout_text));
 				aView.setPaintFlags(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG | Paint.STRIKE_THRU_TEXT_FLAG);
 			} else {
 				aView.setTextColor(mContext.getResources().getColor(R.color.row_unselected_text));
