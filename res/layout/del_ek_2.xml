@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@color/background_dialog">
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -13,36 +14,46 @@
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_Delete"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:gravity="center"
+            android:textSize="20px"
+            android:textColor="@color/list_txt"/>
 
     </LinearLayout>
 
-      <RelativeLayout
+      <TableLayout
           xmlns:android="http://schemas.android.com/apk/res/android"
           android:id="@+id/RLayout"
           android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:layout_alignParentLeft="true"
+          android:layout_height="wrap_content"         
           android:layout_below="@+id/linearLayout1" >
 
+          <TableRow>
           <Button
               android:id="@+id/btn_del_ek_OK"
               android:layout_width="150dp"
-              android:layout_height="wrap_content"
+              android:layout_height="38dp"
               android:layout_alignLeft="@+id/txtComments"
               android:layout_below="@+id/txtComments"
-              android:text="@string/btn_JA" />
+              android:layout_marginRight="3px"
+              android:text="@string/btn_JA"
+              android:background="@color/btn_hintergrund"
+        	  android:textColor="@color/btn_text" />
 
           <Button
               android:id="@+id/btn_del_ek_Cancel"
               android:layout_width="150dp"
-              android:layout_height="wrap_content"
+              android:layout_height="38dp"
               android:layout_alignParentRight="true"
               android:layout_alignParentTop="true"
-              android:text="@string/btn_Nein" />
-      </RelativeLayout>
+              android:background="@color/btn_hintergrund"
+              android:text="@string/btn_Nein"
+              android:textColor="@color/btn_text" />
+
+          </TableRow>
+      </TableLayout>
 
 </RelativeLayout>
