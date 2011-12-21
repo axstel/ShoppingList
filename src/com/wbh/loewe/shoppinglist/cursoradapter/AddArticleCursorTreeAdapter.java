@@ -8,7 +8,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.wbh.loewe.shoppinglist.R;
@@ -58,20 +57,23 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		// Menge
 		AddArticleChildListItem lListItem = (AddArticleChildListItem)lView.getTag();
 		if (lListItem != null) {
-			EditText lEdit = (EditText)lView.findViewById(R.id.edittxt_menge);
-			if (lEdit != null) {
+			lListItem.setTxtArticle((TextView)lView.findViewById(R.id.txt_article));
+			lListItem.setTxtQuantity((TextView)lView.findViewById(R.id.edittxt_menge));
+			lListItem.setTxtQuantityName((TextView)lView.findViewById(R.id.txt_einheit));
+			
+			if (lListItem.getTxtQuantity() != null) {
 				// Prüfen ob dem Editfeld bereits einmal ein Textwatcher zugewiesen wurde, wenn ja,
 				// dann wieder entfernen und neu zuweisen
-				TextWatcher lTextWatcher = (TextWatcher)lEdit.getTag();
+				TextWatcher lTextWatcher = (TextWatcher)lListItem.getTxtQuantity().getTag();
 				if (lTextWatcher != null) {
-					lEdit.removeTextChangedListener(lTextWatcher);
+					lListItem.getTxtQuantity().removeTextChangedListener(lTextWatcher);
 				}
 			
-				lEdit.setText(String.valueOf(lListItem.getQuantity()));
+				lListItem.getTxtQuantity().setText(String.valueOf(lListItem.getQuantity()));
 			
 				// Listener neu zuweisen
-				lEdit.addTextChangedListener(lListItem);
-				lEdit.setTag(lListItem);
+				lListItem.getTxtQuantity().addTextChangedListener(lListItem);
+				lListItem.getTxtQuantity().setTag(lListItem);
 			} else {
 				Log.e("AddArticleCursorTreeAdapter.getChildView", "edittxt_menge not found");
 			}
@@ -115,6 +117,9 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 				Log.e("Add_Article_ListActivity.OnSetSelectedView", "txt_article not found");
 			}
 		}
+		setTextOfView(lListItem.getTxtArticle(), lSelected);
+		//setTextOfView(lListItem.getTxtQuantity(), lSelected);
+		setTextOfView(lListItem.getTxtQuantityName(), lSelected);
 	}
 	
 	@Override
@@ -131,5 +136,18 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 			}
 		}
 		return lSelected;
+	}
+	
+	// Text einer View entsprechend dem Status setzen
+	private void setTextOfView(TextView aView, boolean aSelected) {
+		if (aView != null) {
+			if (aSelected) {
+				aView.setTextColor(mContext.getResources().getColor(R.color.row_selected_text));
+			} else {
+				aView.setTextColor(mContext.getResources().getColor(R.color.row_unselected_text));
+			}
+		} else {
+			Log.e("Add_Article_ListActivity.setTextOfView", "aView is not assigned");
+		}
 	}
 }

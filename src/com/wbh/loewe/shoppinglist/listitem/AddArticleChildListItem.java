@@ -2,6 +2,7 @@ package com.wbh.loewe.shoppinglist.listitem;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.TextView;
 
 
 public class AddArticleChildListItem extends ChildListItem implements TextWatcher {
@@ -10,6 +11,9 @@ public class AddArticleChildListItem extends ChildListItem implements TextWatche
 	private int mChildPos;
 	private float mQuantity;
 	private boolean mSelected;
+	private TextView mTxtArticle;
+	private TextView mTxtQuantity;
+	private TextView mTxtQuantityName;
 	
 	public AddArticleChildListItem() {
 		super();
@@ -53,6 +57,30 @@ public class AddArticleChildListItem extends ChildListItem implements TextWatche
 	
 	public float getQuantity() {
 		return this.mQuantity;
+	}
+	
+	public void setTxtArticle(TextView aView) {
+		this.mTxtArticle = aView;
+	}
+	
+	public TextView getTxtArticle() {
+		return this.mTxtArticle;
+	}
+	
+	public void setTxtQuantity(TextView aView) {
+		this.mTxtQuantity = aView;
+	}
+	
+	public TextView getTxtQuantity() {
+		return this.mTxtQuantity;
+	}
+	
+	public void setTxtQuantityName(TextView aView) {
+		this.mTxtQuantityName = aView;
+	}
+	
+	public TextView getTxtQuantityName() {
+		return this.mTxtQuantityName;
 	}
 	
 	public void afterTextChanged(Editable s) {
