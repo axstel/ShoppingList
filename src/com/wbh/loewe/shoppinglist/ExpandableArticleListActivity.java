@@ -85,4 +85,9 @@ public class ExpandableArticleListActivity extends ExpandableListActivity
     protected void OnChildRowClick(View aView, ChildListItem aListItem) {
     	// in abgeleiteter klasse überschreiben
     }
+    
+    public void refreshView() {
+    	mAdapter.resetChildItemList();
+    	fillData();
+    }
 }

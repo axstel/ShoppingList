@@ -1,13 +1,16 @@
 package com.wbh.loewe.shoppinglist;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
@@ -20,7 +23,6 @@ import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
  */
 public class Edit_ShoppingListActivity extends ExpandableArticleListActivity 
 {
-	
 	static final int ADDARTICLE_REQUESTCODE = 1;
 
 	private int mListID;
@@ -120,8 +122,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     private OnClickListener btnEmptyListListener = new OnClickListener()
     {
     	public void onClick(View v) {
-    		// TODO
-    		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
+    		showDialog(DialogConsts.EMPTYLIST_DIALOG_ID);
     	}
     };
     
@@ -129,10 +130,53 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ADDARTICLE_REQUESTCODE) {
             if (resultCode == RESULT_OK) {
-            	mEditShoppingListAdapter.resetChildItemList();
-            	fillData();
+            	refreshView();
             }
         }
     }
+    
+    @Override
+    protected Dialog onCreateDialog(int id) {
+    	Dialog lDialog = null;
+        switch(id) {
+        	case DialogConsts.EMPTYLIST_DIALOG_ID:
+        	{
+        		// set up Dialog
+        		lDialog = new Dialog(Edit_ShoppingListActivity.this);
+        		lDialog.setContentView(R.layout.empty_list_2);
+        		lDialog.setTitle("Einkaufsliste leeren");
+        		lDialog.setCancelable(true);
+        
+        		Button btnOK = (Button)lDialog.findViewById(R.id.btn_emptyList_OK);
+        		if (btnOK != null) {
+        			btnOK.setOnClickListener(btn_EmptyList_OK);
+        		}
+    
+        		Button btnCancel = (Button)lDialog.findViewById(R.id.btn_emptyList_Cancel);
+        		if (btnCancel != null) {
+        			btnCancel.setOnClickListener(btn_EmptyList_Cancel);
+        		}
+        		break;
+        	}
+        }
+        
+        return lDialog;
+    }
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_EmptyList_OK = new OnClickListener() {
+    	public void onClick(View v) {
+    		mShoppinglistapp.getDBAdapter().removeAllArticlesFromList(mListID);
+    		refreshView();
+    		removeDialog(DialogConsts.EMPTYLIST_DIALOG_ID);
+    	}
+    };
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_EmptyList_Cancel = new OnClickListener() {
+    	public void onClick(View v) {
+    		removeDialog(DialogConsts.EMPTYLIST_DIALOG_ID);
+    	}
+    };
 
 }

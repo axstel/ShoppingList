@@ -156,10 +156,5 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
     		refreshView();
     	}
     };
-    
-    public void refreshView() {
-    	mUseShoppingListAdapter.resetChildItemList();
-    	fillData();
-    }
 
 }

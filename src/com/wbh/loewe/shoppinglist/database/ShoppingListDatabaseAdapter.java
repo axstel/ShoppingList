@@ -181,5 +181,9 @@ public class ShoppingListDatabaseAdapter {
 		ContentValues lValues = new ContentValues();
 		lValues.put(ShoppingListDatabase.FIELD_NAME_SELECTED, 0);
 		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID, null) > 0;
-	} 
+	}
+	
+	public boolean removeAllArticlesFromList(int aListID) {
+		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID, null) > 0;
+	}
 }
