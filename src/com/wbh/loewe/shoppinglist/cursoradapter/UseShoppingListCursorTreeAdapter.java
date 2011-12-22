@@ -22,7 +22,7 @@ public class UseShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick,
 			ShoppingListApplication aApp) {
 		super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childFrom,
-				childTo, aGroupClick, aChildClick, aApp);
+				childTo, aGroupClick, aChildClick, null, aApp);
 	}
 	
 	@Override

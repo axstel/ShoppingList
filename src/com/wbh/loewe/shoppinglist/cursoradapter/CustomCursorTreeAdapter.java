@@ -25,8 +25,13 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
         public void OnClick(View aView, ChildListItem aListItem);
     }
 	
+	public interface RowActionClickListener {
+		public void OnRowClick(ChildListItem aListItem, int aAction);
+	}
+	
 	protected GroupRowClickListener mGroupRowClickListener;
 	protected ChildRowClickListener mChildRowClickListener;
+	protected RowActionClickListener mRowActionLickListener;
 	protected Context mContext;
 	protected ShoppingListApplication mMainApp;
 	protected HashMap<String, ChildListItem> mChildListItems = new HashMap<String, ChildListItem>();
@@ -35,11 +40,12 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 			int groupLayout, String[] groupFrom, int[] groupTo,
 			int childLayout, String[] childFrom, int[] childTo,
 			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick,
-			ShoppingListApplication aApp) {
+			RowActionClickListener aActionClick, ShoppingListApplication aApp) {
 		super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childFrom, childTo);
 		mContext = context;
 		mGroupRowClickListener = aGroupClick;
 		mChildRowClickListener = aChildClick;
+		mRowActionLickListener = aActionClick;
 		mMainApp = aApp;
 	}
 	

@@ -71,6 +71,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     								mChildTo,
     								new OnGroupRowClickListener(),
     								new OnChildRowClickListener(),
+    								null,
     								mShoppinglistapp) {
     									@Override
     									protected Cursor getChildrenCursor(Cursor groupCursor) {

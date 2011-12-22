@@ -43,6 +43,7 @@ public class Article_AdminActivity extends ExpandableArticleListActivity
     								mChildTo,
     								new OnGroupRowClickListener(),
     								new OnChildRowClickListener(),
+    								null,
     								mShoppinglistapp) {
 										@Override
 										protected Cursor getChildrenCursor(Cursor groupCursor) {

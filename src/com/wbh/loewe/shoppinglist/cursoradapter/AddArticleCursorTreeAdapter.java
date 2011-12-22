@@ -21,9 +21,9 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 			int groupLayout, String[] groupFrom, int[] groupTo,
 			int childLayout, String[] childFrom, int[] childTo,
 			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick,
-			ShoppingListApplication aApp) {
+			RowActionClickListener aActionClick, ShoppingListApplication aApp) {
 		super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childFrom,
-				childTo, aGroupClick, aChildClick, aApp);
+				childTo, aGroupClick, aChildClick, aActionClick, aApp);
 		// TODO Auto-generated constructor stub
 	}
 	

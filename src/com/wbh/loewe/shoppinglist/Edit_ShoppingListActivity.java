@@ -7,10 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
@@ -72,6 +70,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 									mChildTo,
 									new OnGroupRowClickListener(),
 									new OnChildRowClickListener(),
+									null,
 									mShoppinglistapp,
 									mListID) {
     									@Override

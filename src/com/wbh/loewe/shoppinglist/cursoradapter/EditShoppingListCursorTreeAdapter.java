@@ -5,7 +5,9 @@ import android.database.Cursor;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.wbh.loewe.shoppinglist.R;
@@ -22,9 +24,9 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 			int groupLayout, String[] groupFrom, int[] groupTo,
 			int childLayout, String[] childFrom, int[] childTo,
 			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick,
-			ShoppingListApplication aApp, int aListID) {
+			RowActionClickListener aActionClick,  ShoppingListApplication aApp, int aListID) {
 		super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childFrom,
-				childTo, aGroupClick, aChildClick, aApp);
+				childTo, aGroupClick, aChildClick, aActionClick, aApp);
 		this.mListID = aListID;
 	}
 	
@@ -34,38 +36,55 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 		
 		EditListChildListItem lListItem = (EditListChildListItem)lView.getTag();
 		if (lListItem != null) {
+			
+			lListItem.setListID(mListID);
+	    	lListItem.setApp(mMainApp);
+	    	
+	    	final Button lBtnDelete = (Button)lView.findViewById(R.id.btn_del);
+			if (lBtnDelete != null) {
+				lBtnDelete.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						if (mRowActionLickListener != null) {
+							EditListChildListItem lItem = (EditListChildListItem)lBtnDelete.getTag();
+							mRowActionLickListener.OnRowClick(lItem, 1);
+						}
+					}
+					    	
+				});
+				lBtnDelete.setTag(lListItem);
+			}
+	    	
 			Cursor lChildCursor = getChild(groupPosition, childPosition);
 			if (lChildCursor != null) {
 				EditText lEdit = (EditText)lView.findViewById(R.id.edittxt_menge);
 				
-				// Prüfen ob dem Editfeld bereits einmal ein Textwatcher zugewiesen wurde, wenn ja,
-		    	// dann wieder entfernen und neu zuweisen
-		    	TextWatcher lTextWatcher = (TextWatcher)lEdit.getTag();
-		    	if (lTextWatcher != null) {
-		    		lEdit.removeTextChangedListener(lTextWatcher);
-		    	}
+				if (lEdit != null) {
+					// Prüfen ob dem Editfeld bereits einmal ein Textwatcher zugewiesen wurde, wenn ja,
+					// dann wieder entfernen und neu zuweisen
+					TextWatcher lTextWatcher = (TextWatcher)lEdit.getTag();
+					if (lTextWatcher != null) {
+						lEdit.removeTextChangedListener(lTextWatcher);
+					}
+					// wenn der wert <> -1 ist, dann wurde er bereits vom benutzer gesetzt, bis initial geladen
+					// es kann dieser wert verwendet werden
+					float lQuantity = 0;
+					if (lListItem.getQuantity() != -1) {
+						lQuantity = lListItem.getQuantity();
+					} else {
+						lQuantity = lChildCursor.getFloat(lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_QUANTITY));
+					}
+					lEdit.setText(String.valueOf(lQuantity));
+					lListItem.setQuantity(lQuantity);
 		    	
-		    	lListItem.setListID(mListID);
-		    	lListItem.setApp(mMainApp);
-		    	
-				// wenn der wert <> -1 ist, dann wurde er bereits vom benutzer gesetzt, bis initial geladen
-		    	// es kann dieser wert verwendet werden
-		    	float lQuantity = 0;
-		    	if (lListItem.getQuantity() != -1) {
-		    		lQuantity = lListItem.getQuantity();
-		    	} else {
-		    		lQuantity = lChildCursor.getFloat(lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_QUANTITY));
-		    	}
-		    	lEdit.setText(String.valueOf(lQuantity));
-		    	lListItem.setQuantity(lQuantity);
-		    	
-		    	// Listener neu zuweisen
-		    	lEdit.addTextChangedListener(lListItem);
-		    	lEdit.setTag(lListItem);
+					// Listener neu zuweisen
+					lEdit.addTextChangedListener(lListItem);
+					lEdit.setTag(lListItem);
+				} else {
+					Log.e("EditShoppingListCursorTreeAdapter.getChildView", "edittxt_menge not found");
+				}
 			} else {
 				Log.e("EditShoppingListCursorTreeAdapter.getChildView", "getChild "+ groupPosition +";"+ childPosition +" failed");
 			}
-			
 		} else {
 			Log.e("EditShoppingListCursorTreeAdapter.getChildView", "Listitem not assigned");
 		}
