@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.wbh.loewe.shoppinglist.cursoradapter.CustomCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.cursoradapter.EditShoppingListCursorTreeAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
+import com.wbh.loewe.shoppinglist.listitem.ListItem;
 
 
 /**
@@ -70,7 +73,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 									mChildTo,
 									new OnGroupRowClickListener(),
 									new OnChildRowClickListener(),
-									null,
+									new OnRowActionClickListener(),
 									mShoppinglistapp,
 									mListID) {
     									@Override
@@ -177,5 +180,22 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     		removeDialog(DialogConsts.EMPTYLIST_DIALOG_ID);
     	}
     };
-
+    
+    // Event wenn auf Buttons geklickt wird
+    private class OnRowActionClickListener implements CustomCursorTreeAdapter.RowActionClickListener {
+		public void OnRowClick(ListItem aListItem, int aAction) {
+			switch (aAction) {
+				case 1: deleteArticle((ChildListItem)aListItem); break;
+				case 2: deleteCategory((GroupListItem)aListItem); break;
+			}
+		}
+    }
+    
+    private void deleteArticle(ChildListItem aListItem) {
+    	Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
+    }
+    
+    private void deleteCategory(GroupListItem aListItem) {
+    	Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
+    }
 }

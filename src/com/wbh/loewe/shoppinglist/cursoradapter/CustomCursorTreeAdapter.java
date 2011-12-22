@@ -14,6 +14,7 @@ import com.wbh.loewe.shoppinglist.ShoppingListApplication;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
+import com.wbh.loewe.shoppinglist.listitem.ListItem;
 
 public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 
@@ -26,7 +27,7 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
     }
 	
 	public interface RowActionClickListener {
-		public void OnRowClick(ChildListItem aListItem, int aAction);
+		public void OnRowClick(ListItem aListItem, int aAction);
 	}
 	
 	protected GroupRowClickListener mGroupRowClickListener;

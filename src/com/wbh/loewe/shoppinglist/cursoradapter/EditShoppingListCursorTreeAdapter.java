@@ -7,14 +7,15 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.wbh.loewe.shoppinglist.R;
 import com.wbh.loewe.shoppinglist.ShoppingListApplication;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 import com.wbh.loewe.shoppinglist.listitem.EditListChildListItem;
+import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
 
 public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 	
@@ -31,6 +32,34 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 	}
 	
 	@Override
+    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+		View lView = super.getGroupView(groupPosition, isExpanded, convertView, parent);
+		
+		GroupListItem lListItem = (GroupListItem)lView.getTag();
+		
+		if (lListItem != null) {
+			final ImageButton lBtnDelete = (ImageButton)lView.findViewById(R.id.btn_del);
+			if (lBtnDelete != null) {
+				lBtnDelete.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						if (mRowActionLickListener != null) {
+							GroupListItem lItem = (GroupListItem)lBtnDelete.getTag();
+							mRowActionLickListener.OnRowClick(lItem, 2);
+						}
+					}
+				});
+			} else {
+				Log.e("EditShoppingListCursorTreeAdapter.getGroupView", "btn_del not assigned");
+			}
+			lBtnDelete.setTag(lListItem);
+		} else {
+			Log.e("EditShoppingListCursorTreeAdapter.getGroupView", "Listitem not assigned");
+		}
+		
+		return lView;
+	}
+	
+	@Override
 	public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 		View lView = super.getChildView(groupPosition, childPosition, isLastChild, convertView, parent);
 		
@@ -40,7 +69,7 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 			lListItem.setListID(mListID);
 	    	lListItem.setApp(mMainApp);
 	    	
-	    	final Button lBtnDelete = (Button)lView.findViewById(R.id.btn_del);
+	    	final ImageButton lBtnDelete = (ImageButton)lView.findViewById(R.id.btn_del);
 			if (lBtnDelete != null) {
 				lBtnDelete.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
@@ -52,6 +81,8 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 					    	
 				});
 				lBtnDelete.setTag(lListItem);
+			} else {
+				Log.e("EditShoppingListCursorTreeAdapter.getChildView", "btn_del not assigned");
 			}
 	    	
 			Cursor lChildCursor = getChild(groupPosition, childPosition);
