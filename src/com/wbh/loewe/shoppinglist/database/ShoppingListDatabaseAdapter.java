@@ -189,12 +189,13 @@ public class ShoppingListDatabaseAdapter {
 		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID, null) > 0;
 	}
 	
-	public boolean deleteArticleFromShoppingList(int aListID, int aArticleID) {
-		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +"="+ aArticleID, null) > 0;
+	public boolean deleteArticleFromShoppingList(int aListID, int aID) {
+		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_ID +"="+ aID, null) > 0;
 	}
 	
 	public boolean deleteCategoryFromShoppingList(int aListID, int aCategoryID) {
-		return false;
-		//return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +"="+ aArticleID, null) > 0;
+		String lWhere = ShoppingListDatabase.FIELD_NAME_IDARTICLE +" IN (SELECT "+ ShoppingListDatabase.FIELD_NAME_ID +" FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +
+																	   " WHERE "+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +"="+ aCategoryID +") ";
+		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lWhere, null) > 0;
 	}
 }

@@ -1,5 +1,8 @@
 package com.wbh.loewe.shoppinglist.cursoradapter;
 
+import java.util.Iterator;
+import java.util.Vector;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.text.TextWatcher;
@@ -127,4 +130,32 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 	protected ChildListItem getNewListItem() {
 		return new EditListChildListItem();
 	}
+	
+	public void removeGroup(GroupListItem aListItem) {
+        Log.v("Adapter", "Removing group "+ aListItem.getPos());
+        
+        Vector<Integer> lDelIDs = new Vector<Integer>();
+        // erstmal die zu löschenden IDs ermitteln
+        Iterator<Integer> lIterator = mChildListItems.keySet().iterator();
+        while(lIterator.hasNext()) {
+        	ChildListItem lChildItem = (ChildListItem)mChildListItems.get(lIterator.next());
+        	if (lChildItem.getGroupPos() == aListItem.getPos()) {
+        		lDelIDs.add(lChildItem.getID());
+        	}
+        }
+        // Jetzt die Items aus der Hashmap löschen
+        for (int i = 0; i < lDelIDs.size(); i++) {
+        	mChildListItems.remove(lDelIDs.get(i));
+        }
+        notifyDataSetChanged();
+    } 
+
+    public void removeChild(ChildListItem aListItem, boolean aDoNotify) {
+        Log.v("Adapter", "Removing child "+ aListItem.getChildPos() +" in group "+ aListItem.getGroupPos());
+        mChildListItems.remove(aListItem.getID());
+        if (aDoNotify) {
+        	notifyDataSetChanged();
+        }
+    }
+
 }

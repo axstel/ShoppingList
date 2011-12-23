@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -28,6 +29,8 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 
 	private int mListID;
 	private EditShoppingListCursorTreeAdapter mEditShoppingListAdapter;
+	private ChildListItem mDelChildListItem;
+	private GroupListItem mDelGroupListItem;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,7 +120,6 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     	public void onClick(View v) {
     		// TODO
     		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
-    		
     	}
     };
     
@@ -160,6 +162,44 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
         		}
         		break;
         	}
+        	case DialogConsts.DELETECATEGORY_DIALOG_ID:
+        	{
+        		// set up Dialog
+        		lDialog = new Dialog(Edit_ShoppingListActivity.this);
+        		lDialog.setContentView(R.layout.del_kat_2);
+        		lDialog.setTitle("Kategorie löschen");
+        		lDialog.setCancelable(true);
+        
+        		Button btnOK = (Button)lDialog.findViewById(R.id.btn_del_kat_OK);
+        		if (btnOK != null) {
+        			btnOK.setOnClickListener(btn_DelCategory_OK);
+        		}
+    
+        		Button btnCancel = (Button)lDialog.findViewById(R.id.btn_del_kat_Cancel);
+        		if (btnCancel != null) {
+        			btnCancel.setOnClickListener(btn_DelCategory_Cancel);
+        		}
+        		break;
+        	}
+        	case DialogConsts.DELETEARTICLE_DIALOG_ID:
+        	{
+        		// set up Dialog
+        		lDialog = new Dialog(Edit_ShoppingListActivity.this);
+        		lDialog.setContentView(R.layout.del_art_2);
+        		lDialog.setTitle("Artikel löschen");
+        		lDialog.setCancelable(true);
+        
+        		Button btnOK = (Button)lDialog.findViewById(R.id.btnOK);
+        		if (btnOK != null) {
+        			btnOK.setOnClickListener(btn_DelArticle_OK);
+        		}
+    
+        		Button btnCancel = (Button)lDialog.findViewById(R.id.btnCancel);
+        		if (btnCancel != null) {
+        			btnCancel.setOnClickListener(btn_DelArticle_Cancel);
+        		}
+        		break;
+        	}
         }
         
         return lDialog;
@@ -181,21 +221,67 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     	}
     };
     
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_DelCategory_OK = new OnClickListener() {
+    	public void onClick(View v) {
+    		if (mDelGroupListItem != null) {
+    			mShoppinglistapp.getDBAdapter().deleteCategoryFromShoppingList(mListID, mDelGroupListItem.getID());
+    			Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
+    			mEditShoppingListAdapter.setGroupCursor(lGroupCursor);
+    			mEditShoppingListAdapter.removeGroup(mDelGroupListItem);
+    			mDelChildListItem = null;
+    			mDelGroupListItem = null;
+    		} else {
+    			Log.e("Edit_ShoppingListActivity.btn_DelCategory_OK", "mDelGroupListItem not assigned");
+    		}
+    		removeDialog(DialogConsts.DELETECATEGORY_DIALOG_ID);
+    	}
+    };
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_DelCategory_Cancel = new OnClickListener() {
+    	public void onClick(View v) {
+    		removeDialog(DialogConsts.DELETECATEGORY_DIALOG_ID);
+    	}
+    };
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_DelArticle_OK = new OnClickListener() {
+    	public void onClick(View v) {
+    		if (mDelChildListItem != null) {
+    			mShoppinglistapp.getDBAdapter().deleteArticleFromShoppingList(mListID, mDelChildListItem.getID());
+    			mEditShoppingListAdapter.removeChild(mDelChildListItem, true);
+    			mDelChildListItem = null;
+    			mDelGroupListItem = null;
+    		} else {
+    			Log.e("Edit_ShoppingListActivity.btn_DelArticle_OK", "mDelChildListItem not assigned");
+    		}
+    		removeDialog(DialogConsts.DELETEARTICLE_DIALOG_ID);
+    	}
+    };
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btn_DelArticle_Cancel = new OnClickListener() {
+    	public void onClick(View v) {
+    		removeDialog(DialogConsts.DELETEARTICLE_DIALOG_ID);
+    	}
+    };
+    
     // Event wenn auf Buttons geklickt wird
     private class OnRowActionClickListener implements CustomCursorTreeAdapter.RowActionClickListener {
 		public void OnRowClick(ListItem aListItem, int aAction) {
 			switch (aAction) {
-				case 1: deleteArticle((ChildListItem)aListItem); break;
-				case 2: deleteCategory((GroupListItem)aListItem); break;
+				case 1: {
+					mDelChildListItem = (ChildListItem)aListItem;
+					mDelGroupListItem = null;
+					showDialog(DialogConsts.DELETEARTICLE_DIALOG_ID); break;
+				}
+				case 2: {
+					mDelChildListItem = null;
+					mDelGroupListItem = (GroupListItem)aListItem;
+					showDialog(DialogConsts.DELETECATEGORY_DIALOG_ID); break;
+				}
 			}
 		}
-    }
-    
-    private void deleteArticle(ChildListItem aListItem) {
-    	Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
-    }
-    
-    private void deleteCategory(GroupListItem aListItem) {
-    	Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_LONG).show();
     }
 }
