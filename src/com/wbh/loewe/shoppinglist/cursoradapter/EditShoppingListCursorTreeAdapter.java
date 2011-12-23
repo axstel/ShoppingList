@@ -157,5 +157,4 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
         	notifyDataSetChanged();
         }
     }
-
 }

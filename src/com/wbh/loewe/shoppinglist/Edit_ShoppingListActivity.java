@@ -94,15 +94,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 	@Override
 	public void fillData() {
 		super.fillData();
-		ExpandableListView list = this.getExpandableListView();
-    	LinearLayout linear_emptylist = (LinearLayout)findViewById(R.id.linear_emptylist);
-        if (mEditShoppingListAdapter.getCursor().getCount() > 0) {
-        	linear_emptylist.setVisibility(View.GONE);
-        	list.setVisibility(View.VISIBLE);
-        } else {
-        	linear_emptylist.setVisibility(View.VISIBLE);
-        	list.setVisibility(View.GONE);
-        }
+		checkEmptyList();
 	}
 	
     private OnClickListener btnAddArticleListener = new OnClickListener()
@@ -226,9 +218,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     	public void onClick(View v) {
     		if (mDelGroupListItem != null) {
     			mShoppinglistapp.getDBAdapter().deleteCategoryFromShoppingList(mListID, mDelGroupListItem.getID());
-    			Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
-    			mEditShoppingListAdapter.setGroupCursor(lGroupCursor);
-    			mEditShoppingListAdapter.removeGroup(mDelGroupListItem);
+    			removeGroupFromExpandableListView(mDelGroupListItem);
     			mDelChildListItem = null;
     			mDelGroupListItem = null;
     		} else {
@@ -247,12 +237,16 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     
     //--- create an anonymous class to act as a button click listener ---
     private OnClickListener btn_DelArticle_OK = new OnClickListener() {
-    	public void onClick(View v) {
+    	public void onClick(View aView) {
     		if (mDelChildListItem != null) {
     			mShoppinglistapp.getDBAdapter().deleteArticleFromShoppingList(mListID, mDelChildListItem.getID());
     			mEditShoppingListAdapter.removeChild(mDelChildListItem, true);
-    			mDelChildListItem = null;
+    			if (!childItemsExists(mDelChildListItem.getGroupPos())) {
+    				GroupListItem lGroupListItem = (GroupListItem)aView.getTag();
+    				removeGroupFromExpandableListView(lGroupListItem);
+    			}
     			mDelGroupListItem = null;
+    			mDelChildListItem = null;
     		} else {
     			Log.e("Edit_ShoppingListActivity.btn_DelArticle_OK", "mDelChildListItem not assigned");
     		}
@@ -283,5 +277,28 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 				}
 			}
 		}
+    }
+   
+    private boolean childItemsExists(int aGroupPos) {
+    	return true;
+    }
+    
+    private void removeGroupFromExpandableListView(GroupListItem aListItem) {
+    	Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
+		mEditShoppingListAdapter.setGroupCursor(lGroupCursor);
+		mEditShoppingListAdapter.removeGroup(aListItem);
+		checkEmptyList();
+    }
+    
+    private void checkEmptyList() {
+    	ExpandableListView list = this.getExpandableListView();
+    	LinearLayout linear_emptylist = (LinearLayout)findViewById(R.id.linear_emptylist);
+    	if (mEditShoppingListAdapter.getCursor().getCount() > 0) {
+    		linear_emptylist.setVisibility(View.GONE);
+    		list.setVisibility(View.VISIBLE);
+    	} else {
+    		linear_emptylist.setVisibility(View.VISIBLE);
+    		list.setVisibility(View.GONE);
+    	}
     }
 }
