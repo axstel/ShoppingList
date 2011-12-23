@@ -22,10 +22,10 @@ android:background="@color/background_list"
 		<EditText
 		    android:id="@+id/edittxt_menge"
 		    android:layout_width="70px"
-		    android:layout_height="70px"
-		    android:layout_marginTop="8px"
+		    android:layout_height="50px"
+		    android:layout_marginTop="13px"
 		    android:text=""
-		    android:textSize="18sp"
+		    android:textSize="12sp"
 		    android:gravity="center_vertical"
 		    android:numeric="integer|decimal"
 		    android:background="@drawable/edittext_custom">
@@ -49,7 +49,7 @@ android:background="@color/background_list"
 		    android:background="@drawable/edit_button" 
 		    android:layout_marginLeft="5px"
         	android:layout_marginRight="5px"
-        	android:layout_marginTop="11px"/>
+        	android:layout_marginTop="2px"/>
 
 		<ImageButton
 		    android:id="@+id/btn_del"
@@ -58,7 +58,7 @@ android:background="@color/background_list"
 		    android:background="@drawable/del_button_article"
 		    android:layout_marginLeft="5px"
         	android:layout_marginRight="5px"
-        	android:layout_marginTop="11px" />
+        	android:layout_marginTop="2px" />
 		
 	</TableRow>
 

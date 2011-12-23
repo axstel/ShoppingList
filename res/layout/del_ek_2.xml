@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="@string/txt_Delete"
             android:textAppearance="?android:attr/textAppearanceMedium" 
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:textSize="20px"
             android:textColor="@color/list_txt"/>
 

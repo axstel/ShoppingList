@@ -17,7 +17,7 @@
     <string name="txt_Vorlage">"Vorlage: "</string>
     <string name="btn_OK">OK</string>
     <string name="btn_Cancel">Abbrechen</string>
-    <string name="txt_Delete">Wollen Sie die Einkaufsliste wirklich löschen?</string>
+    <string name="txt_Delete">Sind Sie sicher, dass Sie die Einkaufsliste wirklich löschen wollen?</string>
     <string name="btn_delEK">Einkaufsliste löschen</string>
     <string name="btn_editKategorie">Kategorie bearbeiten</string>
     <string name="btn_delKategorie">Kategorie löschen</string>
