@@ -108,7 +108,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     		Vector<AddArticleChildListItem> lItems = mAddArticleAdapter.getSelectedItems();
     		for (int i = 0; i < lItems.size(); i++) {
     			AddArticleChildListItem lItem = lItems.get(i);
-    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lItem.getID(), lItem.getQuantity());
+    			mShoppinglistapp.getDBAdapter().addArticleToShoppingList(mListID, lItem.getArticleID(), lItem.getQuantity());
     		}
     		setResult(RESULT_OK);
     		finish();
