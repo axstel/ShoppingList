@@ -124,7 +124,7 @@ public class Add_Article_ListActivity extends ExpandableArticleListActivity
     @Override
     protected void OnChildRowClick(View aView, ChildListItem aListItem) {
     	if (aListItem != null) {
-    		mAddArticleAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
+    		mAddArticleAdapter.setSelectedItem(aView, aListItem.getID());
     	} else {
     		Log.e("Add_Article_ListActivity.OnChildRowClick", "aListItem is not assigned");
     	}

@@ -35,7 +35,7 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 	protected RowActionClickListener mRowActionLickListener;
 	protected Context mContext;
 	protected ShoppingListApplication mMainApp;
-	protected HashMap<String, ChildListItem> mChildListItems = new HashMap<String, ChildListItem>();
+	protected HashMap<Integer, ChildListItem> mChildListItems = new HashMap<Integer, ChildListItem>();
 	
 	public CustomCursorTreeAdapter(Context context, Cursor cursor,
 			int groupLayout, String[] groupFrom, int[] groupTo,
@@ -86,20 +86,24 @@ public class CustomCursorTreeAdapter extends SimpleCursorTreeAdapter {
 		// Wenn auf den Datensatz nicht gesprungen werden kann, dann bauch man hier nicht weiter machen
 		if (lChildCursor != null) {
 			
-	    	ChildListItem lListItem = mChildListItems.get(groupPosition +"_"+ childPosition);
+			int lColIdx = -1;
+	    	lColIdx = lChildCursor.getColumnIndex("ITEMID");  
+	    	int lID = lChildCursor.getInt(lColIdx);
+			
+	    	ChildListItem lListItem = mChildListItems.get(lID);
 			if (lListItem == null) {
-				int lColIdx = -1;
-		    	lColIdx = lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);  
-		    	int lID = lChildCursor.getInt(lColIdx);
 		    	lColIdx = lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_NAME);
 		    	String lName = lChildCursor.getString(lColIdx);
+		    	lColIdx = lChildCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID);
+		    	int lArticleID = lChildCursor.getInt(lColIdx);
 				
 				lListItem = getNewListItem();
 				lListItem.setID(lID);
+				lListItem.setArticleID(lArticleID);
 				lListItem.setName(lName);
 				lListItem.setGroupPos(groupPosition);
 				lListItem.setChildPos(childPosition);
-				mChildListItems.put(groupPosition +"_"+ childPosition, lListItem);
+				mChildListItems.put(lID, lListItem);
 				lView.setTag(lListItem);
 			} else {
 				lView.setTag(lListItem);

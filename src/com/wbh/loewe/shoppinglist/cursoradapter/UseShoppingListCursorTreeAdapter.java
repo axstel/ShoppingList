@@ -55,8 +55,7 @@ public class UseShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 			}
 			
 			// Prüfen ob dieses Item markiert wurde, wenn ja, dann markiert darstellen
-			String lKey = groupPosition +"_"+ childPosition;
-			setSelectedViewState(lView, lKey);
+			setSelectedViewState(lView, lListItem.getID());
 		} else {
 			Log.e("UseShoppingListCursorTreeAdapter.getChildView", "Listitem not assigned");
 		}
@@ -68,25 +67,24 @@ public class UseShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 		return new UseListChildListItem();
 	}
 	
-	public Boolean setSelectedItem(View aView, int aGroupPos, int aChildPos) {
+	public Boolean setSelectedItem(View aView, int aItemID) {
 		// Beim Klick auf ein Item muss dieses in eine interne Liste aufgenommen werden
 		// So kann festgestellt werden ob dieses selektiert ist
 		// Ist es bereits selektiert, dann wird die Selektierung zurückgenommen
 		// In getChildView wird auf diese Liste zurückgegriffen
-		String lKey = aGroupPos +"_"+ aChildPos;
 		
-		UseListChildListItem lListItem = (UseListChildListItem)mChildListItems.get(lKey);
+		UseListChildListItem lListItem = (UseListChildListItem)mChildListItems.get(aItemID);
 		Boolean lSelected = false;
 		if (lListItem != null) {
 			lListItem.setSelected(!lListItem.getSelected());
 			lSelected = lListItem.getSelected();
 		}
-		setSelectedViewState(aView, lKey);
+		setSelectedViewState(aView, aItemID);
 		return lSelected;
 	}
 	
 	// Durchstreichen oder nicht
-	private void setSelectedViewState(View aView, String aKey) {
+	private void setSelectedViewState(View aView, int aKey) {
 			
 		UseListChildListItem lListItem = (UseListChildListItem)mChildListItems.get(aKey);
 		Boolean lSelected = false;

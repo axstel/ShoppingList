@@ -116,7 +116,7 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
 	@Override
 	protected void OnChildRowClick(View aView, ChildListItem aListItem) {
 		if (aListItem != null) {
-			mUseShoppingListAdapter.setSelectedItem(aView, aListItem.getGroupPos(), aListItem.getChildPos());
+			mUseShoppingListAdapter.setSelectedItem(aView, aListItem.getID());
 			mShoppinglistapp.getDBAdapter().updateArticleSelected(mListID, aListItem.getID(), ((UseListChildListItem)aListItem).getSelected());
     	} else {
     		Log.e("Use_ShoppingListActivity.OnChildRowClick", "aListItem is not assigned");

@@ -27,20 +27,19 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Boolean setSelectedItem(View aView, int aGroupPos, int aChildPos) {
+	public Boolean setSelectedItem(View aView, int aItemID) {
 		// Beim Klick auf ein Item muss dieses in eine interne Liste aufgenommen werden
 		// So kann festgestellt werden ob dieses selektiert ist
 		// Ist es bereits selektiert, dann wird die Selektierung zurückgenommen
 		// In getChildView wird auf diese Liste zurückgegriffen
-		String lKey = aGroupPos +"_"+ aChildPos;
 		
-		AddArticleChildListItem lListItem = (AddArticleChildListItem)mChildListItems.get(lKey);
+		AddArticleChildListItem lListItem = (AddArticleChildListItem)mChildListItems.get(aItemID);
 		Boolean lSelected = false;
 		if (lListItem != null) {
 			lListItem.setSelected(!lListItem.getSelected());
 			lSelected = lListItem.getSelected();
 		}
-		setSelectedViewState(aView, lKey);
+		setSelectedViewState(aView, aItemID);
 		return lSelected;
 	}
 	
@@ -82,8 +81,7 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 		}
 		
     	// Prüfen ob dieses Item markiert wurde, wenn ja, dann markiert darstellen
-    	String lKey = groupPosition +"_"+ childPosition;
-    	setSelectedViewState(lView, lKey);
+    	setSelectedViewState(lView, lListItem.getID());
     	
 		return lView;
 	}
@@ -92,7 +90,7 @@ public class AddArticleCursorTreeAdapter extends CustomCursorTreeAdapter {
 	// Setzt die Farbe der View entsprechend dem SelectState, wird nur intern verwendet in getChildView
 	// und setSelectedItem
 	// Wenn noch spezielle Controls angepasst werden müssen, dann muss das Event zugewiesen sein
-	private void setSelectedViewState(View aView, String aKey) {
+	private void setSelectedViewState(View aView, int aKey) {
 		
 		AddArticleChildListItem lListItem = (AddArticleChildListItem)mChildListItems.get(aKey);
 		Boolean lSelected = false;

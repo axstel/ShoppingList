@@ -106,6 +106,7 @@ public class ShoppingListDatabaseAdapter {
 	private String getBaseSQL_fetchAllArticlesOfCategoryInLis(int aListID, int aCategoryID) {
 		return " SELECT DISTINCT a.*, sa."+ ShoppingListDatabase.FIELD_NAME_QUANTITY +" AS "+ ShoppingListDatabase.FIELD_NAME_QUANTITY +
 				", q."+ ShoppingListDatabase.FIELD_NAME_NAME +" AS QUANTITYUNITNAME, sa."+ ShoppingListDatabase.FIELD_NAME_SELECTED +" AS "+ ShoppingListDatabase.FIELD_NAME_SELECTED +
+				", sa."+ ShoppingListDatabase.FIELD_NAME_ID +" AS ITEMID "+
 				" FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
 				" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE +" sa ON a."+ ShoppingListDatabase.FIELD_NAME_ID +" = sa."+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +
 				" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_QUANTITYUNIT +" q ON q."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDQUANTITYUNIT +
@@ -138,7 +139,8 @@ public class ShoppingListDatabaseAdapter {
 	
 	/* Return a Cursor over the list of all articles of an category in database */
 	public Cursor fetchAllArticlesOfCategory(int aCategoryID) {
-		String lQuery = " SELECT DISTINCT a.*, q."+ ShoppingListDatabase.FIELD_NAME_NAME +" AS QUANTITYUNITNAME FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
+		String lQuery = " SELECT DISTINCT a.*, q."+ ShoppingListDatabase.FIELD_NAME_NAME +" AS QUANTITYUNITNAME, a."+ ShoppingListDatabase.FIELD_NAME_ID +" AS ITEMID "+
+						" FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +" a "+
 						" INNER JOIN "+ ShoppingListDatabase.TABLE_NAME_QUANTITYUNIT +" q ON q."+ ShoppingListDatabase.FIELD_NAME_ID +" = a."+ ShoppingListDatabase.FIELD_NAME_IDQUANTITYUNIT +
 						" WHERE a."+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +" = "+ aCategoryID;
 		//Log.w(ShoppingListDatabaseAdapter.class.getName(), lQuery);
@@ -185,5 +187,14 @@ public class ShoppingListDatabaseAdapter {
 	
 	public boolean removeAllArticlesFromList(int aListID) {
 		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID, null) > 0;
+	}
+	
+	public boolean deleteArticleFromShoppingList(int aListID, int aArticleID) {
+		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +"="+ aArticleID, null) > 0;
+	}
+	
+	public boolean deleteCategoryFromShoppingList(int aListID, int aCategoryID) {
+		return false;
+		//return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE +"="+ aArticleID, null) > 0;
 	}
 }

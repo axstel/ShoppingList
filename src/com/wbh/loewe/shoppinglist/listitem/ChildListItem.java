@@ -6,6 +6,7 @@ import android.text.TextWatcher;
 
 public class ChildListItem extends ListItem implements TextWatcher {
 
+	private int mArticleID;
 	private int mGroupPos;
 	private int mChildPos;
 	
@@ -15,6 +16,16 @@ public class ChildListItem extends ListItem implements TextWatcher {
 		this.mChildPos = -1;
 	}
 
+	public void setArticleID(int aID) {
+		
+		this.mArticleID = aID;
+	}
+	
+	public int getArticleID() {
+		
+		return this.mArticleID;
+	}
+	
 	public void setGroupPos(int aPos) {
 		
 		this.mGroupPos = aPos;
