@@ -127,15 +127,15 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 		return new EditListChildListItem();
 	}
 	
-	public void removeGroup(GroupListItem aListItem) {
-        Log.v("Adapter", "Removing group "+ aListItem.getPos());
+	public void removeGroup(int aGroupPos) {
+        Log.v("Adapter", "Removing group "+ aGroupPos);
         
         Vector<Integer> lDelIDs = new Vector<Integer>();
         // erstmal die zu löschenden IDs ermitteln
         Iterator<Integer> lIterator = mChildListItems.keySet().iterator();
         while(lIterator.hasNext()) {
         	ChildListItem lChildItem = (ChildListItem)mChildListItems.get(lIterator.next());
-        	if (lChildItem.getGroupPos() == aListItem.getPos()) {
+        	if (lChildItem.getGroupPos() == aGroupPos) {
         		lDelIDs.add(lChildItem.getID());
         	}
         }
@@ -152,5 +152,18 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
         if (aDoNotify) {
         	notifyDataSetChanged();
         }
+    }
+    
+    
+    public boolean childItemsExists(int aGroupPos) {
+    	boolean lChildExists = false;
+    	Iterator<Integer> lIterator = mChildListItems.keySet().iterator();
+        while(lIterator.hasNext()) {
+        	ChildListItem lChildItem = (ChildListItem)mChildListItems.get(lIterator.next());
+        	if (lChildItem.getGroupPos() == aGroupPos) {
+        		lChildExists = true;
+        	}
+        }
+    	return lChildExists;
     }
 }

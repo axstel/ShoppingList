@@ -217,7 +217,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     	public void onClick(View v) {
     		if (mDelGroupListItem != null) {
     			mShoppinglistapp.getDBAdapter().deleteCategoryFromShoppingList(mListID, mDelGroupListItem.getID());
-    			removeGroupFromExpandableListView(mDelGroupListItem);
+    			removeGroupFromExpandableListView(mDelGroupListItem.getPos());
     			mDelChildListItem = null;
     			mDelGroupListItem = null;
     		} else {
@@ -240,9 +240,8 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     		if (mDelChildListItem != null) {
     			mShoppinglistapp.getDBAdapter().deleteArticleFromShoppingList(mDelChildListItem.getID());
     			mEditShoppingListAdapter.removeChild(mDelChildListItem, true);
-    			if (!childItemsExists(mDelChildListItem.getGroupPos())) {
-    				GroupListItem lGroupListItem = (GroupListItem)aView.getTag();
-    				removeGroupFromExpandableListView(lGroupListItem);
+    			if (!mEditShoppingListAdapter.childItemsExists(mDelChildListItem.getGroupPos())) {
+    				removeGroupFromExpandableListView(mDelChildListItem.getGroupPos());
     			}
     			mDelGroupListItem = null;
     			mDelChildListItem = null;
@@ -277,15 +276,11 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 			}
 		}
     }
-   
-    private boolean childItemsExists(int aGroupPos) {
-    	return true;
-    }
     
-    private void removeGroupFromExpandableListView(GroupListItem aListItem) {
+    private void removeGroupFromExpandableListView(int aGroupPos) {
     	Cursor lGroupCursor = mShoppinglistapp.getDBAdapter().fetchAllCategoriesOfList(mListID);
 		mEditShoppingListAdapter.setGroupCursor(lGroupCursor);
-		mEditShoppingListAdapter.removeGroup(aListItem);
+		mEditShoppingListAdapter.removeGroup(aGroupPos);
 		checkEmptyList();
     }
     
