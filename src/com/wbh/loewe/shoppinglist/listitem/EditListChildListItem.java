@@ -12,14 +12,12 @@ public class EditListChildListItem extends ChildListItem implements TextWatcher 
 	private int mChildPos;
 	private float mQuantity;
 	private ShoppingListApplication mShoppinglistapp;
-	private int mListID;
 	
 	public EditListChildListItem() {
 		super();
 		this.mGroupPos = -1;
 		this.mChildPos = -1;
 		this.mShoppinglistapp = null;
-		this.mListID = -1;
 		this.mQuantity = -1;
 	}
 
@@ -51,10 +49,6 @@ public class EditListChildListItem extends ChildListItem implements TextWatcher 
 		return mQuantity;
 	}
 	
-	public void setListID(int aListID) {
-		this.mListID = aListID;
-	}
-	
 	public void setApp(ShoppingListApplication aApp) {
 		this.mShoppinglistapp = aApp;
 	}
@@ -75,7 +69,7 @@ public class EditListChildListItem extends ChildListItem implements TextWatcher 
 		if ((lQuantity != -1) && (lQuantity != mQuantity)) {
 			mQuantity = lQuantity;
 			//Log.d("afterTextChanged", this.getID() +" "+ s.toString() +" new:"+ this.getQuantity() +" old:"+ this.getQuantityOld());
-			mShoppinglistapp.getDBAdapter().updateArticleQuantity(mListID, this.getID(), this.getQuantity());
+			mShoppinglistapp.getDBAdapter().updateArticleQuantity(this.getID(), this.getQuantity());
 		}
 	}
 

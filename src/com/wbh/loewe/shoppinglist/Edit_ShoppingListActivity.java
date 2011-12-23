@@ -77,8 +77,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
 									new OnGroupRowClickListener(),
 									new OnChildRowClickListener(),
 									new OnRowActionClickListener(),
-									mShoppinglistapp,
-									mListID) {
+									mShoppinglistapp) {
     									@Override
     									protected Cursor getChildrenCursor(Cursor groupCursor) {
     										// DB-Abfrage um die Kindelemente darzustellen
@@ -239,7 +238,7 @@ public class Edit_ShoppingListActivity extends ExpandableArticleListActivity
     private OnClickListener btn_DelArticle_OK = new OnClickListener() {
     	public void onClick(View aView) {
     		if (mDelChildListItem != null) {
-    			mShoppinglistapp.getDBAdapter().deleteArticleFromShoppingList(mListID, mDelChildListItem.getID());
+    			mShoppinglistapp.getDBAdapter().deleteArticleFromShoppingList(mDelChildListItem.getID());
     			mEditShoppingListAdapter.removeChild(mDelChildListItem, true);
     			if (!childItemsExists(mDelChildListItem.getGroupPos())) {
     				GroupListItem lGroupListItem = (GroupListItem)aView.getTag();

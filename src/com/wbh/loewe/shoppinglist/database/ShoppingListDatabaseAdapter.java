@@ -158,15 +158,15 @@ public class ShoppingListDatabaseAdapter {
 	} 
 	
 	/* update article and return if succeed or not */
-	public boolean  updateArticleQuantity(int aListID, int aArticleID, float aQuantity) {
+	public boolean  updateArticleQuantity(int aID, float aQuantity) {
 		ContentValues lValues = new ContentValues();
 		lValues.put(ShoppingListDatabase.FIELD_NAME_QUANTITY, aQuantity);
 		//Log.w(ShoppingListDatabaseAdapter.class.getName() +".updateArticleQuantity", "aListID: "+ aListID +", aArticleID: "+ aArticleID +"; aQuantity: "+ aQuantity);
-		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE + "=" + aArticleID, null) > 0;
+		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_ID + "=" + aID, null) > 0;
 	} 
 	
 	/* update article and return if succeed or not */
-	public boolean updateArticleSelected(int aListID, int aArticleID, boolean aSelected) {
+	public boolean updateArticleSelected(int aID, boolean aSelected) {
 		int lSelected = 0;
 		if (aSelected) {
 			lSelected = 1;
@@ -175,7 +175,7 @@ public class ShoppingListDatabaseAdapter {
 		}
 		ContentValues lValues = new ContentValues();
 		lValues.put(ShoppingListDatabase.FIELD_NAME_SELECTED, lSelected);
-		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_IDARTICLE + "=" + aArticleID, null) > 0;
+		return db.update(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lValues, ShoppingListDatabase.FIELD_NAME_ID + "=" + aID, null) > 0;
 	} 
 	
 	/* update all articles unselected and return if succeed or not */
@@ -189,13 +189,14 @@ public class ShoppingListDatabaseAdapter {
 		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID, null) > 0;
 	}
 	
-	public boolean deleteArticleFromShoppingList(int aListID, int aID) {
-		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST + "=" + aListID +" AND "+ ShoppingListDatabase.FIELD_NAME_ID +"="+ aID, null) > 0;
+	public boolean deleteArticleFromShoppingList(int aID) {
+		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, ShoppingListDatabase.FIELD_NAME_ID +"="+ aID, null) > 0;
 	}
 	
 	public boolean deleteCategoryFromShoppingList(int aListID, int aCategoryID) {
 		String lWhere = ShoppingListDatabase.FIELD_NAME_IDARTICLE +" IN (SELECT "+ ShoppingListDatabase.FIELD_NAME_ID +" FROM "+ ShoppingListDatabase.TABLE_NAME_ARTICLE +
-																	   " WHERE "+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +"="+ aCategoryID +") ";
+																	   " WHERE "+ ShoppingListDatabase.FIELD_NAME_IDCATEGORY +"="+ aCategoryID +") "+
+			            " AND "+ ShoppingListDatabase.FIELD_NAME_IDSHOPPINGLIST +"="+ aListID;
 		return db.delete(ShoppingListDatabase.TABLE_NAME_SHOPPPINGLIST_ARTICLE, lWhere, null) > 0;
 	}
 }

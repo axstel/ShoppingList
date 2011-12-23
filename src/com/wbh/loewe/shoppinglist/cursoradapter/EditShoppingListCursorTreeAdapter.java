@@ -22,16 +22,13 @@ import com.wbh.loewe.shoppinglist.listitem.GroupListItem;
 
 public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 	
-	private int mListID;
-	
 	public EditShoppingListCursorTreeAdapter(Context context, Cursor cursor,
 			int groupLayout, String[] groupFrom, int[] groupTo,
 			int childLayout, String[] childFrom, int[] childTo,
 			GroupRowClickListener aGroupClick, ChildRowClickListener aChildClick,
-			RowActionClickListener aActionClick,  ShoppingListApplication aApp, int aListID) {
+			RowActionClickListener aActionClick,  ShoppingListApplication aApp) {
 		super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childFrom,
 				childTo, aGroupClick, aChildClick, aActionClick, aApp);
-		this.mListID = aListID;
 	}
 	
 	@Override
@@ -69,7 +66,6 @@ public class EditShoppingListCursorTreeAdapter extends CustomCursorTreeAdapter {
 		EditListChildListItem lListItem = (EditListChildListItem)lView.getTag();
 		if (lListItem != null) {
 			
-			lListItem.setListID(mListID);
 	    	lListItem.setApp(mMainApp);
 	    	
 	    	final ImageButton lBtnDelete = (ImageButton)lView.findViewById(R.id.btn_del);
