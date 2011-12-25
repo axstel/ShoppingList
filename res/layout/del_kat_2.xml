@@ -19,7 +19,7 @@
             android:text="@string/txt_delKategorie"
             android:layout_width="wrap_content"
             android:textSize="20px"         
-            android:textColor="#B84747" />
+            android:textColor="@color/list_txt" />
 
     </LinearLayout>
 
