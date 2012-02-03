@@ -17,7 +17,6 @@ import android.widget.Spinner;
 
 import com.wbh.loewe.shoppinglist.cursoradapter.ShoppingListCursorAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
-import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 import com.wbh.loewe.shoppinglist.listitem.ListItem;
 
 public class ShoppingListActivity extends ListActivity {
