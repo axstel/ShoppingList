@@ -35,8 +35,8 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        mGroupItemLayout = R.layout.screen6_showek_gui_group_row;
-    	mChildItemLayout = R.layout.screen6_showek_gui_child_row;
+        mGroupItemLayout = R.layout.gui_use_shoppinglist_categoryrow;
+    	mChildItemLayout = R.layout.gui_use_shoppinglist_articlerow;
     	mGroupFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME};
     	mGroupTo = new int[] {R.id.txt_kategorie}; 
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME, ShoppingListDatabase.FIELD_NAME_QUANTITY, "QUANTITYUNITNAME"}; 
@@ -50,13 +50,13 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
 		}
 		
 		//---the button is wired to an event handler---
-        mBtnCategory = (Button)findViewById(R.id.btn_hideKat);
+        mBtnCategory = (Button)findViewById(R.id.btnHideCategory);
         mBtnCategory.setOnClickListener(OnBtnCategoryClick);
         
-        mBtnArticle = (Button)findViewById(R.id.btn_offeneArtikel);
+        mBtnArticle = (Button)findViewById(R.id.btnUnSelectedArticles);
         mBtnArticle.setOnClickListener(OnBtnArticleClick);
         
-        mBtnResetSelection = (Button)findViewById(R.id.btn_zuruecksetzen);
+        mBtnResetSelection = (Button)findViewById(R.id.btnReset);
         mBtnResetSelection.setOnClickListener(OnBtnResetSelectionClick);
 	}
 	

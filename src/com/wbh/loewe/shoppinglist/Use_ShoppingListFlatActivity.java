@@ -67,7 +67,7 @@ public class Use_ShoppingListFlatActivity extends ListActivity
     	int[] to = new int[] {R.id.txt_article, R.id.edittxt_menge, R.id.txt_einheit};
     	
     	// Now create an array adapter and set it to display using our row
-    	mUseShoppingListAdapter = new UseShoppingListCursorAdapter(this, R.layout.screen6_showek_gui_child_row, mCursor, from, to, new OnRowClickListener());
+    	mUseShoppingListAdapter = new UseShoppingListCursorAdapter(this, R.layout.gui_use_shoppinglist_articlerow, mCursor, from, to, new OnRowClickListener());
     	
     	setListAdapter(mUseShoppingListAdapter);
     }

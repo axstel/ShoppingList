@@ -25,7 +25,7 @@
             android:id="@+id/txt_emptylist"
             android:layout_width="wrap_content"
             android:layout_height="115dp"
-            android:text="@string/txt_keineArtikel"
+            android:text="@string/txt_empty_usedlist"
             android:textColor="@color/list_txt" />
 
     </LinearLayout>
@@ -38,31 +38,31 @@
         android:layout_alignParentLeft="true" >
 
         <TableRow>
-
+
         <Button
-            android:id="@+id/btn_showKat"
+            android:id="@+id/btnHideCategory"
             android:layout_width="106dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_marginRight="2px"
             android:background="@color/btn_hintergrund"
-            android:text="@string/btn_showKat"
+            android:text="@string/btn_hideKat"
             android:textColor="@color/btn_text" />
-
+
         <Button
-            android:id="@+id/btn_alleArtikel"
+            android:id="@+id/btnUnSelectedArticles"
             android:layout_width="106dp"
             android:layout_height="fill_parent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_marginRight="2px"
             android:background="@color/btn_hintergrund"
-            android:text="@string/btn_alleArt"
+            android:text="@string/btn_offeneArtikel"
             android:textColor="@color/btn_text" />
 
         <Button
-            android:id="@+id/btn_zuruecksetzen"
+            android:id="@+id/btnReset"
             android:layout_width="106dp"
             android:layout_height="fill_parent"
             android:layout_alignParentBottom="true"

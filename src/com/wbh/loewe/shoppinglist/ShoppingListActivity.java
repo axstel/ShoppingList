@@ -233,7 +233,7 @@ public class ShoppingListActivity extends ListActivity {
     private void showUseShoppingList(int aID) {
     	Intent lEditActivity = new Intent(ShoppingListActivity.this, Use_ShoppingListActivity.class);
     	lEditActivity.putExtra("ID", aID);
-    	lEditActivity.putExtra("LAYOUT", R.layout.gui_show_ek_3);
+    	lEditActivity.putExtra("LAYOUT", R.layout.gui_use_shoppinglist);
     	startActivity(lEditActivity);
     }
 }
