@@ -15,8 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import com.wbh.loewe.shoppinglist.cursoradapter.ListCursorAdapter;
+import com.wbh.loewe.shoppinglist.cursoradapter.ShoppingListCursorAdapter;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
+import com.wbh.loewe.shoppinglist.listitem.ChildListItem;
 import com.wbh.loewe.shoppinglist.listitem.ListItem;
 
 public class ShoppingListActivity extends ListActivity {
@@ -60,7 +61,7 @@ public class ShoppingListActivity extends ListActivity {
     	int[] to = new int[] { R.id.labelname };
 
     	// Now create an array adapter and set it to display using our row
-    	ListCursorAdapter datasets = new ListCursorAdapter(this, R.layout.list_row, mCursor, from, to, new OnRowClickListener());
+    	ShoppingListCursorAdapter datasets = new ShoppingListCursorAdapter(this, R.layout.list_row, mCursor, from, to, new OnRowClickListener());
     	setListAdapter(datasets);
  
     	ListView list = this.getListView();
@@ -197,8 +198,8 @@ public class ShoppingListActivity extends ListActivity {
     };
    
     // Event wenn auf den Name oder den Button geklickt wird
-    private class OnRowClickListener implements ListCursorAdapter.RowClickListener {
-        public void OnRowClick(ListItem aListItem, int aAction) {
+    private class OnRowClickListener implements ShoppingListCursorAdapter.RowClickListener {
+        public void OnRowClick(View aView, ListItem aListItem, int aAction) {
         	//Log.w(OnRowClickListener.class.getName(), "OnRowClick "+ aListItem.getID() +" "+ aListItem.getName() +" "+ aAction);
         	switch (aAction) {
         		case 0: showUseShoppingList(aListItem.getID()); break;

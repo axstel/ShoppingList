@@ -1,36 +1,21 @@
 package com.wbh.loewe.shoppinglist.cursoradapter;
 
-import java.util.HashMap;
-
-
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.wbh.loewe.shoppinglist.R;
 import com.wbh.loewe.shoppinglist.database.ShoppingListDatabase;
 import com.wbh.loewe.shoppinglist.listitem.ListItem;
 
-public class ListCursorAdapter extends SimpleCursorAdapter {
+public class ShoppingListCursorAdapter extends CustomCursorAdapter {
 	
-	public interface RowClickListener {
-        public void OnRowClick(ListItem aListItem, int aAction);
-    }
-	
-	private Cursor mCursor;
-	private HashMap<Integer, Object> mItems = new HashMap<Integer, Object>();
-	private RowClickListener mRowClickListener;
-	
-
-	public ListCursorAdapter(Context aContext, int aLayout, Cursor aCursor, String[] aFrom, int aTo[], RowClickListener aOnRowClick) {
-		super(aContext, aLayout, aCursor, aFrom, aTo);
-		this.mCursor = aCursor;
-		this.mRowClickListener = aOnRowClick;
+	public ShoppingListCursorAdapter(Context aContext, int aLayout, Cursor aCursor, String[] aFrom, int aTo[], RowClickListener aOnRowClick) {
+		super(aContext, aLayout, aCursor, aFrom, aTo, aOnRowClick);
 	}
 
 	static class ViewHolder {
@@ -70,7 +55,7 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 				lNewViewHolder.mEdit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						ListItem lItem = (ListItem) lNewViewHolder.mEdit.getTag();
-					    mRowClickListener.OnRowClick(lItem, 1);
+					    mRowClickListener.OnRowClick(v, lItem, 1);
 					}
 					    	
 				});
@@ -82,7 +67,7 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
 				lNewViewHolder.mDelete.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						ListItem lItem = (ListItem) lNewViewHolder.mDelete.getTag();
-					    mRowClickListener.OnRowClick(lItem, 2);
+					    mRowClickListener.OnRowClick(v, lItem, 2);
 					}
 					    	
 				});
@@ -108,7 +93,7 @@ public class ListCursorAdapter extends SimpleCursorAdapter {
     	public void onClick(View aView) {
     		ViewHolder lHolder = (ViewHolder)aView.getTag();
     		ListItem lItem = (ListItem)lHolder.mText.getTag();
-    		mRowClickListener.OnRowClick(lItem, 0);
+    		mRowClickListener.OnRowClick(aView, lItem, 0);
     	}
     };
 

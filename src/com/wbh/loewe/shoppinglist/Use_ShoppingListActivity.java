@@ -1,5 +1,6 @@
 package com.wbh.loewe.shoppinglist;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +27,6 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
 	private int mListID;
 	private UseShoppingListCursorTreeAdapter mUseShoppingListAdapter;
 	private boolean mShowOnlyOpenArticles;
-	private boolean mHideCategories;
 	private Button mBtnCategory;
 	private Button mBtnArticle;
 	private Button mBtnResetSelection;
@@ -42,7 +42,6 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
     	mChildFrom = new String[] {ShoppingListDatabase.FIELD_NAME_NAME, ShoppingListDatabase.FIELD_NAME_QUANTITY, "QUANTITYUNITNAME"}; 
     	mChildTo = new int[] {R.id.txt_article, R.id.edittxt_menge, R.id.txt_einheit};
     	this.mShowOnlyOpenArticles = false;
-    	this.mHideCategories = false;
          
         Bundle lExtras = getIntent().getExtras();
 		if (lExtras != null) {
@@ -87,9 +86,9 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
     										int lGroupID = groupCursor.getInt(groupCursor.getColumnIndex(ShoppingListDatabase.FIELD_NAME_ID));
     										Cursor lChildCursor;
     										if (mShowOnlyOpenArticles) {
-    											lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInListUnSelected(mListID, lGroupID);
+    											lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, lGroupID, false);
     										} else {
-    											lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, lGroupID);
+    											lChildCursor = mShoppinglistapp.getDBAdapter().fetchAllArticlesOfCategoryInList(mListID, lGroupID, true);
     										}
     										startManagingCursor(lChildCursor);
     										return lChildCursor;
@@ -126,13 +125,9 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
 	private OnClickListener OnBtnCategoryClick = new OnClickListener()
     {
     	public void onClick(View v) {
-    		mHideCategories = !mHideCategories;
-    		if (mHideCategories) {
-    			mBtnCategory.setText(R.string.btn_showKat);
-    		} else {
-    			mBtnCategory.setText(R.string.btn_hideKat);
-    		}
-    		Toast.makeText(getBaseContext(), "Function not implemented yet!", Toast.LENGTH_SHORT).show();
+    		Intent lFlatActivity = new Intent(Use_ShoppingListActivity.this, Use_ShoppingListFlatActivity.class);
+    		lFlatActivity.putExtra("ID", mListID);
+    	    startActivity(lFlatActivity);
     	}
     };
     
