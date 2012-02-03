@@ -7,5 +7,6 @@ public class DialogConsts {
 	static final int EMPTYLIST_DIALOG_ID = 2;
 	static final int DELETECATEGORY_DIALOG_ID = 3;
 	static final int DELETEARTICLE_DIALOG_ID = 4;
+	static final int RESETLIST_DIALOG_ID = 5;
 
 }

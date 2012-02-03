@@ -1,5 +1,6 @@
 package com.wbh.loewe.shoppinglist;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -146,8 +147,50 @@ public class Use_ShoppingListActivity extends ExpandableArticleListActivity
     private OnClickListener OnBtnResetSelectionClick = new OnClickListener()
     {
     	public void onClick(View v) {
+    		showDialog(DialogConsts.RESETLIST_DIALOG_ID);
+    	}
+    };
+    
+    @Override
+    protected Dialog onCreateDialog(int id) {
+    	Dialog lDialog = null;
+        switch(id) {
+        	case DialogConsts.RESETLIST_DIALOG_ID :
+        	{
+        		// set up Dialog
+        		lDialog = new Dialog(Use_ShoppingListActivity.this);
+        		lDialog.setContentView(R.layout.ek_zuruecksetzen_2);
+        		lDialog.setTitle("Einkaufsliste zurücksetzen");
+        		lDialog.setCancelable(true);
+        
+        		Button btnOK = (Button)lDialog.findViewById(R.id.btn_erledigt_OK);
+        		if (btnOK != null) {
+        			btnOK.setOnClickListener(btnResetOK);
+        		}
+    
+        		Button btnCancel = (Button)lDialog.findViewById(R.id.btn_erledigt_Cancel);
+        		if (btnCancel != null) {
+        			btnCancel.setOnClickListener(btnResetCancel);
+        		}
+        		break;
+        	}
+        }
+        return lDialog;
+    }
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btnResetOK = new OnClickListener() {
+    	public void onClick(View aView) {
     		mShoppinglistapp.getDBAdapter().updateArticleUnSelected(mListID);
     		refreshView();
+    		removeDialog(DialogConsts.RESETLIST_DIALOG_ID);
+    	}
+    };
+    
+    //--- create an anonymous class to act as a button click listener ---
+    private OnClickListener btnResetCancel = new OnClickListener() {
+    	public void onClick(View v) {
+    		removeDialog(DialogConsts.RESETLIST_DIALOG_ID);
     	}
     };
 
